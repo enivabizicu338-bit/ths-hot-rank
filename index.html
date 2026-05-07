@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>同花顺热榜 · 动态趋势追踪</title>
+    <title>同花顺热榜 · 30天动态趋势</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -20,7 +20,7 @@
         .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
         .card{background:#111827;border:1px solid rgba(75,85,99,0.4);border-radius:12px;overflow:hidden}
         .card-full{grid-column:1/-1}
-        .card-header{padding:14px 20px;border-bottom:1px solid rgba(75,85,99,0.4);display:flex;align-items:center;justify-content:space-between}
+        .card-header{padding:14px 20px;border-bottom:1px solid rgba(75,85,99,0.4);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
         .card-header h2{font-size:15px;color:#f1f5f9;display:flex;align-items:center;gap:8px}
         .dot{width:8px;height:8px;border-radius:50%;background:#a78bfa}
         .card-body{padding:14px 20px}
@@ -28,7 +28,7 @@
         .stock-btn{padding:5px 12px;border-radius:16px;border:1px solid rgba(139,92,246,0.3);background:transparent;color:#94a3b8;font-size:12px;cursor:pointer;transition:all .2s}
         .stock-btn:hover{border-color:#a78bfa;color:#e2e8f0}
         .stock-btn.active{background:linear-gradient(135deg,#7c3aed,#3b82f6);border-color:transparent;color:#fff;font-weight:600}
-        .chart-container{position:relative;height:320px}
+        .chart-container{position:relative;height:380px}
         table{width:100%;border-collapse:collapse}
         th{padding:8px 14px;text-align:left;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(75,85,99,0.4)}
         th.r{text-align:right}
@@ -49,12 +49,20 @@
         .loading{color:#64748b;font-size:13px;text-align:center;padding:40px}
         .fade-in{animation:fadeIn .5s ease}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        .date-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+        .date-bar label{color:#94a3b8;font-size:12px;font-weight:600}
+        .date-chips{display:flex;flex-wrap:wrap;gap:5px}
+        .date-chip{padding:4px 12px;border-radius:14px;border:1px solid rgba(75,85,99,0.5);background:transparent;color:#94a3b8;font-size:11px;cursor:pointer;transition:all .2s;white-space:nowrap}
+        .date-chip:hover{border-color:#a78bfa;color:#e2e8f0}
+        .date-chip.active{background:linear-gradient(135deg,#7c3aed,#3b82f6);border-color:transparent;color:#fff;font-weight:600}
+        .date-chip .snap-count{font-size:9px;opacity:.7;margin-left:3px}
+        .view-info{color:#64748b;font-size:11px;margin-left:auto}
         @media(max-width:900px){.grid{grid-template-columns:1fr}.container{padding:12px}}
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>📊 同花顺热榜 · 动态趋势</h1>
+        <h1>📊 同花顺热榜 · 30天趋势</h1>
         <div class="header-right">
             <span class="source-tag" id="sourceTag">同花顺</span>
             <div class="status-dot"></div>
@@ -66,16 +74,21 @@
         <div class="card card-full">
             <div class="card-header">
                 <h2><span class="dot"></span>热门股票排名变化趋势</h2>
-                <span style="color:#64748b;font-size:11px">点击股票名切换 · Y轴反转(↑=热度上升) · 每30分钟更新</span>
+                <span style="color:#64748b;font-size:11px">点击股票名切换 · Y轴反转(↑=热度上升) · 数据保留30天</span>
             </div>
             <div class="card-body">
+                <div class="date-bar" id="dateBar">
+                    <label>📅 日期筛选:</label>
+                    <div class="date-chips" id="dateChips"></div>
+                    <span class="view-info" id="viewInfo"></span>
+                </div>
                 <div class="stock-selector" id="stockSelector"></div>
                 <div class="chart-container"><canvas id="rankChart"></canvas></div>
             </div>
         </div>
         <div class="grid">
             <div class="card">
-                <div class="card-header"><h2><span class="dot"></span>🔥 实时热榜 TOP 20</h2></div>
+                <div class="card-header"><h2><span class="dot"></span>🔥 实时热榜 TOP 30</h2></div>
                 <div class="card-body" style="padding:0;overflow-x:auto">
                     <table><thead><tr>
                         <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th class="r">热度</th>
@@ -92,7 +105,10 @@
             </div>
         </div>
         <div class="card card-full">
-            <div class="card-header"><h2><span class="dot"></span>📋 排名变动详情 TOP 30</h2></div>
+            <div class="card-header">
+                <h2><span class="dot"></span>📋 排名变动详情 TOP 30</h2>
+                <span id="detailDateLabel" style="color:#a78bfa;font-size:12px"></span>
+            </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
                     <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th>标签</th><th style="text-align:center">变动</th><th style="text-align:center">迷你趋势</th>
@@ -103,17 +119,14 @@
 <script>
 const BASE = '.';
 const COLORS = ['#a78bfa','#60a5fa','#34d399','#fbbf24','#f87171','#f472b6','#38bdf8','#a3e635','#fb923c','#c084fc','#2dd4bf','#e879f9','#facc15','#4ade80','#f97316'];
-let rankChart, trendData = null, activeStocks = new Set();
+let rankChart, allSnapshots = [], allCurrentData = null, allSectorsData = null;
+let activeStocks = new Set();
 let lastUpdate = null, refreshMs = 30 * 60 * 1000;
+let selectedDate = null;
 
 async function fetchJSON(url) {
-    try {
-        const r = await fetch(url + '?t=' + Date.now());
-        return await r.json();
-    } catch(e) {
-        console.error('Fetch error:', url, e);
-        return null;
-    }
+    try { const r = await fetch(url + '?t=' + Date.now()); return await r.json(); }
+    catch(e) { console.error('Fetch error:', url, e); return null; }
 }
 
 function formatHot(val) {
@@ -125,18 +138,45 @@ function formatHot(val) {
 function renderTags(s) {
     let tags = '';
     if (s.popularity_tag) tags += `<span class="tag tag-hot">${s.popularity_tag}</span>`;
-    if (s.concept_tags && s.concept_tags.length) {
-        s.concept_tags.slice(0, 2).forEach(t => {
-            tags += `<span class="tag tag-cb">${t}</span>`;
-        });
-    }
+    if (s.concept_tags && s.concept_tags.length) s.concept_tags.slice(0, 2).forEach(t => { tags += `<span class="tag tag-cb">${t}</span>`; });
     return tags;
+}
+
+function getUniqueDates(snapshots) {
+    const dateMap = {};
+    snapshots.forEach(s => {
+        const d = s.date || s.time.split(' ')[0];
+        if (!dateMap[d]) dateMap[d] = { date: d, count: 0, label: d.slice(5) };
+        dateMap[d].count++;
+    });
+    return Object.values(dateMap).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function renderDateChips(dates) {
+    const el = document.getElementById('dateChips');
+    if (!dates.length) return;
+    let html = `<button class="date-chip${!selectedDate?' active':''}" onclick="selectDate(null)">全部<span class="snap-count">${dates.length}天</span></button>`;
+    dates.forEach(d => {
+        html += `<button class="date-chip${selectedDate===d.date?' active':''}" onclick="selectDate('${d.date}')">${d.label}<span class="snap-count">${d.count}条</span></button>`;
+    });
+    el.innerHTML = html;
+}
+
+function selectDate(date) {
+    selectedDate = date;
+    renderDateChips(getUniqueDates(allSnapshots));
+    updateView();
+}
+
+function getFilteredSnapshots() {
+    if (!selectedDate) return allSnapshots;
+    return allSnapshots.filter(s => (s.date || s.time.split(' ')[0]) === selectedDate);
 }
 
 function renderHotTable(data) {
     const tb = document.getElementById('hotTable');
     if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="5" class="loading">暂无数据</td></tr>'; return; }
-    tb.innerHTML = data.slice(0, 20).map((s, i) => {
+    tb.innerHTML = data.slice(0, 30).map((s, i) => {
         const cc = s.change_pct > 0 ? '#ef4444' : s.change_pct < 0 ? '#22c55e' : '#9ca3af';
         const cs = s.change_pct > 0 ? '+' : '';
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
@@ -158,6 +198,34 @@ function renderSectorTable(data) {
     }).join('');
 }
 
+function buildTrendData(snapshots, currentData) {
+    const stockMap = {};
+    for (const snap of snapshots) {
+        for (const stock of snap.stocks) {
+            if (!stockMap[stock.code]) stockMap[stock.code] = { code: stock.code, name: stock.name, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
+            stockMap[stock.code].rank_history.push({ time: snap.time, rank: stock.rank, date: snap.date });
+            stockMap[stock.code].current_price = stock.price;
+            stockMap[stock.code].current_change_pct = stock.change_pct;
+        }
+    }
+    if (currentData) {
+        for (const s of currentData) {
+            if (stockMap[s.code]) {
+                stockMap[s.code].current_price = s.price;
+                stockMap[s.code].current_change_pct = s.change_pct;
+                stockMap[s.code].popularity_tag = s.popularity_tag || '';
+                stockMap[s.code].concept_tags = s.concept_tags || [];
+            }
+        }
+    }
+    const sorted = Object.values(stockMap).sort((a, b) => {
+        const aR = a.rank_history.length ? a.rank_history[a.rank_history.length-1].rank : 999;
+        const bR = b.rank_history.length ? b.rank_history[b.rank_history.length-1].rank : 999;
+        return aR - bR;
+    });
+    return { time_labels: snapshots.map(s => s.time), stocks: sorted.slice(0, 30) };
+}
+
 function renderDetailTable(stocks) {
     const tb = document.getElementById('detailTable');
     if (!stocks || !stocks.length) { tb.innerHTML = '<tr><td colspan="7" class="loading">暂无数据</td></tr>'; return; }
@@ -172,10 +240,11 @@ function renderDetailTable(stocks) {
             tc = diff > 0 ? 'up' : diff < 0 ? 'dn' : 'fl';
             tt = diff > 0 ? '↑ '+diff : diff < 0 ? '↓ '+Math.abs(diff) : '—';
             sparkColor = tc==='up'?'#ef4444':tc==='dn'?'#22c55e':'#64748b';
-            pts = hist.slice(-12).map((h,j) => `${j*5+3},${Math.min(h.rank/30*20+2,22)}`).join(' ');
+            const sparkData = hist.slice(-20);
+            const maxR = Math.max(...sparkData.map(h=>h.rank), 1);
+            pts = sparkData.map((h,j) => `${j*(56/(sparkData.length-1||1))+2},${Math.min(h.rank/maxR*18+2,22)}`).join(' ');
         } else {
-            diff = 0; tc = 'fl'; tt = '新'; sparkColor = '#64748b';
-            pts = `${3},${Math.min(curr/30*20+2,22)}`;
+            diff = 0; tc = 'fl'; tt = '新'; sparkColor = '#64748b'; pts = `2,12`;
         }
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
         const cc = s.current_change_pct > 0 ? '#ef4444' : s.current_change_pct < 0 ? '#22c55e' : '#9ca3af';
@@ -199,8 +268,10 @@ function toggleStock(code) {
     if (activeStocks.has(code)) activeStocks.delete(code);
     else activeStocks.add(code);
     updateChart();
-    renderSelector(trendData?.stocks || []);
+    renderSelector(currentTrendData?.stocks || []);
 }
+
+let currentTrendData = null;
 
 function createChart(labels) {
     const ctx = document.getElementById('rankChart').getContext('2d');
@@ -218,7 +289,7 @@ function createChart(labels) {
             },
             scales: {
                 y: { reverse: true, min: 1, title: { display: true, text: '排名', color: '#64748b' }, ticks: { color: '#64748b', stepSize: 5 }, grid: { color: 'rgba(75,85,99,0.2)' } },
-                x: { ticks: { color: '#64748b', maxRotation: 45 }, grid: { color: 'rgba(75,85,99,0.1)' } }
+                x: { ticks: { color: '#64748b', maxRotation: 45, maxTicksLimit: 20 }, grid: { color: 'rgba(75,85,99,0.1)' } }
             },
             animation: { duration: 600, easing: 'easeOutQuart' }
         }
@@ -226,17 +297,15 @@ function createChart(labels) {
 }
 
 function updateChart() {
-    if (!rankChart || !trendData) return;
+    if (!rankChart || !currentTrendData) return;
     const datasets = [];
     let ci = 0;
-    (trendData.stocks || []).forEach(s => {
+    (currentTrendData.stocks || []).forEach(s => {
         if (!activeStocks.has(s.code)) return;
         datasets.push({
-            label: s.name,
-            data: s.rank_history.map(h => h.rank),
-            borderColor: COLORS[ci % COLORS.length],
-            backgroundColor: COLORS[ci % COLORS.length] + '20',
-            borderWidth: 2.5, pointRadius: 3, pointHoverRadius: 6, tension: 0.3, fill: false
+            label: s.name, data: s.rank_history.map(h => h.rank),
+            borderColor: COLORS[ci % COLORS.length], backgroundColor: COLORS[ci % COLORS.length] + '20',
+            borderWidth: 2.5, pointRadius: s.rank_history.length > 50 ? 0 : 2, pointHoverRadius: 5, tension: 0.3, fill: false
         });
         ci++;
     });
@@ -253,34 +322,22 @@ function updateCountdown() {
     document.getElementById('countdown').textContent = `${m}:${s.toString().padStart(2,'0')} 后刷新`;
 }
 
-function buildTrendData(snapshots, currentData) {
-    const stockMap = {};
-    for (const snap of snapshots) {
-        for (const stock of snap.stocks) {
-            if (!stockMap[stock.code]) {
-                stockMap[stock.code] = { code: stock.code, name: stock.name, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
-            }
-            stockMap[stock.code].rank_history.push({ time: snap.time, rank: stock.rank });
-            stockMap[stock.code].current_price = stock.price;
-            stockMap[stock.code].current_change_pct = stock.change_pct;
-        }
+function updateView() {
+    const filtered = getFilteredSnapshots();
+    currentTrendData = buildTrendData(filtered, allCurrentData);
+    const info = document.getElementById('viewInfo');
+    const dateLabel = document.getElementById('detailDateLabel');
+    if (selectedDate) {
+        info.textContent = `显示 ${selectedDate.slice(5)} 共 ${filtered.length} 条快照`;
+        dateLabel.textContent = `📅 ${selectedDate}`;
+    } else {
+        info.textContent = `显示全部 ${filtered.length} 条快照（${getUniqueDates(allSnapshots).length} 天）`;
+        dateLabel.textContent = '';
     }
-    if (currentData) {
-        for (const s of currentData) {
-            if (stockMap[s.code]) {
-                stockMap[s.code].current_price = s.price;
-                stockMap[s.code].current_change_pct = s.change_pct;
-                stockMap[s.code].popularity_tag = s.popularity_tag || '';
-                stockMap[s.code].concept_tags = s.concept_tags || [];
-            }
-        }
-    }
-    const sorted = Object.values(stockMap).sort((a, b) => {
-        const aR = a.rank_history.length ? a.rank_history[a.rank_history.length-1].rank : 999;
-        const bR = b.rank_history.length ? b.rank_history[b.rank_history.length-1].rank : 999;
-        return aR - bR;
-    });
-    return { time_labels: snapshots.map(s => s.time), stocks: sorted.slice(0, 30) };
+    renderSelector(currentTrendData.stocks);
+    renderDetailTable(currentTrendData.stocks);
+    if (!rankChart) { createChart(currentTrendData.time_labels); }
+    else { rankChart.data.labels = currentTrendData.time_labels; updateChart(); }
 }
 
 async function loadAll() {
@@ -289,29 +346,21 @@ async function loadAll() {
         fetchJSON(BASE + '/data/current.json'),
         fetchJSON(BASE + '/data/sectors.json')
     ]);
-
+    allSnapshots = snapshots || [];
+    allCurrentData = current?.data || null;
+    allSectorsData = sectors?.data || null;
     if (current) {
         renderHotTable(current.data);
         document.getElementById('updateTime').textContent = '更新: ' + (current.update_time || '未知');
         if (current.source) document.getElementById('sourceTag').textContent = current.source;
     }
-    if (sectors) renderSectorTable(sectors.data);
-
-    if (snapshots && snapshots.length > 0) {
-        trendData = buildTrendData(snapshots, current?.data);
-        renderSelector(trendData.stocks);
-        renderDetailTable(trendData.stocks);
-
-        if (!rankChart) {
-            createChart(trendData.time_labels);
-        } else {
-            rankChart.data.labels = trendData.time_labels;
-            updateChart();
-        }
+    if (allSectorsData) renderSectorTable(allSectorsData);
+    if (allSnapshots.length > 0) {
+        renderDateChips(getUniqueDates(allSnapshots));
+        updateView();
     } else {
         document.getElementById('detailTable').innerHTML = '<tr><td colspan="7" class="loading">数据采集中，请稍候...（首次部署需等待 GitHub Actions 运行）</td></tr>';
     }
-
     lastUpdate = Date.now();
 }
 

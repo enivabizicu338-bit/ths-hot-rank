@@ -145,8 +145,8 @@ def main():
     }
     snapshots.append(snap)
 
-    if len(snapshots) > 200:
-        snapshots = snapshots[-200:]
+    if len(snapshots) > 1440:
+        snapshots = snapshots[-1440:]
 
     save_snapshots(snapshots)
     print(f"快照总数: {len(snapshots)}")
