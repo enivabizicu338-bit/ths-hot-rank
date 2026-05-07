@@ -262,10 +262,10 @@ def main():
             merged_count += 1
     print(f"热榜: {len(hot_rank)} 条, 板块: {len(sectors)} 条, 合并人气数据: {merged_count} 条")
 
-    # 获取东方财富数据（今日浏览排名 + 换手率）- 覆盖全部100只
-    top_codes = [s["code"] for s in hot_rank[:100]]
+    # 获取东方财富数据（今日浏览排名 + 换手率）- 覆盖全部热榜股票
+    top_codes = [s["code"] for s in hot_rank]
     em_data = fetch_eastmoney_data(top_codes)
-    for stock in hot_rank[:100]:
+    for stock in hot_rank:
         code = stock["code"]
         if code in em_data:
             stock["turnover"] = em_data[code]["turnover"]

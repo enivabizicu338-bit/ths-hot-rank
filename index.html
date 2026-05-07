@@ -139,7 +139,7 @@
             <div class="card-header"><h2><span class="dot"></span>📈 热门概念板块</h2></div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th>标签</th>
+                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th>相关标签</th>
                 </tr></thead><tbody id="sectorTable"><tr><td colspan="4" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
@@ -565,18 +565,29 @@ function updateView() {
 }
 
 async function loadAll() {
-    const [snapshots, current, sectors] = await Promise.all([
-        fetchJSON(BASE + '/data/snapshots.json'),
-        fetchJSON(BASE + '/data/current.json'),
-        fetchJSON(BASE + '/data/sectors.json')
-    ]);
-    allSnapshots = snapshots || [];
+    // 第一阶段：立即加载当前数据，快速渲染热榜表格
+    const current = await fetchJSON(BASE + '/data/current.json');
     allCurrentData = current?.data || null;
-    allSectorsData = sectors?.data || null;
     if (current) {
         document.getElementById('updateTime').textContent = '更新: ' + (current.update_time || '未知');
     }
+    // 立即渲染表格（使用当前数据，无趋势分析）
+    if (allCurrentData) {
+        renderMainTable(allCurrentData, []);
+    }
+
+    // 第二阶段：并行加载快照和板块（不阻塞表格显示）
+    const [snapshots, sectors] = await Promise.all([
+        fetchJSON(BASE + '/data/snapshots.json'),
+        fetchJSON(BASE + '/data/sectors.json')
+    ]);
+    allSnapshots = snapshots || [];
+    allSectorsData = sectors?.data || null;
+
+    // 渲染板块
     if (allSectorsData) renderSectorTable(allSectorsData);
+
+    // 渲染趋势分析（需要快照数据）
     if (allSnapshots.length > 0) {
         renderDateChips(getUniqueDates(allSnapshots));
         updateView();
