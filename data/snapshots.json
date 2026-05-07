@@ -1,1 +1,358 @@
-[]
+[
+  {
+    "time": "05-07 17:15",
+    "date": "2026-05-07",
+    "stocks": [
+      {
+        "rank": 1,
+        "code": "SZ000066",
+        "name": "中国长城",
+        "price": 23.98,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 2,
+        "code": "SZ002081",
+        "name": "金 螳 螂",
+        "price": 7.14,
+        "change_pct": 10.02
+      },
+      {
+        "rank": 3,
+        "code": "SH601991",
+        "name": "大唐发电",
+        "price": 5.04,
+        "change_pct": 10.04
+      },
+      {
+        "rank": 4,
+        "code": "SH601868",
+        "name": "中国能建",
+        "price": 3.12,
+        "change_pct": 9.86
+      },
+      {
+        "rank": 5,
+        "code": "SZ002342",
+        "name": "巨力索具",
+        "price": 22.12,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 6,
+        "code": "SH600522",
+        "name": "中天科技",
+        "price": 38.38,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 7,
+        "code": "SZ002217",
+        "name": "合力泰",
+        "price": 3.5,
+        "change_pct": 10.06
+      },
+      {
+        "rank": 8,
+        "code": "SZ002384",
+        "name": "东山精密",
+        "price": 211.07,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 9,
+        "code": "SH600396",
+        "name": "华电辽能",
+        "price": 12.0,
+        "change_pct": 9.99
+      },
+      {
+        "rank": 10,
+        "code": "SZ301171",
+        "name": "易点天下",
+        "price": 43.0,
+        "change_pct": 20.01
+      },
+      {
+        "rank": 11,
+        "code": "SZ002491",
+        "name": "通鼎互联",
+        "price": 18.78,
+        "change_pct": 10.02
+      },
+      {
+        "rank": 12,
+        "code": "SZ300058",
+        "name": "蓝色光标",
+        "price": 19.3,
+        "change_pct": 6.93
+      },
+      {
+        "rank": 13,
+        "code": "SH600673",
+        "name": "东阳光",
+        "price": 42.83,
+        "change_pct": 9.99
+      },
+      {
+        "rank": 14,
+        "code": "SZ002156",
+        "name": "通富微电",
+        "price": 59.08,
+        "change_pct": 3.74
+      },
+      {
+        "rank": 15,
+        "code": "SZ002031",
+        "name": "巨轮智能",
+        "price": 6.42,
+        "change_pct": 9.93
+      },
+      {
+        "rank": 16,
+        "code": "SZ002436",
+        "name": "兴森科技",
+        "price": 32.42,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 17,
+        "code": "SZ002149",
+        "name": "西部材料",
+        "price": 73.47,
+        "change_pct": 5.17
+      },
+      {
+        "rank": 18,
+        "code": "SH600736",
+        "name": "苏州高新",
+        "price": 9.65,
+        "change_pct": 10.03
+      },
+      {
+        "rank": 19,
+        "code": "SZ000818",
+        "name": "航锦科技",
+        "price": 18.54,
+        "change_pct": 10.03
+      },
+      {
+        "rank": 20,
+        "code": "SH600105",
+        "name": "永鼎股份",
+        "price": 47.52,
+        "change_pct": 8.79
+      },
+      {
+        "rank": 21,
+        "code": "SZ000070",
+        "name": "特发信息",
+        "price": 20.11,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 22,
+        "code": "SH603256",
+        "name": "宏和科技",
+        "price": 144.11,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 23,
+        "code": "SH600726",
+        "name": "华电能源",
+        "price": 7.61,
+        "change_pct": 9.97
+      },
+      {
+        "rank": 24,
+        "code": "SZ002298",
+        "name": "中电鑫龙",
+        "price": 11.11,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 25,
+        "code": "SH603618",
+        "name": "杭电股份",
+        "price": 34.2,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 26,
+        "code": "SH603459",
+        "name": "红板科技",
+        "price": 73.68,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 27,
+        "code": "SZ002183",
+        "name": "怡 亚 通",
+        "price": 6.5,
+        "change_pct": 9.98
+      },
+      {
+        "rank": 28,
+        "code": "SZ002008",
+        "name": "大族激光",
+        "price": 112.41,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 29,
+        "code": "SH603399",
+        "name": "永杉锂业",
+        "price": 22.58,
+        "change_pct": 5.86
+      },
+      {
+        "rank": 30,
+        "code": "SZ002281",
+        "name": "光迅科技",
+        "price": 164.29,
+        "change_pct": 8.93
+      },
+      {
+        "rank": 31,
+        "code": "SZ002050",
+        "name": "三花智控",
+        "price": 50.32,
+        "change_pct": 4.49
+      },
+      {
+        "rank": 32,
+        "code": "SZ000889",
+        "name": "中嘉博创",
+        "price": 5.35,
+        "change_pct": 10.08
+      },
+      {
+        "rank": 33,
+        "code": "SZ000720",
+        "name": "新能泰山",
+        "price": 5.17,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 34,
+        "code": "SZ002929",
+        "name": "润建股份",
+        "price": 71.12,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 35,
+        "code": "SH603598",
+        "name": "引力传媒",
+        "price": 24.02,
+        "change_pct": 9.98
+      },
+      {
+        "rank": 36,
+        "code": "SH601208",
+        "name": "东材科技",
+        "price": 45.16,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 37,
+        "code": "SH603738",
+        "name": "泰晶科技",
+        "price": 42.74,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 38,
+        "code": "SZ002335",
+        "name": "科华数据",
+        "price": 69.16,
+        "change_pct": 10.0
+      },
+      {
+        "rank": 39,
+        "code": "SH603778",
+        "name": "国晟科技",
+        "price": 25.91,
+        "change_pct": -7.17
+      },
+      {
+        "rank": 40,
+        "code": "SH600487",
+        "name": "亨通光电",
+        "price": 75.96,
+        "change_pct": 5.79
+      },
+      {
+        "rank": 41,
+        "code": "SZ000988",
+        "name": "华工科技",
+        "price": 133.5,
+        "change_pct": 6.64
+      },
+      {
+        "rank": 42,
+        "code": "SH603636",
+        "name": "南威软件",
+        "price": 10.1,
+        "change_pct": 10.02
+      },
+      {
+        "rank": 43,
+        "code": "SZ300052",
+        "name": "中青宝",
+        "price": 14.27,
+        "change_pct": 20.02
+      },
+      {
+        "rank": 44,
+        "code": "SH603538",
+        "name": "美诺华",
+        "price": 61.65,
+        "change_pct": -10.0
+      },
+      {
+        "rank": 45,
+        "code": "SH603688",
+        "name": "石英股份",
+        "price": 63.32,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 46,
+        "code": "SH600130",
+        "name": "波导股份",
+        "price": 5.59,
+        "change_pct": 10.04
+      },
+      {
+        "rank": 47,
+        "code": "SZ000967",
+        "name": "盈峰环境",
+        "price": 16.42,
+        "change_pct": 9.98
+      },
+      {
+        "rank": 48,
+        "code": "SH603803",
+        "name": "瑞斯康达",
+        "price": 16.27,
+        "change_pct": 10.01
+      },
+      {
+        "rank": 49,
+        "code": "SZ000823",
+        "name": "超声电子",
+        "price": 17.31,
+        "change_pct": 9.97
+      },
+      {
+        "rank": 50,
+        "code": "SZ002655",
+        "name": "共达电声",
+        "price": 35.81,
+        "change_pct": 10.02
+      }
+    ]
+  }
+]
