@@ -203,20 +203,22 @@ function buildTrendData(snapshots, currentData) {
     for (const snap of snapshots) {
         for (const stock of snap.stocks) {
             const cleanName = (stock.name || '').replace(/\s/g, '');
-            if (!stockMap[stock.code]) stockMap[stock.code] = { code: stock.code, name: cleanName, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
-            stockMap[stock.code].name = cleanName;
-            stockMap[stock.code].rank_history.push({ time: snap.time, rank: stock.rank, date: snap.date });
-            stockMap[stock.code].current_price = stock.price;
-            stockMap[stock.code].current_change_pct = stock.change_pct;
+            const cleanCode = (stock.code || '').replace(/^(SZ|SH|BJ)/, '');
+            if (!stockMap[cleanCode]) stockMap[cleanCode] = { code: cleanCode, name: cleanName, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
+            stockMap[cleanCode].name = cleanName;
+            stockMap[cleanCode].rank_history.push({ time: snap.time, rank: stock.rank, date: snap.date });
+            stockMap[cleanCode].current_price = stock.price;
+            stockMap[cleanCode].current_change_pct = stock.change_pct;
         }
     }
     if (currentData) {
         for (const s of currentData) {
-            if (stockMap[s.code]) {
-                stockMap[s.code].current_price = s.price;
-                stockMap[s.code].current_change_pct = s.change_pct;
-                stockMap[s.code].popularity_tag = s.popularity_tag || '';
-                stockMap[s.code].concept_tags = s.concept_tags || [];
+            const cc = (s.code || '').replace(/^(SZ|SH|BJ)/, '');
+            if (stockMap[cc]) {
+                stockMap[cc].current_price = s.price;
+                stockMap[cc].current_change_pct = s.change_pct;
+                stockMap[cc].popularity_tag = s.popularity_tag || '';
+                stockMap[cc].concept_tags = s.concept_tags || [];
             }
         }
     }
