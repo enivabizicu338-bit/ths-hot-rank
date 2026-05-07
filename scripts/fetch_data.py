@@ -48,6 +48,8 @@ def fetch_hot_rank():
                     "board_info": "",
                     "board_reason": "",
                     "market_cap": "",
+                    "turnover": 0,
+                    "guba_rank": 0,
                 })
             return stocks
         else:
@@ -106,6 +108,52 @@ def fetch_popularity():
     except Exception as e:
         print(f"人气排名获取失败: {e}")
         return {}
+
+
+def fetch_eastmoney_data(codes):
+    """获取东方财富数据 - 换手率 + 股吧人气排名"""
+    em_headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Referer": "https://data.eastmoney.com/",
+    }
+    em_session = requests.Session()
+    em_session.headers.update(em_headers)
+
+    result = {}  # code -> {turnover, guba_rank}
+
+    # 1. 获取换手率（逐个查询50只股票）
+    for code in codes:
+        try:
+            market = "1" if code.startswith("6") else "0"
+            url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={market}.{code}&fields=f168"
+            resp = em_session.get(url, timeout=8)
+            d = resp.json().get("data", {})
+            turnover = d.get("f168", 0) / 100 if d.get("f168") else 0
+            result[code] = {"turnover": round(turnover, 2), "guba_rank": 0}
+        except Exception:
+            result[code] = {"turnover": 0, "guba_rank": 0}
+
+    # 2. 获取股吧人气排名（批量获取前500）
+    try:
+        guba_map = {}
+        for page in range(1, 6):
+            url = f"https://push2.eastmoney.com/api/qt/clist/get?pn={page}&pz=100&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f12"
+            resp = em_session.get(url, timeout=10)
+            stocks = resp.json().get("data", {}).get("diff", [])
+            for i, item in enumerate(stocks):
+                rank = (page - 1) * 100 + i + 1
+                guba_map[item["f12"]] = rank
+        # 合并股吧排名
+        guba_count = 0
+        for code in codes:
+            if code in guba_map:
+                result[code]["guba_rank"] = guba_map[code]
+                guba_count += 1
+        print(f"东财数据: 换手率 {len(codes)} 条, 股吧排名匹配 {guba_count} 条")
+    except Exception as e:
+        print(f"股吧排名获取失败: {e}")
+
+    return result
 
 
 def fetch_sectors():
@@ -181,6 +229,18 @@ def main():
             merged_count += 1
     print(f"热榜: {len(hot_rank)} 条, 板块: {len(sectors)} 条, 合并人气数据: {merged_count} 条")
 
+    # 获取东方财富数据（换手率 + 股吧人气排名）
+    top_codes = [s["code"] for s in hot_rank[:50]]
+    em_data = fetch_eastmoney_data(top_codes)
+    for stock in hot_rank[:50]:
+        code = stock["code"]
+        if code in em_data:
+            stock["turnover"] = em_data[code]["turnover"]
+            stock["guba_rank"] = em_data[code]["guba_rank"]
+        else:
+            stock["turnover"] = 0
+            stock["guba_rank"] = 0
+
     current = {
         "update_time": now.strftime("%Y-%m-%d %H:%M:%S"),
         "source": "同花顺热榜",
@@ -212,6 +272,8 @@ def main():
                 "board_info": s["board_info"],
                 "board_reason": s["board_reason"],
                 "market_cap": s["market_cap"],
+                "turnover": s["turnover"],
+                "guba_rank": s["guba_rank"],
             }
             for s in hot_rank[:50]
         ]
