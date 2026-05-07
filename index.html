@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>同花顺热榜 · 30天动态趋势</title>
+    <title>为你股神走暗香</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -83,7 +83,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>📊 同花顺热榜 · 30天趋势</h1>
+        <h1>📊 为你股神走暗香</h1>
         <div class="header-right">
             <span class="source-tag" id="sourceTag">同花顺</span>
             <div class="status-dot"></div>
@@ -116,17 +116,17 @@
             </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th class="td-center" style="width:44px">排名</th>
+                    <th class="td-center sortable" data-key="rank" onclick="doSort('rank')" style="width:44px">排名 <span class="sort-arrow">⇅</span></th>
                     <th style="width:72px">代码</th>
+                    <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">浏览排名 <span class="sort-arrow">⇅</span></th>
                     <th style="min-width:90px">名称</th>
                     <th class="r sortable" data-key="price" onclick="doSort('price')">现价 <span class="sort-arrow">⇅</span></th>
                     <th class="r sortable" data-key="change_pct" onclick="doSort('change_pct')">涨跌幅 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="turnover" onclick="doSort('turnover')">换手率 <span class="sort-arrow">⇅</span></th>
                     <th class="r sortable" data-key="hot_value" onclick="doSort('hot_value')">热度 <span class="sort-arrow">⇅</span></th>
                     <th class="td-center" style="width:52px">变动</th>
                     <th style="width:80px">几板</th>
                     <th style="min-width:90px">涨停原因</th>
-                    <th class="r sortable" data-key="turnover" onclick="doSort('turnover')">换手率 <span class="sort-arrow">⇅</span></th>
-                    <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">浏览排名 <span class="sort-arrow">⇅</span></th>
                     <th class="td-center sortable" data-key="trend_streak" onclick="doSort('trend_streak')">连续趋势 <span class="sort-arrow">⇅</span></th>
                     <th style="min-width:80px">标签</th>
                     <th class="td-center" style="width:68px">走势</th>
@@ -445,15 +445,15 @@ function renderMainTable(currentData, trendStocks) {
         return `<tr class="hover" style="${dropStyle}">
             <td class="td-center"><span class="rank-badge ${rc}">${s.rank}</span></td>
             <td class="code-val">${code}</td>
+            <td class="td-right" style="font-size:12px;${browseStyle}">${browseStr}</td>
             <td><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td>
             <td class="td-right price-val">${priceStr}</td>
             <td class="td-right" style="font-weight:600;color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td>
+            <td class="td-right" style="font-size:12px">${turnoverStr}</td>
             <td class="td-right hot-val">${hotStr}</td>
             <td class="td-center ${chgClass}" style="font-weight:600">${chgText}</td>
             <td>${boardHtml}</td>
             <td>${reasonHtml}</td>
-            <td class="td-right" style="font-size:12px">${turnoverStr}</td>
-            <td class="td-right" style="font-size:12px;${browseStyle}">${browseStr}</td>
             <td class="td-center">${trendHtml}</td>
             <td style="font-size:11px">${extraTags}</td>
             <td class="td-center">${sparkHtml}</td>
