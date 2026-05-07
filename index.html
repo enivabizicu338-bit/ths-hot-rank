@@ -16,7 +16,7 @@
         .update-time{color:#64748b;font-size:12px}
         .source-tag{color:#f59e0b;font-size:11px;font-weight:600;background:rgba(245,158,11,0.15);padding:2px 8px;border-radius:10px}
         .countdown{color:#a78bfa;font-size:12px;font-weight:600}
-        .container{max-width:1600px;margin:0 auto;padding:20px 24px}
+        .container{max-width:1700px;margin:0 auto;padding:20px 24px}
         .card{background:#111827;border:1px solid rgba(75,85,99,0.4);border-radius:12px;overflow:hidden;margin-bottom:20px}
         .card-header{padding:14px 20px;border-bottom:1px solid rgba(75,85,99,0.4);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
         .card-header h2{font-size:15px;color:#f1f5f9;display:flex;align-items:center;gap:8px}
@@ -27,32 +27,45 @@
         .stock-btn:hover{border-color:#a78bfa;color:#e2e8f0}
         .stock-btn.active{background:linear-gradient(135deg,#7c3aed,#3b82f6);border-color:transparent;color:#fff;font-weight:600}
         .chart-container{position:relative;height:380px}
-        table{width:100%;border-collapse:collapse}
-        th{padding:8px 10px;text-align:left;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(75,85,99,0.4);white-space:nowrap}
+
+        /* ===== 表格美化 ===== */
+        table{width:100%;border-collapse:collapse;font-size:13px}
+        thead{position:sticky;top:0;z-index:2}
+        th{padding:10px 12px;text-align:left;font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;background:#0d1117;border-bottom:2px solid rgba(139,92,246,0.3)}
         th.r{text-align:right}
-        th.sortable{cursor:pointer;user-select:none;transition:color .2s}
-        th.sortable:hover{color:#e2e8f0}
-        th.sortable .sort-arrow{font-size:9px;margin-left:2px;opacity:.4}
-        th.sortable.asc .sort-arrow,th.sortable.desc .sort-arrow{opacity:1;color:#a78bfa}
-        td{padding:0}
-        tr.hover:hover{background:rgba(255,255,255,0.03)}
-        .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;font-size:12px;font-weight:700}
+        th.sortable{cursor:pointer;user-select:none;transition:all .2s}
+        th.sortable:hover{color:#e2e8f0;background:rgba(139,92,246,0.08)}
+        th.sortable .sort-arrow{font-size:10px;margin-left:3px;opacity:.3;transition:all .2s}
+        th.sortable.asc{color:#a78bfa}
+        th.sortable.asc .sort-arrow{opacity:1;color:#a78bfa}
+        th.sortable.desc{color:#60a5fa}
+        th.sortable.desc .sort-arrow{opacity:1;color:#60a5fa}
+        td{padding:9px 12px;border-bottom:1px solid rgba(75,85,99,0.2);vertical-align:middle}
+        tr.hover{transition:background .15s}
+        tr.hover:hover{background:rgba(139,92,246,0.06)}
+        tr.hover:nth-child(even){background:rgba(255,255,255,0.01)}
+        tr.hover:nth-child(even):hover{background:rgba(139,92,246,0.06)}
+        td.td-center{text-align:center}
+        td.td-right{text-align:right}
+
+        .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;font-size:12px;font-weight:700}
         .r1{background:linear-gradient(135deg,#f59e0b,#d97706);color:#000}
         .r2{background:linear-gradient(135deg,#94a3b8,#64748b);color:#000}
         .r3{background:linear-gradient(135deg,#c2884e,#92642e);color:#000}
         .rn{background:rgba(75,85,99,0.3);color:#94a3b8}
         .up{color:#ef4444}.dn{color:#22c55e}.fl{color:#64748b}
-        .tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;margin-left:4px}
+        .tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;margin-left:4px}
         .tag-zt{background:rgba(239,68,68,0.15);color:#ef4444}
         .tag-qz{background:rgba(245,158,11,0.15);color:#f59e0b}
         .tag-cb{background:rgba(59,130,246,0.15);color:#60a5fa}
         .tag-hot{background:rgba(168,85,247,0.15);color:#a78bfa}
         .tag-board{background:rgba(239,68,68,0.25);color:#fca5a5;font-size:10px;font-weight:700;letter-spacing:.02em}
         .tag-reason{background:rgba(251,191,36,0.15);color:#fbbf24;font-size:10px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
-        .hot-val{color:#f59e0b;font-size:11px;font-weight:600}
+        .hot-val{color:#f59e0b;font-size:12px;font-weight:600}
         .price-val{color:#e2e8f0;font-size:12px;font-weight:600}
         .cap-val{color:#94a3b8;font-size:11px}
-        a.stock-link{color:#e2e8f0;text-decoration:none;transition:color .2s}
+        .code-val{color:#64748b;font-size:11px;font-family:'SF Mono',Monaco,Consolas,monospace}
+        a.stock-link{color:#e2e8f0;text-decoration:none;transition:color .2s;font-weight:600}
         a.stock-link:hover{color:#a78bfa;text-decoration:underline}
         .loading{color:#64748b;font-size:13px;text-align:center;padding:40px}
         .fade-in{animation:fadeIn .5s ease}
@@ -103,7 +116,18 @@
             </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th style="width:40px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r sortable" data-key="price" onclick="sortTable('price')">现价<span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="change_pct" onclick="sortTable('change_pct')">涨跌幅<span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="hot_value" onclick="sortTable('hot_value')">热度<span class="sort-arrow">⇅</span></th><th style="text-align:center">变动</th><th>几板</th><th>涨停原因</th><th>标签</th><th style="text-align:center">趋势</th><th class="r sortable" data-key="market_cap" onclick="sortTable('market_cap')">流通市值<span class="sort-arrow">⇅</span></th>
+                    <th class="td-center" style="width:44px">排名</th>
+                    <th style="width:72px">代码</th>
+                    <th style="min-width:90px">名称</th>
+                    <th class="r sortable" data-key="price" onclick="doSort('price')">现价 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="change_pct" onclick="doSort('change_pct')">涨跌幅 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="hot_value" onclick="doSort('hot_value')">热度 <span class="sort-arrow">⇅</span></th>
+                    <th class="td-center" style="width:52px">变动</th>
+                    <th style="width:80px">几板</th>
+                    <th style="min-width:90px">涨停原因</th>
+                    <th style="min-width:80px">标签</th>
+                    <th class="td-center" style="width:68px">趋势</th>
+                    <th class="r sortable" data-key="market_cap" onclick="doSort('market_cap')">流通市值 <span class="sort-arrow">⇅</span></th>
                 </tr></thead><tbody id="mainTable"><tr><td colspan="12" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
@@ -124,6 +148,7 @@ let rankChart, allSnapshots = [], allCurrentData = null, allSectorsData = null;
 let activeStocks = new Set();
 let lastUpdate = null, refreshMs = 30 * 60 * 1000;
 let selectedDate = null;
+let sortKey = null, sortDir = 'desc';
 
 async function fetchJSON(url) {
     try { const r = await fetch(url + '?t=' + Date.now()); return await r.json(); }
@@ -197,7 +222,7 @@ function renderSectorTable(data) {
         const cs = s['涨跌幅'] > 0 ? '+' : '';
         const hotStr = s['热度'] ? formatHot(s['热度']) : '-';
         const label = s['标签'] || '';
-        return `<tr class="hover"><td class="py-2 px-4 font-semibold text-white">${s['板块名称']}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="py-2 px-4 text-right hot-val">${hotStr}</td><td class="py-2 px-4" style="font-size:11px;color:#f59e0b">${label}</td></tr>`;
+        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px" class="hot-val">${hotStr}</td><td style="padding:10px 16px;font-size:11px;color:#f59e0b">${label}</td></tr>`;
     }).join('');
 }
 
@@ -239,31 +264,28 @@ function buildTrendData(snapshots, currentData) {
     return { time_labels: snapshots.map(s => s.time), stocks: sorted };
 }
 
-let currentSortKey = null, currentSortDir = 'desc';
-
-function sortTable(key) {
-    if (currentSortKey === key) {
-        currentSortDir = currentSortDir === 'desc' ? 'asc' : 'desc';
+/* ===== 排序 ===== */
+function doSort(key) {
+    if (sortKey === key) {
+        sortDir = sortDir === 'desc' ? 'asc' : 'desc';
     } else {
-        currentSortKey = key;
-        currentSortDir = 'desc';
+        sortKey = key;
+        sortDir = 'desc';
     }
-    // Update header styles
     document.querySelectorAll('th.sortable').forEach(th => {
         th.classList.remove('asc', 'desc');
-        if (th.dataset.key === key) th.classList.add(currentSortDir);
+        if (th.dataset.key === key) th.classList.add(sortDir);
     });
     renderMainTable(allCurrentData, currentTrendData?.stocks || []);
 }
 
-function parseSortVal(val, key) {
+function getSortNum(val, key) {
     if (key === 'market_cap') {
-        // "188.8亿" -> number
-        if (typeof val === 'string') {
-            const m = val.match(/([\d.]+)/);
-            return m ? parseFloat(m[1]) : 0;
-        }
+        if (typeof val === 'string') { const m = val.match(/([\d.]+)/); return m ? parseFloat(m[1]) : 0; }
         return parseFloat(val) || 0;
+    }
+    if (key === 'hot_value') {
+        if (typeof val === 'string') { const n = parseFloat(val); return n >= 10000 ? n : (n >= 1000 ? n : n); }
     }
     return parseFloat(val) || 0;
 }
@@ -274,42 +296,34 @@ function renderMainTable(currentData, trendStocks) {
         tb.innerHTML = '<tr><td colspan="12" class="loading">暂无数据</td></tr>';
         return;
     }
-    // Build trend lookup by code
     const trendMap = {};
     if (trendStocks) trendStocks.forEach(s => { trendMap[s.code] = s; });
 
-    // Merge: currentData as primary, add trend stocks not in current (dropped out of top50)
     const currentCodes = new Set((currentData || []).map(s => (s.code || '').replace(/^(SZ|SH|BJ)/, '')));
     const merged = [...(currentData || [])];
     if (trendStocks) {
         trendStocks.forEach(s => {
             if (!currentCodes.has(s.code)) {
-                // Stock dropped out of top50, add with trend data
                 merged.push({
                     rank: s.rank_history.length ? s.rank_history[s.rank_history.length-1].rank : 999,
-                    code: s.code,
-                    name: s.name,
-                    price: s.current_price,
-                    change_pct: s.current_change_pct,
-                    hot_value: '',
-                    rank_chg: 0,
-                    popularity_tag: s.popularity_tag,
-                    concept_tags: s.concept_tags,
-                    board_info: s.board_info,
-                    board_reason: s.board_reason,
-                    market_cap: s.market_cap,
-                    _dropped: true
+                    code: s.code, name: s.name,
+                    price: s.current_price, change_pct: s.current_change_pct,
+                    hot_value: '', rank_chg: 0,
+                    popularity_tag: s.popularity_tag, concept_tags: s.concept_tags,
+                    board_info: s.board_info, board_reason: s.board_reason,
+                    market_cap: s.market_cap, _dropped: true
                 });
             }
         });
     }
-    // Sort by current rank or custom sort
-    if (currentSortKey) {
-        const dir = currentSortDir === 'desc' ? -1 : 1;
+
+    if (sortKey) {
+        const dir = sortDir === 'desc' ? -1 : 1;
         merged.sort((a, b) => {
-            const va = parseSortVal(a[currentSortKey], currentSortKey);
-            const vb = parseSortVal(b[currentSortKey], currentSortKey);
-            return (va - vb) * dir;
+            const va = getSortNum(a[sortKey], sortKey);
+            const vb = getSortNum(b[sortKey], sortKey);
+            if (va !== vb) return (va - vb) * dir;
+            return (a.rank || 999) - (b.rank || 999);
         });
     } else {
         merged.sort((a, b) => (a.rank || 999) - (b.rank || 999));
@@ -319,24 +333,18 @@ function renderMainTable(currentData, trendStocks) {
         const code = (s.code || '').replace(/^(SZ|SH|BJ)/, '');
         const baiduUrl = `https://finance.baidu.com/stock/ab-${code}`;
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
-        const droppedStyle = s._dropped ? 'opacity:0.5' : '';
-        // Price & change
+        const dropStyle = s._dropped ? 'opacity:0.45;' : '';
         const priceStr = formatPrice(s.price);
         const cc = s.change_pct > 0 ? '#ef4444' : s.change_pct < 0 ? '#22c55e' : '#9ca3af';
         const cs = s.change_pct > 0 ? '+' : '';
         const tag = s.change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
-        // Hot value
         const hotStr = s.hot_value ? formatHot(s.hot_value) : '-';
-        // Rank change
         const chg = s.rank_chg || 0;
         const chgClass = chg > 0 ? 'up' : chg < 0 ? 'dn' : 'fl';
         const chgText = chg > 0 ? '↑'+chg : chg < 0 ? '↓'+Math.abs(chg) : '—';
-        // Board info
         const boardHtml = renderBoardInfo(s.board_info);
         const reasonHtml = renderBoardReason(s.board_reason);
-        // Tags
         const extraTags = renderTags(s);
-        // Sparkline from trend data
         let sparkHtml = '';
         const trend = trendMap[code];
         if (trend && trend.rank_history && trend.rank_history.length >= 2) {
@@ -352,9 +360,21 @@ function renderMainTable(currentData, trendStocks) {
         } else if (trend && trend.rank_history && trend.rank_history.length === 1) {
             sparkHtml = `<span style="color:#64748b;font-size:10px">新</span>`;
         }
-        // Market cap
         const capStr = s.market_cap || '-';
-        return `<tr class="hover" style="${droppedStyle}"><td class="py-2 px-2 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-2 font-mono text-gray-400" style="font-size:11px">${code}</td><td class="py-2 px-2 font-semibold" style="white-space:nowrap"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-2 text-right price-val">${priceStr}</td><td class="py-2 px-2 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-2 text-right hot-val">${hotStr}</td><td class="py-2 px-2 text-center ${chgClass} font-semibold">${chgText}</td><td class="py-2 px-2">${boardHtml}</td><td class="py-2 px-2">${reasonHtml}</td><td class="py-2 px-2" style="font-size:11px">${extraTags}</td><td class="py-2 px-2 text-center">${sparkHtml}</td><td class="py-2 px-2 text-right cap-val">${capStr}</td></tr>`;
+        return `<tr class="hover" style="${dropStyle}">
+            <td class="td-center"><span class="rank-badge ${rc}">${s.rank}</span></td>
+            <td class="code-val">${code}</td>
+            <td><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td>
+            <td class="td-right price-val">${priceStr}</td>
+            <td class="td-right" style="font-weight:600;color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td>
+            <td class="td-right hot-val">${hotStr}</td>
+            <td class="td-center ${chgClass}" style="font-weight:600">${chgText}</td>
+            <td>${boardHtml}</td>
+            <td>${reasonHtml}</td>
+            <td style="font-size:11px">${extraTags}</td>
+            <td class="td-center">${sparkHtml}</td>
+            <td class="td-right cap-val">${capStr}</td>
+        </tr>`;
     }).join('');
 }
 
