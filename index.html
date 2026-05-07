@@ -14,6 +14,7 @@
         .status-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
         .update-time{color:#64748b;font-size:12px}
+        .source-tag{color:#f59e0b;font-size:11px;font-weight:600;background:rgba(245,158,11,0.15);padding:2px 8px;border-radius:10px}
         .countdown{color:#a78bfa;font-size:12px;font-weight:600}
         .container{max-width:1440px;margin:0 auto;padding:20px 24px}
         .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
@@ -42,6 +43,9 @@
         .tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;margin-left:4px}
         .tag-zt{background:rgba(239,68,68,0.15);color:#ef4444}
         .tag-qz{background:rgba(245,158,11,0.15);color:#f59e0b}
+        .tag-cb{background:rgba(59,130,246,0.15);color:#60a5fa}
+        .tag-hot{background:rgba(168,85,247,0.15);color:#a78bfa}
+        .hot-val{color:#f59e0b;font-size:11px;font-weight:600}
         .loading{color:#64748b;font-size:13px;text-align:center;padding:40px}
         .fade-in{animation:fadeIn .5s ease}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -52,6 +56,7 @@
     <div class="header">
         <h1>📊 同花顺热榜 · 动态趋势</h1>
         <div class="header-right">
+            <span class="source-tag" id="sourceTag">同花顺</span>
             <div class="status-dot"></div>
             <div class="update-time" id="updateTime">加载中...</div>
             <div class="countdown" id="countdown"></div>
@@ -73,7 +78,7 @@
                 <div class="card-header"><h2><span class="dot"></span>🔥 实时热榜 TOP 20</h2></div>
                 <div class="card-body" style="padding:0;overflow-x:auto">
                     <table><thead><tr>
-                        <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">最新价</th><th class="r">涨跌幅</th>
+                        <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th class="r">热度</th>
                     </tr></thead><tbody id="hotTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table>
                 </div>
             </div>
@@ -81,8 +86,8 @@
                 <div class="card-header"><h2><span class="dot"></span>📈 热门概念板块</h2></div>
                 <div class="card-body" style="padding:0;overflow-x:auto">
                     <table><thead><tr>
-                        <th>板块</th><th class="r">涨跌幅</th><th class="r">领涨</th>
-                    </tr></thead><tbody id="sectorTable"><tr><td colspan="3" class="loading">加载中...</td></tr></tbody></table>
+                        <th>板块</th><th class="r">涨跌幅</th><th class="r">热度</th><th>标签</th>
+                    </tr></thead><tbody id="sectorTable"><tr><td colspan="4" class="loading">加载中...</td></tr></tbody></table>
                 </div>
             </div>
         </div>
@@ -90,17 +95,16 @@
             <div class="card-header"><h2><span class="dot"></span>📋 排名变动详情 TOP 30</h2></div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">最新价</th><th class="r">涨跌幅</th><th style="text-align:center">变动</th><th style="text-align:center">迷你趋势</th>
+                    <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th>标签</th><th style="text-align:center">变动</th><th style="text-align:center">迷你趋势</th>
                 </tr></thead><tbody id="detailTable"><tr><td colspan="7" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
     </div>
 <script>
-// 数据路径（GitHub Pages 部署后改为相对路径）
 const BASE = '.';
 const COLORS = ['#a78bfa','#60a5fa','#34d399','#fbbf24','#f87171','#f472b6','#38bdf8','#a3e635','#fb923c','#c084fc','#2dd4bf','#e879f9','#facc15','#4ade80','#f97316'];
 let rankChart, trendData = null, activeStocks = new Set();
-let lastUpdate = null, refreshMs = 30 * 60 * 1000; // 30分钟
+let lastUpdate = null, refreshMs = 30 * 60 * 1000;
 
 async function fetchJSON(url) {
     try {
@@ -112,6 +116,23 @@ async function fetchJSON(url) {
     }
 }
 
+function formatHot(val) {
+    const n = parseFloat(val);
+    if (n >= 10000) return (n / 10000).toFixed(1) + '万';
+    return Math.round(n).toString();
+}
+
+function renderTags(s) {
+    let tags = '';
+    if (s.popularity_tag) tags += `<span class="tag tag-hot">${s.popularity_tag}</span>`;
+    if (s.concept_tags && s.concept_tags.length) {
+        s.concept_tags.slice(0, 2).forEach(t => {
+            tags += `<span class="tag tag-cb">${t}</span>`;
+        });
+    }
+    return tags;
+}
+
 function renderHotTable(data) {
     const tb = document.getElementById('hotTable');
     if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="5" class="loading">暂无数据</td></tr>'; return; }
@@ -120,17 +141,20 @@ function renderHotTable(data) {
         const cs = s.change_pct > 0 ? '+' : '';
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
         const tag = s.change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
-        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right text-white">${Number(s.price).toFixed(2)}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td></tr>`;
+        const hotStr = s.hot_value ? formatHot(s.hot_value) : '-';
+        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-4 text-right hot-val">${hotStr}</td></tr>`;
     }).join('');
 }
 
 function renderSectorTable(data) {
     const tb = document.getElementById('sectorTable');
-    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="3" class="loading">暂无数据</td></tr>'; return; }
+    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="4" class="loading">暂无数据</td></tr>'; return; }
     tb.innerHTML = data.slice(0, 15).map(s => {
         const cc = s['涨跌幅'] > 0 ? '#ef4444' : s['涨跌幅'] < 0 ? '#22c55e' : '#9ca3af';
         const cs = s['涨跌幅'] > 0 ? '+' : '';
-        return `<tr class="hover"><td class="py-2 px-4 font-semibold text-white">${s['板块名称']}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="py-2 px-4 text-right text-amber-400" style="font-size:12px">${s['领涨股票']||'-'}</td></tr>`;
+        const hotStr = s['热度'] ? formatHot(s['热度']) : '-';
+        const label = s['标签'] || '';
+        return `<tr class="hover"><td class="py-2 px-4 font-semibold text-white">${s['板块名称']}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="py-2 px-4 text-right hot-val">${hotStr}</td><td class="py-2 px-4" style="font-size:11px;color:#f59e0b">${label}</td></tr>`;
     }).join('');
 }
 
@@ -157,7 +181,8 @@ function renderDetailTable(stocks) {
         const cc = s.current_change_pct > 0 ? '#ef4444' : s.current_change_pct < 0 ? '#22c55e' : '#9ca3af';
         const cs = s.current_change_pct > 0 ? '+' : '';
         const tag = s.current_change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.current_change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
-        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right text-white">${Number(s.current_price).toFixed(2)}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-4 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-4 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
+        const extraTags = renderTags(s);
+        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-4" style="font-size:11px">${extraTags}</td><td class="py-2 px-4 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-4 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
     }).join('');
 }
 
@@ -233,19 +258,20 @@ function buildTrendData(snapshots, currentData) {
     for (const snap of snapshots) {
         for (const stock of snap.stocks) {
             if (!stockMap[stock.code]) {
-                stockMap[stock.code] = { code: stock.code, name: stock.name, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [] };
+                stockMap[stock.code] = { code: stock.code, name: stock.name, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
             }
             stockMap[stock.code].rank_history.push({ time: snap.time, rank: stock.rank });
             stockMap[stock.code].current_price = stock.price;
             stockMap[stock.code].current_change_pct = stock.change_pct;
         }
     }
-    // 用当前数据覆盖最新价格
     if (currentData) {
         for (const s of currentData) {
             if (stockMap[s.code]) {
                 stockMap[s.code].current_price = s.price;
                 stockMap[s.code].current_change_pct = s.change_pct;
+                stockMap[s.code].popularity_tag = s.popularity_tag || '';
+                stockMap[s.code].concept_tags = s.concept_tags || [];
             }
         }
     }
@@ -267,6 +293,7 @@ async function loadAll() {
     if (current) {
         renderHotTable(current.data);
         document.getElementById('updateTime').textContent = '更新: ' + (current.update_time || '未知');
+        if (current.source) document.getElementById('sourceTag').textContent = current.source;
     }
     if (sectors) renderSectorTable(sectors.data);
 

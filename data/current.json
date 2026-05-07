@@ -1,806 +1,1407 @@
 {
-  "update_time": "2026-05-07 17:15:21",
+  "update_time": "2026-05-08 01:37:16",
+  "source": "同花顺热榜",
   "total": 100,
   "data": [
     {
       "rank": 1,
-      "code": "SZ000066",
-      "name": "中国长城",
-      "price": 23.98,
-      "change_amount": 2.398,
-      "change_pct": 10.0
+      "code": "002081",
+      "name": "金螳螂",
+      "price": 0,
+      "change_pct": 10.02,
+      "hot_value": "475213.0",
+      "rank_chg": 0,
+      "popularity_tag": "持续上榜",
+      "concept_tags": [
+        "新型城镇化",
+        "装配式建筑"
+      ]
     },
     {
       "rank": 2,
-      "code": "SZ002081",
-      "name": "金 螳 螂",
-      "price": 7.14,
-      "change_amount": 0.715428,
-      "change_pct": 10.02
+      "code": "000066",
+      "name": "中国长城",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "315075.0",
+      "rank_chg": 0,
+      "popularity_tag": "持续上榜",
+      "concept_tags": [
+        "中国AI 50",
+        "AI PC"
+      ]
     },
     {
       "rank": 3,
-      "code": "SH601991",
-      "name": "大唐发电",
-      "price": 5.04,
-      "change_amount": 0.506016,
-      "change_pct": 10.04
+      "code": "002342",
+      "name": "巨力索具",
+      "price": 0,
+      "change_pct": 9.99,
+      "hot_value": "265962.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "商业航天",
+        "军工"
+      ]
     },
     {
       "rank": 4,
-      "code": "SH601868",
-      "name": "中国能建",
-      "price": 3.12,
-      "change_amount": 0.30763199999999996,
-      "change_pct": 9.86
+      "code": "002217",
+      "name": "合力泰",
+      "price": 0,
+      "change_pct": 10.06,
+      "hot_value": "251110.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "电子纸",
+        "华为手机"
+      ]
     },
     {
       "rank": 5,
-      "code": "SZ002342",
-      "name": "巨力索具",
-      "price": 22.12,
-      "change_amount": 2.212,
-      "change_pct": 10.0
+      "code": "601991",
+      "name": "大唐发电",
+      "price": 0,
+      "change_pct": 10.04,
+      "hot_value": "221300.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "绿色电力",
+        "风电"
+      ]
     },
     {
       "rank": 6,
-      "code": "SH600522",
-      "name": "中天科技",
-      "price": 38.38,
-      "change_amount": 3.838,
-      "change_pct": 10.0
+      "code": "603538",
+      "name": "美诺华",
+      "price": 0,
+      "change_pct": -10.0,
+      "hot_value": "208148.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "减肥药",
+        "流感"
+      ]
     },
     {
       "rank": 7,
-      "code": "SZ002217",
-      "name": "合力泰",
-      "price": 3.5,
-      "change_amount": 0.3521,
-      "change_pct": 10.06
+      "code": "600396",
+      "name": "华电辽能",
+      "price": 0,
+      "change_pct": 9.99,
+      "hot_value": "185782.0",
+      "rank_chg": 0,
+      "popularity_tag": "10天6板",
+      "concept_tags": [
+        "超超临界发电",
+        "绿色电力"
+      ]
     },
     {
       "rank": 8,
-      "code": "SZ002384",
-      "name": "东山精密",
-      "price": 211.07,
-      "change_amount": 21.107,
-      "change_pct": 10.0
+      "code": "603778",
+      "name": "国晟科技",
+      "price": 0,
+      "change_pct": -7.17,
+      "hot_value": "173492.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "硅能源",
+        "TOPCON电池"
+      ]
     },
     {
       "rank": 9,
-      "code": "SH600396",
-      "name": "华电辽能",
-      "price": 12.0,
-      "change_amount": 1.1987999999999999,
-      "change_pct": 9.99
+      "code": "601868",
+      "name": "中国能建",
+      "price": 0,
+      "change_pct": 9.86,
+      "hot_value": "166486.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "碳交易",
+        "超超临界发电"
+      ]
     },
     {
       "rank": 10,
-      "code": "SZ301171",
-      "name": "易点天下",
-      "price": 43.0,
-      "change_amount": 8.6043,
-      "change_pct": 20.01
+      "code": "002580",
+      "name": "圣阳股份",
+      "price": 0,
+      "change_pct": 0.44,
+      "hot_value": "164405.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "动力电池回收",
+        "液冷服务器"
+      ]
     },
     {
       "rank": 11,
-      "code": "SZ002491",
-      "name": "通鼎互联",
-      "price": 18.78,
-      "change_amount": 1.881756,
-      "change_pct": 10.02
+      "code": "002384",
+      "name": "东山精密",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "157121.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "共封装光学(CPO)",
+        "同花顺果指数"
+      ]
     },
     {
       "rank": 12,
-      "code": "SZ300058",
-      "name": "蓝色光标",
-      "price": 19.3,
-      "change_amount": 1.3374899999999998,
-      "change_pct": 6.93
+      "code": "600522",
+      "name": "中天科技",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "152336.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "光纤概念",
+        "共封装光学(CPO)"
+      ]
     },
     {
       "rank": 13,
-      "code": "SH600673",
-      "name": "东阳光",
-      "price": 42.83,
-      "change_amount": 4.278716999999999,
-      "change_pct": 9.99
+      "code": "300058",
+      "name": "蓝色光标",
+      "price": 0,
+      "change_pct": 6.93,
+      "hot_value": "149173.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "快手概念",
+        "小红书概念"
+      ]
     },
     {
       "rank": 14,
-      "code": "SZ002156",
-      "name": "通富微电",
-      "price": 59.08,
-      "change_amount": 2.2095920000000002,
-      "change_pct": 3.74
+      "code": "603399",
+      "name": "永杉锂业",
+      "price": 0,
+      "change_pct": 5.86,
+      "hot_value": "146868.0",
+      "rank_chg": 0,
+      "popularity_tag": "5天4板",
+      "concept_tags": [
+        "小金属概念",
+        "固态电池"
+      ]
     },
     {
       "rank": 15,
-      "code": "SZ002031",
-      "name": "巨轮智能",
-      "price": 6.42,
-      "change_amount": 0.637506,
-      "change_pct": 9.93
+      "code": "002050",
+      "name": "三花智控",
+      "price": 0,
+      "change_pct": 4.49,
+      "hot_value": "127595.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "人形机器人",
+        "同花顺新质50"
+      ]
     },
     {
       "rank": 16,
-      "code": "SZ002436",
-      "name": "兴森科技",
-      "price": 32.42,
-      "change_amount": 3.245242,
-      "change_pct": 10.01
+      "code": "600673",
+      "name": "东阳光",
+      "price": 0,
+      "change_pct": 9.99,
+      "hot_value": "126824.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "算力租赁",
+        "东数西算(算力)"
+      ]
     },
     {
       "rank": 17,
-      "code": "SZ002149",
-      "name": "西部材料",
-      "price": 73.47,
-      "change_amount": 3.798399,
-      "change_pct": 5.17
+      "code": "600745",
+      "name": "*ST闻泰",
+      "price": 0,
+      "change_pct": -5.02,
+      "hot_value": "123542.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "ST板块",
+        "AI手机"
+      ]
     },
     {
       "rank": 18,
-      "code": "SH600736",
-      "name": "苏州高新",
-      "price": 9.65,
-      "change_amount": 0.9678950000000001,
-      "change_pct": 10.03
+      "code": "002149",
+      "name": "西部材料",
+      "price": 0,
+      "change_pct": 5.17,
+      "hot_value": "121384.0",
+      "rank_chg": 0,
+      "popularity_tag": "3天2板",
+      "concept_tags": [
+        "航空发动机",
+        "卫星导航"
+      ]
     },
     {
       "rank": 19,
-      "code": "SZ000818",
-      "name": "航锦科技",
-      "price": 18.54,
-      "change_amount": 1.8595619999999997,
-      "change_pct": 10.03
+      "code": "000889",
+      "name": "中嘉博创",
+      "price": 0,
+      "change_pct": 10.08,
+      "hot_value": "121027.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "算力租赁",
+        "腾讯概念"
+      ]
     },
     {
       "rank": 20,
-      "code": "SH600105",
-      "name": "永鼎股份",
-      "price": 47.52,
-      "change_amount": 4.177008,
-      "change_pct": 8.79
+      "code": "603629",
+      "name": "利通电子",
+      "price": 0,
+      "change_pct": -0.36,
+      "hot_value": "117087.0",
+      "rank_chg": 0,
+      "popularity_tag": "5天3板",
+      "concept_tags": [
+        "算力租赁",
+        "东数西算(算力)"
+      ]
     },
     {
       "rank": 21,
-      "code": "SZ000070",
-      "name": "特发信息",
-      "price": 20.11,
-      "change_amount": 2.013011,
-      "change_pct": 10.01
+      "code": "002361",
+      "name": "神剑股份",
+      "price": 0,
+      "change_pct": 1.84,
+      "hot_value": "116943.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "航空发动机",
+        "卫星导航"
+      ]
     },
     {
       "rank": 22,
-      "code": "SH603256",
-      "name": "宏和科技",
-      "price": 144.11,
-      "change_amount": 14.411000000000001,
-      "change_pct": 10.0
+      "code": "002491",
+      "name": "通鼎互联",
+      "price": 0,
+      "change_pct": 10.02,
+      "hot_value": "116156.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "光纤概念",
+        "5G"
+      ]
     },
     {
       "rank": 23,
-      "code": "SH600726",
-      "name": "华电能源",
-      "price": 7.61,
-      "change_amount": 0.7587170000000001,
-      "change_pct": 9.97
+      "code": "002156",
+      "name": "通富微电",
+      "price": 0,
+      "change_pct": 3.74,
+      "hot_value": "116069.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "国家大基金持股",
+        "存储芯片"
+      ]
     },
     {
       "rank": 24,
-      "code": "SZ002298",
-      "name": "中电鑫龙",
-      "price": 11.11,
-      "change_amount": 1.111,
-      "change_pct": 10.0
+      "code": "603256",
+      "name": "宏和科技",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "114186.0",
+      "rank_chg": 0,
+      "popularity_tag": "4天3板",
+      "concept_tags": [
+        "PCB概念",
+        "华为手机"
+      ]
     },
     {
       "rank": 25,
-      "code": "SH603618",
-      "name": "杭电股份",
-      "price": 34.2,
-      "change_amount": 3.42,
-      "change_pct": 10.0
+      "code": "600186",
+      "name": "莲花控股",
+      "price": 0,
+      "change_pct": -2.37,
+      "hot_value": "113863.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "算力租赁",
+        "东数西算(算力)"
+      ]
     },
     {
       "rank": 26,
-      "code": "SH603459",
-      "name": "红板科技",
-      "price": 73.68,
-      "change_amount": 7.368,
-      "change_pct": 10.0
+      "code": "600105",
+      "name": "永鼎股份",
+      "price": 0,
+      "change_pct": 8.79,
+      "hot_value": "108761.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "共封装光学(CPO)",
+        "光纤概念"
+      ]
     },
     {
       "rank": 27,
-      "code": "SZ002183",
-      "name": "怡 亚 通",
-      "price": 6.5,
-      "change_amount": 0.6487,
-      "change_pct": 9.98
+      "code": "600379",
+      "name": "宝光股份",
+      "price": 0,
+      "change_pct": -3.3,
+      "hot_value": "108525.0",
+      "rank_chg": 0,
+      "popularity_tag": "5天4板",
+      "concept_tags": [
+        "特高压",
+        "智能电网"
+      ]
     },
     {
       "rank": 28,
-      "code": "SZ002008",
-      "name": "大族激光",
-      "price": 112.41,
-      "change_amount": 11.241,
-      "change_pct": 10.0
+      "code": "301171",
+      "name": "易点天下",
+      "price": 0,
+      "change_pct": 20.01,
+      "hot_value": "106577.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "快手概念",
+        "小红书概念"
+      ]
     },
     {
       "rank": 29,
-      "code": "SH603399",
-      "name": "永杉锂业",
-      "price": 22.58,
-      "change_amount": 1.323188,
-      "change_pct": 5.86
+      "code": "600759",
+      "name": "ST洲际",
+      "price": 0,
+      "change_pct": -4.96,
+      "hot_value": "104921.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "俄乌冲突概念",
+        "天然气"
+      ]
     },
     {
       "rank": 30,
-      "code": "SZ002281",
-      "name": "光迅科技",
-      "price": 164.29,
-      "change_amount": 14.671097,
-      "change_pct": 8.93
+      "code": "600736",
+      "name": "苏州高新",
+      "price": 0,
+      "change_pct": 10.03,
+      "hot_value": "103650.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "特色小镇",
+        "华为数字能源"
+      ]
     },
     {
       "rank": 31,
-      "code": "SZ002050",
-      "name": "三花智控",
-      "price": 50.32,
-      "change_amount": 2.2593680000000003,
-      "change_pct": 4.49
+      "code": "000818",
+      "name": "航锦科技",
+      "price": 0,
+      "change_pct": 10.03,
+      "hot_value": "103443.0",
+      "rank_chg": 0,
+      "popularity_tag": "4天3板",
+      "concept_tags": [
+        "算力租赁",
+        "云计算"
+      ]
     },
     {
       "rank": 32,
-      "code": "SZ000889",
-      "name": "中嘉博创",
-      "price": 5.35,
-      "change_amount": 0.53928,
-      "change_pct": 10.08
+      "code": "600487",
+      "name": "亨通光电",
+      "price": 0,
+      "change_pct": 5.79,
+      "hot_value": "100945.0",
+      "rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "光纤概念",
+        "F5G概念"
+      ]
     },
     {
       "rank": 33,
-      "code": "SZ000720",
-      "name": "新能泰山",
-      "price": 5.17,
-      "change_amount": 0.517,
-      "change_pct": 10.0
+      "code": "002181",
+      "name": "粤传媒",
+      "price": 0,
+      "change_pct": 3.2,
+      "hot_value": "99479.0",
+      "rank_chg": 1,
+      "popularity_tag": "3天2板",
+      "concept_tags": [
+        "短剧游戏",
+        "文化传媒概念"
+      ]
     },
     {
       "rank": 34,
-      "code": "SZ002929",
-      "name": "润建股份",
-      "price": 71.12,
-      "change_amount": 7.119112,
-      "change_pct": 10.01
+      "code": "002655",
+      "name": "共达电声",
+      "price": 0,
+      "change_pct": 10.02,
+      "hot_value": "99452.0",
+      "rank_chg": -2,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "智能音箱",
+        "苹果概念"
+      ]
     },
     {
       "rank": 35,
-      "code": "SH603598",
-      "name": "引力传媒",
-      "price": 24.02,
-      "change_amount": 2.397196,
-      "change_pct": 9.98
+      "code": "002929",
+      "name": "润建股份",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "96712.0",
+      "rank_chg": 0,
+      "popularity_tag": "3天2板",
+      "concept_tags": [
+        "算力租赁",
+        "华为昇腾"
+      ]
     },
     {
       "rank": 36,
-      "code": "SH601208",
-      "name": "东材科技",
-      "price": 45.16,
-      "change_amount": 4.520516,
-      "change_pct": 10.01
+      "code": "600726",
+      "name": "华电能源",
+      "price": 0,
+      "change_pct": 9.97,
+      "hot_value": "95718.0",
+      "rank_chg": 0,
+      "popularity_tag": "8天5板",
+      "concept_tags": [
+        "超超临界发电",
+        "煤炭概念"
+      ]
     },
     {
       "rank": 37,
-      "code": "SH603738",
-      "name": "泰晶科技",
-      "price": 42.74,
-      "change_amount": 4.278274,
-      "change_pct": 10.01
+      "code": "603618",
+      "name": "杭电股份",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "93010.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "光纤概念",
+        "特高压"
+      ]
     },
     {
       "rank": 38,
-      "code": "SZ002335",
-      "name": "科华数据",
-      "price": 69.16,
-      "change_amount": 6.9159999999999995,
-      "change_pct": 10.0
+      "code": "603601",
+      "name": "再升科技",
+      "price": 0,
+      "change_pct": 3.53,
+      "hot_value": "90973.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "商业航天",
+        "大飞机"
+      ]
     },
     {
       "rank": 39,
-      "code": "SH603778",
-      "name": "国晟科技",
-      "price": 25.91,
-      "change_amount": -1.857747,
-      "change_pct": -7.17
+      "code": "000070",
+      "name": "特发信息",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "89349.0",
+      "rank_chg": 2,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "光纤概念",
+        "F5G概念"
+      ]
     },
     {
       "rank": 40,
-      "code": "SH600487",
-      "name": "亨通光电",
-      "price": 75.96,
-      "change_amount": 4.398084,
-      "change_pct": 5.79
+      "code": "601778",
+      "name": "晶科科技",
+      "price": 0,
+      "change_pct": 3.78,
+      "hot_value": "89190.0",
+      "rank_chg": -1,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "算力租赁",
+        "虚拟电厂"
+      ]
     },
     {
       "rank": 41,
-      "code": "SZ000988",
-      "name": "华工科技",
-      "price": 133.5,
-      "change_amount": 8.8644,
-      "change_pct": 6.64
+      "code": "002281",
+      "name": "光迅科技",
+      "price": 0,
+      "change_pct": 8.93,
+      "hot_value": "89072.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "F5G概念",
+        "共封装光学(CPO)"
+      ]
     },
     {
       "rank": 42,
-      "code": "SH603636",
-      "name": "南威软件",
-      "price": 10.1,
-      "change_amount": 1.01202,
-      "change_pct": 10.02
+      "code": "000815",
+      "name": "美利云",
+      "price": 0,
+      "change_pct": 5.78,
+      "hot_value": "87851.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "算力租赁",
+        "东数西算(算力)"
+      ]
     },
     {
       "rank": 43,
-      "code": "SZ300052",
-      "name": "中青宝",
-      "price": 14.27,
-      "change_amount": 2.856854,
-      "change_pct": 20.02
+      "code": "002131",
+      "name": "利欧股份",
+      "price": 0,
+      "change_pct": 3.67,
+      "hot_value": "87405.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "快手概念",
+        "小红书概念"
+      ]
     },
     {
       "rank": 44,
-      "code": "SH603538",
-      "name": "美诺华",
-      "price": 61.65,
-      "change_amount": -6.165,
-      "change_pct": -10.0
+      "code": "603738",
+      "name": "泰晶科技",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "83066.0",
+      "rank_chg": 0,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "光刻机",
+        "共封装光学(CPO)"
+      ]
     },
     {
       "rank": 45,
-      "code": "SH603688",
-      "name": "石英股份",
-      "price": 63.32,
-      "change_amount": 6.338332,
-      "change_pct": 10.01
+      "code": "000967",
+      "name": "盈峰环境",
+      "price": 0,
+      "change_pct": 9.98,
+      "hot_value": "82149.0",
+      "rank_chg": 2,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "算力租赁",
+        "智能电网"
+      ]
     },
     {
       "rank": 46,
-      "code": "SH600130",
-      "name": "波导股份",
-      "price": 5.59,
-      "change_amount": 0.561236,
-      "change_pct": 10.04
+      "code": "002297",
+      "name": "博云新材",
+      "price": 0,
+      "change_pct": 3.08,
+      "hot_value": "81533.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "培育钻石",
+        "成飞概念"
+      ]
     },
     {
       "rank": 47,
-      "code": "SZ000967",
-      "name": "盈峰环境",
-      "price": 16.42,
-      "change_amount": 1.6387160000000003,
-      "change_pct": 9.98
+      "code": "002202",
+      "name": "金风科技",
+      "price": 0,
+      "change_pct": 1.86,
+      "hot_value": "81384.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "商业航天",
+        "柔性直流输电"
+      ]
     },
     {
       "rank": 48,
-      "code": "SH603803",
-      "name": "瑞斯康达",
-      "price": 16.27,
-      "change_amount": 1.6286269999999998,
-      "change_pct": 10.01
+      "code": "601016",
+      "name": "节能风电",
+      "price": 0,
+      "change_pct": 6.4,
+      "hot_value": "81274.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "绿色电力",
+        "风电"
+      ]
     },
     {
       "rank": 49,
-      "code": "SZ000823",
-      "name": "超声电子",
-      "price": 17.31,
-      "change_amount": 1.725807,
-      "change_pct": 9.97
+      "code": "002565",
+      "name": "顺灏股份",
+      "price": 0,
+      "change_pct": 3.44,
+      "hot_value": "79060.0",
+      "rank_chg": 3,
+      "popularity_tag": "",
+      "concept_tags": [
+        "卫星导航",
+        "商业航天"
+      ]
     },
     {
       "rank": 50,
-      "code": "SZ002655",
-      "name": "共达电声",
-      "price": 35.81,
-      "change_amount": 3.5881619999999996,
-      "change_pct": 10.02
+      "code": "002709",
+      "name": "天赐材料",
+      "price": 0,
+      "change_pct": -1.88,
+      "hot_value": "79001.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "钠离子电池",
+        "固态电池"
+      ]
     },
     {
       "rank": 51,
-      "code": "SZ300502",
-      "name": "新易盛",
-      "price": 563.5,
-      "change_amount": 44.23474999999999,
-      "change_pct": 7.85
+      "code": "002008",
+      "name": "大族激光",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "78994.0",
+      "rank_chg": -1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "光刻机",
+        "光纤概念"
+      ]
     },
     {
       "rank": 52,
-      "code": "SH601016",
-      "name": "节能风电",
-      "price": 4.99,
-      "change_amount": 0.31936000000000003,
-      "change_pct": 6.4
+      "code": "002183",
+      "name": "怡亚通",
+      "price": 0,
+      "change_pct": 9.98,
+      "hot_value": "78602.0",
+      "rank_chg": -1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "存储芯片",
+        "芯片概念"
+      ]
     },
     {
       "rank": 53,
-      "code": "SH600719",
-      "name": "大连热电",
-      "price": 9.38,
-      "change_amount": 0.9342480000000002,
-      "change_pct": 9.96
+      "code": "001309",
+      "name": "德明利",
+      "price": 0,
+      "change_pct": 6.79,
+      "hot_value": "77376.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "存储芯片",
+        "AI PC"
+      ]
     },
     {
       "rank": 54,
-      "code": "SZ002317",
-      "name": "众生药业",
-      "price": 20.49,
-      "change_amount": 2.044902,
-      "change_pct": 9.98
+      "code": "000988",
+      "name": "华工科技",
+      "price": 0,
+      "change_pct": 6.64,
+      "hot_value": "75457.0",
+      "rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "F5G概念",
+        "共封装光学(CPO)"
+      ]
     },
     {
       "rank": 55,
-      "code": "SH603938",
-      "name": "三孚股份",
-      "price": 32.63,
-      "change_amount": 3.2662630000000004,
-      "change_pct": 10.01
+      "code": "603318",
+      "name": "水发燃气",
+      "price": 0,
+      "change_pct": -10.0,
+      "hot_value": "75119.0",
+      "rank_chg": 1,
+      "popularity_tag": "11天6板",
+      "concept_tags": [
+        "天然气",
+        "氢能源"
+      ]
     },
     {
       "rank": 56,
-      "code": "SH600745",
-      "name": "*ST闻泰",
-      "price": 25.37,
-      "change_amount": -1.273574,
-      "change_pct": -5.02
+      "code": "002436",
+      "name": "兴森科技",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "74829.0",
+      "rank_chg": -2,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "PCB概念",
+        "共封装光学(CPO)"
+      ]
     },
     {
       "rank": 57,
-      "code": "SZ000858",
-      "name": "五 粮 液",
-      "price": 92.6,
-      "change_amount": 0.34262,
-      "change_pct": 0.37
+      "code": "002428",
+      "name": "云南锗业",
+      "price": 0,
+      "change_pct": 4.14,
+      "hot_value": "72154.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "光纤概念",
+        "第三代半导体"
+      ]
     },
     {
       "rank": 58,
-      "code": "SZ300059",
-      "name": "东方财富",
-      "price": 20.73,
-      "change_amount": -0.120234,
-      "change_pct": -0.58
+      "code": "300136",
+      "name": "信维通信",
+      "price": 0,
+      "change_pct": 4.55,
+      "hot_value": "71485.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "6G概念",
+        "卫星导航"
+      ]
     },
     {
       "rank": 59,
-      "code": "SH605006",
-      "name": "山东玻纤",
-      "price": 13.52,
-      "change_amount": 1.3533519999999999,
-      "change_pct": 10.01
+      "code": "603045",
+      "name": "福达合金",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "69599.0",
+      "rank_chg": 1,
+      "popularity_tag": "3天3板",
+      "concept_tags": [
+        "汽车电子",
+        "5G"
+      ]
     },
     {
       "rank": 60,
-      "code": "SH600936",
-      "name": "北投科技",
-      "price": 4.7,
-      "change_amount": 0.47329,
-      "change_pct": 10.07
+      "code": "603598",
+      "name": "引力传媒",
+      "price": 0,
+      "change_pct": 9.98,
+      "hot_value": "69372.0",
+      "rank_chg": -1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "快手概念",
+        "短剧游戏"
+      ]
     },
     {
       "rank": 61,
-      "code": "SH603045",
-      "name": "福达合金",
-      "price": 56.49,
-      "change_amount": 5.654649000000001,
-      "change_pct": 10.01
+      "code": "000720",
+      "name": "新能泰山",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "68265.0",
+      "rank_chg": 1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "光纤概念",
+        "国企改革"
+      ]
     },
     {
       "rank": 62,
-      "code": "SZ002698",
-      "name": "博实股份",
-      "price": 15.16,
-      "change_amount": 1.5175159999999999,
-      "change_pct": 10.01
+      "code": "300052",
+      "name": "中青宝",
+      "price": 0,
+      "change_pct": 20.02,
+      "hot_value": "68255.0",
+      "rank_chg": -1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "云游戏",
+        "电子竞技"
+      ]
     },
     {
       "rank": 63,
-      "code": "SH603002",
-      "name": "宏昌电子",
-      "price": 15.32,
-      "change_amount": 1.5289360000000003,
-      "change_pct": 9.98
+      "code": "002031",
+      "name": "巨轮智能",
+      "price": 0,
+      "change_pct": 9.93,
+      "hot_value": "67837.0",
+      "rank_chg": 1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "减速器",
+        "智能物流"
+      ]
     },
     {
       "rank": 64,
-      "code": "SZ002428",
-      "name": "云南锗业",
-      "price": 80.2,
-      "change_amount": 3.3202799999999995,
-      "change_pct": 4.14
+      "code": "603459",
+      "name": "红板科技",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "67685.0",
+      "rank_chg": -1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "注册制次新股",
+        "华为手机"
+      ]
     },
     {
       "rank": 65,
-      "code": "SH600707",
-      "name": "彩虹股份",
-      "price": 9.04,
-      "change_amount": 0.902192,
-      "change_pct": 9.98
+      "code": "601138",
+      "name": "工业富联",
+      "price": 0,
+      "change_pct": 1.74,
+      "hot_value": "67315.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "同花顺果指数",
+        "共封装光学(CPO)"
+      ]
     },
     {
       "rank": 66,
-      "code": "SZ000700",
-      "name": "模塑科技",
-      "price": 13.56,
-      "change_amount": 1.353288,
-      "change_pct": 9.98
+      "code": "601869",
+      "name": "长飞光纤",
+      "price": 0,
+      "change_pct": 7.8,
+      "hot_value": "66322.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "光纤概念",
+        "铜缆高速连接"
+      ]
     },
     {
       "rank": 67,
-      "code": "SZ300398",
-      "name": "飞凯材料",
-      "price": 35.82,
-      "change_amount": 4.821372,
-      "change_pct": 13.46
+      "code": "300068",
+      "name": "ST南都",
+      "price": 0,
+      "change_pct": -19.35,
+      "hot_value": "66136.0",
+      "rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "ST板块",
+        "两轮车"
+      ]
     },
     {
       "rank": 68,
-      "code": "SZ002194",
-      "name": "武汉凡谷",
-      "price": 12.5,
-      "change_amount": 1.255,
-      "change_pct": 10.04
+      "code": "002261",
+      "name": "拓维信息",
+      "price": 0,
+      "change_pct": 0.4,
+      "hot_value": "65976.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "华为欧拉",
+        "华为昇腾"
+      ]
     },
     {
       "rank": 69,
-      "code": "SH603629",
-      "name": "利通电子",
-      "price": 158.28,
-      "change_amount": -0.569808,
-      "change_pct": -0.36
+      "code": "603095",
+      "name": "越剑智能",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "65689.0",
+      "rank_chg": 1,
+      "popularity_tag": "6天5板",
+      "concept_tags": [
+        "高端装备",
+        "专精特新"
+      ]
     },
     {
       "rank": 70,
-      "code": "SH600610",
-      "name": "中毅达",
-      "price": 10.34,
-      "change_amount": 1.034,
-      "change_pct": 10.0
+      "code": "002407",
+      "name": "多氟多",
+      "price": 0,
+      "change_pct": -1.52,
+      "hot_value": "65253.0",
+      "rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "钠离子电池",
+        "PVDF概念"
+      ]
     },
     {
       "rank": 71,
-      "code": "SZ002591",
-      "name": "恒大高新",
-      "price": 8.76,
-      "change_amount": 0.8803800000000002,
-      "change_pct": 10.05
+      "code": "300342",
+      "name": "天银机电",
+      "price": 0,
+      "change_pct": -10.49,
+      "hot_value": "64753.0",
+      "rank_chg": -2,
+      "popularity_tag": "",
+      "concept_tags": [
+        "太赫兹",
+        "卫星导航"
+      ]
     },
     {
       "rank": 72,
-      "code": "SZ000815",
-      "name": "美利云",
-      "price": 22.13,
-      "change_amount": 1.279114,
-      "change_pct": 5.78
+      "code": "600610",
+      "name": "中毅达",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "64616.0",
+      "rank_chg": 1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "国企改革",
+        "西部大开发"
+      ]
     },
     {
       "rank": 73,
-      "code": "SH600207",
-      "name": "安彩高科",
-      "price": 6.23,
-      "change_amount": 0.6273610000000001,
-      "change_pct": 10.07
+      "code": "002015",
+      "name": "协鑫能科",
+      "price": 0,
+      "change_pct": 5.43,
+      "hot_value": "64457.0",
+      "rank_chg": 1,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "虚拟电厂",
+        "华为数字能源"
+      ]
     },
     {
       "rank": 74,
-      "code": "SZ301000",
-      "name": "肇民科技",
-      "price": 32.98,
-      "change_amount": 6.599298,
-      "change_pct": 20.01
+      "code": "000062",
+      "name": "深圳华强",
+      "price": 0,
+      "change_pct": 1.57,
+      "hot_value": "64427.0",
+      "rank_chg": -2,
+      "popularity_tag": "",
+      "concept_tags": [
+        "存储芯片",
+        "华为海思概念股"
+      ]
     },
     {
       "rank": 75,
-      "code": "SH603316",
-      "name": "诚邦股份",
-      "price": 18.87,
-      "change_amount": 1.892661,
-      "change_pct": 10.03
+      "code": "000890",
+      "name": "法尔胜",
+      "price": 0,
+      "change_pct": -3.63,
+      "hot_value": "64355.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "净水概念",
+        "光纤概念"
+      ]
     },
     {
       "rank": 76,
-      "code": "SH601869",
-      "name": "长飞光纤",
-      "price": 389.2,
-      "change_amount": 30.357599999999998,
-      "change_pct": 7.8
+      "code": "603278",
+      "name": "大业股份",
+      "price": 0,
+      "change_pct": 9.98,
+      "hot_value": "63554.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "商业航天",
+        "风电"
+      ]
     },
     {
       "rank": 77,
-      "code": "SZ000509",
-      "name": "华塑控股",
-      "price": 3.93,
-      "change_amount": 0.39614400000000005,
-      "change_pct": 10.08
+      "code": "601208",
+      "name": "东材科技",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "62095.0",
+      "rank_chg": 1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "PET铜箔",
+        "PCB概念"
+      ]
     },
     {
       "rank": 78,
-      "code": "SZ002903",
-      "name": "宇环数控",
-      "price": 45.22,
-      "change_amount": 4.522,
-      "change_pct": 10.0
+      "code": "002792",
+      "name": "通宇通讯",
+      "price": 0,
+      "change_pct": 7.12,
+      "hot_value": "61878.0",
+      "rank_chg": 2,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "6G概念",
+        "卫星导航"
+      ]
     },
     {
       "rank": 79,
-      "code": "SH601778",
-      "name": "晶科科技",
-      "price": 7.42,
-      "change_amount": 0.280476,
-      "change_pct": 3.78
+      "code": "002044",
+      "name": "美年健康",
+      "price": 0,
+      "change_pct": 3.85,
+      "hot_value": "61817.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "AIGC概念",
+        "AI应用"
+      ]
     },
     {
       "rank": 80,
-      "code": "SH603278",
-      "name": "大业股份",
-      "price": 13.55,
-      "change_amount": 1.3522900000000002,
-      "change_pct": 9.98
+      "code": "300502",
+      "name": "新易盛",
+      "price": 0,
+      "change_pct": 7.85,
+      "hot_value": "61692.0",
+      "rank_chg": -3,
+      "popularity_tag": "",
+      "concept_tags": [
+        "共封装光学(CPO)",
+        "5G"
+      ]
     },
     {
       "rank": 81,
-      "code": "SZ300342",
-      "name": "天银机电",
-      "price": 64.99,
-      "change_amount": -6.817451,
-      "change_pct": -10.49
+      "code": "002475",
+      "name": "立讯精密",
+      "price": 0,
+      "change_pct": 3.64,
+      "hot_value": "61221.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "同花顺果指数",
+        "智能音箱"
+      ]
     },
     {
       "rank": 82,
-      "code": "SZ002051",
-      "name": "中工国际",
-      "price": 11.68,
-      "change_amount": 1.165664,
-      "change_pct": 9.98
+      "code": "600770",
+      "name": "综艺股份",
+      "price": 0,
+      "change_pct": -2.51,
+      "hot_value": "60735.0",
+      "rank_chg": 0,
+      "popularity_tag": "8天4板",
+      "concept_tags": [
+        "汽车芯片",
+        "数据安全"
+      ]
     },
     {
       "rank": 83,
-      "code": "SZ002709",
-      "name": "天赐材料",
-      "price": 62.8,
-      "change_amount": -1.18064,
-      "change_pct": -1.88
+      "code": "600130",
+      "name": "波导股份",
+      "price": 0,
+      "change_pct": 10.04,
+      "hot_value": "60224.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "卫星导航",
+        "人脸识别"
+      ]
     },
     {
       "rank": 84,
-      "code": "SZ001309",
-      "name": "德明利",
-      "price": 616.51,
-      "change_amount": 41.861029,
-      "change_pct": 6.79
+      "code": "002990",
+      "name": "盛视科技",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "59359.0",
+      "rank_chg": 0,
+      "popularity_tag": "3天2板",
+      "concept_tags": [
+        "存储芯片",
+        "华为昇腾"
+      ]
     },
     {
       "rank": 85,
-      "code": "SZ002664",
-      "name": "信质集团",
-      "price": 22.39,
-      "change_amount": 2.243478,
-      "change_pct": 10.02
+      "code": "000592",
+      "name": "平潭发展",
+      "price": 0,
+      "change_pct": 3.94,
+      "hot_value": "59260.0",
+      "rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "福建自贸区",
+        "民营医院"
+      ]
     },
     {
       "rank": 86,
-      "code": "SZ300136",
-      "name": "信维通信",
-      "price": 101.65,
-      "change_amount": 4.625075,
-      "change_pct": 4.55
+      "code": "601179",
+      "name": "中国西电",
+      "price": 0,
+      "change_pct": 0.4,
+      "hot_value": "59199.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "柔性直流输电",
+        "特高压"
+      ]
     },
     {
       "rank": 87,
-      "code": "SH603158",
-      "name": "腾龙股份",
-      "price": 15.44,
-      "change_amount": 1.539368,
-      "change_pct": 9.97
+      "code": "605006",
+      "name": "山东玻纤",
+      "price": 0,
+      "change_pct": 10.01,
+      "hot_value": "58290.0",
+      "rank_chg": 1,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "PCB概念",
+        "风电"
+      ]
     },
     {
       "rank": 88,
-      "code": "SZ002361",
-      "name": "神剑股份",
-      "price": 21.6,
-      "change_amount": 0.39744000000000007,
-      "change_pct": 1.84
+      "code": "688256",
+      "name": "寒武纪",
+      "price": 0,
+      "change_pct": 2.36,
+      "hot_value": "58246.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "中国AI 50",
+        "汽车芯片"
+      ]
     },
     {
       "rank": 89,
-      "code": "SZ002552",
-      "name": "宝鼎科技",
-      "price": 25.14,
-      "change_amount": 2.519028,
-      "change_pct": 10.02
+      "code": "002466",
+      "name": "天齐锂业",
+      "price": 0,
+      "change_pct": -3.24,
+      "hot_value": "57430.0",
+      "rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "盐湖提锂",
+        "小金属概念"
+      ]
     },
     {
       "rank": 90,
-      "code": "SH601138",
-      "name": "工业富联",
-      "price": 64.18,
-      "change_amount": 1.116732,
-      "change_pct": 1.74
+      "code": "002115",
+      "name": "三维通信",
+      "price": 0,
+      "change_pct": 2.61,
+      "hot_value": "57327.0",
+      "rank_chg": -1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "小红书概念",
+        "快手概念"
+      ]
     },
     {
       "rank": 91,
-      "code": "SH603601",
-      "name": "再升科技",
-      "price": 17.32,
-      "change_amount": 0.6113959999999999,
-      "change_pct": 3.53
+      "code": "600703",
+      "name": "三安光电",
+      "price": 0,
+      "change_pct": 3.13,
+      "hot_value": "56945.0",
+      "rank_chg": 3,
+      "popularity_tag": "",
+      "concept_tags": [
+        "MicroLED概念",
+        "MiniLED"
+      ]
     },
     {
       "rank": 92,
-      "code": "SH603095",
-      "name": "越剑智能",
-      "price": 26.6,
-      "change_amount": 2.6626600000000002,
-      "change_pct": 10.01
+      "code": "002298",
+      "name": "中电鑫龙",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "56730.0",
+      "rank_chg": 5,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "虚拟电厂",
+        "电力物联网"
+      ]
     },
     {
       "rank": 93,
-      "code": "SH605168",
-      "name": "三人行",
-      "price": 52.27,
-      "change_amount": 5.227,
-      "change_pct": 10.0
+      "code": "920200",
+      "name": "振宏股份",
+      "price": 0,
+      "change_pct": 356.85,
+      "hot_value": "56632.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "新股与次新股",
+        "融资融券"
+      ]
     },
     {
       "rank": 94,
-      "code": "SZ002202",
-      "name": "金风科技",
-      "price": 28.46,
-      "change_amount": 0.529356,
-      "change_pct": 1.86
+      "code": "600111",
+      "name": "北方稀土",
+      "price": 0,
+      "change_pct": -0.38,
+      "hot_value": "56627.0",
+      "rank_chg": -3,
+      "popularity_tag": "",
+      "concept_tags": [
+        "稀土永磁",
+        "小金属概念"
+      ]
     },
     {
       "rank": 95,
-      "code": "SZ002757",
-      "name": "南兴股份",
-      "price": 27.84,
-      "change_amount": 2.784,
-      "change_pct": 10.0
+      "code": "600719",
+      "name": "大连热电",
+      "price": 0,
+      "change_pct": 9.96,
+      "hot_value": "56437.0",
+      "rank_chg": 1,
+      "popularity_tag": "2天2板",
+      "concept_tags": [
+        "国企改革",
+        "大连自贸区"
+      ]
     },
     {
       "rank": 96,
-      "code": "SZ002990",
-      "name": "盛视科技",
-      "price": 64.25,
-      "change_amount": 6.425,
-      "change_pct": 10.0
+      "code": "002335",
+      "name": "科华数据",
+      "price": 0,
+      "change_pct": 10.0,
+      "hot_value": "56006.0",
+      "rank_chg": -4,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "算力租赁",
+        "液冷服务器"
+      ]
     },
     {
       "rank": 97,
-      "code": "SH600519",
-      "name": "贵州茅台",
-      "price": 1371.05,
-      "change_amount": -3.9760449999999996,
-      "change_pct": -0.29
+      "code": "000858",
+      "name": "五粮液",
+      "price": 0,
+      "change_pct": 0.37,
+      "hot_value": "55838.0",
+      "rank_chg": -2,
+      "popularity_tag": "",
+      "concept_tags": [
+        "白酒概念",
+        "超级品牌"
+      ]
     },
     {
       "rank": 98,
-      "code": "SH600379",
-      "name": "宝光股份",
-      "price": 17.85,
-      "change_amount": -0.58905,
-      "change_pct": -3.3
+      "code": "600330",
+      "name": "天通股份",
+      "price": 0,
+      "change_pct": 3.59,
+      "hot_value": "55416.0",
+      "rank_chg": 0,
+      "popularity_tag": "",
+      "concept_tags": [
+        "第三代半导体",
+        "先进封装"
+      ]
     },
     {
       "rank": 99,
-      "code": "SZ301308",
-      "name": "江波龙",
-      "price": 483.33,
-      "change_amount": 1.9816529999999997,
-      "change_pct": 0.41
+      "code": "603986",
+      "name": "兆易创新",
+      "price": 0,
+      "change_pct": 1.71,
+      "hot_value": "53637.0",
+      "rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "存储芯片",
+        "汽车芯片"
+      ]
     },
     {
       "rank": 100,
-      "code": "SZ301666",
-      "name": "大普微-UW",
-      "price": 432.28,
-      "change_amount": 60.77856799999999,
-      "change_pct": 14.06
+      "code": "603636",
+      "name": "南威软件",
+      "price": 0,
+      "change_pct": 10.02,
+      "hot_value": "51968.0",
+      "rank_chg": 3,
+      "popularity_tag": "首板涨停",
+      "concept_tags": [
+        "电子身份证",
+        "智慧政务"
+      ]
     }
   ]
 }
