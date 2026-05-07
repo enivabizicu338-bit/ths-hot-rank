@@ -218,8 +218,10 @@ def fetch_sectors():
         return []
 
 
-def fetch_sector_leaders():
-    """获取热门概念板块的龙头股（前3只涨幅最大）- 独立模块，不影响主流程"""
+def fetch_sector_leaders(ths_sector_names):
+    """获取热门概念板块的龙头股（前3只涨幅最大）- 独立模块，不影响主流程
+    ths_sector_names: 同花顺板块名称列表，用于匹配东方财富板块
+    """
     print("开始获取板块龙头股...")
     try:
         em_headers = {
@@ -230,33 +232,60 @@ def fetch_sector_leaders():
         em_session.headers.update(em_headers)
         url = "https://push2.eastmoney.com/api/qt/clist/get"
 
-        # 1. 获取东方财富概念板块列表（按涨跌幅排序，取前30）
+        # 1. 获取东方财富全部概念板块列表，建立 名称->代码 映射
         params = {
-            "pn": 1, "pz": 30, "po": 1, "np": 1,
+            "pn": 1, "pz": 500, "po": 1, "np": 1,
             "ut": "b2884a393a59ad64002292a3e90d46a5",
             "fltt": 2, "invt": 2, "fid": "f3",
             "fs": "m:90+t:3",
-            "fields": "f12,f14,f3,f104",
+            "fields": "f12,f14,f3",
         }
         resp = em_session.get(url, params=params, timeout=15)
-        sectors = resp.json().get("data", {}).get("diff", [])
-        if not sectors:
-            print("板块龙头股: 板块列表为空")
+        em_sectors = resp.json().get("data", {}).get("diff", [])
+        if not em_sectors:
+            print("板块龙头股: 东方财富板块列表为空")
             return {}
 
-        # 2. 对每个板块获取涨幅前3的龙头股
+        # 建立 东方财富板块名称 -> 板块代码 的映射
+        em_name_map = {}
+        for sec in em_sectors:
+            em_name_map[sec.get("f14", "")] = sec.get("f12", "")
+
+        # 2. 对每个同花顺板块名称，模糊匹配东方财富板块
+        def find_em_code(ths_name):
+            """模糊匹配同花顺板块名到东方财富板块代码"""
+            # 精确匹配
+            if ths_name in em_name_map:
+                return ths_name, em_name_map[ths_name]
+            # 去掉后缀匹配: "XX概念" -> "XX", "XX(YY)" -> "XX"
+            base = ths_name.replace("概念", "").replace("（", "(").replace("）", ")")
+            paren_idx = base.find("(")
+            if paren_idx > 0:
+                base = base[:paren_idx].strip()
+            if base in em_name_map:
+                return base, em_name_map[base]
+            # 反向: 东方财富名称包含同花顺基础名
+            for em_name, em_code in em_name_map.items():
+                em_base = em_name.replace("概念", "")
+                if base in em_base or em_base in base:
+                    return em_name, em_code
+            return None, None
+
+        # 3. 对匹配到的板块获取涨幅前3的龙头股
         leaders_map = {}
-        for sec in sectors:
-            bk_code = sec.get("f12", "")
-            bk_name = sec.get("f14", "")
-            if not bk_code:
+        matched = 0
+        for ths_name in ths_sector_names:
+            em_name, em_code = find_em_code(ths_name)
+            if not em_code:
+                leaders_map[ths_name] = []
                 continue
+            matched += 1
             try:
                 params2 = {
                     "pn": 1, "pz": 3, "po": 1, "np": 1,
                     "ut": "b2884a393a59ad64002292a3e90d46a5",
                     "fltt": 2, "invt": 2, "fid": "f3",
-                    "fs": f"b:{bk_code}+f:!50",
+                    "fs": f"b:{em_code}+f:!50",
                     "fields": "f12,f14,f2,f3",
                 }
                 resp2 = em_session.get(url, params=params2, timeout=10)
@@ -269,11 +298,11 @@ def fetch_sector_leaders():
                         "price": s.get("f2", 0),
                         "change_pct": s.get("f3", 0),
                     })
-                leaders_map[bk_name] = leaders
+                leaders_map[ths_name] = leaders
             except Exception:
-                leaders_map[bk_name] = []
+                leaders_map[ths_name] = []
 
-        print(f"板块龙头股: 获取 {len(leaders_map)} 个板块")
+        print(f"板块龙头股: 匹配 {matched}/{len(ths_sector_names)} 个板块")
         return leaders_map
     except Exception as e:
         print(f"板块龙头股获取失败: {e}")
@@ -354,7 +383,8 @@ def main():
         }, fp, ensure_ascii=False, indent=2)
 
     # 独立模块：获取板块龙头股（不影响主流程）
-    sector_leaders = fetch_sector_leaders()
+    ths_sector_names = [s["板块名称"] for s in sectors]
+    sector_leaders = fetch_sector_leaders(ths_sector_names)
     with open(DATA_DIR / "sector_leaders.json", "w", encoding="utf-8") as fp:
         json.dump({
             "update_time": now.strftime("%Y-%m-%d %H:%M:%S"),
