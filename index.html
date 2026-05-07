@@ -85,7 +85,7 @@
     <div class="header">
         <h1>📊 为你股神走暗香</h1>
         <div class="header-right">
-            <a class="source-tag" href="https://eq.10jqka.com.cn/frontend/thsTopRank/index.html#/" target="_blank" style="text-decoration:none">同花顺热榜</a>
+            <a class="source-tag" id="sourceTag" href="https://eq.10jqka.com.cn/frontend/thsTopRank/index.html#/" target="_blank" style="text-decoration:none">同花顺热榜</a>
             <a class="source-tag" href="https://guba.eastmoney.com/rank/" target="_blank" style="text-decoration:none;background:rgba(99,102,241,0.15);color:#818cf8">东方财富热榜</a>
             <div class="status-dot"></div>
             <div class="update-time" id="updateTime">加载中...</div>
@@ -575,7 +575,6 @@ async function loadAll() {
     allSectorsData = sectors?.data || null;
     if (current) {
         document.getElementById('updateTime').textContent = '更新: ' + (current.update_time || '未知');
-        if (current.source) document.getElementById('sourceTag').textContent = current.source;
     }
     if (allSectorsData) renderSectorTable(allSectorsData);
     if (allSnapshots.length > 0) {
