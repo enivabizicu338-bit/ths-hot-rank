@@ -202,7 +202,9 @@ function buildTrendData(snapshots, currentData) {
     const stockMap = {};
     for (const snap of snapshots) {
         for (const stock of snap.stocks) {
-            if (!stockMap[stock.code]) stockMap[stock.code] = { code: stock.code, name: stock.name, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
+            const cleanName = (stock.name || '').replace(/\s/g, '');
+            if (!stockMap[stock.code]) stockMap[stock.code] = { code: stock.code, name: cleanName, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
+            stockMap[stock.code].name = cleanName;
             stockMap[stock.code].rank_history.push({ time: snap.time, rank: stock.rank, date: snap.date });
             stockMap[stock.code].current_price = stock.price;
             stockMap[stock.code].current_change_pct = stock.change_pct;
