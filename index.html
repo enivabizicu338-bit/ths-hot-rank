@@ -139,8 +139,8 @@
             <div class="card-header"><h2><span class="dot"></span>📈 热门概念板块</h2></div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_board" onclick="doSectorSort('sec_board')">上板家数 <span class="sort-arrow">⇅</span></th>
-                </tr></thead><tbody id="sectorTable"><tr><td colspan="4" class="loading">加载中...</td></tr></tbody></table>
+                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_board" onclick="doSectorSort('sec_board')">上板家数 <span class="sort-arrow">⇅</span></th><th style="min-width:200px">龙头股</th>
+                </tr></thead><tbody id="sectorTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
     </div>
@@ -226,12 +226,15 @@ function doSectorSort(key) {
         th.classList.remove('asc', 'desc');
         if (th.dataset.key === key) th.classList.add(sectorSortDir);
     });
-    renderSectorTable(allSectorsData);
+    renderSectorTable(allSectorsData, allSectorLeaders);
 }
 
-function renderSectorTable(data) {
+let allSectorLeaders = null;
+
+function renderSectorTable(data, leaders) {
     const tb = document.getElementById('sectorTable');
-    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="4" class="loading">暂无数据</td></tr>'; return; }
+    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="5" class="loading">暂无数据</td></tr>'; return; }
+    if (leaders) allSectorLeaders = leaders;
     let rows = data.slice(0, 30);
     if (sectorSortKey) {
         const dir = sectorSortDir === 'desc' ? -1 : 1;
@@ -240,7 +243,6 @@ function renderSectorTable(data) {
             if (sectorSortKey === 'sec_change') { va = Number(a['涨跌幅']) || 0; vb = Number(b['涨跌幅']) || 0; }
             else if (sectorSortKey === 'sec_hot') { va = parseFloat(a['热度']) || 0; vb = parseFloat(b['热度']) || 0; }
             else if (sectorSortKey === 'sec_board') {
-                // 从 "10家涨停" 提取数字
                 const parseBoard = (s) => { const m = (s || '').match(/(\d+)/); return m ? parseInt(m[1]) : 0; };
                 va = parseBoard(a['上板家数']); vb = parseBoard(b['上板家数']);
             }
@@ -254,7 +256,26 @@ function renderSectorTable(data) {
         const hotStr = s['热度'] ? formatHot(s['热度']) : '-';
         const boardStr = s['上板家数'] || '-';
         const boardColor = boardStr !== '-' ? '#ef4444' : '#64748b';
-        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px"><span class="hot-val">${hotStr}</span></td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${boardColor}">${boardStr}</td></tr>`;
+        // 龙头股列
+        let leadersHtml = '<span style="color:#475569;font-size:11px">加载中...</span>';
+        if (allSectorLeaders) {
+            const name = s['板块名称'];
+            const stocks = allSectorLeaders[name];
+            if (stocks && stocks.length > 0) {
+                leadersHtml = stocks.map((st, idx) => {
+                    const code = (st.code || '').replace(/^(SZ|SH|BJ)/, '');
+                    const url = `https://finance.baidu.com/stock/ab-${code}`;
+                    const pct = st.change_pct || 0;
+                    const pctColor = pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#9ca3af';
+                    const pctSign = pct > 0 ? '+' : '';
+                    const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : '🥉';
+                    return `<a href="${url}" target="_blank" style="color:#e2e8f0;text-decoration:none;font-size:11px;margin-right:8px;white-space:nowrap" title="${st.name} ${pctSign}${pct}%">${medal}<b>${st.name}</b> <span style="color:${pctColor};font-size:10px">${pctSign}${pct}%</span></a>`;
+                }).join('');
+            } else {
+                leadersHtml = '<span style="color:#475569;font-size:11px">-</span>';
+            }
+        }
+        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px"><span class="hot-val">${hotStr}</span></td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${boardColor}">${boardStr}</td><td style="padding:10px 16px">${leadersHtml}</td></tr>`;
     }).join('');
 }
 
@@ -590,8 +611,8 @@ async function loadAll() {
     allSnapshots = snapshots || [];
     allSectorsData = sectors?.data || null;
 
-    // 渲染板块
-    if (allSectorsData) renderSectorTable(allSectorsData);
+    // 渲染板块（先渲染，龙头股稍后异步加载）
+    if (allSectorsData) renderSectorTable(allSectorsData, null);
 
     // 渲染趋势分析（需要快照数据）
     if (allSnapshots.length > 0) {
@@ -601,6 +622,23 @@ async function loadAll() {
         document.getElementById('mainTable').innerHTML = '<tr><td colspan="14" class="loading">数据采集中，请稍候...（首次部署需等待 GitHub Actions 运行）</td></tr>';
     }
     lastUpdate = Date.now();
+
+    // 第三阶段：独立异步加载板块龙头股（不阻塞任何内容）
+    loadSectorLeaders();
+}
+
+async function loadSectorLeaders() {
+    try {
+        const leadersData = await fetchJSON(BASE + '/data/sector_leaders.json');
+        if (leadersData && leadersData.data) {
+            allSectorLeaders = leadersData.data;
+            // 龙头股数据到达后，重新渲染板块表格填充龙头股列
+            if (allSectorsData) renderSectorTable(allSectorsData, allSectorLeaders);
+            console.log('龙头股数据加载完成:', Object.keys(allSectorLeaders).length, '个板块');
+        }
+    } catch(e) {
+        console.log('龙头股数据加载失败（不影响其他功能）:', e);
+    }
 }
 
 loadAll();

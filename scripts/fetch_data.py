@@ -218,6 +218,68 @@ def fetch_sectors():
         return []
 
 
+def fetch_sector_leaders():
+    """获取热门概念板块的龙头股（前3只涨幅最大）- 独立模块，不影响主流程"""
+    print("开始获取板块龙头股...")
+    try:
+        em_headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Referer": "https://data.eastmoney.com/",
+        }
+        em_session = requests.Session()
+        em_session.headers.update(em_headers)
+        url = "https://push2.eastmoney.com/api/qt/clist/get"
+
+        # 1. 获取东方财富概念板块列表（按涨跌幅排序，取前30）
+        params = {
+            "pn": 1, "pz": 30, "po": 1, "np": 1,
+            "ut": "b2884a393a59ad64002292a3e90d46a5",
+            "fltt": 2, "invt": 2, "fid": "f3",
+            "fs": "m:90+t:3",
+            "fields": "f12,f14,f3,f104",
+        }
+        resp = em_session.get(url, params=params, timeout=15)
+        sectors = resp.json().get("data", {}).get("diff", [])
+        if not sectors:
+            print("板块龙头股: 板块列表为空")
+            return {}
+
+        # 2. 对每个板块获取涨幅前3的龙头股
+        leaders_map = {}
+        for sec in sectors:
+            bk_code = sec.get("f12", "")
+            bk_name = sec.get("f14", "")
+            if not bk_code:
+                continue
+            try:
+                params2 = {
+                    "pn": 1, "pz": 3, "po": 1, "np": 1,
+                    "ut": "b2884a393a59ad64002292a3e90d46a5",
+                    "fltt": 2, "invt": 2, "fid": "f3",
+                    "fs": f"b:{bk_code}+f:!50",
+                    "fields": "f12,f14,f2,f3",
+                }
+                resp2 = em_session.get(url, params=params2, timeout=10)
+                stocks = resp2.json().get("data", {}).get("diff", [])
+                leaders = []
+                for s in stocks:
+                    leaders.append({
+                        "code": s.get("f12", ""),
+                        "name": s.get("f14", ""),
+                        "price": s.get("f2", 0),
+                        "change_pct": s.get("f3", 0),
+                    })
+                leaders_map[bk_name] = leaders
+            except Exception:
+                leaders_map[bk_name] = []
+
+        print(f"板块龙头股: 获取 {len(leaders_map)} 个板块")
+        return leaders_map
+    except Exception as e:
+        print(f"板块龙头股获取失败: {e}")
+        return {}
+
+
 def load_snapshots():
     """加载历史快照"""
     f = DATA_DIR / "snapshots.json"
@@ -289,6 +351,15 @@ def main():
             "update_time": now.strftime("%Y-%m-%d %H:%M:%S"),
             "source": "同花顺热榜",
             "data": sectors
+        }, fp, ensure_ascii=False, indent=2)
+
+    # 独立模块：获取板块龙头股（不影响主流程）
+    sector_leaders = fetch_sector_leaders()
+    with open(DATA_DIR / "sector_leaders.json", "w", encoding="utf-8") as fp:
+        json.dump({
+            "update_time": now.strftime("%Y-%m-%d %H:%M:%S"),
+            "source": "东方财富",
+            "data": sector_leaders
         }, fp, ensure_ascii=False, indent=2)
 
     snapshots = load_snapshots()
