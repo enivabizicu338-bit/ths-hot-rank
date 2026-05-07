@@ -38,7 +38,7 @@ def fetch_hot_rank():
                 stocks.append({
                     "rank": item["order"],
                     "code": item["code"],
-                    "name": item["name"],
+                    "name": item["name"].replace(" ", ""),
                     "price": 0,
                     "change_pct": round(item.get("rise_and_fall", 0), 2),
                     "hot_value": item.get("rate", "0"),

@@ -1166,5 +1166,411 @@
         "hot_value": "79001.0"
       }
     ]
+  },
+  {
+    "time": "05-08 01:53",
+    "date": "2026-05-08",
+    "stocks": [
+      {
+        "rank": 1,
+        "code": "002081",
+        "name": "金螳螂",
+        "price": 0,
+        "change_pct": 10.02,
+        "hot_value": "408334.0"
+      },
+      {
+        "rank": 2,
+        "code": "000066",
+        "name": "中国长城",
+        "price": 0,
+        "change_pct": 10.0,
+        "hot_value": "261184.0"
+      },
+      {
+        "rank": 3,
+        "code": "002342",
+        "name": "巨力索具",
+        "price": 0,
+        "change_pct": 9.99,
+        "hot_value": "223727.0"
+      },
+      {
+        "rank": 4,
+        "code": "002217",
+        "name": "合力泰",
+        "price": 0,
+        "change_pct": 10.06,
+        "hot_value": "221562.0"
+      },
+      {
+        "rank": 5,
+        "code": "601991",
+        "name": "大唐发电",
+        "price": 0,
+        "change_pct": 10.04,
+        "hot_value": "186726.0"
+      },
+      {
+        "rank": 6,
+        "code": "603538",
+        "name": "美诺华",
+        "price": 0,
+        "change_pct": -10.0,
+        "hot_value": "173070.0"
+      },
+      {
+        "rank": 7,
+        "code": "600396",
+        "name": "华电辽能",
+        "price": 0,
+        "change_pct": 9.99,
+        "hot_value": "158318.0"
+      },
+      {
+        "rank": 8,
+        "code": "603778",
+        "name": "国晟科技",
+        "price": 0,
+        "change_pct": -7.17,
+        "hot_value": "147383.0"
+      },
+      {
+        "rank": 9,
+        "code": "002580",
+        "name": "圣阳股份",
+        "price": 0,
+        "change_pct": 0.44,
+        "hot_value": "146554.0"
+      },
+      {
+        "rank": 10,
+        "code": "601868",
+        "name": "中国能建",
+        "price": 0,
+        "change_pct": 9.86,
+        "hot_value": "143687.0"
+      },
+      {
+        "rank": 11,
+        "code": "002384",
+        "name": "东山精密",
+        "price": 0,
+        "change_pct": 10.0,
+        "hot_value": "130155.0"
+      },
+      {
+        "rank": 12,
+        "code": "603399",
+        "name": "永杉锂业",
+        "price": 0,
+        "change_pct": 5.86,
+        "hot_value": "126797.0"
+      },
+      {
+        "rank": 13,
+        "code": "600522",
+        "name": "中天科技",
+        "price": 0,
+        "change_pct": 10.0,
+        "hot_value": "126087.0"
+      },
+      {
+        "rank": 14,
+        "code": "300058",
+        "name": "蓝色光标",
+        "price": 0,
+        "change_pct": 6.93,
+        "hot_value": "123801.0"
+      },
+      {
+        "rank": 15,
+        "code": "600673",
+        "name": "东阳光",
+        "price": 0,
+        "change_pct": 9.99,
+        "hot_value": "108816.0"
+      },
+      {
+        "rank": 16,
+        "code": "002050",
+        "name": "三花智控",
+        "price": 0,
+        "change_pct": 4.49,
+        "hot_value": "107289.0"
+      },
+      {
+        "rank": 17,
+        "code": "600745",
+        "name": "*ST闻泰",
+        "price": 0,
+        "change_pct": -5.02,
+        "hot_value": "104042.0"
+      },
+      {
+        "rank": 18,
+        "code": "000889",
+        "name": "中嘉博创",
+        "price": 0,
+        "change_pct": 10.08,
+        "hot_value": "103613.0"
+      },
+      {
+        "rank": 19,
+        "code": "002149",
+        "name": "西部材料",
+        "price": 0,
+        "change_pct": 5.17,
+        "hot_value": "100880.0"
+      },
+      {
+        "rank": 20,
+        "code": "603629",
+        "name": "利通电子",
+        "price": 0,
+        "change_pct": -0.36,
+        "hot_value": "100424.0"
+      },
+      {
+        "rank": 21,
+        "code": "002361",
+        "name": "神剑股份",
+        "price": 0,
+        "change_pct": 1.84,
+        "hot_value": "99489.0"
+      },
+      {
+        "rank": 22,
+        "code": "002491",
+        "name": "通鼎互联",
+        "price": 0,
+        "change_pct": 10.02,
+        "hot_value": "97656.0"
+      },
+      {
+        "rank": 23,
+        "code": "002156",
+        "name": "通富微电",
+        "price": 0,
+        "change_pct": 3.74,
+        "hot_value": "96613.0"
+      },
+      {
+        "rank": 24,
+        "code": "603256",
+        "name": "宏和科技",
+        "price": 0,
+        "change_pct": 10.0,
+        "hot_value": "94994.0"
+      },
+      {
+        "rank": 25,
+        "code": "600186",
+        "name": "莲花控股",
+        "price": 0,
+        "change_pct": -2.37,
+        "hot_value": "94450.0"
+      },
+      {
+        "rank": 26,
+        "code": "600379",
+        "name": "宝光股份",
+        "price": 0,
+        "change_pct": -3.3,
+        "hot_value": "92345.0"
+      },
+      {
+        "rank": 27,
+        "code": "600105",
+        "name": "永鼎股份",
+        "price": 0,
+        "change_pct": 8.79,
+        "hot_value": "91407.0"
+      },
+      {
+        "rank": 28,
+        "code": "600759",
+        "name": "ST洲际",
+        "price": 0,
+        "change_pct": -4.96,
+        "hot_value": "90563.0"
+      },
+      {
+        "rank": 29,
+        "code": "600736",
+        "name": "苏州高新",
+        "price": 0,
+        "change_pct": 10.03,
+        "hot_value": "88767.0"
+      },
+      {
+        "rank": 30,
+        "code": "000818",
+        "name": "航锦科技",
+        "price": 0,
+        "change_pct": 10.03,
+        "hot_value": "88560.0"
+      },
+      {
+        "rank": 31,
+        "code": "301171",
+        "name": "易点天下",
+        "price": 0,
+        "change_pct": 20.01,
+        "hot_value": "88288.0"
+      },
+      {
+        "rank": 32,
+        "code": "002655",
+        "name": "共达电声",
+        "price": 0,
+        "change_pct": 10.02,
+        "hot_value": "84548.0"
+      },
+      {
+        "rank": 33,
+        "code": "002181",
+        "name": "粤传媒",
+        "price": 0,
+        "change_pct": 3.2,
+        "hot_value": "83658.0"
+      },
+      {
+        "rank": 34,
+        "code": "600487",
+        "name": "亨通光电",
+        "price": 0,
+        "change_pct": 5.79,
+        "hot_value": "83322.0"
+      },
+      {
+        "rank": 35,
+        "code": "002929",
+        "name": "润建股份",
+        "price": 0,
+        "change_pct": 10.01,
+        "hot_value": "82044.0"
+      },
+      {
+        "rank": 36,
+        "code": "600726",
+        "name": "华电能源",
+        "price": 0,
+        "change_pct": 9.97,
+        "hot_value": "81353.0"
+      },
+      {
+        "rank": 37,
+        "code": "603618",
+        "name": "杭电股份",
+        "price": 0,
+        "change_pct": 10.0,
+        "hot_value": "78477.0"
+      },
+      {
+        "rank": 38,
+        "code": "603601",
+        "name": "再升科技",
+        "price": 0,
+        "change_pct": 3.53,
+        "hot_value": "77000.0"
+      },
+      {
+        "rank": 39,
+        "code": "002131",
+        "name": "利欧股份",
+        "price": 0,
+        "change_pct": 3.67,
+        "hot_value": "75751.0"
+      },
+      {
+        "rank": 40,
+        "code": "601778",
+        "name": "晶科科技",
+        "price": 0,
+        "change_pct": 3.78,
+        "hot_value": "75209.0"
+      },
+      {
+        "rank": 41,
+        "code": "000070",
+        "name": "特发信息",
+        "price": 0,
+        "change_pct": 10.01,
+        "hot_value": "74784.0"
+      },
+      {
+        "rank": 42,
+        "code": "002281",
+        "name": "光迅科技",
+        "price": 0,
+        "change_pct": 8.93,
+        "hot_value": "74007.0"
+      },
+      {
+        "rank": 43,
+        "code": "000815",
+        "name": "美利云",
+        "price": 0,
+        "change_pct": 5.78,
+        "hot_value": "73225.0"
+      },
+      {
+        "rank": 44,
+        "code": "002297",
+        "name": "博云新材",
+        "price": 0,
+        "change_pct": 3.08,
+        "hot_value": "70043.0"
+      },
+      {
+        "rank": 45,
+        "code": "603738",
+        "name": "泰晶科技",
+        "price": 0,
+        "change_pct": 10.01,
+        "hot_value": "69616.0"
+      },
+      {
+        "rank": 46,
+        "code": "000967",
+        "name": "盈峰环境",
+        "price": 0,
+        "change_pct": 9.98,
+        "hot_value": "69555.0"
+      },
+      {
+        "rank": 47,
+        "code": "601016",
+        "name": "节能风电",
+        "price": 0,
+        "change_pct": 6.4,
+        "hot_value": "69353.0"
+      },
+      {
+        "rank": 48,
+        "code": "002202",
+        "name": "金风科技",
+        "price": 0,
+        "change_pct": 1.86,
+        "hot_value": "68751.0"
+      },
+      {
+        "rank": 49,
+        "code": "002709",
+        "name": "天赐材料",
+        "price": 0,
+        "change_pct": -1.88,
+        "hot_value": "67122.0"
+      },
+      {
+        "rank": 50,
+        "code": "002565",
+        "name": "顺灏股份",
+        "price": 0,
+        "change_pct": 3.44,
+        "hot_value": "67023.0"
+      }
+    ]
   }
 ]
