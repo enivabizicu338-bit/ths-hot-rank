@@ -16,7 +16,7 @@
         .update-time{color:#64748b;font-size:12px}
         .source-tag{color:#f59e0b;font-size:11px;font-weight:600;background:rgba(245,158,11,0.15);padding:2px 8px;border-radius:10px}
         .countdown{color:#a78bfa;font-size:12px;font-weight:600}
-        .container{max-width:1440px;margin:0 auto;padding:20px 24px}
+        .container{max-width:1600px;margin:0 auto;padding:20px 24px}
         .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
         .card{background:#111827;border:1px solid rgba(75,85,99,0.4);border-radius:12px;overflow:hidden}
         .card-full{grid-column:1/-1}
@@ -24,13 +24,13 @@
         .card-header h2{font-size:15px;color:#f1f5f9;display:flex;align-items:center;gap:8px}
         .dot{width:8px;height:8px;border-radius:50%;background:#a78bfa}
         .card-body{padding:14px 20px}
-        .stock-selector{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+        .stock-selector{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;max-height:120px;overflow-y:auto;padding:4px 0}
         .stock-btn{padding:5px 12px;border-radius:16px;border:1px solid rgba(139,92,246,0.3);background:transparent;color:#94a3b8;font-size:12px;cursor:pointer;transition:all .2s}
         .stock-btn:hover{border-color:#a78bfa;color:#e2e8f0}
         .stock-btn.active{background:linear-gradient(135deg,#7c3aed,#3b82f6);border-color:transparent;color:#fff;font-weight:600}
         .chart-container{position:relative;height:380px}
         table{width:100%;border-collapse:collapse}
-        th{padding:8px 14px;text-align:left;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(75,85,99,0.4)}
+        th{padding:8px 10px;text-align:left;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(75,85,99,0.4);white-space:nowrap}
         th.r{text-align:right}
         td{padding:0}
         tr.hover:hover{background:rgba(255,255,255,0.03)}
@@ -45,7 +45,11 @@
         .tag-qz{background:rgba(245,158,11,0.15);color:#f59e0b}
         .tag-cb{background:rgba(59,130,246,0.15);color:#60a5fa}
         .tag-hot{background:rgba(168,85,247,0.15);color:#a78bfa}
+        .tag-board{background:rgba(239,68,68,0.25);color:#fca5a5;font-size:10px;font-weight:700;letter-spacing:.02em}
+        .tag-reason{background:rgba(251,191,36,0.15);color:#fbbf24;font-size:10px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
         .hot-val{color:#f59e0b;font-size:11px;font-weight:600}
+        .price-val{color:#e2e8f0;font-size:12px;font-weight:600}
+        .cap-val{color:#94a3b8;font-size:11px}
         a.stock-link{color:#e2e8f0;text-decoration:none;transition:color .2s}
         a.stock-link:hover{color:#a78bfa;text-decoration:underline}
         .loading{color:#64748b;font-size:13px;text-align:center;padding:40px}
@@ -75,7 +79,7 @@
     <div class="container">
         <div class="card card-full">
             <div class="card-header">
-                <h2><span class="dot"></span>热门股票排名变化趋势</h2>
+                <h2><span class="dot"></span>热门股票排名变化趋势 TOP 50</h2>
                 <span style="color:#64748b;font-size:11px">点击股票名切换 · Y轴反转(↑=热度上升) · 数据保留30天</span>
             </div>
             <div class="card-body">
@@ -90,11 +94,11 @@
         </div>
         <div class="grid">
             <div class="card">
-                <div class="card-header"><h2><span class="dot"></span>🔥 实时热榜 TOP 30</h2></div>
+                <div class="card-header"><h2><span class="dot"></span>🔥 实时热榜 TOP 50</h2></div>
                 <div class="card-body" style="padding:0;overflow-x:auto">
                     <table><thead><tr>
-                        <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th class="r">热度</th><th style="text-align:center">变动</th>
-                    </tr></thead><tbody id="hotTable"><tr><td colspan="6" class="loading">加载中...</td></tr></tbody></table>
+                        <th style="width:40px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">现价</th><th class="r">涨跌幅</th><th class="r">热度</th><th style="text-align:center">变动</th><th>几板</th><th>涨停原因</th><th class="r">流通市值</th>
+                    </tr></thead><tbody id="hotTable"><tr><td colspan="10" class="loading">加载中...</td></tr></tbody></table>
                 </div>
             </div>
             <div class="card">
@@ -108,19 +112,19 @@
         </div>
         <div class="card card-full">
             <div class="card-header">
-                <h2><span class="dot"></span>📋 排名变动详情 TOP 30</h2>
+                <h2><span class="dot"></span>📋 排名变动详情 TOP 50</h2>
                 <span id="detailDateLabel" style="color:#a78bfa;font-size:12px"></span>
             </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th>标签</th><th style="text-align:center">变动</th><th style="text-align:center">迷你趋势</th>
-                </tr></thead><tbody id="detailTable"><tr><td colspan="7" class="loading">加载中...</td></tr></tbody></table>
+                    <th style="width:40px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">现价</th><th class="r">涨跌幅</th><th>几板</th><th>涨停原因</th><th>标签</th><th style="text-align:center">变动</th><th style="text-align:center">迷你趋势</th>
+                </tr></thead><tbody id="detailTable"><tr><td colspan="10" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
     </div>
 <script>
 const BASE = '.';
-const COLORS = ['#a78bfa','#60a5fa','#34d399','#fbbf24','#f87171','#f472b6','#38bdf8','#a3e635','#fb923c','#c084fc','#2dd4bf','#e879f9','#facc15','#4ade80','#f97316'];
+const COLORS = ['#a78bfa','#60a5fa','#34d399','#fbbf24','#f87171','#f472b6','#38bdf8','#a3e635','#fb923c','#c084fc','#2dd4bf','#e879f9','#facc15','#4ade80','#f97316','#67e8f9','#a78bfa','#818cf8','#fb7185','#fdba74'];
 let rankChart, allSnapshots = [], allCurrentData = null, allSectorsData = null;
 let activeStocks = new Set();
 let lastUpdate = null, refreshMs = 30 * 60 * 1000;
@@ -137,11 +141,26 @@ function formatHot(val) {
     return Math.round(n).toString();
 }
 
+function formatPrice(val) {
+    if (!val || val === 0) return '-';
+    return Number(val).toFixed(2);
+}
+
 function renderTags(s) {
     let tags = '';
     if (s.popularity_tag) tags += `<span class="tag tag-hot">${s.popularity_tag}</span>`;
     if (s.concept_tags && s.concept_tags.length) s.concept_tags.slice(0, 2).forEach(t => { tags += `<span class="tag tag-cb">${t}</span>`; });
     return tags;
+}
+
+function renderBoardInfo(info) {
+    if (!info) return '';
+    return `<span class="tag tag-board">${info}</span>`;
+}
+
+function renderBoardReason(reason) {
+    if (!reason) return '';
+    return `<span class="tag tag-reason" title="${reason}">${reason}</span>`;
 }
 
 function getUniqueDates(snapshots) {
@@ -177,8 +196,8 @@ function getFilteredSnapshots() {
 
 function renderHotTable(data) {
     const tb = document.getElementById('hotTable');
-    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="6" class="loading">暂无数据</td></tr>'; return; }
-    tb.innerHTML = data.slice(0, 30).map((s, i) => {
+    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="10" class="loading">暂无数据</td></tr>'; return; }
+    tb.innerHTML = data.slice(0, 50).map((s, i) => {
         const cc = s.change_pct > 0 ? '#ef4444' : s.change_pct < 0 ? '#22c55e' : '#9ca3af';
         const cs = s.change_pct > 0 ? '+' : '';
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
@@ -189,7 +208,11 @@ function renderHotTable(data) {
         const chg = s.rank_chg || 0;
         const chgClass = chg > 0 ? 'up' : chg < 0 ? 'dn' : 'fl';
         const chgText = chg > 0 ? '↑'+chg : chg < 0 ? '↓'+Math.abs(chg) : '—';
-        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${code}</td><td class="py-2 px-4 font-semibold"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-4 text-right hot-val">${hotStr}</td><td class="py-2 px-4 text-center ${chgClass} font-semibold">${chgText}</td></tr>`;
+        const priceStr = formatPrice(s.price);
+        const boardHtml = renderBoardInfo(s.board_info);
+        const reasonHtml = renderBoardReason(s.board_reason);
+        const capStr = s.market_cap || '-';
+        return `<tr class="hover"><td class="py-2 px-2 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-2 font-mono text-gray-400" style="font-size:11px">${code}</td><td class="py-2 px-2 font-semibold" style="white-space:nowrap"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-2 text-right price-val">${priceStr}</td><td class="py-2 px-2 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-2 text-right hot-val">${hotStr}</td><td class="py-2 px-2 text-center ${chgClass} font-semibold">${chgText}</td><td class="py-2 px-2">${boardHtml}</td><td class="py-2 px-2">${reasonHtml}</td><td class="py-2 px-2 text-right cap-val">${capStr}</td></tr>`;
     }).join('');
 }
 
@@ -211,11 +234,14 @@ function buildTrendData(snapshots, currentData) {
         for (const stock of snap.stocks) {
             const cleanName = (stock.name || '').replace(/\s/g, '');
             const cleanCode = (stock.code || '').replace(/^(SZ|SH|BJ)/, '');
-            if (!stockMap[cleanCode]) stockMap[cleanCode] = { code: cleanCode, name: cleanName, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [] };
+            if (!stockMap[cleanCode]) stockMap[cleanCode] = { code: cleanCode, name: cleanName, current_price: stock.price, current_change_pct: stock.change_pct, rank_history: [], popularity_tag: '', concept_tags: [], board_info: '', board_reason: '', market_cap: '' };
             stockMap[cleanCode].name = cleanName;
             stockMap[cleanCode].rank_history.push({ time: snap.time, rank: stock.rank, date: snap.date });
             stockMap[cleanCode].current_price = stock.price;
             stockMap[cleanCode].current_change_pct = stock.change_pct;
+            if (stock.board_info) stockMap[cleanCode].board_info = stock.board_info;
+            if (stock.board_reason) stockMap[cleanCode].board_reason = stock.board_reason;
+            if (stock.market_cap) stockMap[cleanCode].market_cap = stock.market_cap;
         }
     }
     if (currentData) {
@@ -226,6 +252,9 @@ function buildTrendData(snapshots, currentData) {
                 stockMap[cc].current_change_pct = s.change_pct;
                 stockMap[cc].popularity_tag = s.popularity_tag || '';
                 stockMap[cc].concept_tags = s.concept_tags || [];
+                if (s.board_info) stockMap[cc].board_info = s.board_info;
+                if (s.board_reason) stockMap[cc].board_reason = s.board_reason;
+                if (s.market_cap) stockMap[cc].market_cap = s.market_cap;
             }
         }
     }
@@ -234,13 +263,13 @@ function buildTrendData(snapshots, currentData) {
         const bR = b.rank_history.length ? b.rank_history[b.rank_history.length-1].rank : 999;
         return aR - bR;
     });
-    return { time_labels: snapshots.map(s => s.time), stocks: sorted.slice(0, 30) };
+    return { time_labels: snapshots.map(s => s.time), stocks: sorted.slice(0, 50) };
 }
 
 function renderDetailTable(stocks) {
     const tb = document.getElementById('detailTable');
-    if (!stocks || !stocks.length) { tb.innerHTML = '<tr><td colspan="7" class="loading">暂无数据</td></tr>'; return; }
-    tb.innerHTML = stocks.slice(0, 30).map((s, i) => {
+    if (!stocks || !stocks.length) { tb.innerHTML = '<tr><td colspan="10" class="loading">暂无数据</td></tr>'; return; }
+    tb.innerHTML = stocks.slice(0, 50).map((s, i) => {
         const hist = s.rank_history;
         if (!hist || !hist.length) return '';
         const curr = hist[hist.length-1].rank;
@@ -263,7 +292,10 @@ function renderDetailTable(stocks) {
         const tag = s.current_change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.current_change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
         const extraTags = renderTags(s);
         const baiduUrl = `https://finance.baidu.com/stock/ab-${s.code}`;
-        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-4" style="font-size:11px">${extraTags}</td><td class="py-2 px-4 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-4 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
+        const priceStr = formatPrice(s.current_price);
+        const boardHtml = renderBoardInfo(s.board_info);
+        const reasonHtml = renderBoardReason(s.board_reason);
+        return `<tr class="hover"><td class="py-2 px-2 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-2 font-mono text-gray-400" style="font-size:11px">${s.code}</td><td class="py-2 px-2 font-semibold" style="white-space:nowrap"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-2 text-right price-val">${priceStr}</td><td class="py-2 px-2 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-2">${boardHtml}</td><td class="py-2 px-2">${reasonHtml}</td><td class="py-2 px-2" style="font-size:11px">${extraTags}</td><td class="py-2 px-2 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-2 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
     }).join('');
 }
 
@@ -271,7 +303,7 @@ function renderSelector(stocks) {
     const el = document.getElementById('stockSelector');
     if (!stocks || !stocks.length) return;
     if (activeStocks.size === 0) stocks.slice(0, 5).forEach(s => activeStocks.add(s.code));
-    el.innerHTML = stocks.slice(0, 20).map(s =>
+    el.innerHTML = stocks.slice(0, 50).map(s =>
         `<button class="stock-btn${activeStocks.has(s.code)?' active':''}" onclick="toggleStock('${s.code}')">${s.name}</button>`
     ).join('');
 }
@@ -371,7 +403,7 @@ async function loadAll() {
         renderDateChips(getUniqueDates(allSnapshots));
         updateView();
     } else {
-        document.getElementById('detailTable').innerHTML = '<tr><td colspan="7" class="loading">数据采集中，请稍候...（首次部署需等待 GitHub Actions 运行）</td></tr>';
+        document.getElementById('detailTable').innerHTML = '<tr><td colspan="10" class="loading">数据采集中，请稍候...（首次部署需等待 GitHub Actions 运行）</td></tr>';
     }
     lastUpdate = Date.now();
 }
