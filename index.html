@@ -232,7 +232,7 @@ function buildTrendData(snapshots, currentData) {
         const bR = b.rank_history.length ? b.rank_history[b.rank_history.length-1].rank : 999;
         return aR - bR;
     });
-    return { time_labels: snapshots.map(s => s.time), stocks: sorted.slice(0, 50) };
+    return { time_labels: snapshots.map(s => s.time), stocks: sorted };
 }
 
 function renderMainTable(currentData, trendStocks) {
@@ -245,12 +245,39 @@ function renderMainTable(currentData, trendStocks) {
     const trendMap = {};
     if (trendStocks) trendStocks.forEach(s => { trendMap[s.code] = s; });
 
-    // Use currentData as primary (has real-time fields), enrich with trend sparklines
-    const list = (currentData || []).slice(0, 50);
-    tb.innerHTML = list.map((s, i) => {
+    // Merge: currentData as primary, add trend stocks not in current (dropped out of top50)
+    const currentCodes = new Set((currentData || []).map(s => (s.code || '').replace(/^(SZ|SH|BJ)/, '')));
+    const merged = [...(currentData || [])];
+    if (trendStocks) {
+        trendStocks.forEach(s => {
+            if (!currentCodes.has(s.code)) {
+                // Stock dropped out of top50, add with trend data
+                merged.push({
+                    rank: s.rank_history.length ? s.rank_history[s.rank_history.length-1].rank : 999,
+                    code: s.code,
+                    name: s.name,
+                    price: s.current_price,
+                    change_pct: s.current_change_pct,
+                    hot_value: '',
+                    rank_chg: 0,
+                    popularity_tag: s.popularity_tag,
+                    concept_tags: s.concept_tags,
+                    board_info: s.board_info,
+                    board_reason: s.board_reason,
+                    market_cap: s.market_cap,
+                    _dropped: true
+                });
+            }
+        });
+    }
+    // Sort by current rank
+    merged.sort((a, b) => (a.rank || 999) - (b.rank || 999));
+
+    tb.innerHTML = merged.map((s, i) => {
         const code = (s.code || '').replace(/^(SZ|SH|BJ)/, '');
         const baiduUrl = `https://finance.baidu.com/stock/ab-${code}`;
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
+        const droppedStyle = s._dropped ? 'opacity:0.5' : '';
         // Price & change
         const priceStr = formatPrice(s.price);
         const cc = s.change_pct > 0 ? '#ef4444' : s.change_pct < 0 ? '#22c55e' : '#9ca3af';
@@ -265,7 +292,7 @@ function renderMainTable(currentData, trendStocks) {
         // Board info
         const boardHtml = renderBoardInfo(s.board_info);
         const reasonHtml = renderBoardReason(s.board_reason);
-        // Tags from current data
+        // Tags
         const extraTags = renderTags(s);
         // Sparkline from trend data
         let sparkHtml = '';
@@ -285,7 +312,7 @@ function renderMainTable(currentData, trendStocks) {
         }
         // Market cap
         const capStr = s.market_cap || '-';
-        return `<tr class="hover"><td class="py-2 px-2 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-2 font-mono text-gray-400" style="font-size:11px">${code}</td><td class="py-2 px-2 font-semibold" style="white-space:nowrap"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-2 text-right price-val">${priceStr}</td><td class="py-2 px-2 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-2 text-right hot-val">${hotStr}</td><td class="py-2 px-2 text-center ${chgClass} font-semibold">${chgText}</td><td class="py-2 px-2">${boardHtml}</td><td class="py-2 px-2">${reasonHtml}</td><td class="py-2 px-2" style="font-size:11px">${extraTags}</td><td class="py-2 px-2 text-center">${sparkHtml}</td><td class="py-2 px-2 text-right cap-val">${capStr}</td></tr>`;
+        return `<tr class="hover" style="${droppedStyle}"><td class="py-2 px-2 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-2 font-mono text-gray-400" style="font-size:11px">${code}</td><td class="py-2 px-2 font-semibold" style="white-space:nowrap"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-2 text-right price-val">${priceStr}</td><td class="py-2 px-2 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-2 text-right hot-val">${hotStr}</td><td class="py-2 px-2 text-center ${chgClass} font-semibold">${chgText}</td><td class="py-2 px-2">${boardHtml}</td><td class="py-2 px-2">${reasonHtml}</td><td class="py-2 px-2" style="font-size:11px">${extraTags}</td><td class="py-2 px-2 text-center">${sparkHtml}</td><td class="py-2 px-2 text-right cap-val">${capStr}</td></tr>`;
     }).join('');
 }
 
@@ -293,7 +320,7 @@ function renderSelector(stocks) {
     const el = document.getElementById('stockSelector');
     if (!stocks || !stocks.length) return;
     if (activeStocks.size === 0) stocks.slice(0, 5).forEach(s => activeStocks.add(s.code));
-    el.innerHTML = stocks.slice(0, 50).map(s =>
+    el.innerHTML = stocks.map(s =>
         `<button class="stock-btn${activeStocks.has(s.code)?' active':''}" onclick="toggleStock('${s.code}')">${s.name}</button>`
     ).join('');
 }
