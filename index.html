@@ -139,18 +139,24 @@ function renderDetailTable(stocks) {
     if (!stocks || !stocks.length) { tb.innerHTML = '<tr><td colspan="7" class="loading">暂无数据</td></tr>'; return; }
     tb.innerHTML = stocks.slice(0, 30).map((s, i) => {
         const hist = s.rank_history;
-        if (!hist || hist.length < 2) return '';
-        const prev = hist[hist.length-2].rank;
+        if (!hist || !hist.length) return '';
         const curr = hist[hist.length-1].rank;
-        const diff = prev - curr;
-        const tc = diff > 0 ? 'up' : diff < 0 ? 'dn' : 'fl';
-        const tt = diff > 0 ? '↑ '+diff : diff < 0 ? '↓ '+Math.abs(diff) : '—';
+        let diff, tc, tt, sparkColor, pts;
+        if (hist.length >= 2) {
+            const prev = hist[hist.length-2].rank;
+            diff = prev - curr;
+            tc = diff > 0 ? 'up' : diff < 0 ? 'dn' : 'fl';
+            tt = diff > 0 ? '↑ '+diff : diff < 0 ? '↓ '+Math.abs(diff) : '—';
+            sparkColor = tc==='up'?'#ef4444':tc==='dn'?'#22c55e':'#64748b';
+            pts = hist.slice(-12).map((h,j) => `${j*5+3},${Math.min(h.rank/30*20+2,22)}`).join(' ');
+        } else {
+            diff = 0; tc = 'fl'; tt = '新'; sparkColor = '#64748b';
+            pts = `${3},${Math.min(curr/30*20+2,22)}`;
+        }
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
         const cc = s.current_change_pct > 0 ? '#ef4444' : s.current_change_pct < 0 ? '#22c55e' : '#9ca3af';
         const cs = s.current_change_pct > 0 ? '+' : '';
         const tag = s.current_change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.current_change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
-        const pts = hist.slice(-12).map((h,j) => `${j*5+3},${Math.min(h.rank/30*20+2,22)}`).join(' ');
-        const sparkColor = tc==='up'?'#ef4444':tc==='dn'?'#22c55e':'#64748b';
         return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right text-white">${Number(s.current_price).toFixed(2)}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-4 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-4 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
     }).join('');
 }
