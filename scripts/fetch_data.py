@@ -50,7 +50,7 @@ def fetch_hot_rank():
                     "board_reason": "",
                     "market_cap": "",
                     "turnover": 0,
-                    "guba_rank": 0,
+                    "browse_rank": 0,
                 })
             return stocks
         else:
@@ -112,57 +112,79 @@ def fetch_popularity():
 
 
 def fetch_eastmoney_data(codes):
-    """获取东方财富数据 - 换手率(并发单股) + 股吧人气排名(批量)"""
+    """获取东方财富数据 - 今日浏览排名 + 换手率（一个API同时获取）"""
     em_headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Referer": "https://data.eastmoney.com/",
+        "Referer": "https://data.eastmoney.com/xuangu/",
     }
     em_session = requests.Session()
     em_session.headers.update(em_headers)
 
-    result = {code: {"turnover": 0, "guba_rank": 0} for code in codes}
+    result = {code: {"turnover": 0, "browse_rank": 0} for code in codes}
 
-    # 1. 并发获取换手率（单股接口 f168，需除以100得到百分比）
-    def fetch_one_turnover(code):
-        try:
-            market = "1" if code.startswith("6") else "0"
-            url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={market}.{code}&fields=f168&fltt=2"
-            resp = em_session.get(url, timeout=8)
-            d = resp.json().get("data", {})
-            raw = d.get("f168", 0)
-            # fltt=2 时 f168 直接是百分比数值（如 16.72）
-            turnover = float(raw) if raw else 0
-            return code, round(turnover, 2)
-        except Exception:
-            return code, 0
-
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(fetch_one_turnover, code): code for code in codes}
-        for future in as_completed(futures):
-            code, turnover = future.result()
-            result[code]["turnover"] = turnover
-
-    match_count = sum(1 for c in codes if result[c]["turnover"] > 0)
-    print(f"东财换手率: 并发查询 {len(codes)} 只, 成功 {match_count} 只")
-
-    # 2. 获取股吧人气排名（批量获取前500）
+    # 1. 批量获取今日浏览排名 + 换手率（东财选股器API，一次请求搞定）
     try:
-        guba_map = {}
-        for page in range(1, 6):
-            url = f"https://push2.eastmoney.com/api/qt/clist/get?pn={page}&pz=100&po=1&np=1&fltt=2&invt=2&fid=f62&fs=m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23&fields=f12"
-            resp = em_session.get(url, timeout=10)
-            stocks = resp.json().get("data", {}).get("diff", [])
-            for i, item in enumerate(stocks):
-                rank = (page - 1) * 100 + i + 1
-                guba_map[item["f12"]] = rank
-        guba_count = 0
+        url = "https://data.eastmoney.com/dataapi/xuangu/list"
+        params = {
+            "st": "BROWSE_RANK",
+            "sr": "1",
+            "ps": "100",
+            "p": "1",
+            "sty": "SECUCODE,SECURITY_CODE,SECURITY_NAME_ABBR,NEW_PRICE,CHANGE_RATE,TURNOVERRATE,BROWSE_RANK",
+            "filter": "(BROWSE_RANK>0)(BROWSE_RANK<=200)",
+            "source": "SELECT_SECURITIES",
+            "client": "WEB",
+            "hyversion": "v2",
+        }
+        resp = em_session.get(url, params=params, timeout=15)
+        data = resp.json()
+        items = data.get("result", {}).get("data", [])
+        # 建立代码 -> {browse_rank, turnover} 映射
+        browse_map = {}
+        for item in items:
+            code = item.get("SECURITY_CODE", "")
+            browse_rank = item.get("BROWSE_RANK", 0)
+            turnover = item.get("TURNOVERRATE", 0)
+            browse_map[code] = {"browse_rank": browse_rank, "turnover": round(float(turnover), 2) if turnover else 0}
+        # 匹配热榜股票
+        browse_count = 0
+        turnover_count = 0
         for code in codes:
-            if code in guba_map:
-                result[code]["guba_rank"] = guba_map[code]
-                guba_count += 1
-        print(f"东财股吧: 排名匹配 {guba_count}/{len(codes)} 只")
+            if code in browse_map:
+                result[code]["browse_rank"] = browse_map[code]["browse_rank"]
+                result[code]["turnover"] = browse_map[code]["turnover"]
+                browse_count += 1
+                if browse_map[code]["turnover"] > 0:
+                    turnover_count += 1
+        print(f"东财浏览排名: 匹配 {browse_count}/{len(codes)} 只, 换手率 {turnover_count} 只")
     except Exception as e:
-        print(f"股吧排名获取失败: {e}")
+        print(f"东财浏览排名API失败: {e}")
+
+    # 2. 补充换手率（并发单股接口，覆盖浏览排名API未覆盖的股票）
+    missing_codes = [c for c in codes if result[c]["turnover"] == 0]
+    if missing_codes:
+        def fetch_one_turnover(code):
+            try:
+                market = "1" if code.startswith("6") else "0"
+                url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={market}.{code}&fields=f168&fltt=2"
+                resp = em_session.get(url, timeout=8)
+                d = resp.json().get("data", {})
+                raw = d.get("f168", 0)
+                turnover = float(raw) if raw else 0
+                return code, round(turnover, 2)
+            except Exception:
+                return code, 0
+
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            futures = {executor.submit(fetch_one_turnover, code): code for code in missing_codes}
+            for future in as_completed(futures):
+                code, turnover = future.result()
+                if turnover > 0:
+                    result[code]["turnover"] = turnover
+
+        extra_count = sum(1 for c in missing_codes if result[c]["turnover"] > 0)
+        total_turnover = sum(1 for c in codes if result[c]["turnover"] > 0)
+        print(f"东财换手率(补充): {extra_count} 只, 总计 {total_turnover}/{len(codes)} 只")
 
     return result
 
@@ -240,17 +262,17 @@ def main():
             merged_count += 1
     print(f"热榜: {len(hot_rank)} 条, 板块: {len(sectors)} 条, 合并人气数据: {merged_count} 条")
 
-    # 获取东方财富数据（换手率 + 股吧人气排名）- 覆盖全部100只
+    # 获取东方财富数据（今日浏览排名 + 换手率）- 覆盖全部100只
     top_codes = [s["code"] for s in hot_rank[:100]]
     em_data = fetch_eastmoney_data(top_codes)
     for stock in hot_rank[:100]:
         code = stock["code"]
         if code in em_data:
             stock["turnover"] = em_data[code]["turnover"]
-            stock["guba_rank"] = em_data[code]["guba_rank"]
+            stock["browse_rank"] = em_data[code]["browse_rank"]
         else:
             stock["turnover"] = 0
-            stock["guba_rank"] = 0
+            stock["browse_rank"] = 0
 
     current = {
         "update_time": now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -284,7 +306,7 @@ def main():
                 "board_reason": s["board_reason"],
                 "market_cap": s["market_cap"],
                 "turnover": s["turnover"],
-                "guba_rank": s["guba_rank"],
+                "browse_rank": s["browse_rank"],
             }
             for s in hot_rank[:50]
         ]

@@ -126,7 +126,7 @@
                     <th style="width:80px">几板</th>
                     <th style="min-width:90px">涨停原因</th>
                     <th class="r sortable" data-key="turnover" onclick="doSort('turnover')">换手率 <span class="sort-arrow">⇅</span></th>
-                    <th class="r sortable" data-key="guba_rank" onclick="doSort('guba_rank')">股吧 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">浏览排名 <span class="sort-arrow">⇅</span></th>
                     <th style="min-width:80px">标签</th>
                     <th class="td-center" style="width:68px">趋势</th>
                     <th class="r sortable" data-key="market_cap" onclick="doSort('market_cap')">流通市值 <span class="sort-arrow">⇅</span></th>
@@ -359,7 +359,7 @@ function renderMainTable(currentData, trendStocks) {
                     hot_value: '', rank_chg: 0,
                     popularity_tag: s.popularity_tag, concept_tags: s.concept_tags,
                     board_info: s.board_info, board_reason: s.board_reason,
-                    market_cap: s.market_cap, turnover: 0, guba_rank: 0, _dropped: true
+                    market_cap: s.market_cap, turnover: 0, browse_rank: 0, _dropped: true
                 });
             }
         });
@@ -410,8 +410,8 @@ function renderMainTable(currentData, trendStocks) {
         }
         const capStr = s.market_cap || '-';
         const turnoverStr = s.turnover ? s.turnover + '%' : '-';
-        const gubaStr = s.guba_rank ? '#' + s.guba_rank : '-';
-        const gubaStyle = s.guba_rank && s.guba_rank <= 10 ? 'color:#ef4444;font-weight:700' : s.guba_rank ? 'color:#f59e0b' : 'color:#64748b';
+        const browseStr = s.browse_rank ? '#' + s.browse_rank : '-';
+        const browseStyle = s.browse_rank && s.browse_rank <= 10 ? 'color:#ef4444;font-weight:700' : s.browse_rank ? 'color:#f59e0b' : 'color:#64748b';
         return `<tr class="hover" style="${dropStyle}">
             <td class="td-center"><span class="rank-badge ${rc}">${s.rank}</span></td>
             <td class="code-val">${code}</td>
@@ -423,7 +423,7 @@ function renderMainTable(currentData, trendStocks) {
             <td>${boardHtml}</td>
             <td>${reasonHtml}</td>
             <td class="td-right" style="font-size:12px">${turnoverStr}</td>
-            <td class="td-right" style="font-size:12px;${gubaStyle}">${gubaStr}</td>
+            <td class="td-right" style="font-size:12px;${browseStyle}">${browseStr}</td>
             <td style="font-size:11px">${extraTags}</td>
             <td class="td-center">${sparkHtml}</td>
             <td class="td-right cap-val">${capStr}</td>
