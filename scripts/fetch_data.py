@@ -9,6 +9,7 @@ import json
 import requests
 from datetime import datetime
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
@@ -111,7 +112,7 @@ def fetch_popularity():
 
 
 def fetch_eastmoney_data(codes):
-    """获取东方财富数据 - 换手率 + 股吧人气排名"""
+    """获取东方财富数据 - 换手率(并发单股) + 股吧人气排名(批量)"""
     em_headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Referer": "https://data.eastmoney.com/",
@@ -119,19 +120,30 @@ def fetch_eastmoney_data(codes):
     em_session = requests.Session()
     em_session.headers.update(em_headers)
 
-    result = {}  # code -> {turnover, guba_rank}
+    result = {code: {"turnover": 0, "guba_rank": 0} for code in codes}
 
-    # 1. 获取换手率（逐个查询50只股票）
-    for code in codes:
+    # 1. 并发获取换手率（单股接口 f168，需除以100得到百分比）
+    def fetch_one_turnover(code):
         try:
             market = "1" if code.startswith("6") else "0"
-            url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={market}.{code}&fields=f168"
+            url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={market}.{code}&fields=f168&fltt=2"
             resp = em_session.get(url, timeout=8)
             d = resp.json().get("data", {})
-            turnover = d.get("f168", 0) / 100 if d.get("f168") else 0
-            result[code] = {"turnover": round(turnover, 2), "guba_rank": 0}
+            raw = d.get("f168", 0)
+            # fltt=2 时 f168 直接是百分比数值（如 16.72）
+            turnover = float(raw) if raw else 0
+            return code, round(turnover, 2)
         except Exception:
-            result[code] = {"turnover": 0, "guba_rank": 0}
+            return code, 0
+
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = {executor.submit(fetch_one_turnover, code): code for code in codes}
+        for future in as_completed(futures):
+            code, turnover = future.result()
+            result[code]["turnover"] = turnover
+
+    match_count = sum(1 for c in codes if result[c]["turnover"] > 0)
+    print(f"东财换手率: 并发查询 {len(codes)} 只, 成功 {match_count} 只")
 
     # 2. 获取股吧人气排名（批量获取前500）
     try:
@@ -143,13 +155,12 @@ def fetch_eastmoney_data(codes):
             for i, item in enumerate(stocks):
                 rank = (page - 1) * 100 + i + 1
                 guba_map[item["f12"]] = rank
-        # 合并股吧排名
         guba_count = 0
         for code in codes:
             if code in guba_map:
                 result[code]["guba_rank"] = guba_map[code]
                 guba_count += 1
-        print(f"东财数据: 换手率 {len(codes)} 条, 股吧排名匹配 {guba_count} 条")
+        print(f"东财股吧: 排名匹配 {guba_count}/{len(codes)} 只")
     except Exception as e:
         print(f"股吧排名获取失败: {e}")
 
@@ -229,10 +240,10 @@ def main():
             merged_count += 1
     print(f"热榜: {len(hot_rank)} 条, 板块: {len(sectors)} 条, 合并人气数据: {merged_count} 条")
 
-    # 获取东方财富数据（换手率 + 股吧人气排名）
-    top_codes = [s["code"] for s in hot_rank[:50]]
+    # 获取东方财富数据（换手率 + 股吧人气排名）- 覆盖全部100只
+    top_codes = [s["code"] for s in hot_rank[:100]]
     em_data = fetch_eastmoney_data(top_codes)
-    for stock in hot_rank[:50]:
+    for stock in hot_rank[:100]:
         code = stock["code"]
         if code in em_data:
             stock["turnover"] = em_data[code]["turnover"]
