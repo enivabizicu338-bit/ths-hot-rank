@@ -139,7 +139,7 @@
             <div class="card-header"><h2><span class="dot"></span>📈 热门概念板块</h2></div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th>相关标签</th>
+                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_board" onclick="doSectorSort('sec_board')">上板家数 <span class="sort-arrow">⇅</span></th>
                 </tr></thead><tbody id="sectorTable"><tr><td colspan="4" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
@@ -239,6 +239,11 @@ function renderSectorTable(data) {
             let va, vb;
             if (sectorSortKey === 'sec_change') { va = Number(a['涨跌幅']) || 0; vb = Number(b['涨跌幅']) || 0; }
             else if (sectorSortKey === 'sec_hot') { va = parseFloat(a['热度']) || 0; vb = parseFloat(b['热度']) || 0; }
+            else if (sectorSortKey === 'sec_board') {
+                // 从 "10家涨停" 提取数字
+                const parseBoard = (s) => { const m = (s || '').match(/(\d+)/); return m ? parseInt(m[1]) : 0; };
+                va = parseBoard(a['上板家数']); vb = parseBoard(b['上板家数']);
+            }
             else return 0;
             return (va - vb) * dir;
         });
@@ -247,8 +252,9 @@ function renderSectorTable(data) {
         const cc = s['涨跌幅'] > 0 ? '#ef4444' : s['涨跌幅'] < 0 ? '#22c55e' : '#9ca3af';
         const cs = s['涨跌幅'] > 0 ? '+' : '';
         const hotStr = s['热度'] ? formatHot(s['热度']) : '-';
-        const label = s['标签'] || '';
-        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px"><span class="hot-val">${hotStr}</span></td><td style="padding:10px 16px;font-size:11px;color:#f59e0b">${label}</td></tr>`;
+        const boardStr = s['上板家数'] || '-';
+        const boardColor = boardStr !== '-' ? '#ef4444' : '#64748b';
+        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px"><span class="hot-val">${hotStr}</span></td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${boardColor}">${boardStr}</td></tr>`;
     }).join('');
 }
 

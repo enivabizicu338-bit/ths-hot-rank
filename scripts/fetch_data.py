@@ -206,6 +206,7 @@ def fetch_sectors():
                     "热度": item.get("rate", "0"),
                     "热度标签": item.get("hot_tag", ""),
                     "标签": item.get("tag", ""),
+                    "上板家数": item.get("tag", ""),
                     "领涨股票": "",
                 })
             return sectors
