@@ -1,605 +1,228 @@
 {
-  "update_time": "2026-05-07 20:31:52",
-  "source": "东方财富",
+  "update_time": "2026-05-07 20:49:47",
+  "source": "同花顺热榜",
   "data": {
     "光纤概念": [
       {
-        "code": "920045",
-        "name": "蘅东光",
-        "price": 619.08,
-        "change_pct": 13.68
-      },
-      {
-        "code": "300398",
-        "name": "飞凯材料",
-        "price": 35.82,
-        "change_pct": 13.46
-      },
-      {
-        "code": "688313",
-        "name": "仕佳光子",
-        "price": 169.22,
-        "change_pct": 11.9
-      }
-    ],
-    "CPO概念": [
-      {
-        "code": "688167",
-        "name": "炬光科技",
-        "price": 422.35,
-        "change_pct": 20.0
-      },
-      {
-        "code": "920045",
-        "name": "蘅东光",
-        "price": 619.08,
-        "change_pct": 13.68
-      },
-      {
-        "code": "688313",
-        "name": "仕佳光子",
-        "price": 169.22,
-        "change_pct": 11.9
-      }
-    ],
-    "纳米银": [
-      {
-        "code": "000823",
-        "name": "超声电子",
-        "price": 17.31,
-        "change_pct": 9.97
-      },
-      {
-        "code": "300209",
-        "name": "行云科技",
-        "price": 22.62,
-        "change_pct": 8.23
-      },
-      {
-        "code": "300131",
-        "name": "英唐智控",
-        "price": 17.65,
-        "change_pct": 7.75
-      }
-    ],
-    "光通信模块": [
-      {
-        "code": "920045",
-        "name": "蘅东光",
-        "price": 619.08,
-        "change_pct": 13.68
-      },
-      {
-        "code": "300398",
-        "name": "飞凯材料",
-        "price": 35.82,
-        "change_pct": 13.46
-      },
-      {
-        "code": "688172",
-        "name": "燕东微",
-        "price": 48.86,
-        "change_pct": 12.55
-      }
-    ],
-    "F5G概念": [
-      {
-        "code": "688313",
-        "name": "仕佳光子",
-        "price": 169.22,
-        "change_pct": 11.9
-      },
-      {
-        "code": "000070",
-        "name": "特发信息",
-        "price": 20.11,
-        "change_pct": 10.01
-      },
-      {
-        "code": "603803",
-        "name": "瑞斯康达",
-        "price": 16.27,
-        "change_pct": 10.01
-      }
-    ],
-    "Kimi概念": [
-      {
-        "code": "301171",
-        "name": "易点天下",
-        "price": 43.0,
-        "change_pct": 20.01
-      },
-      {
-        "code": "002432",
-        "name": "九安医疗",
-        "price": 78.3,
-        "change_pct": 8.0
-      },
-      {
-        "code": "300364",
-        "name": "中文在线",
-        "price": 32.36,
-        "change_pct": 6.94
-      }
-    ],
-    "噪声防治": [
-      {
-        "code": "002591",
-        "name": "恒大高新",
-        "price": 8.76,
-        "change_pct": 10.05
-      },
-      {
-        "code": "300715",
-        "name": "凯伦股份",
-        "price": 14.72,
-        "change_pct": 7.6
-      },
-      {
-        "code": "688485",
-        "name": "九州一轨",
-        "price": 59.96,
-        "change_pct": 6.88
-      }
-    ],
-    "激光雷达": [
-      {
-        "code": "688167",
-        "name": "炬光科技",
-        "price": 422.35,
-        "change_pct": 20.0
-      },
-      {
-        "code": "688313",
-        "name": "仕佳光子",
-        "price": 169.22,
-        "change_pct": 11.9
-      },
-      {
-        "code": "002281",
-        "name": "光迅科技",
-        "price": 164.29,
-        "change_pct": 8.93
-      }
-    ],
-    "ERP概念": [
-      {
-        "code": "300807",
-        "name": "天迈科技",
-        "price": 67.22,
-        "change_pct": 19.99
-      },
-      {
-        "code": "688365",
-        "name": "光云科技",
-        "price": 23.11,
-        "change_pct": 12.79
-      },
-      {
-        "code": "300668",
-        "name": "杰恩股份",
-        "price": 63.22,
-        "change_pct": 10.87
-      }
-    ],
-    "英伟达概念": [
-      {
-        "code": "301666",
-        "name": "大普微-UW",
-        "price": 432.28,
-        "change_pct": 14.06
-      },
-      {
-        "code": "920045",
-        "name": "蘅东光",
-        "price": 619.08,
-        "change_pct": 13.68
-      },
-      {
-        "code": "688003",
-        "name": "天准科技",
-        "price": 80.17,
-        "change_pct": 12.2
-      }
-    ],
-    "昨日首板": [
-      {
-        "code": "688069",
-        "name": "德林海",
-        "price": 56.16,
-        "change_pct": 20.0
-      },
-      {
-        "code": "002217",
-        "name": "合力泰",
-        "price": 3.5,
-        "change_pct": 10.06
-      },
-      {
-        "code": "601991",
-        "name": "大唐发电",
-        "price": 5.04,
-        "change_pct": 10.04
-      }
-    ],
-    "3D摄像头": [
-      {
-        "code": "688322",
-        "name": "奥比中光-W",
-        "price": 86.5,
-        "change_pct": 6.24
-      },
-      {
-        "code": "002189",
-        "name": "中光学",
-        "price": 22.64,
-        "change_pct": 6.19
-      },
-      {
-        "code": "002273",
-        "name": "水晶光电",
-        "price": 35.06,
-        "change_pct": 5.63
-      }
-    ],
-    "昨日涨停_含一字": [
-      {
-        "code": "688069",
-        "name": "德林海",
-        "price": 56.16,
-        "change_pct": 20.0
-      },
-      {
-        "code": "000889",
-        "name": "中嘉博创",
-        "price": 5.35,
-        "change_pct": 10.08
-      },
-      {
-        "code": "002217",
-        "name": "合力泰",
-        "price": 3.5,
-        "change_pct": 10.06
-      }
-    ],
-    "工业母机": [
-      {
-        "code": "300161",
-        "name": "华中数控",
-        "price": 39.14,
-        "change_pct": 15.7
-      },
-      {
-        "code": "300488",
-        "name": "恒锋工具",
-        "price": 34.63,
-        "change_pct": 12.84
-      },
-      {
-        "code": "688697",
-        "name": "纽威数控",
-        "price": 20.81,
-        "change_pct": 10.69
-      }
-    ],
-    "东方财富热股": [
-      {
-        "code": "301666",
-        "name": "大普微-UW",
-        "price": 432.28,
-        "change_pct": 14.06
-      },
-      {
-        "code": "000889",
-        "name": "中嘉博创",
-        "price": 5.35,
-        "change_pct": 10.08
-      },
-      {
-        "code": "002217",
-        "name": "合力泰",
-        "price": 3.5,
-        "change_pct": 10.06
-      }
-    ],
-    "超导概念": [
-      {
         "code": "600522",
         "name": "中天科技",
-        "price": 38.38,
+        "hot_value": 46661.0,
         "change_pct": 10.0
       },
       {
-        "code": "601868",
-        "name": "中国能建",
-        "price": 3.12,
-        "change_pct": 9.86
+        "code": "002491",
+        "name": "通鼎互联",
+        "hot_value": 35101.0,
+        "change_pct": 10.02
       },
       {
         "code": "600105",
         "name": "永鼎股份",
-        "price": 47.52,
+        "hot_value": 30425.0,
         "change_pct": 8.79
       }
     ],
-    "快手概念": [
-      {
-        "code": "301171",
-        "name": "易点天下",
-        "price": 43.0,
-        "change_pct": 20.01
-      },
-      {
-        "code": "603598",
-        "name": "引力传媒",
-        "price": 24.02,
-        "change_pct": 9.98
-      },
-      {
-        "code": "300364",
-        "name": "中文在线",
-        "price": 32.36,
-        "change_pct": 6.94
-      }
-    ],
-    "苹果概念": [
-      {
-        "code": "300868",
-        "name": "杰美特",
-        "price": 87.24,
-        "change_pct": 20.0
-      },
-      {
-        "code": "688371",
-        "name": "菲沃泰",
-        "price": 31.0,
-        "change_pct": 12.32
-      },
-      {
-        "code": "688003",
-        "name": "天准科技",
-        "price": 80.17,
-        "change_pct": 12.2
-      }
-    ],
-    "铜缆高速连接": [
-      {
-        "code": "920045",
-        "name": "蘅东光",
-        "price": 619.08,
-        "change_pct": 13.68
-      },
+    "共封装光学(CPO)": [
       {
         "code": "600522",
         "name": "中天科技",
-        "price": 38.38,
+        "hot_value": 46661.0,
         "change_pct": 10.0
       },
       {
-        "code": "688515",
-        "name": "裕太微-U",
-        "price": 183.29,
-        "change_pct": 9.93
-      }
-    ],
-    "PCB": [
-      {
-        "code": "300903",
-        "name": "科翔股份",
-        "price": 58.74,
-        "change_pct": 12.96
+        "code": "002384",
+        "name": "东山精密",
+        "hot_value": 39070.0,
+        "change_pct": 10.0
       },
       {
-        "code": "688003",
-        "name": "天准科技",
-        "price": 80.17,
-        "change_pct": 12.2
-      },
-      {
-        "code": "300679",
-        "name": "电连技术",
-        "price": 50.51,
-        "change_pct": 11.8
+        "code": "600105",
+        "name": "永鼎股份",
+        "hot_value": 30425.0,
+        "change_pct": 8.79
       }
     ],
-    "腾讯云": [
+    "摘帽": [],
+    "PCB概念": [
       {
-        "code": "301171",
-        "name": "易点天下",
-        "price": 43.0,
-        "change_pct": 20.01
+        "code": "603256",
+        "name": "宏和科技",
+        "hot_value": 30059.0,
+        "change_pct": 10.0
+      },
+      {
+        "code": "002436",
+        "name": "兴森科技",
+        "hot_value": 19593.0,
+        "change_pct": 10.01
+      },
+      {
+        "code": "605006",
+        "name": "山东玻纤",
+        "hot_value": 17883.0,
+        "change_pct": 10.01
+      }
+    ],
+    "工业母机": [],
+    "存储芯片": [
+      {
+        "code": "002156",
+        "name": "通富微电",
+        "hot_value": 31529.0,
+        "change_pct": 3.74
+      },
+      {
+        "code": "002183",
+        "name": "怡亚通",
+        "hot_value": 25085.0,
+        "change_pct": 9.98
+      },
+      {
+        "code": "001309",
+        "name": "德明利",
+        "hot_value": 20433.0,
+        "change_pct": 6.79
+      }
+    ],
+    "液冷服务器": [
+      {
+        "code": "002580",
+        "name": "圣阳股份",
+        "hot_value": 35324.0,
+        "change_pct": 0.44
       },
       {
         "code": "002335",
         "name": "科华数据",
-        "price": 69.16,
+        "hot_value": 15348.0,
         "change_pct": 10.0
-      },
-      {
-        "code": "603039",
-        "name": "泛微网络",
-        "price": 49.11,
-        "change_pct": 7.23
       }
     ],
-    "昨日涨停": [
+    "算力租赁": [
       {
         "code": "000889",
         "name": "中嘉博创",
-        "price": 5.35,
+        "hot_value": 35763.0,
         "change_pct": 10.08
       },
       {
-        "code": "002217",
-        "name": "合力泰",
-        "price": 3.5,
-        "change_pct": 10.06
-      },
-      {
-        "code": "601991",
-        "name": "大唐发电",
-        "price": 5.04,
-        "change_pct": 10.04
-      }
-    ],
-    "电子纸概念": [
-      {
-        "code": "300400",
-        "name": "劲拓股份",
-        "price": 29.09,
-        "change_pct": 11.71
-      },
-      {
-        "code": "002217",
-        "name": "合力泰",
-        "price": 3.5,
-        "change_pct": 10.06
-      },
-      {
-        "code": "000727",
-        "name": "冠捷科技",
-        "price": 2.9,
-        "change_pct": 5.84
-      }
-    ],
-    "柔性屏(折叠屏)": [
-      {
-        "code": "300679",
-        "name": "电连技术",
-        "price": 50.51,
-        "change_pct": 11.8
-      },
-      {
-        "code": "300400",
-        "name": "劲拓股份",
-        "price": 29.09,
-        "change_pct": 11.71
-      },
-      {
-        "code": "300657",
-        "name": "弘信电子",
-        "price": 40.53,
-        "change_pct": 10.14
-      }
-    ],
-    "多模态AI": [
-      {
-        "code": "301171",
-        "name": "易点天下",
-        "price": 43.0,
-        "change_pct": 20.01
-      },
-      {
-        "code": "301070",
-        "name": "开勒股份",
-        "price": 110.22,
-        "change_pct": 11.21
+        "code": "600673",
+        "name": "东阳光",
+        "hot_value": 34356.0,
+        "change_pct": 9.99
       },
       {
         "code": "002929",
         "name": "润建股份",
-        "price": 71.12,
+        "hot_value": 32720.0,
         "change_pct": 10.01
       }
     ],
-    "东数西算": [
+    "人形机器人": [
       {
-        "code": "300052",
-        "name": "中青宝",
-        "price": 14.27,
-        "change_pct": 20.02
-      },
-      {
-        "code": "301018",
-        "name": "申菱环境",
-        "price": 136.68,
-        "change_pct": 14.33
-      },
-      {
-        "code": "000070",
-        "name": "特发信息",
-        "price": 20.11,
-        "change_pct": 10.01
+        "code": "002050",
+        "name": "三花智控",
+        "hot_value": 35598.0,
+        "change_pct": 4.49
       }
     ],
-    "电子后视镜": [
+    "东数西算(算力)": [
       {
-        "code": "300807",
-        "name": "天迈科技",
-        "price": 67.22,
-        "change_pct": 19.99
+        "code": "600673",
+        "name": "东阳光",
+        "hot_value": 34356.0,
+        "change_pct": 9.99
       },
       {
-        "code": "605218",
-        "name": "伟时电子",
-        "price": 18.22,
-        "change_pct": 10.02
+        "code": "600186",
+        "name": "莲花控股",
+        "hot_value": 29427.0,
+        "change_pct": -2.37
       },
       {
-        "code": "002990",
-        "name": "盛视科技",
-        "price": 64.25,
-        "change_pct": 10.0
+        "code": "603629",
+        "name": "利通电子",
+        "hot_value": 25589.0,
+        "change_pct": -0.36
       }
     ],
-    "MiniLED": [
+    "芯片概念": [
       {
-        "code": "688593",
-        "name": "新相微",
-        "price": 39.94,
-        "change_pct": 16.31
-      },
-      {
-        "code": "300903",
-        "name": "科翔股份",
-        "price": 58.74,
-        "change_pct": 12.96
-      },
-      {
-        "code": "688055",
-        "name": "龙腾光电",
-        "price": 4.58,
-        "change_pct": 11.44
+        "code": "002183",
+        "name": "怡亚通",
+        "hot_value": 25085.0,
+        "change_pct": 9.98
       }
     ],
-    "通信技术": [
+    "商业航天": [
       {
-        "code": "688167",
-        "name": "炬光科技",
-        "price": 422.35,
-        "change_pct": 20.0
+        "code": "002342",
+        "name": "巨力索具",
+        "hot_value": 67284.0,
+        "change_pct": 9.99
       },
       {
-        "code": "920045",
-        "name": "蘅东光",
-        "price": 619.08,
-        "change_pct": 13.68
+        "code": "603601",
+        "name": "再升科技",
+        "hot_value": 23628.0,
+        "change_pct": 3.53
       },
       {
-        "code": "300398",
-        "name": "飞凯材料",
-        "price": 35.82,
-        "change_pct": 13.46
+        "code": "002202",
+        "name": "金风科技",
+        "hot_value": 23060.0,
+        "change_pct": 1.86
       }
     ],
-    "存储芯片": [
+    "AI应用": [
       {
-        "code": "301666",
-        "name": "大普微-UW",
-        "price": 432.28,
-        "change_pct": 14.06
+        "code": "002044",
+        "name": "美年健康",
+        "hot_value": 18619.0,
+        "change_pct": 3.85
       },
       {
-        "code": "300398",
-        "name": "飞凯材料",
-        "price": 35.82,
-        "change_pct": 13.46
+        "code": "600936",
+        "name": "北投科技",
+        "hot_value": 17972.0,
+        "change_pct": 10.07
+      }
+    ],
+    "储能": [],
+    "锂电池概念": [],
+    "固态电池": [
+      {
+        "code": "603399",
+        "name": "永杉锂业",
+        "hot_value": 38871.0,
+        "change_pct": 5.86
       },
       {
-        "code": "300903",
-        "name": "科翔股份",
-        "price": 58.74,
-        "change_pct": 12.96
+        "code": "002709",
+        "name": "天赐材料",
+        "hot_value": 30996.0,
+        "change_pct": -1.88
+      },
+      {
+        "code": "002176",
+        "name": "江特电机",
+        "hot_value": 18111.0,
+        "change_pct": -1.15
+      }
+    ],
+    "创新药": [],
+    "ST板块": [
+      {
+        "code": "600745",
+        "name": "*ST闻泰",
+        "hot_value": 29516.0,
+        "change_pct": -5.02
+      },
+      {
+        "code": "300068",
+        "name": "ST南都",
+        "hot_value": 17993.0,
+        "change_pct": -19.35
       }
     ]
   }
