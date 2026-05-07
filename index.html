@@ -117,9 +117,8 @@
             </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th class="td-center sortable" data-key="rank" onclick="doSort('rank')" style="width:44px">排名 <span class="sort-arrow">⇅</span></th>
-                    <th style="width:72px">代码</th>
-                    <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">浏览排名 <span class="sort-arrow">⇅</span></th>
+                    <th class="td-center sortable" data-key="rank" onclick="doSort('rank')" style="width:52px">同花顺 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">东财 <span class="sort-arrow">⇅</span></th>
                     <th style="min-width:90px">名称</th>
                     <th class="r sortable" data-key="price" onclick="doSort('price')">现价 <span class="sort-arrow">⇅</span></th>
                     <th class="r sortable" data-key="change_pct" onclick="doSort('change_pct')">涨跌幅 <span class="sort-arrow">⇅</span></th>
@@ -132,7 +131,7 @@
                     <th style="min-width:80px">标签</th>
                     <th class="td-center" style="width:68px">走势</th>
                     <th class="r sortable" data-key="market_cap" onclick="doSort('market_cap')">流通市值 <span class="sort-arrow">⇅</span></th>
-                </tr></thead><tbody id="mainTable"><tr><td colspan="15" class="loading">加载中...</td></tr></tbody></table>
+                </tr></thead><tbody id="mainTable"><tr><td colspan="14" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
         <!-- 热门概念板块 -->
@@ -463,7 +462,6 @@ function renderMainTable(currentData, trendStocks) {
         const browseStyle = s.browse_rank && s.browse_rank <= 10 ? 'color:#ef4444;font-weight:700' : s.browse_rank ? 'color:#f59e0b' : 'color:#64748b';
         return `<tr class="hover" style="${dropStyle}">
             <td class="td-center"><span class="rank-badge ${rc}">${s.rank}</span></td>
-            <td class="code-val">${code}</td>
             <td class="td-right" style="font-size:12px;${browseStyle}">${browseStr}</td>
             <td><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td>
             <td class="td-right price-val">${priceStr}</td>
