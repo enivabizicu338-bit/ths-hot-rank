@@ -46,6 +46,8 @@
         .tag-cb{background:rgba(59,130,246,0.15);color:#60a5fa}
         .tag-hot{background:rgba(168,85,247,0.15);color:#a78bfa}
         .hot-val{color:#f59e0b;font-size:11px;font-weight:600}
+        a.stock-link{color:#e2e8f0;text-decoration:none;transition:color .2s}
+        a.stock-link:hover{color:#a78bfa;text-decoration:underline}
         .loading{color:#64748b;font-size:13px;text-align:center;padding:40px}
         .fade-in{animation:fadeIn .5s ease}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -91,8 +93,8 @@
                 <div class="card-header"><h2><span class="dot"></span>🔥 实时热榜 TOP 30</h2></div>
                 <div class="card-body" style="padding:0;overflow-x:auto">
                     <table><thead><tr>
-                        <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th class="r">热度</th>
-                    </tr></thead><tbody id="hotTable"><tr><td colspan="5" class="loading">加载中...</td></tr></tbody></table>
+                        <th style="width:50px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">涨跌幅</th><th class="r">热度</th><th style="text-align:center">变动</th>
+                    </tr></thead><tbody id="hotTable"><tr><td colspan="6" class="loading">加载中...</td></tr></tbody></table>
                 </div>
             </div>
             <div class="card">
@@ -175,14 +177,19 @@ function getFilteredSnapshots() {
 
 function renderHotTable(data) {
     const tb = document.getElementById('hotTable');
-    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="5" class="loading">暂无数据</td></tr>'; return; }
+    if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="6" class="loading">暂无数据</td></tr>'; return; }
     tb.innerHTML = data.slice(0, 30).map((s, i) => {
         const cc = s.change_pct > 0 ? '#ef4444' : s.change_pct < 0 ? '#22c55e' : '#9ca3af';
         const cs = s.change_pct > 0 ? '+' : '';
         const rc = i===0?'r1':i===1?'r2':i===2?'r3':'rn';
         const tag = s.change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
         const hotStr = s.hot_value ? formatHot(s.hot_value) : '-';
-        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-4 text-right hot-val">${hotStr}</td></tr>`;
+        const code = (s.code || '').replace(/^(SZ|SH|BJ)/, '');
+        const baiduUrl = `https://finance.baidu.com/stock/ab-${code}`;
+        const chg = s.rank_chg || 0;
+        const chgClass = chg > 0 ? 'up' : chg < 0 ? 'dn' : 'fl';
+        const chgText = chg > 0 ? '↑'+chg : chg < 0 ? '↓'+Math.abs(chg) : '—';
+        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${s.rank}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${code}</td><td class="py-2 px-4 font-semibold"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td><td class="py-2 px-4 text-right hot-val">${hotStr}</td><td class="py-2 px-4 text-center ${chgClass} font-semibold">${chgText}</td></tr>`;
     }).join('');
 }
 
@@ -255,7 +262,8 @@ function renderDetailTable(stocks) {
         const cs = s.current_change_pct > 0 ? '+' : '';
         const tag = s.current_change_pct >= 9.9 ? '<span class="tag tag-zt">涨停</span>' : s.current_change_pct >= 5 ? '<span class="tag tag-qz">强势</span>' : '';
         const extraTags = renderTags(s);
-        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold text-white">${s.name}${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-4" style="font-size:11px">${extraTags}</td><td class="py-2 px-4 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-4 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
+        const baiduUrl = `https://finance.baidu.com/stock/ab-${s.code}`;
+        return `<tr class="hover"><td class="py-2 px-4 text-center"><span class="rank-badge ${rc}">${curr}</span></td><td class="py-2 px-4 font-mono text-gray-400" style="font-size:12px">${s.code}</td><td class="py-2 px-4 font-semibold"><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td><td class="py-2 px-4 text-right font-semibold" style="color:${cc}">${cs}${Number(s.current_change_pct).toFixed(2)}%</td><td class="py-2 px-4" style="font-size:11px">${extraTags}</td><td class="py-2 px-4 text-center ${tc} font-semibold">${tt}</td><td class="py-2 px-4 text-center"><svg width="60" height="24"><polyline fill="none" stroke="${sparkColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg></td></tr>`;
     }).join('');
 }
 
