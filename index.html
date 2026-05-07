@@ -265,11 +265,9 @@ function renderSectorTable(data, leaders) {
                 leadersHtml = stocks.map((st, idx) => {
                     const code = (st.code || '').replace(/^(SZ|SH|BJ)/, '');
                     const url = `https://finance.baidu.com/stock/ab-${code}`;
-                    const pct = st.change_pct || 0;
-                    const pctColor = pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#9ca3af';
-                    const pctSign = pct > 0 ? '+' : '';
+                    const hotVal = st.hot_value ? formatHot(st.hot_value) : '-';
                     const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : '🥉';
-                    return `<a href="${url}" target="_blank" style="color:#e2e8f0;text-decoration:none;font-size:11px;margin-right:8px;white-space:nowrap" title="${st.name} ${pctSign}${pct}%">${medal}<b>${st.name}</b> <span style="color:${pctColor};font-size:10px">${pctSign}${pct}%</span></a>`;
+                    return `<a href="${url}" target="_blank" style="color:#e2e8f0;text-decoration:none;font-size:11px;margin-right:8px;white-space:nowrap" title="${st.name} 热度${st.hot_value}">${medal}<b>${st.name}</b> <span style="color:#f59e0b;font-size:10px">${hotVal}</span></a>`;
                 }).join('');
             } else {
                 leadersHtml = '<span style="color:#475569;font-size:11px">-</span>';
