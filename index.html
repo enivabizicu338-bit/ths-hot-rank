@@ -138,8 +138,30 @@
             <div class="card-header"><h2><span class="dot"></span>📈 热门概念板块</h2></div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th>板块</th><th class="r">涨跌幅</th><th class="r">热度</th><th>标签</th>
+                    <th>板块</th><th class="r sortable" data-key="sec_change" onclick="doSectorSort('sec_change')">涨跌幅 <span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="sec_hot" onclick="doSectorSort('sec_hot')">热度 <span class="sort-arrow">⇅</span></th><th>标签</th>
                 </tr></thead><tbody id="sectorTable"><tr><td colspan="4" class="loading">加载中...</td></tr></tbody></table>
+            </div>
+        </div>
+        <!-- 排名趋势分析 -->
+        <div class="card">
+            <div class="card-header">
+                <h2><span class="dot"></span>📊 排名趋势分析</h2>
+                <span style="color:#64748b;font-size:11px">基于历史快照分析排名连续变化趋势</span>
+            </div>
+            <div class="card-body" style="padding:0;overflow-x:auto">
+                <table><thead><tr>
+                    <th class="td-center" style="width:44px">排名</th>
+                    <th style="width:72px">代码</th>
+                    <th style="min-width:90px">名称</th>
+                    <th class="r sortable" data-key="trend_streak" onclick="doTrendSort('trend_streak')">连续天数 <span class="sort-arrow">⇅</span></th>
+                    <th class="td-center sortable" data-key="trend_dir" onclick="doTrendSort('trend_dir')">趋势 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="trend_total" onclick="doTrendSort('trend_total')">总变动 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="trend_first" onclick="doTrendSort('trend_first')">起始排名 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="trend_last" onclick="doTrendSort('trend_last')">当前排名 <span class="sort-arrow">⇅</span></th>
+                    <th style="min-width:60px">现价</th>
+                    <th style="min-width:70px">涨跌幅</th>
+                    <th class="td-center" style="width:68px">趋势</th>
+                </tr></thead><tbody id="trendTable"><tr><td colspan="11" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
     </div>
@@ -216,15 +238,39 @@ function getFilteredSnapshots() {
     return allSnapshots.filter(s => (s.date || s.time.split(' ')[0]) === selectedDate);
 }
 
+let sectorSortKey = null, sectorSortDir = 'desc';
+let trendSortKey = null, trendSortDir = 'desc';
+
+function doSectorSort(key) {
+    if (sectorSortKey === key) { sectorSortDir = sectorSortDir === 'desc' ? 'asc' : 'desc'; }
+    else { sectorSortKey = key; sectorSortDir = 'desc'; }
+    document.querySelector('#sectorTable').closest('table').querySelectorAll('th.sortable').forEach(th => {
+        th.classList.remove('asc', 'desc');
+        if (th.dataset.key === key) th.classList.add(sectorSortDir);
+    });
+    renderSectorTable(allSectorsData);
+}
+
 function renderSectorTable(data) {
     const tb = document.getElementById('sectorTable');
     if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="4" class="loading">暂无数据</td></tr>'; return; }
-    tb.innerHTML = data.slice(0, 15).map(s => {
+    let rows = data.slice(0, 30);
+    if (sectorSortKey) {
+        const dir = sectorSortDir === 'desc' ? -1 : 1;
+        rows = [...rows].sort((a, b) => {
+            let va, vb;
+            if (sectorSortKey === 'sec_change') { va = Number(a['涨跌幅']) || 0; vb = Number(b['涨跌幅']) || 0; }
+            else if (sectorSortKey === 'sec_hot') { va = parseFloat(a['热度']) || 0; vb = parseFloat(b['热度']) || 0; }
+            else return 0;
+            return (va - vb) * dir;
+        });
+    }
+    tb.innerHTML = rows.map(s => {
         const cc = s['涨跌幅'] > 0 ? '#ef4444' : s['涨跌幅'] < 0 ? '#22c55e' : '#9ca3af';
         const cs = s['涨跌幅'] > 0 ? '+' : '';
         const hotStr = s['热度'] ? formatHot(s['热度']) : '-';
         const label = s['标签'] || '';
-        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px" class="hot-val">${hotStr}</td><td style="padding:10px 16px;font-size:11px;color:#f59e0b">${label}</td></tr>`;
+        return `<tr class="hover"><td style="padding:10px 16px;font-weight:600;color:#f1f5f9">${s['板块名称']}</td><td class="td-right" style="padding:10px 16px;font-weight:600;color:${cc}">${cs}${Number(s['涨跌幅']).toFixed(2)}%</td><td class="td-right" style="padding:10px 16px"><span class="hot-val">${hotStr}</span></td><td style="padding:10px 16px;font-size:11px;color:#f59e0b">${label}</td></tr>`;
     }).join('');
 }
 
@@ -452,6 +498,125 @@ function updateCountdown() {
     document.getElementById('countdown').textContent = `${m}:${s.toString().padStart(2,'0')} 后刷新`;
 }
 
+function doTrendSort(key) {
+    if (trendSortKey === key) { trendSortDir = trendSortDir === 'desc' ? 'asc' : 'desc'; }
+    else { trendSortKey = key; trendSortDir = 'desc'; }
+    document.querySelector('#trendTable').closest('table').querySelectorAll('th.sortable').forEach(th => {
+        th.classList.remove('asc', 'desc');
+        if (th.dataset.key === key) th.classList.add(trendSortDir);
+    });
+    renderTrendAnalysisTable(currentTrendData?.stocks || []);
+}
+
+function analyzeRankTrend(stocks) {
+    if (!stocks || stocks.length === 0) return [];
+    const results = [];
+    for (const s of stocks) {
+        const hist = s.rank_history;
+        if (!hist || hist.length < 2) continue;
+        // 从最新数据往回找连续上升或下降的天数
+        let streak = 0;
+        let dir = 0; // 1=上升(排名数字变小), -1=下降
+        for (let i = hist.length - 1; i > 0; i--) {
+            const diff = hist[i - 1].rank - hist[i].rank; // 正=排名上升
+            if (diff === 0) continue; // 排名不变则跳过
+            if (dir === 0) { dir = diff > 0 ? 1 : -1; streak = 1; }
+            else {
+                const curDir = diff > 0 ? 1 : -1;
+                if (curDir === dir) streak++;
+                else break;
+            }
+        }
+        if (streak >= 2) {
+            // 找到连续趋势的起始和结束
+            let firstIdx = hist.length - 1;
+            let count = 0;
+            let foundDir = 0;
+            for (let i = hist.length - 1; i > 0; i--) {
+                const diff = hist[i - 1].rank - hist[i].rank;
+                if (diff === 0) continue;
+                const curDir = diff > 0 ? 1 : -1;
+                if (foundDir === 0) { foundDir = curDir; firstIdx = i - 1; count = 1; }
+                else if (curDir === foundDir) { firstIdx = i - 1; count++; }
+                else break;
+            }
+            const totalChange = hist[hist.length - 1].rank - hist[firstIdx].rank;
+            results.push({
+                code: s.code, name: s.name,
+                streak: streak,
+                dir: dir, // 1=上升, -1=下降
+                totalChange: totalChange,
+                firstRank: hist[firstIdx].rank,
+                lastRank: hist[hist.length - 1].rank,
+                price: s.current_price,
+                change_pct: s.current_change_pct,
+                rank_history: hist
+            });
+        }
+    }
+    // 默认排序：连续天数降序，上升排前面
+    results.sort((a, b) => {
+        if (a.dir !== b.dir) return b.dir - a.dir; // 上升优先
+        return b.streak - a.streak;
+    });
+    return results;
+}
+
+function renderTrendAnalysisTable(stocks) {
+    const tb = document.getElementById('trendTable');
+    const analysis = analyzeRankTrend(stocks);
+    if (!analysis.length) { tb.innerHTML = '<tr><td colspan="11" class="loading">暂无足够数据（需要至少2天快照记录）</td></tr>'; return; }
+
+    let rows = [...analysis];
+    if (trendSortKey) {
+        const dir = trendSortDir === 'desc' ? -1 : 1;
+        rows.sort((a, b) => {
+            let va, vb;
+            switch(trendSortKey) {
+                case 'trend_streak': va = a.streak; vb = b.streak; break;
+                case 'trend_dir': va = a.dir; vb = b.dir; break;
+                case 'trend_total': va = Math.abs(a.totalChange); vb = Math.abs(b.totalChange); break;
+                case 'trend_first': va = a.firstRank; vb = b.firstRank; break;
+                case 'trend_last': va = a.lastRank; vb = b.lastRank; break;
+                default: return 0;
+            }
+            return (va - vb) * dir;
+        });
+    }
+
+    tb.innerHTML = rows.map((s, i) => {
+        const code = s.code;
+        const baiduUrl = `https://finance.baidu.com/stock/ab-${code}`;
+        const isUp = s.dir === 1;
+        const trendColor = isUp ? '#ef4444' : '#22c55e';
+        const trendIcon = isUp ? '🔥' : '💧';
+        const trendLabel = isUp ? `连续${s.streak}天上升` : `连续${s.streak}天下降`;
+        const chgColor = isUp ? '#ef4444' : '#22c55e';
+        const chgText = isUp ? `↑${s.totalChange}` : `↓${Math.abs(s.totalChange)}`;
+        const priceStr = formatPrice(s.price);
+        const cc = s.change_pct > 0 ? '#ef4444' : s.change_pct < 0 ? '#22c55e' : '#9ca3af';
+        const cs = s.change_pct > 0 ? '+' : '';
+        // 迷你趋势图
+        const sparkData = s.rank_history.slice(-20);
+        const maxR = Math.max(...sparkData.map(h => h.rank), 1);
+        const pts = sparkData.map((h, j) => `${j * (56 / (sparkData.length - 1 || 1)) + 2},${Math.min(h.rank / maxR * 18 + 2, 22)}`).join(' ');
+        const sparkHtml = `<svg width="60" height="24"><polyline fill="none" stroke="${trendColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="${pts}"/></svg>`;
+        return `<tr class="hover">
+            <td class="td-center"><span class="rank-badge rn">${i + 1}</span></td>
+            <td class="code-val">${code}</td>
+            <td><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a></td>
+            <td class="td-right" style="font-weight:700;color:${trendColor};font-size:14px">${s.streak}天</td>
+            <td class="td-center"><span style="color:${trendColor};font-weight:700;font-size:13px">${trendIcon} ${trendLabel}</span></td>
+            <td class="td-right" style="font-weight:700;color:${chgColor}">${chgText}</td>
+            <td class="td-right" style="color:#94a3b8">${s.firstRank}</td>
+            <td class="td-right" style="color:#e2e8f0;font-weight:600">${s.lastRank}</td>
+            <td class="td-right price-val">${priceStr}</td>
+            <td class="td-right" style="font-weight:600;color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td>
+            <td class="td-center">${sparkHtml}</td>
+        </tr>`;
+    }).join('');
+}
+
 function updateView() {
     const filtered = getFilteredSnapshots();
     currentTrendData = buildTrendData(filtered, allCurrentData);
@@ -466,6 +631,7 @@ function updateView() {
     }
     renderSelector(currentTrendData.stocks);
     renderMainTable(allCurrentData, currentTrendData.stocks);
+    renderTrendAnalysisTable(currentTrendData.stocks);
     if (!rankChart) { createChart(currentTrendData.time_labels); }
     else { rankChart.data.labels = currentTrendData.time_labels; updateChart(); }
 }
