@@ -30,6 +30,10 @@
         table{width:100%;border-collapse:collapse}
         th{padding:8px 10px;text-align:left;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(75,85,99,0.4);white-space:nowrap}
         th.r{text-align:right}
+        th.sortable{cursor:pointer;user-select:none;transition:color .2s}
+        th.sortable:hover{color:#e2e8f0}
+        th.sortable .sort-arrow{font-size:9px;margin-left:2px;opacity:.4}
+        th.sortable.asc .sort-arrow,th.sortable.desc .sort-arrow{opacity:1;color:#a78bfa}
         td{padding:0}
         tr.hover:hover{background:rgba(255,255,255,0.03)}
         .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;font-size:12px;font-weight:700}
@@ -99,7 +103,7 @@
             </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th style="width:40px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r">现价</th><th class="r">涨跌幅</th><th class="r">热度</th><th style="text-align:center">变动</th><th>几板</th><th>涨停原因</th><th>标签</th><th style="text-align:center">趋势</th><th class="r">流通市值</th>
+                    <th style="width:40px;text-align:center">排名</th><th>代码</th><th>名称</th><th class="r sortable" data-key="price" onclick="sortTable('price')">现价<span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="change_pct" onclick="sortTable('change_pct')">涨跌幅<span class="sort-arrow">⇅</span></th><th class="r sortable" data-key="hot_value" onclick="sortTable('hot_value')">热度<span class="sort-arrow">⇅</span></th><th style="text-align:center">变动</th><th>几板</th><th>涨停原因</th><th>标签</th><th style="text-align:center">趋势</th><th class="r sortable" data-key="market_cap" onclick="sortTable('market_cap')">流通市值<span class="sort-arrow">⇅</span></th>
                 </tr></thead><tbody id="mainTable"><tr><td colspan="12" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
@@ -235,6 +239,35 @@ function buildTrendData(snapshots, currentData) {
     return { time_labels: snapshots.map(s => s.time), stocks: sorted };
 }
 
+let currentSortKey = null, currentSortDir = 'desc';
+
+function sortTable(key) {
+    if (currentSortKey === key) {
+        currentSortDir = currentSortDir === 'desc' ? 'asc' : 'desc';
+    } else {
+        currentSortKey = key;
+        currentSortDir = 'desc';
+    }
+    // Update header styles
+    document.querySelectorAll('th.sortable').forEach(th => {
+        th.classList.remove('asc', 'desc');
+        if (th.dataset.key === key) th.classList.add(currentSortDir);
+    });
+    renderMainTable(allCurrentData, currentTrendData?.stocks || []);
+}
+
+function parseSortVal(val, key) {
+    if (key === 'market_cap') {
+        // "188.8亿" -> number
+        if (typeof val === 'string') {
+            const m = val.match(/([\d.]+)/);
+            return m ? parseFloat(m[1]) : 0;
+        }
+        return parseFloat(val) || 0;
+    }
+    return parseFloat(val) || 0;
+}
+
 function renderMainTable(currentData, trendStocks) {
     const tb = document.getElementById('mainTable');
     if ((!currentData || !currentData.length) && (!trendStocks || !trendStocks.length)) {
@@ -270,8 +303,17 @@ function renderMainTable(currentData, trendStocks) {
             }
         });
     }
-    // Sort by current rank
-    merged.sort((a, b) => (a.rank || 999) - (b.rank || 999));
+    // Sort by current rank or custom sort
+    if (currentSortKey) {
+        const dir = currentSortDir === 'desc' ? -1 : 1;
+        merged.sort((a, b) => {
+            const va = parseSortVal(a[currentSortKey], currentSortKey);
+            const vb = parseSortVal(b[currentSortKey], currentSortKey);
+            return (va - vb) * dir;
+        });
+    } else {
+        merged.sort((a, b) => (a.rank || 999) - (b.rank || 999));
+    }
 
     tb.innerHTML = merged.map((s, i) => {
         const code = (s.code || '').replace(/^(SZ|SH|BJ)/, '');
