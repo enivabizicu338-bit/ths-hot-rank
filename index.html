@@ -662,13 +662,16 @@ function updateRealtimeData() {
                 const raw = window['v_' + tc];
                 if (!raw) return;
                 const f = raw.split('~');
-                if (f.length < 39) return;
+                if (f.length < 45) return;
+                // 腾讯接口字段: f[3]=当前价格, f[32]=涨跌幅%
+                // 注意：换手率(f[38])使用东财数据，此处不覆盖
                 const price = parseFloat(f[3]);
-                const changePct = parseFloat(f[5]);
-                const turnover = parseFloat(f[38]);
+                const changePct = parseFloat(f[32]);
                 if (isNaN(price) || price <= 0) return;
+                // 更新实时价格
                 const priceEl = document.getElementById('rp_' + code);
                 if (priceEl) priceEl.textContent = price.toFixed(2);
+                // 更新涨跌幅和涨停标签
                 const chgEl = document.getElementById('rc_' + code);
                 if (chgEl && !isNaN(changePct)) {
                     const color = changePct > 0 ? '#ef4444' : changePct < 0 ? '#22c55e' : '#9ca3af';

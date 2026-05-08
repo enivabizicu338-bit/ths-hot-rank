@@ -97,6 +97,11 @@ def main():
             "data": sector_leaders
         }, fp, ensure_ascii=False, indent=2)
 
+    # 验证价格数据 - 如果前10只股票价格都为0，说明数据获取有问题
+    zero_price_count = sum(1 for s in hot_rank[:10] if s.get("price", 0) == 0)
+    if zero_price_count >= 5:
+        print(f"警告: 前10只股票中有 {zero_price_count} 只价格为0，数据可能不完整")
+
     snapshots = load_snapshots()
     snap = {
         "time": now.strftime("%m-%d %H:%M"),
@@ -118,13 +123,17 @@ def main():
             for s in hot_rank[:50]
         ]
     }
-    snapshots.append(snap)
 
-    if len(snapshots) > 1440:
-        snapshots = snapshots[-1440:]
-
-    save_snapshots(snapshots)
-    print(f"快照总数: {len(snapshots)}")
+    # 再次验证：如果快照中价格全为0，不保存（避免污染历史数据）
+    valid_prices = sum(1 for s in snap["stocks"] if s["price"] > 0)
+    if valid_prices < 5:
+        print(f"错误: 快照中仅 {valid_prices}/50 只股票有有效价格，跳过保存")
+    else:
+        snapshots.append(snap)
+        if len(snapshots) > 1440:
+            snapshots = snapshots[-1440:]
+        save_snapshots(snapshots)
+        print(f"快照已保存: 有效价格 {valid_prices}/50, 快照总数: {len(snapshots)}")
 
 
 if __name__ == "__main__":

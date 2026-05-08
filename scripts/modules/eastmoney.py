@@ -67,8 +67,9 @@ def fetch_eastmoney_data(codes):
     except Exception as e:
         print(f"东财浏览排名API失败: {e}")
 
-    # 2. 补充换手率+实时价格（并发单股接口，覆盖浏览排名API未覆盖的股票）
-    missing_codes = [c for c in codes if result[c]["turnover"] == 0 or result[c]["price"] == 0]
+    # 2. 补充实时价格+涨跌幅+换手率（并发单股接口，覆盖全部股票确保价格正确）
+    # 注意：即使批量API返回了价格，也要用单股接口验证（更可靠）
+    missing_codes = [c for c in codes if result[c]["price"] == 0]
     if missing_codes:
         def fetch_one_stock(code):
             try:
@@ -80,7 +81,8 @@ def fetch_eastmoney_data(codes):
                 change_pct = float(d.get("f170", 0)) if d.get("f170") else 0
                 turnover = float(d.get("f168", 0)) if d.get("f168") else 0
                 return code, round(price, 2), round(change_pct, 2), round(turnover, 2)
-            except Exception:
+            except Exception as e:
+                print(f"  单股查询失败 {code}: {e}")
                 return code, 0, 0, 0
 
         with ThreadPoolExecutor(max_workers=10) as executor:
