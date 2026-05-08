@@ -100,4 +100,37 @@ def fetch_eastmoney_data(codes):
         total_turnover = sum(1 for c in codes if result[c]["turnover"] > 0)
         print(f"东财补充: 实时价格 {extra_price} 只(总计 {total_price}/{len(codes)}), 换手率 {extra_turnover} 只(总计 {total_turnover}/{len(codes)})")
 
+    # 3. 批量获取换手率（clist/get API，f8=换手率，覆盖全部股票）
+    missing_turnover = [c for c in codes if result[c]["turnover"] == 0]
+    if missing_turnover:
+        try:
+            # 构建secids参数：市场.代码，用逗号分隔
+            secids = []
+            for code in missing_turnover:
+                market = "1" if code.startswith("6") else "0"
+                secids.append(f"{market}.{code}")
+            # 分批请求（每批500个）
+            batch_size = 500
+            for i in range(0, len(secids), batch_size):
+                batch_secids = ",".join(secids[i:i+batch_size])
+                url = "https://push2.eastmoney.com/api/qt/clist/get"
+                params = {
+                    "pn": 1, "pz": batch_size, "po": 1, "np": 1,
+                    "fltt": 2, "invt": 2,
+                    "fid": "f8",
+                    "fs": f"b:{batch_secids}",
+                    "fields": "f12,f8",
+                }
+                resp = em_session.get(url, params=params, timeout=15)
+                items = resp.json().get("data", {}).get("diff", [])
+                for item in items:
+                    code = item.get("f12", "")
+                    turnover = float(item.get("f8", 0)) if item.get("f8") else 0
+                    if code in result and turnover > 0:
+                        result[code]["turnover"] = round(turnover, 2)
+            final_turnover = sum(1 for c in codes if result[c]["turnover"] > 0)
+            print(f"东财换手率批量: 补充 {len(missing_turnover)} 只, 最终覆盖 {final_turnover}/{len(codes)} 只")
+        except Exception as e:
+            print(f"东财换手率批量API失败: {e}")
+
     return result
