@@ -615,13 +615,32 @@ async function loadAll() {
         renderMainTable(allCurrentData, []);
     }
 
-    // 第二阶段：并行加载快照和板块（不阻塞表格显示）
-    const [snapshots, sectors] = await Promise.all([
+    // 第二阶段：并行加载快照、板块和雪球数据（不阻塞表格显示）
+    const [snapshots, sectors, xueqiuData] = await Promise.all([
         fetchJSON(BASE + '/data/snapshots.json'),
-        fetchJSON(BASE + '/data/sectors.json')
+        fetchJSON(BASE + '/data/sectors.json'),
+        fetchJSON(BASE + '/data/xueqiu_hot.json')
     ]);
     allSnapshots = snapshots || [];
     allSectorsData = sectors?.data || null;
+
+    // 合并雪球热股排名到当前数据（如果current.json中没有xueqiu_rank字段）
+    if (xueqiuData?.rank_map && allCurrentData) {
+        const xqMap = xueqiuData.rank_map;
+        let xqMatch = 0;
+        allCurrentData.forEach(s => {
+            if (!s.xueqiu_rank || s.xueqiu_rank === 0) {
+                const code = s.code || '';
+                const xqKey = 'SH' + code;
+                const xqKey2 = 'SZ' + code;
+                if (xqMap[xqKey]) { s.xueqiu_rank = xqMap[xqKey]; xqMatch++; }
+                else if (xqMap[xqKey2]) { s.xueqiu_rank = xqMap[xqKey2]; xqMatch++; }
+            }
+        });
+        if (xqMatch > 0) {
+            renderMainTable(allCurrentData, allSnapshots.length > 0 ? currentTrendData?.stocks || [] : []);
+        }
+    }
 
     // 渲染板块（先渲染，龙头股稍后异步加载）
     if (allSectorsData) renderSectorTable(allSectorsData, null);
