@@ -47,17 +47,26 @@ def main():
             merged_count += 1
     print(f"热榜: {len(hot_rank)} 条, 板块: {len(sectors)} 条, 合并人气数据: {merged_count} 条")
 
-    # 获取东方财富数据（今日浏览排名 + 换手率）- 覆盖全部热榜股票
+    # 获取东方财富数据（今日浏览排名 + 换手率 + 实时价格 + 涨跌幅）- 覆盖全部热榜股票
     top_codes = [s["code"] for s in hot_rank]
     em_data = fetch_eastmoney_data(top_codes)
+    price_count = 0
     for stock in hot_rank:
         code = stock["code"]
         if code in em_data:
             stock["turnover"] = em_data[code]["turnover"]
             stock["browse_rank"] = em_data[code]["browse_rank"]
+            # 用东财实时价格覆盖（优先级最高）
+            if em_data[code]["price"] > 0:
+                stock["price"] = em_data[code]["price"]
+                price_count += 1
+            # 用东财实时涨跌幅覆盖（同花顺热榜的涨跌幅可能延迟）
+            if em_data[code]["change_pct"] != 0:
+                stock["change_pct"] = em_data[code]["change_pct"]
         else:
             stock["turnover"] = 0
             stock["browse_rank"] = 0
+    print(f"东财实时价格覆盖: {price_count}/{len(hot_rank)} 只")
 
     current = {
         "update_time": now.strftime("%Y-%m-%d %H:%M:%S"),
