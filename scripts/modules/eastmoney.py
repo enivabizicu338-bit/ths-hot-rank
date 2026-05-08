@@ -17,23 +17,30 @@ def fetch_eastmoney_data(codes):
 
     result = {code: {"turnover": 0, "browse_rank": 0, "price": 0, "change_pct": 0} for code in codes}
 
-    # 1. 批量获取今日浏览排名 + 换手率（东财选股器API，一次请求搞定）
+    # 1. 批量获取今日浏览排名 + 换手率（东财选股器API，获取前200名）
     try:
         url = "https://data.eastmoney.com/dataapi/xuangu/list"
-        params = {
-            "st": "BROWSE_RANK",
-            "sr": "1",
-            "ps": "100",
-            "p": "1",
-            "sty": "SECUCODE,SECURITY_CODE,SECURITY_NAME_ABBR,NEW_PRICE,CHANGE_RATE,TURNOVERRATE,BROWSE_RANK",
-            "filter": "(BROWSE_RANK>0)(BROWSE_RANK<=200)",
-            "source": "SELECT_SECURITIES",
-            "client": "WEB",
-            "hyversion": "v2",
-        }
-        resp = em_session.get(url, params=params, timeout=15)
-        data = resp.json()
-        items = data.get("result", {}).get("data", [])
+        all_items = []
+        # 获取前200名，每页100条，需要2页
+        for page in range(1, 3):
+            params = {
+                "st": "BROWSE_RANK",
+                "sr": "1",
+                "ps": "100",
+                "p": str(page),
+                "sty": "SECUCODE,SECURITY_CODE,SECURITY_NAME_ABBR,NEW_PRICE,CHANGE_RATE,TURNOVERRATE,BROWSE_RANK",
+                "filter": "(BROWSE_RANK>0)(BROWSE_RANK<=200)",
+                "source": "SELECT_SECURITIES",
+                "client": "WEB",
+                "hyversion": "v2",
+            }
+            resp = em_session.get(url, params=params, timeout=15)
+            data = resp.json()
+            items = data.get("result", {}).get("data", [])
+            all_items.extend(items)
+            if len(items) < 100:
+                break
+        items = all_items
         # 建立代码 -> {browse_rank, turnover, price, change_pct} 映射
         browse_map = {}
         for item in items:
