@@ -1,54 +1,54 @@
 {
-  "update_time": "2026-05-08 06:34:27",
+  "update_time": "2026-05-08 06:52:50",
   "source": "同花顺热榜",
   "data": {
     "减速器": [
       {
         "code": "603667",
         "name": "五洲新春",
-        "hot_value": 1077598.0,
+        "hot_value": 1008699.0,
         "change_pct": 10.01
       }
     ],
     "新股与次新股": [],
-    "摘帽": [],
     "光纤概念": [
       {
         "code": "600105",
         "name": "永鼎股份",
-        "hot_value": 3167718.0,
-        "change_pct": 5.51
+        "hot_value": 2868019.0,
+        "change_pct": 5.03
       },
       {
         "code": "600522",
         "name": "中天科技",
-        "hot_value": 2734505.0,
-        "change_pct": 6.88
+        "hot_value": 2832747.0,
+        "change_pct": 6.77
       },
       {
         "code": "600498",
         "name": "烽火通信",
-        "hot_value": 2185566.0,
+        "hot_value": 1881584.0,
         "change_pct": 10.0
       }
     ],
+    "摘帽": [],
     "人形机器人": [
       {
         "code": "002050",
         "name": "三花智控",
-        "hot_value": 3101819.0,
-        "change_pct": 3.46
+        "hot_value": 3144456.0,
+        "change_pct": 2.82
       },
       {
         "code": "000559",
         "name": "万向钱潮",
-        "hot_value": 1345091.0,
-        "change_pct": 3.37
+        "hot_value": 1431892.0,
+        "change_pct": 2.44
       },
       {
         "code": "603667",
         "name": "五洲新春",
-        "hot_value": 1077598.0,
+        "hot_value": 1008699.0,
         "change_pct": 10.01
       }
     ],
@@ -56,40 +56,40 @@
       {
         "code": "002342",
         "name": "巨力索具",
-        "hot_value": 7160147.0,
-        "change_pct": 7.64
+        "hot_value": 8454905.0,
+        "change_pct": -3.25
       },
       {
         "code": "002565",
         "name": "顺灏股份",
-        "hot_value": 3535410.0,
-        "change_pct": 5.39
+        "hot_value": 3557498.0,
+        "change_pct": 4.18
       },
       {
-        "code": "002202",
-        "name": "金风科技",
-        "hot_value": 2459905.0,
-        "change_pct": 0.11
+        "code": "601698",
+        "name": "中国卫通",
+        "hot_value": 2420382.0,
+        "change_pct": 5.55
       }
     ],
     "共封装光学(CPO)": [
       {
         "code": "002281",
         "name": "光迅科技",
-        "hot_value": 4059107.0,
-        "change_pct": 8.75
+        "hot_value": 4096196.0,
+        "change_pct": 9.49
       },
       {
         "code": "600105",
         "name": "永鼎股份",
-        "hot_value": 3167718.0,
-        "change_pct": 5.51
+        "hot_value": 2868019.0,
+        "change_pct": 5.03
       },
       {
         "code": "600522",
         "name": "中天科技",
-        "hot_value": 2734505.0,
-        "change_pct": 6.88
+        "hot_value": 2832747.0,
+        "change_pct": 6.77
       }
     ],
     "ST板块": [],
@@ -97,8 +97,8 @@
       {
         "code": "300476",
         "name": "胜宏科技",
-        "hot_value": 1049233.0,
-        "change_pct": 5.78
+        "hot_value": 1025328.0,
+        "change_pct": 5.9
       }
     ],
     "AI应用": [],
@@ -106,7 +106,7 @@
       {
         "code": "002580",
         "name": "圣阳股份",
-        "hot_value": 1842945.0,
+        "hot_value": 1824148.0,
         "change_pct": 10.0
       }
     ],
@@ -114,48 +114,48 @@
       {
         "code": "600186",
         "name": "莲花控股",
-        "hot_value": 2143484.0,
-        "change_pct": -5.57
+        "hot_value": 2140833.0,
+        "change_pct": -6.11
       },
       {
         "code": "000815",
         "name": "美利云",
-        "hot_value": 2102376.0,
-        "change_pct": 4.29
+        "hot_value": 2062649.0,
+        "change_pct": 3.84
       },
       {
         "code": "603629",
         "name": "利通电子",
-        "hot_value": 2004061.0,
-        "change_pct": 6.12
+        "hot_value": 1883849.0,
+        "change_pct": 5.51
       }
     ],
     "芯片概念": [
       {
         "code": "002183",
         "name": "怡亚通",
-        "hot_value": 1138833.0,
-        "change_pct": 5.54
+        "hot_value": 1192660.0,
+        "change_pct": 5.08
       }
     ],
     "算力租赁": [
       {
         "code": "600589",
         "name": "大位科技",
-        "hot_value": 2290196.0,
+        "hot_value": 2708617.0,
         "change_pct": 10.03
       },
       {
         "code": "600186",
         "name": "莲花控股",
-        "hot_value": 2143484.0,
-        "change_pct": -5.57
+        "hot_value": 2140833.0,
+        "change_pct": -6.11
       },
       {
         "code": "000815",
         "name": "美利云",
-        "hot_value": 2102376.0,
-        "change_pct": 4.29
+        "hot_value": 2062649.0,
+        "change_pct": 3.84
       }
     ],
     "储能": [],
@@ -163,62 +163,56 @@
       {
         "code": "300283",
         "name": "温州宏丰",
-        "hot_value": 1160526.0,
+        "hot_value": 967627.0,
         "change_pct": 20.0
-      },
-      {
-        "code": "603937",
-        "name": "丽岛新材",
-        "hot_value": 956248.0,
-        "change_pct": 10.02
       },
       {
         "code": "600152",
         "name": "维科技术",
-        "hot_value": 918455.0,
-        "change_pct": 1.99
+        "hot_value": 896156.0,
+        "change_pct": 2.25
       }
     ],
     "存储芯片": [
       {
+        "code": "600584",
+        "name": "长电科技",
+        "hot_value": 2249453.0,
+        "change_pct": 3.06
+      },
+      {
         "code": "002156",
         "name": "通富微电",
-        "hot_value": 1570690.0,
-        "change_pct": -2.91
+        "hot_value": 1759411.0,
+        "change_pct": -3.45
       },
       {
         "code": "000062",
         "name": "深圳华强",
-        "hot_value": 1296153.0,
-        "change_pct": -5.07
-      },
-      {
-        "code": "605358",
-        "name": "立昂微",
-        "hot_value": 1177132.0,
-        "change_pct": 9.99
+        "hot_value": 1388539.0,
+        "change_pct": -5.02
       }
     ],
+    "创新药": [],
     "固态电池": [
       {
         "code": "002709",
         "name": "天赐材料",
-        "hot_value": 2872389.0,
-        "change_pct": -6.53
+        "hot_value": 3222042.0,
+        "change_pct": -6.93
       },
       {
         "code": "603399",
         "name": "永杉锂业",
-        "hot_value": 1503481.0,
-        "change_pct": 3.81
+        "hot_value": 1570053.0,
+        "change_pct": 5.62
       },
       {
         "code": "300390",
         "name": "天华新能",
-        "hot_value": 1268870.0,
-        "change_pct": -7.04
+        "hot_value": 1232578.0,
+        "change_pct": -6.77
       }
-    ],
-    "创新药": []
+    ]
   }
 }
