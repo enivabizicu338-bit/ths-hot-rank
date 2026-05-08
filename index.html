@@ -489,9 +489,9 @@ function renderMainTable(currentData, trendStocks) {
             <td class="td-center"><span class="rank-badge ${rc}">${s.rank}</span></td>
             <td class="td-right" style="font-size:12px;${browseStyle}">${browseStr}</td>
             <td><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td>
-            <td class="td-right price-val">${priceStr}</td>
-            <td class="td-right" style="font-weight:600;color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td>
-            <td class="td-right" style="font-size:12px">${turnoverStr}</td>
+            <td class="td-right price-val" id="rp_${code}">${priceStr}</td>
+            <td class="td-right" id="rc_${code}" style="font-weight:600;color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td>
+            <td class="td-right" id="rt_${code}" style="font-size:12px">${turnoverStr}</td>
             <td class="td-right hot-val">${hotStr}</td>
             <td class="td-center ${chgClass}" style="font-weight:600">${chgText}</td>
             <td class="td-center">${trendHtml}</td>
@@ -642,6 +642,100 @@ async function loadSectorLeaders() {
 loadAll();
 setInterval(updateCountdown, 1000);
 setInterval(loadAll, refreshMs);
+
+// ========== 实时行情模块（腾讯财经JSONP，每30秒刷新） ==========
+let realtimeCodes = []; // 当前表格中的股票代码列表
+let realtimeTimer = null;
+
+// 代码转腾讯格式: 6开头=sh, 其他=sz
+function toTencentCode(code) {
+    const c = (code || '').replace(/^(SZ|SH|BJ)/, '');
+    return (c.startsWith('6') ? 'sh' : 'sz') + c;
+}
+
+// JSONP回调 - 腾讯格式: v_s_sz000001="1~深证发展A~000001~10.50~10.20~2.94~123456~10.48~10.49~..."
+// 字段: 0=未知,1=名称,2=代码,3=现价,4=昨收,5=涨跌幅%,6=成交量(手),7=最高,8=最低, ..., 38=换手率
+function updateRealtimeData() {
+    if (!realtimeCodes.length) return;
+    // 每批50个（腾讯API限制）
+    const batchSize = 50;
+    for (let i = 0; i < realtimeCodes.length; i += batchSize) {
+        const batch = realtimeCodes.slice(i, i + batchSize);
+        const codesStr = batch.map(toTencentCode).join(',');
+        const script = document.createElement('script');
+        script.src = `https://qt.gtimg.cn/q=${codesStr}`;
+        script.onload = () => {
+            // 解析腾讯返回的数据
+            batch.forEach(code => {
+                const tc = toTencentCode(code);
+                const raw = window['v_' + tc];
+                if (!raw) return;
+                const f = raw.split('~');
+                if (f.length < 39) return;
+                const price = parseFloat(f[3]);
+                const changePct = parseFloat(f[5]);
+                const turnover = parseFloat(f[38]);
+                if (isNaN(price) || price <= 0) return;
+                // 更新价格
+                const priceEl = document.getElementById('rp_' + code);
+                if (priceEl) priceEl.textContent = price.toFixed(2);
+                // 更新涨跌幅
+                const chgEl = document.getElementById('rc_' + code);
+                if (chgEl && !isNaN(changePct)) {
+                    const color = changePct > 0 ? '#ef4444' : changePct < 0 ? '#22c55e' : '#9ca3af';
+                    const sign = changePct > 0 ? '+' : '';
+                    chgEl.style.color = color;
+                    chgEl.textContent = sign + changePct.toFixed(2) + '%';
+                    // 更新涨停/强势标签
+                    const row = chgEl.closest('tr');
+                    if (row) {
+                        const nameTd = row.querySelector('.stock-link');
+                        if (nameTd) {
+                            let html = nameTd.innerHTML;
+                            html = html.replace(/<span class="tag tag-zt">涨停<\/span>/g, '');
+                            html = html.replace(/<span class="tag tag-qz">强势<\/span>/g, '');
+                            if (changePct >= 9.9) html += '<span class="tag tag-zt">涨停</span>';
+                            else if (changePct >= 5) html += '<span class="tag tag-qz">强势</span>';
+                            nameTd.innerHTML = html;
+                        }
+                    }
+                }
+                // 更新换手率
+                const trEl = document.getElementById('rt_' + code);
+                if (trEl && !isNaN(turnover) && turnover > 0) {
+                    trEl.textContent = turnover.toFixed(2) + '%';
+                }
+            });
+            document.head.removeChild(script);
+        };
+        script.onerror = () => { try { document.head.removeChild(script); } catch(e){} };
+        document.head.appendChild(script);
+    }
+}
+
+// 启动实时行情（在表格渲染后调用）
+function startRealtime() {
+    if (realtimeTimer) clearInterval(realtimeTimer);
+    // 收集当前表格中的代码
+    const badges = document.querySelectorAll('.rank-badge');
+    realtimeCodes = [];
+    // 从 allCurrentData 获取代码列表
+    if (allCurrentData && allCurrentData.length) {
+        realtimeCodes = allCurrentData.map(s => (s.code || '').replace(/^(SZ|SH|BJ)/, ''));
+    }
+    if (realtimeCodes.length > 0) {
+        updateRealtimeData();
+        realtimeTimer = setInterval(updateRealtimeData, 30000);
+        console.log('实时行情已启动:', realtimeCodes.length, '只股票, 每30秒刷新');
+    }
+}
+
+// 在 loadAll 完成后启动实时行情
+const _origLoadAll = loadAll;
+loadAll = async function() {
+    await _origLoadAll();
+    startRealtime();
+};
 </script>
 </body>
 </html>
