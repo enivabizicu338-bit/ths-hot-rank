@@ -85,10 +85,10 @@
     <div class="header">
         <h1>📊 根把我关在三房巷 Of Course I Still Love You</h1>
         <div class="header-right">
-            <a class="source-tag" id="sourceTag" href="https://eq.10jqka.com.cn/frontend/thsTopRank/index.html#/" target="_blank" style="text-decoration:none">同花顺热榜</a>
-            <a class="source-tag" href="https://guba.eastmoney.com/rank/" target="_blank" style="text-decoration:none;background:rgba(99,102,241,0.15);color:#818cf8">东方财富热榜</a>
+            <a class="source-tag" id="sourceTag" href="https://eq.10jqka.com.cn/frontend/thsTopRank/index.html#/" target="_blank" style="text-decoration:none">同花榜</a>
+            <a class="source-tag" href="https://guba.eastmoney.com/rank/" target="_blank" style="text-decoration:none;background:rgba(99,102,241,0.15);color:#818cf8">东财榜</a>
             <div class="status-dot"></div>
-            <div class="update-time" id="updateTime">加载中...</div>
+            <div class="update-time" id="updateTime" style="cursor:pointer" onclick="loadAll()" title="点击刷新">加载中...</div>
             <div class="countdown" id="countdown"></div>
         </div>
     </div>
@@ -594,7 +594,7 @@ async function loadAll() {
     const current = await fetchJSON(BASE + '/data/current.json');
     allCurrentData = current?.data || null;
     if (current) {
-        document.getElementById('updateTime').textContent = '更新: ' + (current.update_time || '未知');
+        document.getElementById('updateTime').textContent = current.update_time || '未知';
     }
     // 立即渲染表格（使用当前数据，无趋势分析）
     if (allCurrentData) {
