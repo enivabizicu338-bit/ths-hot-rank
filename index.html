@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>根把我关在三房巷 Of Course I Still Love You</title>
+    <title>沪深热</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:#0a0e17;color:#e2e8f0;min-height:100vh}
         .header{background:linear-gradient(135deg,#0f172a,#1e1b4b,#0f172a);border-bottom:1px solid rgba(139,92,246,0.3);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
         .header h1{font-size:22px;background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .logo-img{height:32px;width:auto;border-radius:6px;cursor:pointer;transition:transform .2s;object-fit:cover}
+        .logo-img:hover{transform:scale(1.1)}
+        .logo-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;justify-content:center;align-items:center;cursor:pointer}
+        .logo-overlay.show{display:flex}
+        .logo-overlay img{max-width:90vw;max-height:90vh;border-radius:12px;object-fit:contain}
         .header-right{display:flex;align-items:center;gap:16px}
         .status-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -83,11 +88,15 @@
 </head>
 <body>
     <div class="header">
-        <h1>📊 根把我关在三房巷 Of Course I Still Love You</h1>
+        <div style="display:flex;align-items:center;gap:12px">
+            <img class="logo-img" src="logo.png" alt="logo" onclick="document.getElementById('logoOverlay').classList.add('show')">
+            <h1>📊 沪深热</h1>
+        </div>
         <div class="header-right">
             <a class="source-tag" id="sourceTag" href="https://eq.10jqka.com.cn/frontend/thsTopRank/index.html#/" target="_blank" style="text-decoration:none">同花榜</a>
             <a class="source-tag" href="https://guba.eastmoney.com/rank/" target="_blank" style="text-decoration:none;background:rgba(99,102,241,0.15);color:#818cf8">东财榜</a>
             <a class="source-tag" href="https://www.jiuyangongshe.com/plan" target="_blank" style="text-decoration:none;background:rgba(34,197,94,0.15);color:#22c55e">韭研榜</a>
+            <a class="source-tag" href="https://xueqiu.com/hq" target="_blank" style="text-decoration:none;background:rgba(59,130,246,0.15);color:#60a5fa">雪球榜</a>
             <div class="status-dot"></div>
             <div class="update-time" id="updateTime" style="cursor:pointer" onclick="loadAll()" title="点击刷新">加载中...</div>
             <div class="countdown" id="countdown"></div>
@@ -120,6 +129,7 @@
                 <table><thead><tr>
                     <th class="td-center sortable" data-key="rank" onclick="doSort('rank')" style="width:52px">同花顺 <span class="sort-arrow">⇅</span></th>
                     <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">东财 <span class="sort-arrow">⇅</span></th>
+                    <th class="r sortable" data-key="xueqiu_rank" onclick="doSort('xueqiu_rank')">雪球 <span class="sort-arrow">⇅</span></th>
                     <th style="min-width:90px">名称</th>
                     <th class="r sortable" data-key="price" onclick="doSort('price')">现价 <span class="sort-arrow">⇅</span></th>
                     <th class="r sortable" data-key="change_pct" onclick="doSort('change_pct')">涨跌幅 <span class="sort-arrow">⇅</span></th>
@@ -132,7 +142,7 @@
                     <th style="min-width:80px">行业板块</th>
                     <th class="td-center" style="width:68px">走势</th>
                     <th class="r sortable" data-key="market_cap" onclick="doSort('market_cap')">流通市值 <span class="sort-arrow">⇅</span></th>
-                </tr></thead><tbody id="mainTable"><tr><td colspan="14" class="loading">加载中...</td></tr></tbody></table>
+                </tr></thead><tbody id="mainTable"><tr><td colspan="15" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
         <!-- 热门概念板块 -->
@@ -415,7 +425,7 @@ function renderMainTable(currentData, trendStocks) {
                     hot_value: '', rank_chg: 0,
                     popularity_tag: s.popularity_tag, concept_tags: s.concept_tags,
                     board_info: s.board_info, board_reason: s.board_reason,
-                    market_cap: s.market_cap, turnover: 0, browse_rank: 0, _dropped: true
+                    market_cap: s.market_cap, turnover: 0, browse_rank: 0, xueqiu_rank: 0, _dropped: true
                 });
             }
         });
@@ -486,9 +496,12 @@ function renderMainTable(currentData, trendStocks) {
         const turnoverStr = s.turnover ? s.turnover + '%' : '-';
         const browseStr = s.browse_rank ? '#' + s.browse_rank : '-';
         const browseStyle = s.browse_rank && s.browse_rank <= 10 ? 'color:#ef4444;font-weight:700' : s.browse_rank ? 'color:#f59e0b' : 'color:#64748b';
+        const xqStr = s.xueqiu_rank ? '#' + s.xueqiu_rank : '-';
+        const xqStyle = s.xueqiu_rank && s.xueqiu_rank <= 10 ? 'color:#ef4444;font-weight:700' : s.xueqiu_rank ? 'color:#60a5fa' : 'color:#64748b';
         return `<tr class="hover" style="${dropStyle}">
             <td class="td-center"><span class="rank-badge ${rc}">${s.rank}</span></td>
             <td class="td-right" style="font-size:12px;${browseStyle}">${browseStr}</td>
+            <td class="td-right" style="font-size:12px;${xqStyle}">${xqStr}</td>
             <td><a class="stock-link" href="${baiduUrl}" target="_blank">${s.name}</a>${tag}</td>
             <td class="td-right price-val" id="rp_${code}">${priceStr}</td>
             <td class="td-right" id="rc_${code}" style="font-weight:600;color:${cc}">${cs}${Number(s.change_pct).toFixed(2)}%</td>
@@ -727,5 +740,8 @@ loadAll();
 setInterval(updateCountdown, 1000);
 setInterval(loadAll, refreshMs);
 </script>
+<div class="logo-overlay" id="logoOverlay" onclick="this.classList.remove('show')">
+    <img src="logo.png" alt="logo">
+</div>
 </body>
 </html>

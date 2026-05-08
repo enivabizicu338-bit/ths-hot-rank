@@ -15,6 +15,7 @@ from modules.eastmoney import fetch_eastmoney_data
 from modules.sectors import fetch_sectors, dedup_sectors
 from modules.sector_leaders import fetch_sector_leaders
 from modules.snapshots import load_snapshots, save_snapshots
+from modules.xueqiu import fetch_xueqiu_hot, save_xueqiu_data
 
 
 def main():
@@ -24,6 +25,15 @@ def main():
     hot_rank = fetch_hot_rank()
     popularity = fetch_popularity()
     sectors = fetch_sectors()
+
+    # 获取雪球热股排名
+    xueqiu_rank = {}
+    try:
+        xueqiu_rank = fetch_xueqiu_hot()
+        if xueqiu_rank:
+            save_xueqiu_data(xueqiu_rank)
+    except Exception as e:
+        print(f"[雪球] 获取失败: {e}")
 
     if not hot_rank:
         print("热榜数据为空，跳过")
@@ -46,6 +56,23 @@ def main():
             stock["market_cap"] = pop["market_cap"]
             merged_count += 1
     print(f"热榜: {len(hot_rank)} 条, 板块: {len(sectors)} 条, 合并人气数据: {merged_count} 条")
+
+    # 合并雪球热股排名（雪球code带SH/SZ前缀，需要匹配纯数字code）
+    xq_count = 0
+    for stock in hot_rank:
+        code = stock["code"]
+        # 尝试 SH+code 和 SZ+code 两种前缀匹配
+        xq_key_sh = "SH" + code
+        xq_key_sz = "SZ" + code
+        if xq_key_sh in xueqiu_rank:
+            stock["xueqiu_rank"] = xueqiu_rank[xq_key_sh]
+            xq_count += 1
+        elif xq_key_sz in xueqiu_rank:
+            stock["xueqiu_rank"] = xueqiu_rank[xq_key_sz]
+            xq_count += 1
+        else:
+            stock["xueqiu_rank"] = 0
+    print(f"雪球热股匹配: {xq_count}/{len(hot_rank)} 只")
 
     # 获取东方财富数据（今日浏览排名 + 换手率 + 实时价格 + 涨跌幅）- 覆盖全部热榜股票
     top_codes = [s["code"] for s in hot_rank]
