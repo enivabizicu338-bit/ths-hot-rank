@@ -1,54 +1,48 @@
+#!/usr/bin/env python3
 """
-获取板块龙头股 - 基于同花顺热榜数据（纯同花顺数据源，100%准确匹配）
+板块龙头股获取
 """
 
-
-def fetch_sector_leaders(hot_rank_stocks, sector_names):
-    """根据同花顺热榜数据获取各板块龙头股
-
-    Args:
-        hot_rank_stocks: 热榜股票列表，每只股票包含 concept_tags 和 hot_value 字段
-        sector_names: 板块名称列表（来自 sectors.json）
-
-    Returns:
-        dict: {sector_name: [{code, name, hot_value, change_pct}, ...]}
-              每个板块取热度最高的前3只股票
+def fetch_sector_leaders(hot_rank, sector_names):
     """
-    print("开始获取板块龙头股（同花顺热榜数据源）...")
-
-    # 建立板块名称 -> 股票列表的映射
-    sector_stocks = {name: [] for name in sector_names}
-
-    for stock in hot_rank_stocks:
-        concept_tags = stock.get("concept_tags", [])
-        if not concept_tags:
+    从热榜数据中找出每个板块的龙头股
+    hot_rank: 热榜股票列表
+    sector_names: 板块名称列表
+    返回: {板块名称: [{code, name, hot_value, rank}, ...], ...}
+    """
+    result = {}
+    
+    for sector_name in sector_names:
+        if not sector_name:
             continue
-        for tag in concept_tags:
-            if tag in sector_stocks:
-                sector_stocks[tag].append({
-                    "code": stock["code"],
-                    "name": stock["name"],
-                    "hot_value": stock.get("hot_value", "0"),
-                    "change_pct": stock.get("change_pct", 0),
+        
+        # 找出属于该板块的股票
+        leaders = []
+        for stock in hot_rank:
+            concept_tags = stock.get("concept_tags", [])
+            # 检查股票的概念标签是否包含该板块
+            if any(sector_name in tag or tag in sector_name for tag in concept_tags):
+                leaders.append({
+                    "code": stock.get("code", ""),
+                    "name": stock.get("name", ""),
+                    "hot_value": stock.get("hot_value", 0),
+                    "rank": stock.get("rank", 999)
                 })
+        
+        # 按排名排序，取前3只
+        leaders.sort(key=lambda x: x["rank"])
+        result[sector_name] = leaders[:3]
+    
+    return result
 
-    # 对每个板块按 hot_value 降序排列，取前3
-    leaders_map = {}
-    matched = 0
-    for name in sector_names:
-        stocks = sector_stocks.get(name, [])
-        if stocks:
-            # hot_value 可能是字符串或数字，统一转换为 float 排序
-            for s in stocks:
-                try:
-                    s["hot_value"] = float(s["hot_value"])
-                except (ValueError, TypeError):
-                    s["hot_value"] = 0.0
-            stocks.sort(key=lambda x: x["hot_value"], reverse=True)
-            leaders_map[name] = stocks[:3]
-            matched += 1
-        else:
-            leaders_map[name] = []
 
-    print(f"板块龙头股: 匹配 {matched}/{len(sector_names)} 个板块")
-    return leaders_map
+if __name__ == "__main__":
+    import json
+    # 测试数据
+    hot_rank = [
+        {"code": "000001", "name": "平安银行", "hot_value": 10000, "rank": 1, "concept_tags": ["银行", "金融科技"]},
+        {"code": "000002", "name": "万科A", "hot_value": 9000, "rank": 2, "concept_tags": ["房地产", "物业管理"]},
+    ]
+    sectors = ["银行", "房地产"]
+    result = fetch_sector_leaders(hot_rank, sectors)
+    print(json.dumps(result, ensure_ascii=False, indent=2))

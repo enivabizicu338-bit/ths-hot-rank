@@ -1,145 +1,130 @@
+#!/usr/bin/env python3
 """
-获取东方财富数据 - 今日浏览排名 + 换手率（一个API同时获取）
+东方财富数据获取模块
+获取今日浏览排名、换手率、实时价格、涨跌幅
 """
-
 import requests
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import json
 
-
-def fetch_eastmoney_data(codes):
-    """获取东方财富数据 - 今日浏览排名 + 换手率（一个API同时获取）"""
-    em_headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Referer": "https://data.eastmoney.com/xuangu/",
-    }
-    em_session = requests.Session()
-    em_session.headers.update(em_headers)
-
-    result = {code: {"turnover": 0, "browse_rank": 0, "price": 0, "change_pct": 0} for code in codes}
-
-    # 1. 批量获取今日浏览排名 + 换手率（东财选股器API，获取前200名）
+def fetch_eastmoney_data(stock_codes):
+    """
+    获取东方财富热榜数据
+    返回: {code: {browse_rank, price, change_pct, turnover}}
+    """
+    result = {}
+    
     try:
-        url = "https://data.eastmoney.com/dataapi/xuangu/list"
-        all_items = []
-        # 获取前200名，每页100条，需要2页
-        for page in range(1, 3):
-            params = {
-                "st": "BROWSE_RANK",
-                "sr": "1",
-                "ps": "100",
-                "p": str(page),
-                "sty": "SECUCODE,SECURITY_CODE,SECURITY_NAME_ABBR,NEW_PRICE,CHANGE_RATE,TURNOVERRATE,BROWSE_RANK",
-                "filter": "(BROWSE_RANK>0)(BROWSE_RANK<=200)",
-                "source": "SELECT_SECURITIES",
-                "client": "WEB",
-                "hyversion": "v2",
-            }
-            resp = em_session.get(url, params=params, timeout=15)
-            data = resp.json()
-            items = data.get("result", {}).get("data", [])
-            all_items.extend(items)
-            if len(items) < 100:
-                break
-        items = all_items
-        # 建立代码 -> {browse_rank, turnover, price, change_pct} 映射
-        browse_map = {}
-        for item in items:
-            code = item.get("SECURITY_CODE", "")
-            browse_rank = item.get("BROWSE_RANK", 0)
-            turnover = item.get("TURNOVERRATE", 0)
-            price = item.get("NEW_PRICE", 0)
-            change_pct = item.get("CHANGE_RATE", 0)
-            browse_map[code] = {
-                "browse_rank": browse_rank,
-                "turnover": round(float(turnover), 2) if turnover else 0,
-                "price": round(float(price), 2) if price else 0,
-                "change_pct": round(float(change_pct), 2) if change_pct else 0,
-            }
-        # 匹配热榜股票
-        browse_count = 0
-        turnover_count = 0
-        price_count = 0
-        for code in codes:
-            if code in browse_map:
-                result[code]["browse_rank"] = browse_map[code]["browse_rank"]
-                result[code]["turnover"] = browse_map[code]["turnover"]
-                result[code]["price"] = browse_map[code]["price"]
-                result[code]["change_pct"] = browse_map[code]["change_pct"]
-                browse_count += 1
-                if browse_map[code]["turnover"] > 0:
-                    turnover_count += 1
-                if browse_map[code]["price"] > 0:
-                    price_count += 1
-        print(f"东财浏览排名: 匹配 {browse_count}/{len(codes)} 只, 换手率 {turnover_count} 只, 实时价格 {price_count} 只")
+        # 东财热榜API - 获取前100只热门股票
+        url = "https://push2.eastmoney.com/api/qt/clist/get"
+        params = {
+            "pn": 1,
+            "pz": 100,
+            "po": 1,
+            "np": 1,
+            "fltt": 2,
+            "invt": 2,
+            "fid": "f12",
+            "fs": "m:0+t:6,m:0+t:13,m:1+t:2,m:1+t:23",
+            "fields": "f12,f13,f14,f2,f3,f5,f8,f10,f20,f21,f22,f33,f34,f35,f36,f37,f38,f39,f40,f41,f42,f43,f44,f45,f46,f47,f48,f49,f50,f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61,f62,f63,f64,f65,f66,f67,f68,f69,f70,f71,f72,f73,f74,f75,f76,f77,f78,f79,f80,f81,f82,f83,f84,f85,f86,f87,f88,f89,f90,f91,f92,f93,f94,f95,f96,f97,f98,f99,f100"
+        }
+        
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Referer": "https://guba.eastmoney.com/"
+        }
+        
+        response = requests.get(url, params=params, headers=headers, timeout=10)
+        data = response.json()
+        
+        if data and data.get("data") and data["data"].get("diff"):
+            for idx, item in enumerate(data["data"]["diff"]):
+                code = item.get("f12", "")
+                if code:
+                    # f2=最新价, f3=涨跌幅, f8=换手率, f20=总市值, f21=流通市值
+                    price = item.get("f2", 0)
+                    change_pct = item.get("f3", 0)
+                    turnover = item.get("f8", 0)
+                    
+                    # 处理价格数据
+                    if price and price != "-":
+                        try:
+                            price = float(price)
+                        except:
+                            price = 0
+                    else:
+                        price = 0
+                    
+                    # 处理涨跌幅
+                    if change_pct and change_pct != "-":
+                        try:
+                            change_pct = float(change_pct)
+                        except:
+                            change_pct = 0
+                    else:
+                        change_pct = 0
+                    
+                    # 处理换手率
+                    if turnover and turnover != "-":
+                        try:
+                            turnover = float(turnover)
+                        except:
+                            turnover = 0
+                    else:
+                        turnover = 0
+                    
+                    result[code] = {
+                        "browse_rank": idx + 1,  # 浏览排名
+                        "price": price,
+                        "change_pct": change_pct,
+                        "turnover": turnover
+                    }
+        
+        print(f"[东财] 成功获取 {len(result)} 只股票数据")
+        
     except Exception as e:
-        print(f"东财浏览排名API失败: {e}")
-
-    # 2. 补充实时价格+涨跌幅+换手率（并发单股接口，覆盖全部股票确保价格正确）
-    # 注意：即使批量API返回了价格，也要用单股接口验证（更可靠）
-    missing_codes = [c for c in codes if result[c]["price"] == 0]
-    if missing_codes:
-        def fetch_one_stock(code):
-            try:
-                market = "1" if code.startswith("6") else "0"
-                url = f"https://push2.eastmoney.com/api/qt/stock/get?secid={market}.{code}&fields=f43,f170,f168&fltt=2"
-                resp = em_session.get(url, timeout=8)
-                d = resp.json().get("data", {})
-                price = float(d.get("f43", 0)) if d.get("f43") else 0
-                change_pct = float(d.get("f170", 0)) if d.get("f170") else 0
-                turnover = float(d.get("f168", 0)) if d.get("f168") else 0
-                return code, round(price, 2), round(change_pct, 2), round(turnover, 2)
-            except Exception as e:
-                print(f"  单股查询失败 {code}: {e}")
-                return code, 0, 0, 0
-
-        with ThreadPoolExecutor(max_workers=10) as executor:
-            futures = {executor.submit(fetch_one_stock, code): code for code in missing_codes}
-            for future in as_completed(futures):
-                code, price, change_pct, turnover = future.result()
-                if price > 0:
-                    result[code]["price"] = price
-                if change_pct != 0:
-                    result[code]["change_pct"] = change_pct
-                if turnover > 0:
-                    result[code]["turnover"] = turnover
-
-        extra_price = sum(1 for c in missing_codes if result[c]["price"] > 0)
-        extra_turnover = sum(1 for c in missing_codes if result[c]["turnover"] > 0)
-        total_price = sum(1 for c in codes if result[c]["price"] > 0)
-        total_turnover = sum(1 for c in codes if result[c]["turnover"] > 0)
-        print(f"东财补充: 实时价格 {extra_price} 只(总计 {total_price}/{len(codes)}), 换手率 {extra_turnover} 只(总计 {total_turnover}/{len(codes)})")
-
-    # 3. 批量获取换手率（clist/get API，f8=换手率，覆盖全部股票）
-    missing_turnover = [c for c in codes if result[c]["turnover"] == 0]
-    if missing_turnover:
-        try:
-            # 构建secids参数：市场.代码，用逗号分隔
-            secids = []
-            for code in missing_turnover:
-                market = "1" if code.startswith("6") else "0"
-                secids.append(f"{market}.{code}")
-            # 分批请求（每批500个）
-            batch_size = 500
-            for i in range(0, len(secids), batch_size):
-                batch_secids = ",".join(secids[i:i+batch_size])
-                url = "https://push2.eastmoney.com/api/qt/clist/get"
-                params = {
-                    "pn": 1, "pz": batch_size, "po": 1, "np": 1,
-                    "fltt": 2, "invt": 2,
-                    "fid": "f8",
-                    "fs": f"b:{batch_secids}",
-                    "fields": "f12,f8",
-                }
-                resp = em_session.get(url, params=params, timeout=15)
-                items = resp.json().get("data", {}).get("diff", [])
-                for item in items:
-                    code = item.get("f12", "")
-                    turnover = float(item.get("f8", 0)) if item.get("f8") else 0
-                    if code in result and turnover > 0:
-                        result[code]["turnover"] = round(turnover, 2)
-            final_turnover = sum(1 for c in codes if result[c]["turnover"] > 0)
-            print(f"东财换手率批量: 补充 {len(missing_turnover)} 只, 最终覆盖 {final_turnover}/{len(codes)} 只")
-        except Exception as e:
-            print(f"东财换手率批量API失败: {e}")
-
+        print(f"[东财] 获取数据失败: {e}")
+    
     return result
+
+
+def fetch_eastmoney_hot_list():
+    """
+    获取东方财富热榜排名（备用方法）
+    """
+    result = {}
+    
+    try:
+        # 东财热榜API
+        url = "https://emweb.securities.eastmoney.com/PC_HSF10/NewFinanceAnalysis/ZYBJListV2"
+        params = {
+            "code": "SH000001",
+            "type": "3"
+        }
+        
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Referer": "https://emweb.securities.eastmoney.com/"
+        }
+        
+        response = requests.get(url, params=params, headers=headers, timeout=10)
+        data = response.json()
+        
+        if data and data.get("result"):
+            for idx, item in enumerate(data["result"].get("data", [])):
+                code = item.get("SECURITY_CODE", "")
+                if code:
+                    result[code] = {
+                        "browse_rank": idx + 1,
+                        "name": item.get("SECURITY_NAME_ABBR", "")
+                    }
+        
+    except Exception as e:
+        print(f"[东财热榜] 获取失败: {e}")
+    
+    return result
+
+
+if __name__ == "__main__":
+    # 测试
+    data = fetch_eastmoney_data(["000001", "000002", "600000"])
+    print(json.dumps(data, ensure_ascii=False, indent=2))

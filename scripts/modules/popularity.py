@@ -1,55 +1,58 @@
+#!/usr/bin/env python3
 """
-获取同花顺人气排名 - 包含几天几板、涨停原因、现价、流通市值
+同花顺人气数据获取（涨停原因、连板信息等）
 """
-
-from .config import session
-
+import requests
+from .config import THS_POPULARITY_URL, HEADERS
 
 def fetch_popularity():
-    """获取同花顺人气排名 - 包含几天几板、涨停原因、现价、流通市值"""
+    """
+    获取同花顺人气排名数据
+    返回: {code: {price, market_cap, board_info, board_reason}, ...}
+    """
+    result = {}
+    
     try:
-        url = "https://basic.10jqka.com.cn/api/stockph/popularity/top/"
-        headers = {
-            "Referer": "https://basic.10jqka.com.cn/basicph/popularityRanking.html",
-        }
-        resp = session.get(url, headers=headers, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        if data.get("status_code") == 0 and data.get("data", {}).get("list"):
-            pop_map = {}
-            for item in data["data"]["list"]:
+        # 获取多页数据
+        for page in range(1, 6):  # 获取前5页
+            params = {
+                "page": page,
+                "perpage": 20,
+                "type": "stock",
+                "pool": "hs"
+            }
+            
+            response = requests.get(THS_POPULARITY_URL, params=params, headers=HEADERS, timeout=15)
+            data = response.json()
+            
+            if data.get("errorCode") != 0:
+                continue
+            
+            items = data.get("data", {}).get("list", [])
+            if not items:
+                break
+            
+            for item in items:
                 code = item.get("code", "")
-                # 几天几板
-                change_days = item.get("change_days", "")
-                change_section = item.get("change_section", "")
-                if change_days and change_section:
-                    board_info = f"{change_days}天{change_section}板"
-                elif change_days:
-                    board_info = f"{change_days}天"
-                else:
-                    board_info = ""
-                # 涨停原因
-                board_reason = item.get("change_reason", "")
-                # 现价
-                price = item.get("price", "0")
-                # 流通市值（转换为亿）
-                cap_raw = item.get("circulate_market_value", "0")
-                try:
-                    cap_val = float(cap_raw) / 1e8
-                    market_cap = f"{cap_val:.1f}亿"
-                except (ValueError, TypeError):
-                    market_cap = ""
-                pop_map[code] = {
-                    "board_info": board_info,
-                    "board_reason": board_reason,
-                    "price": price,
-                    "market_cap": market_cap,
-                }
-            print(f"人气排名: {len(pop_map)} 条")
-            return pop_map
-        else:
-            print(f"人气排名API返回异常: {data}")
-            return {}
+                if code:
+                    result[code] = {
+                        "price": item.get("price", 0),
+                        "market_cap": item.get("market_cap", 0),
+                        "board_info": item.get("board_info", ""),  # 连板信息
+                        "board_reason": item.get("board_reason", ""),  # 涨停原因
+                    }
+        
+        return result
+        
     except Exception as e:
-        print(f"人气排名获取失败: {e}")
+        print(f"[同花顺人气] 获取失败: {e}")
         return {}
+
+
+if __name__ == "__main__":
+    import json
+    data = fetch_popularity()
+    print(f"获取到 {len(data)} 只股票")
+    # 打印前3条
+    for code in list(data.keys())[:3]:
+        print(f"{code}: {json.dumps(data[code], ensure_ascii=False)}")

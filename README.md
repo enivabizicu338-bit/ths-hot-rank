@@ -1,26 +1,50 @@
-# 同花顺热榜 · 动态趋势追踪
+# 沪深热榜 - 股票热度排名追踪
 
-基于 GitHub Actions 每 30 分钟自动采集同花顺热榜数据，通过 GitHub Pages 展示趋势。
+实时追踪同花顺、东方财富、雪球等平台的股票热度排名，提供趋势分析和可视化展示。
 
-## 功能
+## 功能特点
 
-- 📊 热门股票排名变化趋势图
-- 🔥 实时热榜 TOP 100
-- 📈 热门概念板块
-- 📋 排名变动详情 + 迷你趋势线
-- 🔄 每 30 分钟自动更新
+- **多平台数据整合**: 同花顺热榜、东方财富浏览排名、雪球热股
+- **实时热度追踪**: 每30分钟自动更新数据
+- **趋势可视化**: 股票排名变化趋势图
+- **板块分析**: 热门概念板块及龙头股
+- **涨停分析**: 连板天数、涨停原因
 
-## 部署步骤
+## 数据来源
 
-1. Fork 此仓库
-2. 进入仓库 Settings → Pages → Source 选择 `main` 分支
-3. 进入 Settings → Actions → General → 启用 Actions
-4. 手动触发一次 Actions（Actions → 采集同花顺热榜数据 → Run workflow）
-5. 等待部署完成，访问 `https://<your-username>.github.io/<repo-name>/`
+- 同花顺热榜: https://eq.10jqka.com.cn/frontend/thsTopRank/index.html#/
+- 东方财富: https://guba.eastmoney.com/rank/
+- 雪球热股: https://xueqiu.com/hq
 
-## 数据说明
+## 技术栈
 
-- 数据来源: 东方财富（通过 akshare）
-- 采集频率: 每 30 分钟
-- 数据存储: `data/` 目录下的 JSON 文件
-- 快照保留: 最近 200 个（约 4 天）
+- 前端: HTML5 + CSS3 + JavaScript + Chart.js
+- 后端: Python 3.11
+- 部署: GitHub Pages + GitHub Actions
+
+## 数据更新
+
+GitHub Actions 每30分钟自动运行数据抓取脚本，更新以下文件:
+
+- `data/current.json` - 当前热榜数据
+- `data/snapshots.json` - 历史快照数据
+- `data/sectors.json` - 板块数据
+- `data/sector_leaders.json` - 板块龙头股
+- `data/xueqiu_hot.json` - 雪球热股数据
+
+## 本地开发
+
+```bash
+# 安装依赖
+pip install requests
+
+# 运行数据抓取
+python scripts/fetch_data.py
+
+# 本地预览
+python -m http.server 8000
+```
+
+## 访问地址
+
+https://enivabizicu338-bit.github.io/ths-hot-rank/
