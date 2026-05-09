@@ -10,9 +10,10 @@ TENCENT_STOCK_API = "https://qt.gtimg.cn/q="
 
 def fetch_stock_prices(codes):
     """
-    通过腾讯API获取股票现价
+    通过腾讯API获取股票现价和换手率
     codes: 股票代码列表，如 ['600522', '002281']
-    返回: {code: price, ...}
+    返回: {code: {"price": float, "turnover": float}, ...}
+    腾讯API字段索引: 3=现价, 38=换手率(%)
     """
     if not codes:
         return {}
@@ -39,27 +40,27 @@ def fetch_stock_prices(codes):
         for i, line in enumerate(lines):
             if not line or '~' not in line:
                 continue
-            # 解析格式：v_sh600522="1~中天科技~600522~..."
+            # 解析格式：v_sh600522="1~中天科技~600522~40.90~...~3.67~..."
             parts = line.split('~')
-            if len(parts) >= 4:
-                # parts[2] 是股票代码，parts[3] 是现价
+            if len(parts) >= 39:
                 code = parts[2]
                 try:
                     price = float(parts[3])
-                    result[code] = price
+                    turnover = float(parts[38])
+                    result[code] = {"price": price, "turnover": turnover}
                 except (ValueError, IndexError):
-                    result[code] = 0
+                    result[code] = {"price": 0, "turnover": 0}
         
         return result
         
     except Exception as e:
-        print(f"[腾讯API] 获取现价失败: {e}")
+        print(f"[腾讯API] 获取现价/换手率失败: {e}")
         return {}
 
 def fetch_hot_rank():
     """
     获取同花顺热榜数据
-    返回: [{rank, code, name, price, change_pct, hot_value, rank_chg, popularity_tag, concept_tags, analyse}, ...]
+    返回: [{rank, code, name, price, change_pct, hot_value, rank_chg, popularity_tag, concept_tags, analyse, turnover}, ...]
     """
     try:
         response = requests.get(THS_HOT_RANK_URL, headers=HEADERS, timeout=15)
@@ -75,19 +76,21 @@ def fetch_hot_rank():
         # 收集所有股票代码
         codes = [item.get("code", "") for item in stock_list]
         
-        # 批量获取现价
-        print(f"[腾讯API] 正在获取 {len(codes)} 只股票的现价...")
+        # 批量获取现价和换手率
+        print(f"[腾讯API] 正在获取 {len(codes)} 只股票的现价和换手率...")
         price_map = fetch_stock_prices(codes)
-        print(f"[腾讯API] 成功获取 {len(price_map)} 只股票的现价")
+        print(f"[腾讯API] 成功获取 {len(price_map)} 只股票数据")
 
         for item in stock_list:
             tag = item.get("tag", {}) or {}
             code = item.get("code", "")
+            stock_info = price_map.get(code, {"price": 0, "turnover": 0})
             stock = {
                 "rank": item.get("order", 0),
                 "code": code,
                 "name": item.get("name", ""),
-                "price": price_map.get(code, 0),
+                "price": stock_info["price"],
+                "turnover": round(stock_info["turnover"], 2),
                 "change_pct": round(item.get("rise_and_fall", 0), 2),
                 "hot_value": item.get("rate", "0"),
                 "rank_chg": item.get("hot_rank_chg", 0),
