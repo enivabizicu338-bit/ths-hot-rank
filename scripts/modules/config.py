@@ -1,4 +1,4 @@
-"""
+﻿"""
 配置文件
 """
 from pathlib import Path
@@ -7,8 +7,8 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
 
-# API配置
-THS_HOT_RANK_URL = "https://dq.10jqka.com.cn/fuyao/hotlist/v2/hotlist/v2/all/stock"
+# API配置 - 同花顺热榜新API（2026-05更新）
+THS_HOT_RANK_URL = "https://dq.10jqka.com.cn/fuyao/hot_list_data/out/hot_list/v1/stock?stock_type=a&type=hour&list_type=normal"
 THS_POPULARITY_URL = "https://basic.10jqka.com.cn/api/stockph/popularityrank"
 
 # 请求头
