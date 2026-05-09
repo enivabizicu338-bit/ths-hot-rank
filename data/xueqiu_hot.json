@@ -1,15 +1,4 @@
 {
-  "update_time": "2026-05-09 14:30:00",
-  "data": [
-    {"code": "SH600522", "rank": 1},
-    {"code": "SZ002281", "rank": 2},
-    {"code": "SH601991", "rank": 3},
-    {"code": "SZ002580", "rank": 4},
-    {"code": "SZ000066", "rank": 5},
-    {"code": "SH600589", "rank": 6},
-    {"code": "SZ002384", "rank": 7},
-    {"code": "SZ002222", "rank": 8},
-    {"code": "SH603738", "rank": 9},
-    {"code": "SZ300476", "rank": 10}
-  ]
+  "update_time": "2026-05-09 22:39:39",
+  "data": []
 }

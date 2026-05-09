@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 板块数据获取
 """
 import requests
-from .config import HEADERS
+from .config import HEADERS, THS_PLATE_CONCEPT_URL, THS_PLATE_INDUSTRY_URL
 
 def fetch_sectors():
     """
@@ -11,27 +11,60 @@ def fetch_sectors():
     返回: [{板块名称, 涨跌幅, 热度, 上板家数}, ...]
     """
     try:
-        # 同花顺板块API
-        url = "https://dq.10jqka.com.cn/fuyao/hotlist/v2/hotlist/v2/all/plate"
+        result = []
         
-        response = requests.get(url, headers=HEADERS, timeout=15)
+        # 获取概念板块
+        response = requests.get(THS_PLATE_CONCEPT_URL, headers=HEADERS, timeout=15)
         data = response.json()
         
-        if data.get("status_code") != 0:
-            print(f"[板块] API返回错误: {data.get('status_msg', '未知错误')}")
-            return []
+        if data.get("status_code") == 0:
+            plate_list = data.get("data", {}).get("plate_list", [])
+            for item in plate_list:
+                # 解析上板家数 (如 "15家涨停" -> 15)
+                tag = item.get("tag", "")
+                board_num = 0
+                if tag:
+                    import re
+                    match = re.search(r'(\d+)', tag)
+                    if match:
+                        board_num = int(match.group(1))
+                
+                sector = {
+                    "板块名称": item.get("name", ""),
+                    "涨跌幅": round(item.get("rise_and_fall", 0), 2),
+                    "热度": item.get("rate", "0"),
+                    "上板家数": f"{board_num}家",
+                    "board_num": board_num,
+                    "type": "concept"
+                }
+                result.append(sector)
+            print(f"[板块] 概念板块: {len(plate_list)} 个")
         
-        result = []
-        plate_list = data.get("data", {}).get("plate_list", [])
+        # 获取行业板块
+        response = requests.get(THS_PLATE_INDUSTRY_URL, headers=HEADERS, timeout=15)
+        data = response.json()
         
-        for item in plate_list:
-            sector = {
-                "板块名称": item.get("name", ""),
-                "涨跌幅": item.get("change_pct", 0),
-                "热度": item.get("hot_value", 0),
-                "上板家数": item.get("board_num", ""),
-            }
-            result.append(sector)
+        if data.get("status_code") == 0:
+            plate_list = data.get("data", {}).get("plate_list", [])
+            for item in plate_list:
+                tag = item.get("tag", "")
+                board_num = 0
+                if tag:
+                    import re
+                    match = re.search(r'(\d+)', tag)
+                    if match:
+                        board_num = int(match.group(1))
+                
+                sector = {
+                    "板块名称": item.get("name", ""),
+                    "涨跌幅": round(item.get("rise_and_fall", 0), 2),
+                    "热度": item.get("rate", "0"),
+                    "上板家数": f"{board_num}家",
+                    "board_num": board_num,
+                    "type": "industry"
+                }
+                result.append(sector)
+            print(f"[板块] 行业板块: {len(plate_list)} 个")
         
         return result
         
