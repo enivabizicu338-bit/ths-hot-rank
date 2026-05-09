@@ -470,7 +470,8 @@ function updateCountdown() {
     const sec = Math.floor((remaining % 60000) / 1000);
     document.getElementById('countdown').textContent = `${min}:${sec.toString().padStart(2, '0')} 后刷新`;
     if (remaining <= 0) {
-        location.reload();
+        lastUpdate = Date.now();
+        init();
     }
 }
 function renderStockSelector() {
@@ -519,39 +520,45 @@ function updateChart() {
         });
         colorIdx++;
     });
-    const ctx = document.getElementById('rankChart').getContext('2d');
-    if (rankChart) rankChart.destroy();
-    rankChart = new Chart(ctx, {
-        type: 'line',
-        data: { labels, datasets },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            interaction: { mode: 'index', intersect: false },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: '#1e293b',
-                    titleColor: '#e2e8f0',
-                    bodyColor: '#e2e8f0',
-                    borderColor: '#475569',
-                    borderWidth: 1
-                }
-            },
-            scales: {
-                x: {
-                    grid: { color: '#334155' },
-                    ticks: { color: '#94a3b8', maxTicksLimit: 8 }
+    if (rankChart) {
+        rankChart.data.labels = labels;
+        rankChart.data.datasets = datasets;
+        rankChart.update('none');
+    } else {
+        const ctx = document.getElementById('rankChart').getContext('2d');
+        rankChart = new Chart(ctx, {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1e293b',
+                        titleColor: '#e2e8f0',
+                        bodyColor: '#e2e8f0',
+                        borderColor: '#475569',
+                        borderWidth: 1
+                    }
                 },
-                y: {
-                    reverse: true,
-                    grid: { color: '#334155' },
-                    ticks: { color: '#94a3b8' },
-                    title: { display: true, text: '排名', color: '#64748b' }
+                scales: {
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#94a3b8', maxTicksLimit: 8 }
+                    },
+                    y: {
+                        reverse: true,
+                        grid: { color: '#334155' },
+                        ticks: { color: '#94a3b8' },
+                        title: { display: true, text: '排名', color: '#64748b' }
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 }
 function updateView() {
     renderStockSelector();
@@ -560,10 +567,14 @@ function updateView() {
     const filtered = getFilteredSnapshots();
     document.getElementById('viewInfo').textContent = `显示全部 ${filtered.length} 条快照（${getUniqueDates(allSnapshots).length} 天）`;
 }
+let _intervals = [];
 async function init() {
+    // 清除旧定时器，防止重复注册
+    _intervals.forEach(id => clearInterval(id));
+    _intervals = [];
     // 启动客户端时间更新
     updateTimeDisplay();
-    setInterval(updateTimeDisplay, 1000);
+    _intervals.push(setInterval(updateTimeDisplay, 1000));
     
     // 并行加载数据
     const [current, sectors, snapshots, xueqiu] = await Promise.all([
@@ -619,7 +630,7 @@ async function init() {
     }
     
     // 启动倒计时
-    setInterval(updateCountdown, 1000);
+    _intervals.push(setInterval(updateCountdown, 1000));
     updateCountdown();
 }
 init();
