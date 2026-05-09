@@ -150,6 +150,41 @@ def api_fetch():
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
 
+
+@app.route('/api/recommend')
+def api_recommend():
+    """生成新推荐"""
+    try:
+        from scripts.modules.recommender import generate_recommendations
+        result = generate_recommendations()
+        return jsonify(result or {"error": "no data"})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
+@app.route('/api/recommend/history')
+def api_recommend_history():
+    """获取历史推荐记录"""
+    try:
+        from scripts.modules.recommender import load_history
+        history = load_history()
+        return jsonify(history)
+    except Exception as e:
+        return jsonify([])
+
+@app.route('/api/recommend/backtest/<int:index>')
+def api_recommend_backtest(index):
+    """回测第index条推荐(0=最新)"""
+    try:
+        from scripts.modules.recommender import load_history, backtest_recommendation
+        history = load_history()
+        if index < 0 or index >= len(history):
+            return jsonify({"error": "index out of range"})
+        current_data = load_json('current.json')
+        result = backtest_recommendation(history[index], current_data)
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
 if __name__ == '__main__':
     os.makedirs(DATA_DIR, exist_ok=True)
     os.makedirs('static', exist_ok=True)

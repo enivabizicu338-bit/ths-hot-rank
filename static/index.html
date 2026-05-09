@@ -77,6 +77,7 @@
             <div class="tab" :class="{active: tab === 'trend'}" @click="tab = 'trend'">热度趋势</div>
             <div class="tab" :class="{active: tab === 'news'}" @click="loadNews(); tab = 'news'">新闻资讯</div>
             <div class="tab" :class="{active: tab === 'wordcloud'}" @click="loadKeywords(); tab = 'wordcloud'">热词云图</div>
+            <div class="tab" :class="{active: tab === 'recommend'}" @click="loadRecommend(); tab = 'recommend'">智能推荐</div>
             <div style="flex:1"></div>
             <button class="btn btn-primary" @click="syncData" :disabled="syncing">{{ syncing ? "同步中..." : "同步数据" }}</button>
             <button class="btn btn-success" @click="fetchData" :disabled="fetching">{{ fetching ? "采集中..." : "手动采集" }}</button>
@@ -241,6 +242,14 @@
             const syncing = ref(false);
             const fetching = ref(false);
             let trendChart = null;
+            const currentRec = ref(null);
+            const history = ref([]);
+            const showHistory = ref(false);
+            const generating = ref(false);
+            const expandedHistory = ref(-1);
+            const backtestResults = ref({});
+            const scoreLabels = {hot_rank: '热榜排名', skyrocket: '飙升动力', momentum: '涨跌动量', turnover: '换手率', sector: '板块共振', news: '新闻热度', concepts: '概念丰富度'};
+
             
             const updateTime = computed(() => currentData.value?.update_time || "");
             const hotList = computed(() => (currentData.value?.data || []).slice(0, 100));
@@ -327,10 +336,41 @@
                 trendChart = new Chart(ctx, { type: "line", data: { labels, datasets: [{ label: "TOP1热度值", data, borderColor: "#667eea", tension: 0.3 }] }, options: { responsive: true, maintainAspectRatio: false } });
             };
             
+
+            const loadRecommend = async () => {
+                try {
+                    const r = await fetch('/api/recommend/history');
+                    history.value = await r.json();
+                    if (history.value.length > 0 && !currentRec.value) {
+                        currentRec.value = history.value[0];
+                    }
+                } catch(e) { console.error(e); }
+            };
+
+            const generateRecommend = async () => {
+                generating.value = true;
+                try {
+                    const r = await fetch('/api/recommend');
+                    currentRec.value = await r.json();
+                    await loadRecommend();
+                } finally { generating.value = false; }
+            };
+
+            const toggleHistoryDetail = (index) => {
+                expandedHistory.value = expandedHistory.value === index ? -1 : index;
+            };
+
+            const backtestItem = async (index) => {
+                try {
+                    const r = await fetch(`/api/recommend/backtest/${index}`);
+                    const data = await r.json();
+                    backtestResults.value = {...backtestResults.value, [index]: data};
+                } catch(e) { console.error(e); }
+            };
             watch(tab, (t) => { if (t === "trend") setTimeout(renderTrendChart, 100); if (t === "news") loadNews(); if (t === "wordcloud") loadKeywords(); });
             onMounted(() => { loadData(); });
             
-            return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords };
+            return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords, currentRec, history, showHistory, generating, expandedHistory, backtestResults, scoreLabels, loadRecommend, generateRecommend, toggleHistoryDetail, backtestItem };
         }
     }).mount("#app");
     </script>

@@ -1,0 +1,507 @@
+[
+  {
+    "generate_time": "2026-05-10 02:06:25",
+    "source_update_time": "2026-05-09 17:58:02",
+    "stats": {
+      "total_analyzed": 100,
+      "recommended": 8,
+      "avg_score": 64.2,
+      "max_score": 73,
+      "min_score": 59
+    },
+    "recommendations": [
+      {
+        "code": "002281",
+        "name": "光迅科技",
+        "total_score": 73,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第3名，得25分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率10.5%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 10.54,
+        "hot_rank": 3,
+        "hot_value": "88994.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "F5G概念",
+          "共封装光学(CPO)"
+        ]
+      },
+      {
+        "code": "002491",
+        "name": "通鼎互联",
+        "total_score": 68,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第8名，得20分",
+          "涨停(涨幅10.01%)，动量得分20",
+          "换手率9.8%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.01,
+        "turnover": 9.8,
+        "hot_rank": 8,
+        "hot_value": "67923.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "5G"
+        ]
+      },
+      {
+        "code": "600522",
+        "name": "中天科技",
+        "total_score": 65,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 0,
+          "momentum": 15,
+          "turnover": 10,
+          "sector": 12,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第1名，得25分",
+          "涨幅6.57%，动量强劲得15分",
+          "换手率9.2%，交投活跃得10分",
+          "所属板块[光纤概念]涨幅2.45%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 6.57,
+        "turnover": 9.15,
+        "hot_rank": 1,
+        "hot_value": "148767.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "共封装光学(CPO)"
+        ]
+      },
+      {
+        "code": "000592",
+        "name": "平潭发展",
+        "total_score": 63,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 25,
+          "momentum": 5,
+          "turnover": 10,
+          "sector": 0,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第6名，得20分",
+          "飙升榜排名第1名，得25分",
+          "涨幅0.88%，动量一般得5分",
+          "换手率13.4%，交投活跃得10分",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 0.88,
+        "turnover": 13.4,
+        "hot_rank": 6,
+        "hot_value": "79977.0",
+        "skyrocket_rank": 1,
+        "concept_tags": [
+          "福建自贸区",
+          "民营医院"
+        ]
+      },
+      {
+        "code": "600498",
+        "name": "烽火通信",
+        "total_score": 63,
+        "scores": {
+          "hot_rank": 15,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第22名，得15分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率11.0%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 11.0,
+        "hot_rank": 22,
+        "hot_value": "47220.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "F5G概念"
+        ]
+      },
+      {
+        "code": "002031",
+        "name": "巨轮智能",
+        "total_score": 63,
+        "scores": {
+          "hot_rank": 15,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第30名，得15分",
+          "涨停(涨幅9.97%)，动量得分20",
+          "换手率11.9%，交投活跃得10分",
+          "所属板块[减速器]涨幅3.61%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 9.97,
+        "turnover": 11.86,
+        "hot_rank": 30,
+        "hot_value": "41140.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "减速器",
+          "智能物流"
+        ]
+      },
+      {
+        "code": "603618",
+        "name": "杭电股份",
+        "total_score": 60,
+        "scores": {
+          "hot_rank": 15,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 12,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第24名，得15分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率13.9%，交投活跃得10分",
+          "所属板块[光纤概念]涨幅2.45%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 13.92,
+        "hot_rank": 24,
+        "hot_value": "44815.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "特高压"
+        ]
+      },
+      {
+        "code": "000547",
+        "name": "航天发展",
+        "total_score": 59,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 8,
+          "sector": 8,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第9名，得20分",
+          "涨停(涨幅10.01%)，动量得分20",
+          "换手率15.5%，交投活跃得8分",
+          "所属板块[军民融合]涨幅1.99%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.01,
+        "turnover": 15.49,
+        "hot_rank": 9,
+        "hot_value": "65325.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "军工信息化",
+          "军民融合"
+        ]
+      }
+    ]
+  },
+  {
+    "generate_time": "2026-05-10 01:54:56",
+    "source_update_time": "2026-05-09 16:59:36",
+    "stats": {
+      "total_analyzed": 100,
+      "recommended": 8,
+      "avg_score": 63.0,
+      "max_score": 73,
+      "min_score": 58
+    },
+    "recommendations": [
+      {
+        "code": "002281",
+        "name": "光迅科技",
+        "total_score": 73,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第3名，得25分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率10.5%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 10.54,
+        "hot_rank": 3,
+        "hot_value": "147057.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "F5G概念",
+          "共封装光学(CPO)"
+        ]
+      },
+      {
+        "code": "002491",
+        "name": "通鼎互联",
+        "total_score": 68,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第7名，得20分",
+          "涨停(涨幅10.01%)，动量得分20",
+          "换手率9.8%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.01,
+        "turnover": 9.8,
+        "hot_rank": 7,
+        "hot_value": "113223.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "5G"
+        ]
+      },
+      {
+        "code": "600522",
+        "name": "中天科技",
+        "total_score": 65,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 0,
+          "momentum": 15,
+          "turnover": 10,
+          "sector": 12,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第1名，得25分",
+          "涨幅6.57%，动量强劲得15分",
+          "换手率9.2%，交投活跃得10分",
+          "所属板块[光纤概念]涨幅2.45%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 6.57,
+        "turnover": 9.15,
+        "hot_rank": 1,
+        "hot_value": "236108.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "共封装光学(CPO)"
+        ]
+      },
+      {
+        "code": "600498",
+        "name": "烽火通信",
+        "total_score": 63,
+        "scores": {
+          "hot_rank": 15,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第21名，得15分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率11.0%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 11.0,
+        "hot_rank": 21,
+        "hot_value": "77790.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "F5G概念"
+        ]
+      },
+      {
+        "code": "603618",
+        "name": "杭电股份",
+        "total_score": 60,
+        "scores": {
+          "hot_rank": 15,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 12,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第24名，得15分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率13.9%，交投活跃得10分",
+          "所属板块[光纤概念]涨幅2.45%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 13.92,
+        "hot_rank": 24,
+        "hot_value": "74376.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "光纤概念",
+          "特高压"
+        ]
+      },
+      {
+        "code": "000547",
+        "name": "航天发展",
+        "total_score": 59,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 8,
+          "sector": 8,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第8名，得20分",
+          "涨停(涨幅10.01%)，动量得分20",
+          "换手率15.5%，交投活跃得8分",
+          "所属板块[军民融合]涨幅1.99%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.01,
+        "turnover": 15.49,
+        "hot_rank": 8,
+        "hot_value": "104133.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "军工信息化",
+          "军民融合"
+        ]
+      },
+      {
+        "code": "601991",
+        "name": "大唐发电",
+        "total_score": 58,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 0,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第2名，得25分",
+          "涨停(涨幅9.92%)，动量得分20",
+          "换手率9.8%，交投活跃得10分",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 9.92,
+        "turnover": 9.81,
+        "hot_rank": 2,
+        "hot_value": "161780.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "绿色电力",
+          "风电"
+        ]
+      },
+      {
+        "code": "002031",
+        "name": "巨轮智能",
+        "total_score": 58,
+        "scores": {
+          "hot_rank": 10,
+          "skyrocket": 0,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第33名，得10分",
+          "涨停(涨幅9.97%)，动量得分20",
+          "换手率11.9%，交投活跃得10分",
+          "所属板块[减速器]涨幅3.61%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 9.97,
+        "turnover": 11.86,
+        "hot_rank": 33,
+        "hot_value": "63700.0",
+        "skyrocket_rank": null,
+        "concept_tags": [
+          "减速器",
+          "智能物流"
+        ]
+      }
+    ]
+  }
+]
