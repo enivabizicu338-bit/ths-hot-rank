@@ -91,7 +91,27 @@ def api_snapshots():
         data = fetch_from_github('snapshots.json')
     return jsonify(data or [])
 
-@app.route('/api/sync')
+
+@app.route('/api/news')
+def api_news():
+    """获取最新A股新闻（实时从东方财富API获取）"""
+    try:
+        import requests as _req
+        import re as _re
+        import time as _time
+        import json as _json
+        url = "https://np-listapi.eastmoney.com/comm/web/getNewsByColumns"
+        params = {"client":"web","biz":"web_news_col","column":"353","order":"1","needInteractData":"0","page_index":"1","page_size":"30","fields":"code,showTime,title,mediaName,summary,image,url,uniqueUrl,Np_dst","types":"1,20","req_trace":str(int(_time.time()*1000))}
+        headers = {"User-Agent":"Mozilla/5.0","Referer":"https://finance.eastmoney.com/"}
+        r = _req.get(url, params=params, headers=headers, timeout=15)
+        text = _re.sub(r'^jQuery\d+_\d+\(', '', r.text)
+        text = _re.sub(r'\)$', '', text)
+        data = _json.loads(text)
+        news_list = data.get("data", {}).get("list", [])
+        result = [{"title":n.get("title",""),"summary":n.get("summary",""),"showTime":n.get("showTime",""),"mediaName":n.get("mediaName",""),"url":n.get("url",""),"image":n.get("image","")} for n in news_list]
+        return jsonify({"update_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "data": result})
+    except Exception as e:
+        return jsonify({"data": [], "error": str(e)})@app.route('/api/sync')
 def api_sync():
     """从GitHub同步所有数据"""
     files = ['current.json', 'skyrocket.json', 'sectors.json', 'board_strength.json', 'snapshots.json']
