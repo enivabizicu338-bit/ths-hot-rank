@@ -96,7 +96,7 @@
         <!-- 趋势图 -->
         <div class="card">
             <div class="card-header">
-                <h2><span class="dot"></span>热门股票排名变化趋势 TOP 50</h2>
+                <h2><span class="dot"></span>同花顺热门股票排名变化趋势 TOP 50</h2>
                 <span style="color:#64748b;font-size:11px">点击股票名切换 · Y轴反转(↑=热度上升) · 数据保留30天</span>
             </div>
             <div class="card-body">
@@ -112,14 +112,12 @@
         <!-- 合并热榜表格 -->
         <div class="card">
             <div class="card-header">
-                <h2><span class="dot"></span>🔥 热榜详情 TOP 50</h2>
+                <h2><span class="dot"></span>🔥 同花顺热榜详情 TOP 50</h2>
                 <span id="detailDateLabel" style="color:#a78bfa;font-size:12px"></span>
             </div>
             <div class="card-body" style="padding:0;overflow-x:auto">
                 <table><thead><tr>
-                    <th class="td-center sortable" data-key="rank" onclick="doSort('rank')" style="width:52px">同花顺 <span class="sort-arrow">⇅</span></th>
-                    <th class="r sortable" data-key="browse_rank" onclick="doSort('browse_rank')">东财 <span class="sort-arrow">⇅</span></th>
-                    <th class="r sortable" data-key="xueqiu_rank" onclick="doSort('xueqiu_rank')">雪球 <span class="sort-arrow">⇅</span></th>
+                    <th class="td-center sortable" data-key="rank" onclick="doSort('rank')" style="width:52px">排名 <span class="sort-arrow">⇅</span></th>
                     <th style="min-width:90px">名称</th>
                     <th class="r sortable" data-key="price" onclick="doSort('price')">现价 <span class="sort-arrow">⇅</span></th>
                     <th class="r sortable" data-key="change_pct" onclick="doSort('change_pct')">涨跌幅 <span class="sort-arrow">⇅</span></th>
@@ -132,7 +130,7 @@
                     <th style="min-width:80px">行业板块</th>
                     <th class="td-center" style="width:68px">走势</th>
                     <th class="r sortable" data-key="market_cap" onclick="doSort('market_cap')">流通市值 <span class="sort-arrow">⇅</span></th>
-                </tr></thead><tbody id="mainTable"><tr><td colspan="15" class="loading">加载中...</td></tr></tbody></table>
+                </tr></thead><tbody id="mainTable"><tr><td colspan="13" class="loading">加载中...</td></tr></tbody></table>
             </div>
         </div>
         <!-- 热门概念板块 -->
@@ -368,32 +366,16 @@ function doSort(key) {
 }
 function renderMainTable(data) {
     const tb = document.getElementById('mainTable');
-    if (!data || !data.data) { tb.innerHTML = '<tr><td colspan="15" class="loading">暂无数据</td></tr>'; return; }
+    if (!data || !data.data) { tb.innerHTML = '<tr><td colspan="13" class="loading">暂无数据</td></tr>'; return; }
     let rows = data.data.slice(0, 50);
-    // 合并东财和雪球数据
-    rows = rows.map(stock => {
-        const code = stock.code;
-        // 合并东财数据
-        if (eastmoneyData[code]) {
-            stock.browse_rank = eastmoneyData[code].browse_rank || stock.browse_rank || 0;
-            if (eastmoneyData[code].price > 0) stock.price = eastmoneyData[code].price;
-            if (eastmoneyData[code].change_pct !== 0) stock.change_pct = eastmoneyData[code].change_pct;
-            stock.turnover = eastmoneyData[code].turnover || stock.turnover || 0;
-        }
-        // 合并雪球数据
-        if (xueqiuData[code]) {
-            stock.xueqiu_rank = xueqiuData[code];
-        }
-        return stock;
-    });
+
     if (sortKey) {
         const dir = sortDir === 'desc' ? -1 : 1;
         rows = [...rows].sort((a, b) => {
             let va, vb;
             switch(sortKey) {
                 case 'rank': va = a.rank || 999; vb = b.rank || 999; break;
-                case 'browse_rank': va = a.browse_rank || 999; vb = b.browse_rank || 999; break;
-                case 'xueqiu_rank': va = a.xueqiu_rank || 999; vb = b.xueqiu_rank || 999; break;
+
                 case 'price': va = a.price || 0; vb = b.price || 0; break;
                 case 'change_pct': va = a.change_pct || 0; vb = b.change_pct || 0; break;
                 case 'turnover': va = a.turnover || 0; vb = b.turnover || 0; break;
@@ -421,18 +403,13 @@ function renderMainTable(data) {
         const daysStr = boardDays ? boardDays[0] : '-';
         const reasonStr = s.board_reason || '-';
         const conceptStr = s.concept_tags ? s.concept_tags.slice(0, 2).join(' ') : '-';
-        // 东财排名显示
-        const emRank = s.browse_rank && s.browse_rank > 0 ? `<span style="color:#818cf8;font-weight:600">#${s.browse_rank}</span>` : '<span style="color:#475569">-</span>';
-        // 雪球排名显示
-        const xqRank = s.xueqiu_rank && s.xueqiu_rank > 0 ? `<span style="color:#c084fc;font-weight:600">#${s.xueqiu_rank}</span>` : '<span style="color:#475569">-</span>';
+
         // 涨停标签
         let ztTag = '';
         if (s.change_pct >= 9.9) ztTag = '<span class="tag tag-zt">涨停</span>';
         else if (s.change_pct >= 5) ztTag = '<span class="tag tag-qz">强势</span>';
         return `<tr class="hover">
             <td class="td-center">${getRankBadge(s.rank)}</td>
-            <td class="td-right">${emRank}</td>
-            <td class="td-right">${xqRank}</td>
             <td><a href="${url}" target="_blank" class="stock-link">${s.name}</a>${ztTag}${renderTags(s)}</td>
             <td class="td-right price-val">${price}</td>
             <td class="td-right" style="color:${changeColor};font-weight:600">${changeSign}${s.change_pct}%</td>
@@ -576,33 +553,14 @@ async function init() {
     updateTimeDisplay();
     _intervals.push(setInterval(updateTimeDisplay, 1000));
     
-    // 并行加载数据
-    const [current, sectors, snapshots, xueqiu] = await Promise.all([
+    // 加载数据
+    const [current, sectors, snapshots] = await Promise.all([
         fetchJSON(BASE + '/data/current.json'),
         fetchJSON(BASE + '/data/sectors.json'),
-        fetchJSON(BASE + '/data/snapshots.json'),
-        fetchJSON(BASE + '/data/xueqiu_hot.json')
+        fetchJSON(BASE + '/data/snapshots.json')
     ]);
     
-    // 处理雪球数据
-    if (xueqiu && xueqiu.data) {
-        xueqiuData = {};
-        xueqiu.data.forEach((item, index) => {
-            const code = item.code ? item.code.replace(/^(SH|SZ|BJ)/, '') : '';
-            if (code) {
-                xueqiuData[code] = index + 1;
-            }
-        });
-    }
-    
-    // 尝试获取东财数据
-    try {
-        eastmoneyData = await fetchEastmoneyData();
-        console.log('东财数据获取成功:', Object.keys(eastmoneyData).length, '只股票');
-    } catch(e) {
-        console.error('东财数据获取失败:', e);
-        eastmoneyData = {};
-    }
+
     
     allCurrentData = current;
     if (current && current.update_time) {
