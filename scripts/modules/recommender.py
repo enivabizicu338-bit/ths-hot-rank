@@ -233,7 +233,7 @@ def generate_recommendations(min_count=5):
         scored.append(result)
 
     scored.sort(key=lambda x: x['total_score'], reverse=True)
-    rec_count = max(min_count, 8)
+    rec_count = max(min_count, 10)
     recommendations = scored[:rec_count]
 
     avg_score = sum(r['total_score'] for r in recommendations) / len(recommendations) if recommendations else 0
