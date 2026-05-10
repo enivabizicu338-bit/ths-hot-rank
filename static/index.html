@@ -78,6 +78,7 @@
             <div class="tab" :class="{active: tab === 'news'}" @click="loadNews(); tab = 'news'">新闻资讯</div>
             <div class="tab" :class="{active: tab === 'wordcloud'}" @click="loadKeywords(); tab = 'wordcloud'">热词云图</div>
             <div class="tab" :class="{active: tab === 'recommend'}" @click="loadRecommend(); tab = 'recommend'">智能推荐</div>
+<div class="tab" :class="{active: tab === 'attribution'}" @click="loadStrategies(); loadAttributions(); tab = 'attribution'">归因分析</div>
             <div style="flex:1"></div>
             <button class="btn btn-primary" @click="syncData" :disabled="syncing">{{ syncing ? "同步中..." : "同步数据" }}</button>
             <button class="btn btn-success" @click="fetchData" :disabled="fetching">{{ fetching ? "采集中..." : "手动采集" }}</button>
@@ -331,6 +332,181 @@
                                 <div v-for="(s, i) in (rec.recommendations || []).slice(0,10)" :key="s.code" style="padding:3px 0">
                                     {{ i+1 }}. {{ s.name }}({{ s.code }}) - 评分: {{ s.total_score?.toFixed(1) || '-' }}
                                 </div>
+            <div v-if="tab === 'attribution'">
+                <div class="card">
+                    <div class="card-header">策略因子概览 <span style="font-weight:400;font-size:13px;color:#999">权重动态调整 | 回测驱动进化</span></div>
+                    <div class="card-body">
+                        <div v-if="strategies.strategies && strategies.strategies.length" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:15px">
+                            <div v-for="s in strategies.strategies" :key="s.key" style="border:1px solid #eee;border-radius:8px;padding:15px">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                                    <strong style="font-size:15px">{{ s.name }}</strong>
+                                    <span class="tag">{{ s.category }}</span>
+                                </div>
+                                <div style="font-size:13px;color:#666;margin-bottom:8px">{{ s.description }}</div>
+                                <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+                                    <span style="font-size:13px;color:#999;min-width:50px">权重: {{ s.weight }}/{{ s.max_score }}</span>
+                                    <div style="flex:1;height:8px;background:#eee;border-radius:4px;overflow:hidden">
+                                        <div :style="{width: (s.weight/s.max_score*100)+'%', height:'100%', borderRadius:'4px', background: s.weight/s.max_score >= 0.7 ? '#667eea' : s.weight/s.max_score >= 0.4 ? '#ffa94d' : '#eee'}"></div>
+                                    </div>
+                                    <span style="font-size:12px;color:#999">{{ s.weight_pct }}%</span>
+                                </div>
+                                <div style="display:flex;gap:15px;font-size:12px;color:#999;margin-bottom:6px">
+                                    <span>回测: <strong>{{ s.total_backtests }}</strong>次</span>
+                                    <span>正确: <strong>{{ s.correct_predictions }}</strong>次</span>
+                                    <span>进化: <strong>{{ s.evolution_count }}</strong>次</span>
+                                    <span :style="{color: s.success_rate === null ? '#999' : s.success_rate >= 60 ? '#27ae60' : s.success_rate >= 40 ? '#e67e22' : '#e74c3c'}">
+                                        成功率: {{ s.success_rate !== null ? s.success_rate + '%' : '暂无' }}
+                                    </span>
+                                </div>
+                                <div style="font-size:12px;color:#bbb;background:#fafafa;padding:8px;border-radius:4px">
+                                    {{ s.logic }}
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else style="text-align:center;padding:30px;color:#999">加载中...</div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:15px">
+                    <div class="card-header">归因分析操作</div>
+                    <div class="card-body">
+                        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                            <button class="btn btn-primary" @click="runAttribution(0)" :disabled="attrLoading">
+                                {{ attrLoading ? '分析中...' : '对最新推荐进行事后归因' }}
+                            </button>
+                            <span style="font-size:13px;color:#999">或选择历史推荐:</span>
+                            <select v-model="selectedRecIndex" style="padding:6px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px">
+                                <option v-for="(rec, idx) in history" :key="idx" :value="idx">
+                                    {{ rec.generate_time || ('第' + (idx+1) + '条') }} ({{ (rec.recommendations || []).length }}只)
+                                </option>
+                            </select>
+                            <button class="btn" @click="runAttribution(selectedRecIndex)" :disabled="attrLoading">
+                                分析选中
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="attributionResult" class="card" style="margin-top:15px">
+                    <div class="card-header">
+                        归因分析结果
+                        <span style="font-weight:400;font-size:13px;color:#999;margin-left:10px">
+                            分析时间: {{ attributionResult.backtest_time }}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div v-if="attributionResult.summary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px">
+                            <div style="background:#f0f4ff;border-radius:8px;padding:15px;text-align:center">
+                                <div style="font-size:24px;font-weight:700;color:#667eea">{{ attributionResult.summary.total }}</div>
+                                <div style="font-size:12px;color:#999">分析总数</div>
+                            </div>
+                            <div style="background:#f0fff4;border-radius:8px;padding:15px;text-align:center">
+                                <div style="font-size:24px;font-weight:700;color:#27ae60">{{ attributionResult.summary.hits }}</div>
+                                <div style="font-size:12px;color:#999">命中</div>
+                            </div>
+                            <div style="background:#fff8f0;border-radius:8px;padding:15px;text-align:center">
+                                <div style="font-size:24px;font-weight:700;color:#e67e22">{{ attributionResult.summary.partial_hits }}</div>
+                                <div style="font-size:12px;color:#999">部分命中</div>
+                            </div>
+                            <div style="background:#fff0f0;border-radius:8px;padding:15px;text-align:center">
+                                <div style="font-size:24px;font-weight:700;color:#e74c3c">{{ attributionResult.summary.misses }}</div>
+                                <div style="font-size:12px;color:#999">未命中</div>
+                            </div>
+                            <div style="background:#fafafa;border-radius:8px;padding:15px;text-align:center">
+                                <div style="font-size:24px;font-weight:700;color:#333">{{ attributionResult.summary.hit_rate }}%</div>
+                                <div style="font-size:12px;color:#999">命中率</div>
+                            </div>
+                            <div style="background:#fafafa;border-radius:8px;padding:15px;text-align:center">
+                                <div style="font-size:24px;font-weight:700" :style="{color: attributionResult.summary.avg_delta >= 0 ? '#e74c3c' : '#27ae60'}">
+                                    {{ attributionResult.summary.avg_delta >= 0 ? '+' : '' }}{{ attributionResult.summary.avg_delta }}%
+                                </div>
+                                <div style="font-size:12px;color:#999">平均涨跌变化</div>
+                            </div>
+                        </div>
+
+                        <div v-for="r in (attributionResult.results || [])" :key="r.code" style="border:1px solid #eee;border-radius:8px;padding:15px;margin-bottom:12px">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                                <div>
+                                    <strong style="font-size:15px">{{ r.name }}</strong>
+                                    <span style="color:#999;font-size:13px;margin-left:8px">{{ r.code }}</span>
+                                </div>
+                                <span :style="{
+                                    padding: '3px 10px', borderRadius: '4px', fontSize: '13px', fontWeight: '600',
+                                    color: r.verdict === 'hit' ? '#27ae60' : r.verdict === 'miss' ? '#e74c3c' : '#e67e22',
+                                    background: r.verdict === 'hit' ? '#f0fff4' : r.verdict === 'miss' ? '#fff0f0' : '#fff8f0'
+                                }">{{ r.verdict_label }}</span>
+                            </div>
+                            <div style="display:flex;gap:20px;font-size:13px;margin-bottom:10px">
+                                <span>事前涨幅: <strong :class="r.pre_change_pct >= 0 ? 'up' : 'down'">{{ r.pre_change_pct >= 0 ? '+' : '' }}{{ r.pre_change_pct }}%</strong></span>
+                                <span>事后涨幅: <strong :class="r.post_change_pct >= 0 ? 'up' : 'down'">{{ r.post_change_pct >= 0 ? '+' : '' }}{{ r.post_change_pct }}%</strong></span>
+                                <span>变化: <strong :style="{color: r.delta >= 0 ? '#27ae60' : '#e74c3c'}">{{ r.delta >= 0 ? '+' : '' }}{{ r.delta }}%</strong></span>
+                            </div>
+                            <table style="font-size:12px;margin-bottom:8px">
+                                <thead><tr><th>因子</th><th>得分</th><th>预测上涨</th><th>实际上涨</th><th>正确</th><th>分析</th></tr></thead>
+                                <tbody>
+                                    <tr v-for="fa in (r.factor_analysis || [])" :key="fa.key">
+                                        <td>{{ fa.name }}</td>
+                                        <td>{{ fa.pre_score }}</td>
+                                        <td>{{ fa.predicted_up ? '是' : '否' }}</td>
+                                        <td>{{ fa.actual_up ? '是' : '否' }}</td>
+                                        <td :style="{color: fa.correct ? '#27ae60' : '#e74c3c', fontWeight: '600'}">{{ fa.correct ? '正确' : '错误' }}</td>
+                                        <td style="color:#666">{{ fa.analysis }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div v-if="attributionResult.lessons && attributionResult.lessons.length" style="margin-top:15px">
+                            <h4 style="margin-bottom:8px;font-size:14px;color:#333">经验教训</h4>
+                            <div style="max-height:300px;overflow:auto">
+                                <div v-for="(l, i) in attributionResult.lessons" :key="i" style="padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:13px">
+                                    <span :style="{color: l.verdict === '命中' ? '#27ae60' : l.verdict === '未命中' ? '#e74c3c' : '#e67e22', fontWeight: '600'}">[{{ l.stock }} - {{ l.verdict }}]</span>
+                                    <span style="color:#666;margin-left:8px">{{ l.lesson }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="attributionResult.optimizations && attributionResult.optimizations.length" style="margin-top:15px">
+                            <h4 style="margin-bottom:8px;font-size:14px;color:#e67e22">优化建议</h4>
+                            <div v-for="(opt, i) in attributionResult.optimizations" :key="i" style="padding:8px 12px;background:#fff8f0;border-radius:4px;margin-bottom:6px;font-size:13px;color:#666">
+                                {{ opt }}
+                            </div>
+                        </div>
+
+                        <div v-if="attributionResult.evolution && attributionResult.evolution.length" style="margin-top:15px">
+                            <h4 style="margin-bottom:8px;font-size:14px;color:#667eea">策略进化</h4>
+                            <div v-for="(ev, i) in attributionResult.evolution" :key="i" style="padding:8px 12px;background:#f0f4ff;border-radius:4px;margin-bottom:6px;font-size:13px">
+                                <strong>{{ ev.strategy }}</strong>:
+                                {{ ev.old_weight }} -> {{ ev.new_weight }}
+                                (成功率{{ ev.success_rate }}%)
+                                <span style="color:#999;margin-left:8px">{{ ev.reason }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:15px" v-if="attributions.length > 0">
+                    <div class="card-header">归因历史记录 ({{ attributions.length }}条)</div>
+                    <div class="card-body" style="max-height:400px;overflow:auto">
+                        <div v-for="(attr, idx) in attributions" :key="idx" style="padding:10px;border-bottom:1px solid #f0f0f0;cursor:pointer" @click="attributionResult = attr">
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <div>
+                                    <strong>{{ attr.backtest_time || '未知时间' }}</strong>
+                                    <span style="color:#999;font-size:13px;margin-left:10px">
+                                        命中率: {{ (attr.summary || {}).hit_rate || 0 }}%
+                                    </span>
+                                </div>
+                                <div style="font-size:13px;color:#999">
+                                    命中{{ (attr.summary || {}).hits || 0 }} /
+                                    部分命中{{ (attr.summary || {}).partial_hits || 0 }} /
+                                    未命中{{ (attr.summary || {}).misses || 0 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
                                 <div v-if="backtestResults[idx]" style="margin-top:8px;padding:8px;background:#f9f9f9;border-radius:4px">
                                     回测结果: {{ JSON.stringify(backtestResults[idx]).slice(0, 200) }}
                                 </div>
@@ -365,6 +541,12 @@
             const expandedHistory = ref(-1);
             const backtestResults = ref({});
             const scoreLabels = {hot_rank: '热榜排名', skyrocket: '飙升榜', momentum: '涨跌动量', turnover: '换手率', sector: '板块共振', news: '新闻热度', concepts: '概念丰富度'};
+
+            const strategies = ref({});
+            const attributions = ref([]);
+            const attributionResult = ref(null);
+            const attrLoading = ref(false);
+            const selectedRecIndex = ref(0);
 
             const rankHistory = ref({});
             const selectedStocks = ref([]);
@@ -587,10 +769,35 @@
                     backtestResults.value = {...backtestResults.value, [index]: data};
                 } catch(e) { console.error(e); }
             };
+            
+            const loadStrategies = async () => {
+                try {
+                    const r = await fetch('/api/strategies');
+                    strategies.value = await r.json();
+                } catch(e) { console.error(e); }
+            };
+
+            const loadAttributions = async () => {
+                try {
+                    const r = await fetch('/api/attribution/history');
+                    attributions.value = await r.json();
+                } catch(e) { console.error(e); }
+            };
+
+            const runAttribution = async (index) => {
+                attrLoading.value = true;
+                try {
+                    const r = await fetch(`/api/attribution/backtest/${index}`);
+                    attributionResult.value = await r.json();
+                    await loadStrategies();
+                    await loadAttributions();
+                } finally { attrLoading.value = false; }
+            };
+
             watch(tab, (t) => { if (t === "trend") loadRankHistory(); if (t === "news") loadNews(); if (t === "wordcloud") loadKeywords(); if (t === "recommend") loadRecommend(); });
             onMounted(() => { loadData(); });
             
-            return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords, currentRec, history, showHistory, generating, expandedHistory, backtestResults, scoreLabels, loadRecommend, generateRecommend, toggleHistoryDetail, backtestItem, rankHistory, selectedStocks, loadRankHistory, toggleStock };
+            return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords, currentRec, history, showHistory, generating, expandedHistory, backtestResults, scoreLabels, loadRecommend, generateRecommend, toggleHistoryDetail, backtestItem, rankHistory, selectedStocks, loadRankHistory, toggleStock, strategies, attributions, attributionResult, attrLoading, selectedRecIndex, loadStrategies, loadAttributions, runAttribution };
         }
     }).mount("#app");
     </script>

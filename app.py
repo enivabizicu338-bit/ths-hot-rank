@@ -195,6 +195,46 @@ def api_recommend_backtest(index):
     except Exception as e:
         return jsonify({"error": str(e)})
 
+
+@app.route('/api/strategies')
+def api_strategies():
+    """获取策略配置和统计数据"""
+    try:
+        from scripts.modules.strategy_engine import get_strategy_summary
+        return jsonify(get_strategy_summary())
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
+@app.route('/api/attribution/history')
+def api_attribution_history():
+    """获取归因分析历史"""
+    try:
+        from scripts.modules.attribution import load_attributions
+        return jsonify(load_attributions())
+    except Exception as e:
+        return jsonify([])
+
+@app.route('/api/attribution/backtest/<int:index>')
+def api_attribution_backtest(index):
+    """对第index条推荐进行事后归因分析"""
+    try:
+        from scripts.modules.recommender import load_history
+        from scripts.modules.attribution import batch_post_attribution, save_attribution
+
+        history = load_history()
+        if index < 0 or index >= len(history):
+            return jsonify({"error": "index out of range"})
+
+        current_data = load_json('current.json')
+        result = batch_post_attribution(history[index], current_data)
+
+        if result:
+            save_attribution(result)
+
+        return jsonify(result or {"error": "backtest failed"})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
 if __name__ == '__main__':
     os.makedirs(DATA_DIR, exist_ok=True)
     os.makedirs('static', exist_ok=True)
