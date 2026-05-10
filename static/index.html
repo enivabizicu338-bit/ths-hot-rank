@@ -336,6 +336,11 @@
                                 <div v-for="(s, i) in (rec.recommendations || []).slice(0,10)" :key="s.code" style="padding:3px 0">
                                     {{ i+1 }}. {{ s.name }}({{ s.code }}) - 评分: {{ s.total_score?.toFixed(1) || '-' }}
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div v-if="tab === 'attribution'">
                 <!-- 今日推荐依据 -->
                 <div class="card" style="margin-bottom:15px">
@@ -621,18 +626,7 @@
                     </div>
                 </div>
             </div>
-
-                                <div v-if="backtestResults[idx]" style="margin-top:8px;padding:8px;background:#f9f9f9;border-radius:4px">
-                                    回测结果: {{ JSON.stringify(backtestResults[idx]).slice(0, 200) }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-    
     <script>
     const { createApp, ref, computed, watch, onMounted } = Vue;
     
@@ -916,5 +910,6 @@
         }
     }).mount("#app");
     </script>
+    </div>
 </body>
 </html>
