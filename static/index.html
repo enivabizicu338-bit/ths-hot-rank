@@ -223,6 +223,81 @@
                     <div class="card-body"><div class="chart-container"><canvas id="trendChart"></canvas></div></div>
                 </div>
             </div>
+            <div v-if="tab === 'recommend'">
+                <div class="card">
+                    <div class="card-header">
+                        智能推荐
+                        <button class="btn btn-primary" @click="generateRecommend" :disabled="generating" style="float:right">
+                            {{ generating ? "生成中..." : "生成新推荐" }}
+                        </button>
+                        <button class="btn" @click="showHistory = !showHistory" style="float:right" v-if="history.length > 0">
+                            {{ showHistory ? "隐藏历史" : "查看历史" }}
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div v-if="currentRec">
+                            <div style="margin-bottom:15px;font-size:14px;color:#666">
+                                推荐时间: {{ currentRec.timestamp || '未知' }} | 推荐数量: {{ (currentRec.stocks || []).length }}
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>排名</th><th>代码</th><th>名称</th><th>综合评分</th><th>评分详情</th><th>概念标签</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(s, i) in (currentRec.stocks || [])" :key="s.code">
+                                        <td><span class="rank" :class="getRankClass(i+1)">{{ i+1 }}</span></td>
+                                        <td>{{ s.code }}</td>
+                                        <td><strong>{{ s.name }}</strong></td>
+                                        <td style="font-weight:600;color:#667eea">{{ s.total_score?.toFixed(1) || '-' }}</td>
+                                        <td style="font-size:12px;color:#999">
+                                            <span v-for="(v, k) in (s.scores || {})" :key="k" style="margin-right:8px">
+                                                {{ scoreLabels[k] || k }}: {{ (v * 100)?.toFixed(0) }}
+                                            </span>
+                                        </td>
+                                        <td><span v-for="t in (s.concept_tags || []).slice(0,3)" :key="t" class="tag">{{ t }}</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div v-else style="text-align:center;padding:60px 20px;color:#999">
+                            <div style="font-size:48px;margin-bottom:15px">📊</div>
+                            <div style="font-size:16px;margin-bottom:10px">暂无推荐数据</div>
+                            <div style="font-size:14px">请点击上方"生成新推荐"按钮获取智能推荐</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" v-if="showHistory && history.length > 0" style="margin-top:15px">
+                    <div class="card-header">历史推荐记录 ({{ history.length }}条)</div>
+                    <div class="card-body" style="max-height:500px;overflow:auto">
+                        <div v-for="(rec, idx) in history" :key="idx" style="padding:10px;border-bottom:1px solid #f0f0f0;cursor:pointer" @click="currentRec = rec">
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <div>
+                                    <strong>{{ rec.timestamp || '未知时间' }}</strong>
+                                    <span style="color:#999;font-size:13px;margin-left:10px">{{ (rec.stocks || []).length }}只股票</span>
+                                </div>
+                                <div>
+                                    <button class="btn" @click.stop="toggleHistoryDetail(idx)" style="font-size:12px;padding:4px 8px">
+                                        {{ expandedHistory === idx ? '收起' : '展开' }}
+                                    </button>
+                                    <button class="btn btn-primary" @click.stop="backtestItem(idx)" style="font-size:12px;padding:4px 8px" :disabled="backtestResults[idx]">
+                                        回测
+                                    </button>
+                                </div>
+                            </div>
+                            <div v-if="expandedHistory === idx" style="margin-top:10px;font-size:13px">
+                                <div v-for="(s, i) in (rec.stocks || []).slice(0,10)" :key="s.code" style="padding:3px 0">
+                                    {{ i+1 }}. {{ s.name }}({{ s.code }}) - 评分: {{ s.total_score?.toFixed(1) || '-' }}
+                                </div>
+                                <div v-if="backtestResults[idx]" style="margin-top:8px;padding:8px;background:#f9f9f9;border-radius:4px">
+                                    回测结果: {{ JSON.stringify(backtestResults[idx]).slice(0, 200) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -248,7 +323,7 @@
             const generating = ref(false);
             const expandedHistory = ref(-1);
             const backtestResults = ref({});
-            const scoreLabels = {hot_rank: '热榜排名', skyrocket: '飙升动力', momentum: '涨跌动量', turnover: '换手率', sector: '板块共振', news: '新闻热度', concepts: '概念丰富度'};
+            const scoreLabels = {hot_rank: '热榜排名', skyrocket: '飙升榜', momentum: '涨跌动量', turnover: '换手率', sector: '板块共振', news: '新闻热度', concepts: '概念丰富度'};
 
             
             const updateTime = computed(() => currentData.value?.update_time || "");
@@ -341,7 +416,7 @@
                 try {
                     const r = await fetch('/api/recommend/history');
                     history.value = await r.json();
-                    if (history.value.length > 0 && !currentRec.value) {
+                    if (history.value.length > 0) {
                         currentRec.value = history.value[0];
                     }
                 } catch(e) { console.error(e); }
