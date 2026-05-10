@@ -337,6 +337,65 @@
                                     {{ i+1 }}. {{ s.name }}({{ s.code }}) - 评分: {{ s.total_score?.toFixed(1) || '-' }}
                                 </div>
             <div v-if="tab === 'attribution'">
+                <!-- 今日推荐依据 -->
+                <div class="card" style="margin-bottom:15px">
+                    <div class="card-header">
+                        今日推荐依据
+                        <span style="font-weight:400;font-size:13px;color:#999;margin-left:10px" v-if="currentRec">
+                            推荐时间: {{ currentRec.generate_time }}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div v-if="currentRec && currentRec.recommendations && currentRec.recommendations.length">
+                            <div style="margin-bottom:15px;font-size:14px;color:#666">
+                                今日共推荐 <strong style="color:#667eea">{{ currentRec.recommendations.length }}</strong> 只股票，
+                                平均评分 <strong style="color:#667eea">{{ currentRec.stats?.avg_score?.toFixed(1) || '-' }}</strong> 分
+                            </div>
+                            <table style="margin-bottom:15px">
+                                <thead>
+                                    <tr>
+                                        <th>排名</th>
+                                        <th>股票名称</th>
+                                        <th>股价</th>
+                                        <th>综合评分</th>
+                                        <th>核心推荐理由</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(s, i) in currentRec.recommendations" :key="s.code">
+                                        <td><span class="rank" :class="getRankClass(i+1)">{{ i+1 }}</span></td>
+                                        <td>
+                                            <a :href="'https://finance.baidu.com/stock/ab-' + s.code" target="_blank" style="color:#667eea;text-decoration:none;font-weight:600">
+                                                {{ s.name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ s.price?.toFixed(2) || '-' }}</td>
+                                        <td style="font-weight:600;color:#667eea">{{ s.total_score?.toFixed(1) || '-' }}</td>
+                                        <td style="font-size:12px;color:#666;max-width:300px">
+                                            {{ s.pre_attribution?.key_thesis || '无归因数据' }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="background:#f9f9f9;border-radius:8px;padding:15px">
+                                <div style="font-weight:600;margin-bottom:10px">推荐逻辑说明</div>
+                                <div style="font-size:13px;color:#666;line-height:1.8">
+                                    今日推荐基于以下策略因子综合评分：
+                                    <span v-for="(s, idx) in strategies.strategies" :key="s.key">
+                                        <strong>{{ s.name }}</strong>(权重{{ s.weight }}分)<span v-if="idx < strategies.strategies.length - 1">、</span>
+                                    </span>。
+                                    系统优先选择<strong>热门板块加成</strong>得分高的股票，即所属概念板块涨幅靠前且排名进入前10的板块成分股。
+                                    同时考虑<strong>热榜排名</strong>、<strong>涨跌动量</strong>（涨停/大涨）、<strong>飙升榜</strong>关注度上升等因素。
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else style="text-align:center;padding:40px;color:#999">
+                            <div style="font-size:16px;margin-bottom:10px">暂无今日推荐数据</div>
+                            <div style="font-size:13px">请先点击"智能推荐"Tab生成推荐，或等待自动更新</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="card-header">策略因子概览 <span style="font-weight:400;font-size:13px;color:#999">权重动态调整 | 回测驱动进化</span></div>
                     <div class="card-body">
