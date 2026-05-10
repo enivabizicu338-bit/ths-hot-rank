@@ -2,10 +2,11 @@
 
 WORKDIR /app
 
+# 使用清华镜像源加速
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
 # 安装系统依赖
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends git && rm -rf /var/lib/apt/lists/*
 
 # 复制依赖文件
 COPY requirements.txt .
