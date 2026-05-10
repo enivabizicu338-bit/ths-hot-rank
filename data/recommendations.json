@@ -1,5 +1,264 @@
 [
   {
+    "generate_time": "2026-05-10 08:22:35",
+    "source_update_time": "2026-05-09 23:25:05",
+    "stats": {
+      "total_analyzed": 100,
+      "recommended": 8,
+      "avg_score": 83.5,
+      "max_score": 98,
+      "min_score": 71
+    },
+    "recommendations": [
+      {
+        "code": "002281",
+        "name": "光迅科技",
+        "total_score": 98,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 25,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第3名，得25分",
+          "飙升榜排名第5名，得25分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率10.5%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 10.54,
+        "hot_rank": 3,
+        "hot_value": "93860.0",
+        "skyrocket_rank": 5,
+        "concept_tags": [
+          "F5G概念",
+          "共封装光学(CPO)"
+        ]
+      },
+      {
+        "code": "600522",
+        "name": "中天科技",
+        "total_score": 90,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 25,
+          "momentum": 15,
+          "turnover": 10,
+          "sector": 12,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第1名，得25分",
+          "飙升榜排名第1名，得25分",
+          "涨幅6.57%，动量强劲得15分",
+          "换手率9.2%，交投活跃得10分",
+          "所属板块[光纤概念]涨幅2.45%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 6.57,
+        "turnover": 9.15,
+        "hot_rank": 1,
+        "hot_value": "146751.0",
+        "skyrocket_rank": 1,
+        "concept_tags": [
+          "光纤概念",
+          "共封装光学(CPO)"
+        ]
+      },
+      {
+        "code": "002491",
+        "name": "通鼎互联",
+        "total_score": 88,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 20,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第7名，得20分",
+          "飙升榜排名第11名，得20分",
+          "涨停(涨幅10.01%)，动量得分20",
+          "换手率9.8%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.01,
+        "turnover": 9.8,
+        "hot_rank": 7,
+        "hot_value": "65035.0",
+        "skyrocket_rank": 11,
+        "concept_tags": [
+          "光纤概念",
+          "5G"
+        ]
+      },
+      {
+        "code": "600498",
+        "name": "烽火通信",
+        "total_score": 88,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 20,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 15,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第10名，得20分",
+          "飙升榜排名第14名，得20分",
+          "涨停(涨幅10.00%)，动量得分20",
+          "换手率11.0%，交投活跃得10分",
+          "所属板块[F5G概念]涨幅3.29%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.0,
+        "turnover": 11.0,
+        "hot_rank": 10,
+        "hot_value": "52010.0",
+        "skyrocket_rank": 14,
+        "concept_tags": [
+          "光纤概念",
+          "F5G概念"
+        ]
+      },
+      {
+        "code": "601991",
+        "name": "大唐发电",
+        "total_score": 83,
+        "scores": {
+          "hot_rank": 25,
+          "skyrocket": 25,
+          "momentum": 20,
+          "turnover": 10,
+          "sector": 0,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第2名，得25分",
+          "飙升榜排名第3名，得25分",
+          "涨停(涨幅9.92%)，动量得分20",
+          "换手率9.8%，交投活跃得10分",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 9.92,
+        "turnover": 9.81,
+        "hot_rank": 2,
+        "hot_value": "100935.0",
+        "skyrocket_rank": 3,
+        "concept_tags": [
+          "绿色电力",
+          "风电"
+        ]
+      },
+      {
+        "code": "002428",
+        "name": "云南锗业",
+        "total_score": 76,
+        "scores": {
+          "hot_rank": 15,
+          "skyrocket": 20,
+          "momentum": 18,
+          "turnover": 8,
+          "sector": 12,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第21名，得15分",
+          "飙升榜排名第12名，得20分",
+          "涨幅7.32%，动量强劲得18分",
+          "换手率17.3%，交投活跃得8分",
+          "所属板块[光纤概念]涨幅2.45%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 7.32,
+        "turnover": 17.29,
+        "hot_rank": 21,
+        "hot_value": "44302.0",
+        "skyrocket_rank": 12,
+        "concept_tags": [
+          "光纤概念",
+          "第三代半导体"
+        ]
+      },
+      {
+        "code": "000547",
+        "name": "航天发展",
+        "total_score": 74,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 15,
+          "momentum": 20,
+          "turnover": 8,
+          "sector": 8,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第8名，得20分",
+          "飙升榜排名第22名，得15分",
+          "涨停(涨幅10.01%)，动量得分20",
+          "换手率15.5%，交投活跃得8分",
+          "所属板块[军民融合]涨幅1.99%",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.01,
+        "turnover": 15.49,
+        "hot_rank": 8,
+        "hot_value": "61188.0",
+        "skyrocket_rank": 22,
+        "concept_tags": [
+          "军工信息化",
+          "军民融合"
+        ]
+      },
+      {
+        "code": "600589",
+        "name": "大位科技",
+        "total_score": 71,
+        "scores": {
+          "hot_rank": 20,
+          "skyrocket": 20,
+          "momentum": 20,
+          "turnover": 8,
+          "sector": 0,
+          "news": 0,
+          "concepts": 3
+        },
+        "reasons": [
+          "热榜排名第5名，得20分",
+          "飙升榜排名第9名，得20分",
+          "涨停(涨幅10.03%)，动量得分20",
+          "换手率24.3%，交投活跃得8分",
+          "拥有2个概念标签"
+        ],
+        "change_pct": 10.03,
+        "turnover": 24.26,
+        "hot_rank": 5,
+        "hot_value": "71688.0",
+        "skyrocket_rank": 9,
+        "concept_tags": [
+          "算力租赁",
+          "云计算"
+        ]
+      }
+    ]
+  },
+  {
     "generate_time": "2026-05-10 02:06:25",
     "source_update_time": "2026-05-09 17:58:02",
     "stats": {

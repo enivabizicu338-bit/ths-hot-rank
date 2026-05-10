@@ -237,7 +237,7 @@
                     <div class="card-body">
                         <div v-if="currentRec">
                             <div style="margin-bottom:15px;font-size:14px;color:#666">
-                                推荐时间: {{ currentRec.timestamp || '未知' }} | 推荐数量: {{ (currentRec.stocks || []).length }}
+                                推荐时间: {{ currentRec.generate_time || '未知' }} | 推荐数量: {{ (currentRec.recommendations || []).length }}
                             </div>
                             <table>
                                 <thead>
@@ -246,14 +246,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(s, i) in (currentRec.stocks || [])" :key="s.code">
+                                    <tr v-for="(s, i) in (currentRec.recommendations || [])" :key="s.code">
                                         <td><span class="rank" :class="getRankClass(i+1)">{{ i+1 }}</span></td>
                                         <td>{{ s.code }}</td>
                                         <td><strong>{{ s.name }}</strong></td>
                                         <td style="font-weight:600;color:#667eea">{{ s.total_score?.toFixed(1) || '-' }}</td>
                                         <td style="font-size:12px;color:#999">
                                             <span v-for="(v, k) in (s.scores || {})" :key="k" style="margin-right:8px">
-                                                {{ scoreLabels[k] || k }}: {{ (v * 100)?.toFixed(0) }}
+                                                {{ scoreLabels[k] || k }}: {{ v }}
                                             </span>
                                         </td>
                                         <td><span v-for="t in (s.concept_tags || []).slice(0,3)" :key="t" class="tag">{{ t }}</span></td>
@@ -274,8 +274,8 @@
                         <div v-for="(rec, idx) in history" :key="idx" style="padding:10px;border-bottom:1px solid #f0f0f0;cursor:pointer" @click="currentRec = rec">
                             <div style="display:flex;justify-content:space-between;align-items:center">
                                 <div>
-                                    <strong>{{ rec.timestamp || '未知时间' }}</strong>
-                                    <span style="color:#999;font-size:13px;margin-left:10px">{{ (rec.stocks || []).length }}只股票</span>
+                                    <strong>{{ rec.generate_time || '未知时间' }}</strong>
+                                    <span style="color:#999;font-size:13px;margin-left:10px">{{ (rec.recommendations || []).length }}只股票</span>
                                 </div>
                                 <div>
                                     <button class="btn" @click.stop="toggleHistoryDetail(idx)" style="font-size:12px;padding:4px 8px">
@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                             <div v-if="expandedHistory === idx" style="margin-top:10px;font-size:13px">
-                                <div v-for="(s, i) in (rec.stocks || []).slice(0,10)" :key="s.code" style="padding:3px 0">
+                                <div v-for="(s, i) in (rec.recommendations || []).slice(0,10)" :key="s.code" style="padding:3px 0">
                                     {{ i+1 }}. {{ s.name }}({{ s.code }}) - 评分: {{ s.total_score?.toFixed(1) || '-' }}
                                 </div>
                                 <div v-if="backtestResults[idx]" style="margin-top:8px;padding:8px;background:#f9f9f9;border-radius:4px">
