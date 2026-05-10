@@ -219,8 +219,49 @@
             </div>
             <div v-if="tab === 'trend'">
                 <div class="card">
-                    <div class="card-header">热度趋势图</div>
-                    <div class="card-body"><div class="chart-container"><canvas id="trendChart"></canvas></div></div>
+                    <div class="card-header">
+                        热度排名走势 (近30天)
+                        <span style="font-weight:400;font-size:13px;color:#999">
+                            {{ rankHistory.snapshot_count || 0 }}个时间点 | Y轴=排名(越小越好) | 缺口=未上榜
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div style="margin-bottom:10px;display:flex;gap:8px;flex-wrap:wrap">
+                            <button v-for="s in rankHistory.stocks" :key="s.code"
+                                class="btn" :class="selectedStocks.includes(s.code) ? 'btn-primary' : ''"
+                                style="padding:3px 10px;font-size:12px;margin:0"
+                                @click="toggleStock(s.code)">
+                                {{ s.name }}
+                            </button>
+                        </div>
+                        <div id="rankChart" style="height:450px;width:100%"></div>
+                        <div v-if="rankHistory.stocks.length > 0" style="margin-top:15px">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>股票</th>
+                                        <th>当前排名</th>
+                                        <th>最佳排名</th>
+                                        <th>平均排名</th>
+                                        <th>上榜次数</th>
+                                        <th>上榜率</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="s in rankHistory.stocks" :key="s.code"
+                                        style="cursor:pointer" @click="toggleStock(s.code)"
+                                        :style="{background: selectedStocks.includes(s.code) ? '#f0f4ff' : ''}">
+                                        <td><strong>{{ s.name }}</strong> <span style="color:#999">{{ s.code }}</span></td>
+                                        <td><span class="rank" :class="getRankClass(s.current_rank)">{{ s.current_rank || '-' }}</span></td>
+                                        <td><span class="rank" :class="getRankClass(s.best_rank)">{{ s.best_rank || '-' }}</span></td>
+                                        <td>{{ s.avg_rank || '-' }}</td>
+                                        <td>{{ s.in_rank_count }}</td>
+                                        <td>{{ rankHistory.snapshot_count ? ((s.in_rank_count / rankHistory.snapshot_count * 100).toFixed(1) + '%') : '-' }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div v-if="tab === 'recommend'">
@@ -324,6 +365,110 @@
             const expandedHistory = ref(-1);
             const backtestResults = ref({});
             const scoreLabels = {hot_rank: '热榜排名', skyrocket: '飙升榜', momentum: '涨跌动量', turnover: '换手率', sector: '板块共振', news: '新闻热度', concepts: '概念丰富度'};
+
+            const rankHistory = ref({});
+            const selectedStocks = ref([]);
+            let rankChart = null;
+
+            const loadRankHistory = async () => {
+                try {
+                    const r = await fetch('/api/rank_history');
+                    rankHistory.value = await r.json();
+                    // 默认选中当前前5只
+                    if (rankHistory.value.stocks && rankHistory.value.stocks.length > 0) {
+                        selectedStocks.value = rankHistory.value.stocks.slice(0, 5).map(s => s.code);
+                        setTimeout(renderRankChart, 200);
+                    }
+                } catch(e) { console.error(e); }
+            };
+
+            const toggleStock = (code) => {
+                const idx = selectedStocks.value.indexOf(code);
+                if (idx >= 0) {
+                    selectedStocks.value.splice(idx, 1);
+                } else {
+                    if (selectedStocks.value.length >= 10) {
+                        selectedStocks.value.shift();
+                    }
+                    selectedStocks.value.push(code);
+                }
+                renderRankChart();
+            };
+
+            const renderRankChart = () => {
+                if (!rankHistory.value.time_labels || !rankHistory.value.stocks) return;
+                const chartDom = document.getElementById('rankChart');
+                if (!chartDom) return;
+                if (rankChart) rankChart.dispose();
+                rankChart = echarts.init(chartDom);
+
+                const colors = ['#e74c3c','#e67e22','#f1c40f','#2ecc71','#1abc9c','#3498db','#9b59b6','#e91e63','#00bcd4','#ff5722'];
+                const series = [];
+                const allStocks = rankHistory.value.stocks;
+
+                selectedStocks.value.forEach((code, i) => {
+                    const stock = allStocks.find(s => s.code === code);
+                    if (!stock) return;
+                    series.push({
+                        name: stock.name,
+                        type: 'line',
+                        data: stock.data,
+                        connectNulls: false,
+                        symbol: 'circle',
+                        symbolSize: 3,
+                        lineStyle: { width: 2 },
+                        itemStyle: { color: colors[i % colors.length] },
+                        emphasis: { lineStyle: { width: 3 } },
+                    });
+                });
+
+                const option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: function(params) {
+                            let tip = params[0] ? params[0].axisValue : '';
+                            params.forEach(p => {
+                                if (p.value != null) {
+                                    tip += '<br/>' + p.marker + p.seriesName + ': 第' + p.value + '名';
+                                }
+                            });
+                            return tip;
+                        }
+                    },
+                    legend: {
+                        data: series.map(s => s.name),
+                        top: 0,
+                        textStyle: { fontSize: 12 }
+                    },
+                    grid: { left: 50, right: 30, top: 40, bottom: 60 },
+                    xAxis: {
+                        type: 'category',
+                        data: rankHistory.value.time_labels,
+                        axisLabel: {
+                            rotate: 45,
+                            fontSize: 10,
+                            formatter: function(v) { return v.substring(0, 11); }
+                        },
+                        boundaryGap: false,
+                    },
+                    yAxis: {
+                        type: 'value',
+                        inverse: true,
+                        min: 1,
+                        max: 50,
+                        name: '排名',
+                        axisLabel: { formatter: '#{value}' },
+                        splitLine: { lineStyle: { type: 'dashed' } }
+                    },
+                    dataZoom: [
+                        { type: 'slider', start: 0, end: 100, bottom: 5 },
+                        { type: 'inside' }
+                    ],
+                    series: series,
+                };
+                rankChart.setOption(option);
+                window.addEventListener('resize', () => { if (rankChart) rankChart.resize(); });
+            };
 
             
             const updateTime = computed(() => currentData.value?.update_time || "");
@@ -442,10 +587,10 @@
                     backtestResults.value = {...backtestResults.value, [index]: data};
                 } catch(e) { console.error(e); }
             };
-            watch(tab, (t) => { if (t === "trend") setTimeout(renderTrendChart, 100); if (t === "news") loadNews(); if (t === "wordcloud") loadKeywords(); });
+            watch(tab, (t) => { if (t === "trend") loadRankHistory(); if (t === "news") loadNews(); if (t === "wordcloud") loadKeywords(); if (t === "recommend") loadRecommend(); });
             onMounted(() => { loadData(); });
             
-            return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords, currentRec, history, showHistory, generating, expandedHistory, backtestResults, scoreLabels, loadRecommend, generateRecommend, toggleHistoryDetail, backtestItem };
+            return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords, currentRec, history, showHistory, generating, expandedHistory, backtestResults, scoreLabels, loadRecommend, generateRecommend, toggleHistoryDetail, backtestItem, rankHistory, selectedStocks, loadRankHistory, toggleStock };
         }
     }).mount("#app");
     </script>

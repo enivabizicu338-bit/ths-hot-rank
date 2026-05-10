@@ -118,6 +118,16 @@ def api_snapshots():
     if not data: data = fetch_from_github('snapshots.json')
     return jsonify(data or [])
 
+@app.route('/api/rank_history')
+def api_rank_history():
+    """获取排名历史走势数据"""
+    try:
+        from scripts.modules.rank_history import get_top_stocks_rank_history
+        result = get_top_stocks_rank_history(top_n=30)
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e), "time_labels": [], "stocks": []})
+
 @app.route('/api/news')
 def api_news():
     now = time.time()
