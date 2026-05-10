@@ -794,7 +794,7 @@
                 } finally { attrLoading.value = false; }
             };
 
-            watch(tab, (t) => { if (t === "trend") loadRankHistory(); if (t === "news") loadNews(); if (t === "wordcloud") loadKeywords(); if (t === "recommend") loadRecommend(); });
+            watch(tab, (t) => { if (t === "trend") loadRankHistory(); if (t === "news") loadNews(); if (t === "wordcloud") loadKeywords(); if (t === "recommend") loadRecommend(); if (t === "attribution") { loadStrategies(); loadAttributions(); } });
             onMounted(() => { loadData(); });
             
             return { tab, updateTime, hotList, skyrocketList, sectorsList, boardStrength, hotStats, syncing, fetching, getRankClass, syncData, fetchData, newsList, loadNews, keywordsList, loadKeywords, currentRec, history, showHistory, generating, expandedHistory, backtestResults, scoreLabels, loadRecommend, generateRecommend, toggleHistoryDetail, backtestItem, rankHistory, selectedStocks, loadRankHistory, toggleStock, strategies, attributions, attributionResult, attrLoading, selectedRecIndex, loadStrategies, loadAttributions, runAttribution };
