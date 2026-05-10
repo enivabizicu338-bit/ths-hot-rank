@@ -1,5 +1,986 @@
 [
   {
+    "generate_time": "2026-05-10 20:31:41",
+    "source_update_time": "2026-05-10 11:54:23",
+    "version": "v2",
+    "stats": {
+      "total_analyzed": 100,
+      "recommended": 10,
+      "avg_score": 76.7,
+      "max_score": 91
+    },
+    "recommendations": [
+      {
+        "code": "002281",
+        "name": "光迅科技",
+        "price": 180.72,
+        "total_score": 91,
+        "scores": {
+          "hot_sector_boost": 27,
+          "hot_rank": 16,
+          "momentum": 20,
+          "skyrocket": 15,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 10.0,
+        "turnover": 10.54,
+        "hot_rank": 4,
+        "hot_value": "177559.0",
+        "skyrocket_rank": 3,
+        "concept_tags": [
+          "F5G概念",
+          "共封装光学(CPO)"
+        ],
+        "pre_attribution": {
+          "total_score": 91,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 27,
+              "max_score": 30,
+              "prediction": "光迅科技所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 16,
+              "max_score": 20,
+              "prediction": "热榜排名第4名，市场关注度较高，资金关注度持续",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 15,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率10.5%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分91分，热门板块加成、热榜排名、涨跌动量等多重利好共振，预测短期内继续上涨概率较高",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "光迅科技所属概念板块涨幅靠前，板块热度传导预计推动个股上涨；涨停封板(涨幅10.00%)，买盘力量极强，动能充沛"
+        }
+      },
+      {
+        "code": "002491",
+        "name": "通鼎互联",
+        "price": 20.66,
+        "total_score": 91,
+        "scores": {
+          "hot_sector_boost": 27,
+          "hot_rank": 16,
+          "momentum": 20,
+          "skyrocket": 15,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 10.01,
+        "turnover": 9.8,
+        "hot_rank": 5,
+        "hot_value": "165160.0",
+        "skyrocket_rank": 5,
+        "concept_tags": [
+          "光纤概念",
+          "5G"
+        ],
+        "pre_attribution": {
+          "total_score": 91,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 27,
+              "max_score": 30,
+              "prediction": "通鼎互联所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 16,
+              "max_score": 20,
+              "prediction": "热榜排名第5名，市场关注度较高，资金关注度持续",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.01%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 15,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率9.8%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分91分，热门板块加成、热榜排名、涨跌动量等多重利好共振，预测短期内继续上涨概率较高",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "通鼎互联所属概念板块涨幅靠前，板块热度传导预计推动个股上涨；涨停封板(涨幅10.01%)，买盘力量极强，动能充沛"
+        }
+      },
+      {
+        "code": "600498",
+        "name": "烽火通信",
+        "price": 57.0,
+        "total_score": 81,
+        "scores": {
+          "hot_sector_boost": 27,
+          "hot_rank": 12,
+          "momentum": 20,
+          "skyrocket": 9,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 10.0,
+        "turnover": 11.0,
+        "hot_rank": 16,
+        "hot_value": "106351.0",
+        "skyrocket_rank": 22,
+        "concept_tags": [
+          "光纤概念",
+          "F5G概念"
+        ],
+        "pre_attribution": {
+          "total_score": 81,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 27,
+              "max_score": 30,
+              "prediction": "烽火通信所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 12,
+              "max_score": 20,
+              "prediction": "热榜排名第16名，市场关注度中等，资金关注度持续",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 9,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率11.0%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分81分，热门板块加成、热榜排名、涨跌动量等多重利好共振，预测短期内继续上涨概率较高",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "烽火通信所属概念板块涨幅靠前，板块热度传导预计推动个股上涨；涨停封板(涨幅10.00%)，买盘力量极强，动能充沛"
+        }
+      },
+      {
+        "code": "600522",
+        "name": "中天科技",
+        "price": 40.9,
+        "total_score": 80,
+        "scores": {
+          "hot_sector_boost": 18,
+          "hot_rank": 20,
+          "momentum": 14,
+          "skyrocket": 15,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 6.57,
+        "turnover": 9.15,
+        "hot_rank": 1,
+        "hot_value": "340987.0",
+        "skyrocket_rank": 1,
+        "concept_tags": [
+          "光纤概念",
+          "共封装光学(CPO)"
+        ],
+        "pre_attribution": {
+          "total_score": 80,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 18,
+              "max_score": 30,
+              "prediction": "中天科技所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "热榜排名第1名，市场关注度极高，资金关注度持续",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 14,
+              "max_score": 20,
+              "prediction": "涨幅6.57%，资金推动力度较强",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 15,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率9.2%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分80分，热门板块加成、热榜排名、涨跌动量等多重利好共振，预测短期内继续上涨概率较高",
+          "risk_factors": [],
+          "key_thesis": "热榜排名第1名，市场关注度极高，资金关注度持续；中天科技所属概念板块涨幅靠前，板块热度传导预计推动个股上涨"
+        }
+      },
+      {
+        "code": "002031",
+        "name": "巨轮智能",
+        "price": 7.06,
+        "total_score": 76,
+        "scores": {
+          "hot_sector_boost": 27,
+          "hot_rank": 12,
+          "momentum": 20,
+          "skyrocket": 4,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 9.97,
+        "turnover": 11.86,
+        "hot_rank": 18,
+        "hot_value": "101512.0",
+        "skyrocket_rank": 47,
+        "concept_tags": [
+          "减速器",
+          "智能物流"
+        ],
+        "pre_attribution": {
+          "total_score": 76,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 27,
+              "max_score": 30,
+              "prediction": "巨轮智能所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 12,
+              "max_score": 20,
+              "prediction": "热榜排名第18名，市场关注度中等，资金关注度持续",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅9.97%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 4,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率11.9%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分76分，有一定利好因素，但需注意风险",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "巨轮智能所属概念板块涨幅靠前，板块热度传导预计推动个股上涨；涨停封板(涨幅9.97%)，买盘力量极强，动能充沛"
+        }
+      },
+      {
+        "code": "002902",
+        "name": "铭普光磁",
+        "price": 36.18,
+        "total_score": 73,
+        "scores": {
+          "hot_sector_boost": 27,
+          "hot_rank": 4,
+          "momentum": 20,
+          "skyrocket": 9,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 10.0,
+        "turnover": 11.91,
+        "hot_rank": 67,
+        "hot_value": "58094.0",
+        "skyrocket_rank": 27,
+        "concept_tags": [
+          "F5G概念",
+          "共封装光学(CPO)"
+        ],
+        "pre_attribution": {
+          "total_score": 73,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 27,
+              "max_score": 30,
+              "prediction": "铭普光磁所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 4,
+              "max_score": 20,
+              "prediction": "热榜排名第67名，市场关注度中等，资金关注度持续",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 9,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率11.9%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分73分，有一定利好因素，但需注意风险",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "铭普光磁所属概念板块涨幅靠前，板块热度传导预计推动个股上涨；涨停封板(涨幅10.00%)，买盘力量极强，动能充沛"
+        }
+      },
+      {
+        "code": "002222",
+        "name": "福晶科技",
+        "price": 108.24,
+        "total_score": 71,
+        "scores": {
+          "hot_sector_boost": 18,
+          "hot_rank": 8,
+          "momentum": 20,
+          "skyrocket": 12,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 10.0,
+        "turnover": 12.28,
+        "hot_rank": 29,
+        "hot_value": "81582.0",
+        "skyrocket_rank": 12,
+        "concept_tags": [
+          "光纤概念",
+          "无人驾驶"
+        ],
+        "pre_attribution": {
+          "total_score": 71,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 18,
+              "max_score": 30,
+              "prediction": "福晶科技所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 8,
+              "max_score": 20,
+              "prediction": "热榜排名第29名，市场关注度中等，资金关注度持续",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 12,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率12.3%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分71分，有一定利好因素，但需注意风险",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛；福晶科技所属概念板块涨幅靠前，板块热度传导预计推动个股上涨"
+        }
+      },
+      {
+        "code": "000547",
+        "name": "航天发展",
+        "price": 27.59,
+        "total_score": 70,
+        "scores": {
+          "hot_sector_boost": 12,
+          "hot_rank": 16,
+          "momentum": 20,
+          "skyrocket": 12,
+          "news_heat": 0,
+          "turnover": 7,
+          "concept_richness": 3
+        },
+        "change_pct": 10.01,
+        "turnover": 15.49,
+        "hot_rank": 10,
+        "hot_value": "141425.0",
+        "skyrocket_rank": 6,
+        "concept_tags": [
+          "军工信息化",
+          "军民融合"
+        ],
+        "pre_attribution": {
+          "total_score": 70,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 12,
+              "max_score": 30,
+              "prediction": "航天发展所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 16,
+              "max_score": 20,
+              "prediction": "热榜排名第10名，市场关注度较高，资金关注度持续",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.01%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 12,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 7,
+              "max_score": 10,
+              "prediction": "换手率15.5%，交投较活跃",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分70分，有一定利好因素，但需注意风险",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "涨停封板(涨幅10.01%)，买盘力量极强，动能充沛；热榜排名第10名，市场关注度较高，资金关注度持续"
+        }
+      },
+      {
+        "code": "603618",
+        "name": "杭电股份",
+        "price": 37.62,
+        "total_score": 68,
+        "scores": {
+          "hot_sector_boost": 18,
+          "hot_rank": 8,
+          "momentum": 20,
+          "skyrocket": 9,
+          "news_heat": 0,
+          "turnover": 10,
+          "concept_richness": 3
+        },
+        "change_pct": 10.0,
+        "turnover": 13.92,
+        "hot_rank": 25,
+        "hot_value": "86790.0",
+        "skyrocket_rank": 20,
+        "concept_tags": [
+          "光纤概念",
+          "特高压"
+        ],
+        "pre_attribution": {
+          "total_score": 68,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 18,
+              "max_score": 30,
+              "prediction": "杭电股份所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 8,
+              "max_score": 20,
+              "prediction": "热榜排名第25名，市场关注度中等，资金关注度持续",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 9,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 10,
+              "max_score": 10,
+              "prediction": "换手率13.9%，交投活跃适中",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分68分，有一定利好因素，但需注意风险",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "涨停封板(涨幅10.00%)，买盘力量极强，动能充沛；杭电股份所属概念板块涨幅靠前，板块热度传导预计推动个股上涨"
+        }
+      },
+      {
+        "code": "603278",
+        "name": "大业股份",
+        "price": 14.91,
+        "total_score": 66,
+        "scores": {
+          "hot_sector_boost": 12,
+          "hot_rank": 12,
+          "momentum": 20,
+          "skyrocket": 12,
+          "news_heat": 0,
+          "turnover": 7,
+          "concept_richness": 3
+        },
+        "change_pct": 10.04,
+        "turnover": 18.04,
+        "hot_rank": 15,
+        "hot_value": "109235.0",
+        "skyrocket_rank": 7,
+        "concept_tags": [
+          "商业航天",
+          "风电"
+        ],
+        "pre_attribution": {
+          "total_score": 66,
+          "factors": [
+            {
+              "key": "hot_sector_boost",
+              "name": "热门板块加成",
+              "score": 12,
+              "max_score": 30,
+              "prediction": "大业股份所属概念板块涨幅靠前，板块热度传导预计推动个股上涨",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "hot_rank",
+              "name": "热榜排名",
+              "score": 12,
+              "max_score": 20,
+              "prediction": "热榜排名第15名，市场关注度中等，资金关注度持续",
+              "confidence": "medium",
+              "predicted_up": true
+            },
+            {
+              "key": "momentum",
+              "name": "涨跌动量",
+              "score": 20,
+              "max_score": 20,
+              "prediction": "涨停封板(涨幅10.04%)，买盘力量极强，动能充沛",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "skyrocket",
+              "name": "飙升榜上榜",
+              "score": 12,
+              "max_score": 15,
+              "prediction": "上榜飙升榜，关注度急速上升，新增资金正在关注",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "news_heat",
+              "name": "新闻热度关联",
+              "score": 0,
+              "max_score": 15,
+              "prediction": "新闻热度关联得分0/15",
+              "confidence": "low",
+              "predicted_up": false
+            },
+            {
+              "key": "turnover",
+              "name": "换手率活跃度",
+              "score": 7,
+              "max_score": 10,
+              "prediction": "换手率18.0%，交投较活跃",
+              "confidence": "high",
+              "predicted_up": true
+            },
+            {
+              "key": "concept_richness",
+              "name": "概念题材丰富度",
+              "score": 3,
+              "max_score": 5,
+              "prediction": "拥有2个概念标签，板块轮动中更容易受益",
+              "confidence": "medium",
+              "predicted_up": true
+            }
+          ],
+          "overall_prediction": "综合评分66分，有一定利好因素，但需注意风险",
+          "risk_factors": [
+            "已涨停，次日可能面临获利盘抛压"
+          ],
+          "key_thesis": "涨停封板(涨幅10.04%)，买盘力量极强，动能充沛；大业股份所属概念板块涨幅靠前，板块热度传导预计推动个股上涨"
+        }
+      }
+    ]
+  },
+  {
     "generate_time": "2026-05-10 18:24:54",
     "source_update_time": "2026-05-10 00:12:06",
     "version": "v2",
