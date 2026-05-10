@@ -190,6 +190,7 @@ def score_stock_v2(stock, hot_list, skyrocket_list, sectors, keywords, strategie
     return {
         'code': stock.get('code', ''),
         'name': stock.get('name', ''),
+        'price': stock.get('price', 0) or 0,
         'total_score': total_score,
         'scores': factor_scores,
         'change_pct': stock.get('change_pct', 0) or 0,

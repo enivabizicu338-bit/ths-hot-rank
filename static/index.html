@@ -284,14 +284,18 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>排名</th><th>代码</th><th>名称</th><th>综合评分</th><th>评分详情</th><th>概念标签</th>
+                                        <th>排名</th><th>股票名称</th><th>股价</th><th>综合评分</th><th>评分详情</th><th>概念标签</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="(s, i) in (currentRec.recommendations || [])" :key="s.code">
                                         <td><span class="rank" :class="getRankClass(i+1)">{{ i+1 }}</span></td>
-                                        <td>{{ s.code }}</td>
-                                        <td><strong>{{ s.name }}</strong></td>
+                                        <td>
+                                            <a :href="'https://finance.baidu.com/stock/ab-' + s.code" target="_blank" style="color:#667eea;text-decoration:none;font-weight:600">
+                                                {{ s.name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ s.price?.toFixed(2) || '-' }}</td>
                                         <td style="font-weight:600;color:#667eea">{{ s.total_score?.toFixed(1) || '-' }}</td>
                                         <td style="font-size:12px;color:#999">
                                             <span v-for="(v, k) in (s.scores || {})" :key="k" style="margin-right:8px">
