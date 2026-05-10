@@ -351,41 +351,93 @@
                                 今日共推荐 <strong style="color:#667eea">{{ currentRec.recommendations.length }}</strong> 只股票，
                                 平均评分 <strong style="color:#667eea">{{ currentRec.stats?.avg_score?.toFixed(1) || '-' }}</strong> 分
                             </div>
-                            <table style="margin-bottom:15px">
-                                <thead>
-                                    <tr>
-                                        <th>排名</th>
-                                        <th>股票名称</th>
-                                        <th>股价</th>
-                                        <th>综合评分</th>
-                                        <th>核心推荐理由</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(s, i) in currentRec.recommendations" :key="s.code">
-                                        <td><span class="rank" :class="getRankClass(i+1)">{{ i+1 }}</span></td>
-                                        <td>
-                                            <a :href="'https://finance.baidu.com/stock/ab-' + s.code" target="_blank" style="color:#667eea;text-decoration:none;font-weight:600">
-                                                {{ s.name }}
-                                            </a>
-                                        </td>
-                                        <td>{{ s.price?.toFixed(2) || '-' }}</td>
-                                        <td style="font-weight:600;color:#667eea">{{ s.total_score?.toFixed(1) || '-' }}</td>
-                                        <td style="font-size:12px;color:#666;max-width:300px">
-                                            {{ s.pre_attribution?.key_thesis || '无归因数据' }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div style="background:#f9f9f9;border-radius:8px;padding:15px">
-                                <div style="font-weight:600;margin-bottom:10px">推荐逻辑说明</div>
-                                <div style="font-size:13px;color:#666;line-height:1.8">
-                                    今日推荐基于以下策略因子综合评分：
-                                    <span v-for="(s, idx) in strategies.strategies" :key="s.key">
-                                        <strong>{{ s.name }}</strong>(权重{{ s.weight }}分)<span v-if="idx < strategies.strategies.length - 1">、</span>
-                                    </span>。
-                                    系统优先选择<strong>热门板块加成</strong>得分高的股票，即所属概念板块涨幅靠前且排名进入前10的板块成分股。
-                                    同时考虑<strong>热榜排名</strong>、<strong>涨跌动量</strong>（涨停/大涨）、<strong>飙升榜</strong>关注度上升等因素。
+
+                            <!-- 逐股归因分析 -->
+                            <div v-for="(s, i) in currentRec.recommendations" :key="s.code"
+                                 style="border:1px solid #eee;border-radius:10px;padding:18px;margin-bottom:15px;background:white">
+                                <!-- 股票标题行 -->
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                                    <div style="display:flex;align-items:center;gap:10px">
+                                        <span class="rank" :class="getRankClass(i+1)" style="width:28px;height:28px;line-height:28px;font-size:14px">{{ i+1 }}</span>
+                                        <a :href="'https://finance.baidu.com/stock/ab-' + s.code" target="_blank"
+                                           style="font-size:18px;font-weight:700;color:#333;text-decoration:none">
+                                            {{ s.name }}
+                                        </a>
+                                        <span style="font-size:13px;color:#999">{{ s.code }}</span>
+                                        <span style="font-size:13px;color:#999">股价 {{ s.price?.toFixed(2) || '-' }}元</span>
+                                    </div>
+                                    <div style="text-align:right">
+                                        <div style="font-size:24px;font-weight:700;color:#667eea">{{ s.total_score?.toFixed(1) }}</div>
+                                        <div style="font-size:11px;color:#999">综合评分</div>
+                                    </div>
+                                </div>
+
+                                <!-- 核心推荐理由 -->
+                                <div style="background:linear-gradient(135deg,#f0f4ff,#e8f4f8);border-radius:8px;padding:12px;margin-bottom:12px">
+                                    <div style="font-size:12px;color:#999;margin-bottom:4px">核心推荐理由</div>
+                                    <div style="font-size:14px;color:#333;line-height:1.6">{{ s.pre_attribution?.key_thesis || '无归因数据' }}</div>
+                                </div>
+
+                                <!-- 因子得分条形图 -->
+                                <div style="margin-bottom:12px">
+                                    <div style="font-size:12px;color:#999;margin-bottom:8px">各因子得分明细</div>
+                                    <div v-for="f in (s.pre_attribution?.factors || [])" :key="f.key"
+                                         style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                                        <span style="font-size:12px;color:#666;min-width:90px;text-align:right">{{ f.name }}</span>
+                                        <div style="flex:1;height:20px;background:#f5f5f5;border-radius:4px;overflow:hidden;position:relative">
+                                            <div :style="{
+                                                width: (f.score/f.max_score*100)+'%',
+                                                height:'100%',
+                                                borderRadius:'4px',
+                                                background: f.confidence === 'high' ? '#667eea' : f.confidence === 'medium' ? '#ffa94d' : '#ddd',
+                                                transition: 'width 0.3s'
+                                            }"></div>
+                                            <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:11px;color:#fff;font-weight:600">
+                                                {{ f.score }}/{{ f.max_score }}
+                                            </span>
+                                        </div>
+                                        <span style="font-size:11px;padding:2px 6px;border-radius:3px;min-width:40px;text-align:center"
+                                              :style="{
+                                                  background: f.confidence === 'high' ? '#e8f5e9' : f.confidence === 'medium' ? '#fff3e0' : '#f5f5f5',
+                                                  color: f.confidence === 'high' ? '#27ae60' : f.confidence === 'medium' ? '#e67e22' : '#999'
+                                              }">
+                                            {{ f.confidence === 'high' ? '高' : f.confidence === 'medium' ? '中' : '低' }}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- 因子归因文字 -->
+                                <div style="font-size:12px;color:#666;line-height:1.8;margin-bottom:10px">
+                                    <div v-for="f in (s.pre_attribution?.factors || [])" :key="'txt'+f.key" style="margin-bottom:4px">
+                                        <strong>{{ f.name }}</strong>：
+                                        <span :style="{color: f.score > 0 ? '#333' : '#999'}">{{ f.prediction }}</span>
+                                    </div>
+                                </div>
+
+                                <!-- 风险提示 -->
+                                <div v-if="s.pre_attribution?.risk_factors?.length" style="background:#fff5f5;border-radius:6px;padding:10px;border-left:3px solid #e74c3c">
+                                    <div style="font-size:12px;color:#e74c3c;font-weight:600;margin-bottom:4px">风险提示</div>
+                                    <div v-for="risk in s.pre_attribution.risk_factors" :key="risk" style="font-size:12px;color:#c0392b">{{ risk }}</div>
+                                </div>
+
+                                <!-- 综合预测 -->
+                                <div style="margin-top:10px;padding:10px;background:#f9f9f9;border-radius:6px">
+                                    <div style="font-size:12px;color:#999;margin-bottom:2px">综合预测</div>
+                                    <div style="font-size:13px;color:#333">{{ s.pre_attribution?.overall_prediction || '-' }}</div>
+                                </div>
+                            </div>
+
+                            <!-- 推荐逻辑总结 -->
+                            <div style="background:linear-gradient(135deg,#667eea20,#764ba220);border-radius:10px;padding:18px;border:1px solid #667eea30">
+                                <div style="font-weight:700;font-size:15px;margin-bottom:10px;color:#667eea">今日选股逻辑总结</div>
+                                <div style="font-size:13px;color:#444;line-height:2">
+                                    <strong>1. 板块因素（权重30分，占比26.1%）</strong>：优先选择所属概念板块涨幅进入前10的股票。今日热门板块为CPO/光通信板块，<strong>光迅科技、烽火通信、通鼎互联</strong>等均因板块涨幅靠前获得高分(27/30)。<br>
+                                    <strong>2. 热榜因素（权重20分，占比17.4%）</strong>：热榜排名反映市场关注度。TOP3得满分20分，TOP10得16分。今日推荐股票均进入热榜TOP10。<br>
+                                    <strong>3. 动量因素（权重20分，占比17.4%）</strong>：涨停/大涨说明资金推动力强。今日多只推荐股涨停封板，动能充沛。<br>
+                                    <strong>4. 飙升因素（权重15分，占比13.0%）</strong>：飙升榜上榜说明关注度急速上升，新增资金正在关注。<br>
+                                    <strong>5. 新闻因素（权重15分，占比13.0%）</strong>：新闻热词匹配股票名或概念。今日该因子得分普遍为0，说明当前推荐主要受板块+资金驱动，非事件驱动。<br>
+                                    <strong>6. 换手率（权重10分，占比8.7%）</strong>：5-15%为最佳区间，说明交投活跃但未过热。<br>
+                                    <strong>7. 概念丰富度（权重5分，占比4.3%）</strong>：多概念标签股票更容易受益于板块轮动。
                                 </div>
                             </div>
                         </div>
