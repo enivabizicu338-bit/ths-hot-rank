@@ -1,406 +1,280 @@
 {
-  "update_time": "2026-05-12 04:23:29",
+  "update_time": "2026-05-12 07:22:59",
   "source": "同花顺飙升榜",
   "total": 100,
   "data": [
     {
       "rank": 1,
-      "code": "603459",
-      "name": "红板科技",
-      "rate": "60197.0",
-      "change_pct": 5.82,
-      "hot_rank_chg": 1,
-      "popularity_tag": "4天3板",
+      "code": "002428",
+      "name": "云南锗业",
+      "rate": "136533.5",
+      "change_pct": 10.0,
+      "hot_rank_chg": 0,
+      "popularity_tag": "首板涨停",
       "concept_tags": [
-        "注册制次新股",
-        "共封装光学(CPO)"
+        "光纤概念",
+        "第三代半导体"
       ],
-      "analyse": ""
+      "analyse": "行业原因：\n美股光通信板块昨晚集体大涨，Lumentum涨超16%，Coherent涨超13%，康宁上涨11%。AI数据中心热潮持续推动科技板块持续上涨，花旗集团表示，由少数大型科技股推动的美股跑赢格局料将持续。\n公司原因：\n1、据2026年5月11日投资者关系活动记录表，公司于 2026 年 4 月开始实施“高品质磷化铟单晶片建设项目”，该项目计划建设期为 18 个月，计划在现有产能基础上扩建一条年产 30 万片（折合 4 英寸计算，其中包括 6000 片 6 英寸）高品质磷化铟单晶片生产线，最终达到年产 45 万片（折合 4 英寸）高品质磷化铟单晶片的产能。\n2、据2026年5月11日投资者关系活动记录表，公司光纤级锗产品为光纤用四氯化锗，可用于生产光纤预制棒。2025年，受益于 AI 数据中心以及算力网络的建设，光纤市场走出低迷，四氯化锗需求回暖，公司光纤用四氯化锗销量同比上涨。\n3、据2025年年度报告，公司光伏级锗晶片产能125万片/年，2025年销量同比增75%，受益低轨卫星组网快速推进。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
     },
     {
       "rank": 2,
-      "code": "002281",
-      "name": "光迅科技",
-      "rate": "53344.0",
-      "change_pct": -0.05,
-      "hot_rank_chg": 0,
-      "popularity_tag": "3天2板",
+      "code": "600330",
+      "name": "天通股份",
+      "rate": "64431.0",
+      "change_pct": 1.81,
+      "hot_rank_chg": 4,
+      "popularity_tag": "2天1板",
       "concept_tags": [
-        "F5G概念",
-        "光纤概念"
+        "第三代半导体",
+        "先进封装"
       ],
       "analyse": ""
     },
     {
       "rank": 3,
-      "code": "301531",
-      "name": "春光集团",
-      "rate": "28807.0",
-      "change_pct": 15.83,
+      "code": "301217",
+      "name": "铜冠铜箔",
+      "rate": "49878.5",
+      "change_pct": 8.51,
       "hot_rank_chg": 2,
       "popularity_tag": "",
       "concept_tags": [
-        "新股与次新股",
-        "注册制次新股"
+        "PET铜箔",
+        "PCB概念"
       ],
       "analyse": ""
     },
     {
       "rank": 4,
-      "code": "000988",
-      "name": "华工科技",
-      "rate": "28540.5",
-      "change_pct": -1.63,
+      "code": "600667",
+      "name": "太极实业",
+      "rate": "39005.5",
+      "change_pct": 10.04,
       "hot_rank_chg": 2,
-      "popularity_tag": "",
+      "popularity_tag": "首板涨停",
       "concept_tags": [
-        "F5G概念",
-        "共封装光学(CPO)"
+        "存储芯片",
+        "先进封装"
       ],
-      "analyse": ""
+      "analyse": "1、据2026年4月24日年报，海太半导体与SK海力士签订2025-2030年封装测试服务合同，全部产能配套SK海力士12英寸晶圆，已完成1β DRAM及300+层NAND验证量产，2025年海太半导体营收39.39亿元、净利2.39亿元，分别同比增8.5%、17.3%。\n2、据2026年4月24日年报，太极半导体开发FCBGA、DDR FC BOC等先进封装工艺，实现16D高堆叠产品量产及32D技术突破，形成DRAM与NAND全品类后工序服务能力。\n3、据2025年年度报告，公司最终控制人为无锡市人民政府国有资产监督管理委员会，具备国企背景。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
     },
     {
       "rank": 5,
-      "code": "002129",
-      "name": "TCL中环",
-      "rate": "24401.0",
-      "change_pct": 7.48,
-      "hot_rank_chg": 1,
+      "code": "601208",
+      "name": "东材科技",
+      "rate": "26546.0",
+      "change_pct": 3.17,
+      "hot_rank_chg": 6,
       "popularity_tag": "",
       "concept_tags": [
-        "HJT电池",
-        "TOPCON电池"
+        "PCB概念",
+        "PET铜箔"
       ],
       "analyse": ""
     },
     {
       "rank": 6,
-      "code": "300903",
-      "name": "科翔股份",
-      "rate": "23359.5",
-      "change_pct": 11.99,
-      "hot_rank_chg": 6,
-      "popularity_tag": "",
+      "code": "603203",
+      "name": "快克智能",
+      "rate": "25598.5",
+      "change_pct": 10.01,
+      "hot_rank_chg": 17,
+      "popularity_tag": "首板涨停",
       "concept_tags": [
         "共封装光学(CPO)",
-        "MiniLED"
+        "先进封装"
       ],
-      "analyse": ""
+      "analyse": "行业原因：\n美股光通信板块昨晚集体大涨，Lumentum涨超16%，Coherent涨超13%，康宁上涨11%。5月8日，英伟达CEO黄仁勋指出，下一代人工智能基础设施将“大量依赖光学连接”，铜线已经无法满足需求。\n公司原因：\n1、据2026年4月24日年报，公司先进封装TCB热压键合设备研发完成，可适配HBM堆叠、CoWoS、CPO等AI芯片前沿封装，2025年先进封装设备市场约30亿美元，预计2026-2027年复合增速逾12%。\n2、据2026年4月24日年报，公司高速高精固晶机已批量供货成都先进等头部功率半导体企业，芯片封装AOI与光模块AOI设备在800G及以上光模块头部客户小批量应用。\n3、据2026年4月24日公告，公司拟10转3股派5元含税，现金分红占2025年归母净利润91.65%，并授权董事会简易程序定增，同日公告使用不超8亿元闲置资金进行现金管理。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
     },
     {
       "rank": 7,
-      "code": "603688",
-      "name": "石英股份",
-      "rate": "22772.5",
-      "change_pct": 5.41,
-      "hot_rank_chg": 15,
+      "code": "002342",
+      "name": "巨力索具",
+      "rate": "18884.5",
+      "change_pct": -7.98,
+      "hot_rank_chg": 1,
       "popularity_tag": "",
       "concept_tags": [
-        "光纤概念",
-        "存储芯片"
+        "商业航天",
+        "军工"
       ],
       "analyse": ""
     },
     {
       "rank": 8,
-      "code": "600821",
-      "name": "金开新能",
-      "rate": "16877.5",
-      "change_pct": 2.72,
-      "hot_rank_chg": 2,
+      "code": "600032",
+      "name": "浙江新能",
+      "rate": "17555.0",
+      "change_pct": 7.02,
+      "hot_rank_chg": 3,
       "popularity_tag": "",
       "concept_tags": [
-        "华为数字能源",
-        "算力租赁"
+        "抽水蓄能",
+        "绿色电力"
       ],
       "analyse": ""
     },
     {
       "rank": 9,
-      "code": "600958",
-      "name": "东方证券",
-      "rate": "16512.5",
-      "change_pct": 2.83,
-      "hot_rank_chg": 8,
+      "code": "000949",
+      "name": "新乡化纤",
+      "rate": "16654.5",
+      "change_pct": 7.67,
+      "hot_rank_chg": 26,
       "popularity_tag": "",
       "concept_tags": [
-        "期货概念",
-        "互联网金融"
+        "国企改革",
+        "新疆振兴"
       ],
       "analyse": ""
     },
     {
       "rank": 10,
-      "code": "603045",
-      "name": "福达合金",
-      "rate": "13475.0",
-      "change_pct": 8.54,
-      "hot_rank_chg": 2,
-      "popularity_tag": "6天5板",
+      "code": "002929",
+      "name": "润建股份",
+      "rate": "16431.5",
+      "change_pct": 2.77,
+      "hot_rank_chg": 8,
+      "popularity_tag": "6天3板",
       "concept_tags": [
-        "汽车电子",
-        "5G"
+        "算力租赁",
+        "华为昇腾"
       ],
       "analyse": ""
     },
     {
       "rank": 11,
-      "code": "002654",
-      "name": "万润科技",
-      "rate": "13309.0",
-      "change_pct": 1.56,
-      "hot_rank_chg": 28,
+      "code": "605589",
+      "name": "圣泉集团",
+      "rate": "13976.0",
+      "change_pct": 1.51,
+      "hot_rank_chg": 18,
       "popularity_tag": "",
       "concept_tags": [
-        "存储芯片",
-        "AI手机"
+        "PCB概念",
+        "先进封装"
       ],
       "analyse": ""
     },
     {
       "rank": 12,
-      "code": "603778",
-      "name": "国晟科技",
-      "rate": "12026.0",
-      "change_pct": -9.84,
-      "hot_rank_chg": 0,
+      "code": "002709",
+      "name": "天赐材料",
+      "rate": "13891.5",
+      "change_pct": -1.63,
+      "hot_rank_chg": 2,
       "popularity_tag": "",
       "concept_tags": [
-        "硅能源",
-        "TOPCON电池"
+        "钠离子电池",
+        "氟化工概念"
       ],
       "analyse": ""
     },
     {
       "rank": 13,
-      "code": "600839",
-      "name": "四川长虹",
-      "rate": "11652.5",
-      "change_pct": 1.6,
-      "hot_rank_chg": 6,
+      "code": "300679",
+      "name": "电连技术",
+      "rate": "13677.5",
+      "change_pct": 4.39,
+      "hot_rank_chg": 39,
       "popularity_tag": "",
       "concept_tags": [
-        "血氧仪",
-        "智能医疗"
+        "PCB概念",
+        "消费电子概念"
       ],
       "analyse": ""
     },
     {
       "rank": 14,
-      "code": "000767",
-      "name": "晋控电力",
-      "rate": "11528.5",
-      "change_pct": 9.93,
-      "hot_rank_chg": 4,
-      "popularity_tag": "首板涨停",
+      "code": "603399",
+      "name": "永杉锂业",
+      "rate": "13540.0",
+      "change_pct": -1.95,
+      "hot_rank_chg": 2,
+      "popularity_tag": "8天4板",
       "concept_tags": [
-        "超超临界发电",
-        "绿色电力"
-      ],
-      "analyse": "1、据2025年年度报告及半年度报告，截至2025年底，公司控股装机容量1106.38万千瓦，其中火电880万千瓦；报告期内，从在运装机容量、发电量、发电机组平均利用小时等指标综合来看，公司是山西最大的电力上市公司。\n2、据公司公告及公开信息，公司作为晋能控股集团下属以火电为主的发电企业，最终控制人为山西省人民政府国有资产监督管理委员会。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 15,
-      "code": "000957",
-      "name": "中通客车",
-      "rate": "10941.0",
-      "change_pct": -0.08,
-      "hot_rank_chg": 162,
-      "popularity_tag": "",
-      "concept_tags": [
-        "中俄贸易概念",
-        "国企改革"
+        "小金属概念",
+        "固态电池"
       ],
       "analyse": ""
     },
     {
-      "rank": 16,
-      "code": "301196",
-      "name": "唯科科技",
-      "rate": "10890.0",
-      "change_pct": 20.0,
-      "hot_rank_chg": 14,
+      "rank": 15,
+      "code": "001359",
+      "name": "平安电工",
+      "rate": "13291.0",
+      "change_pct": 10.01,
+      "hot_rank_chg": 31,
       "popularity_tag": "首板涨停",
       "concept_tags": [
-        "光纤概念",
-        "新型烟草(电子烟)"
+        "PCB概念",
+        "特斯拉概念"
       ],
-      "analyse": "行业原因：\n美股光通信板块昨晚集体大涨，Lumentum涨超16%，Coherent涨超13%，康宁上涨11%。AI数据中心热潮持续推动科技板块持续上涨，花旗集团表示，由少数大型科技股推动的美股跑赢格局料将持续。\n公司原因：\n1、据东北证券研报，公司收购久腾通讯，布局MPO跳线。公司深度绑定康普集团，切入MPO赛道。公司自2024年下半年开始承接康普在AI服务器上的MPO相关项目，包括光纤连接头零部件、适配器等，并于2025年四季度实现小批量供货。此次公司收购久腾通讯，实现从\"注塑零部件供应商\"向\"MPO跳线代工\"延伸。\n2、据2025年12月6日机构调研纪要，公司为尼得科、科尔摩根批量供应机器人电机齿轮马达、PEEK丝杆等轻量化部件，并对接国内主机厂。\n3、据2025年年度报告，公司“精密注塑模具+注塑件”一体化布局，产品覆盖汽车、电子/机器人、健康家电，2025年营收22.04亿元，模具毛利率近40%。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+      "analyse": "1、据2026年4月29日年报，GB 38031-2025将于7月实施，强制要求电池“不起火、不爆炸”，云母成为储能及新能源汽车热失控防护刚需，公司全球市占率领先，已构建电芯-模组-系统三级防护方案。\n2、据2025年10月21日互动易，公司云母耐高温材料已送样固态电池客户验证，可应用于机械增强层及高温防护层。\n3、据2026年5月11日财闻报道，电子布年内第四次提价，行业库存紧张，公司电子级玻纤布、石英布为PCB基材CCL主材，同步受益涨价。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+    },
+    {
+      "rank": 16,
+      "code": "600340",
+      "name": "*ST华幸",
+      "rate": "12577.0",
+      "change_pct": 3.6,
+      "hot_rank_chg": 22,
+      "popularity_tag": "",
+      "concept_tags": [
+        "特色小镇",
+        "ST板块"
+      ],
+      "analyse": ""
     },
     {
       "rank": 17,
-      "code": "600745",
-      "name": "*ST闻泰",
-      "rate": "10578.5",
-      "change_pct": -4.98,
-      "hot_rank_chg": 4,
-      "popularity_tag": "",
+      "code": "600379",
+      "name": "宝光股份",
+      "rate": "12194.5",
+      "change_pct": -6.73,
+      "hot_rank_chg": 3,
+      "popularity_tag": "8天5板",
       "concept_tags": [
-        "ST板块",
-        "AI手机"
-      ],
-      "analyse": "1、据2026年4月30日年报披露，容诚会计师事务所对公司2025年度财务报告及内部控制报告均出具无法表示意见，触及上交所退市风险警示标准，股票简称自5月6日起变更为*ST闻泰，日涨跌幅限制缩至5%。\n2、据2026年5月9日异动公告，公司子公司安世半导体控制权仍受荷兰法院裁决限制，合并范围及资产公允价值计量依据尚待完善，相关风险持续压制股价。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 18,
-      "code": "601868",
-      "name": "中国能建",
-      "rate": "9283.5",
-      "change_pct": 1.54,
-      "hot_rank_chg": 1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "碳交易",
+        "特高压",
         "虚拟电厂"
       ],
       "analyse": ""
     },
     {
-      "rank": 19,
-      "code": "300632",
-      "name": "光莆股份",
-      "rate": "8811.0",
-      "change_pct": 13.27,
-      "hot_rank_chg": 0,
+      "rank": 18,
+      "code": "600641",
+      "name": "先导基电",
+      "rate": "11289.5",
+      "change_pct": 0.85,
+      "hot_rank_chg": 8,
       "popularity_tag": "",
       "concept_tags": [
-        "PET铜箔",
-        "先进封装"
+        "第三代半导体",
+        "存储芯片"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 19,
+      "code": "002812",
+      "name": "恩捷股份",
+      "rate": "11100.5",
+      "change_pct": 1.99,
+      "hot_rank_chg": 2,
+      "popularity_tag": "",
+      "concept_tags": [
+        "固态电池",
+        "锂电池概念"
       ],
       "analyse": ""
     },
     {
       "rank": 20,
-      "code": "002081",
-      "name": "金螳螂",
-      "rate": "8145.0",
-      "change_pct": 5.38,
-      "hot_rank_chg": 0,
-      "popularity_tag": "15天10板",
-      "concept_tags": [
-        "第三代半导体",
-        "芯片概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 21,
-      "code": "603538",
-      "name": "美诺华",
-      "rate": "8019.0",
-      "change_pct": -8.63,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "减肥药",
-        "流感"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 22,
-      "code": "600667",
-      "name": "太极实业",
-      "rate": "7906.0",
-      "change_pct": 3.5,
-      "hot_rank_chg": 3,
-      "popularity_tag": "",
-      "concept_tags": [
-        "存储芯片",
-        "先进封装"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 23,
-      "code": "300342",
-      "name": "天银机电",
-      "rate": "7290.0",
-      "change_pct": -6.82,
-      "hot_rank_chg": 5,
-      "popularity_tag": "",
-      "concept_tags": [
-        "太赫兹",
-        "军民融合"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 24,
-      "code": "600719",
-      "name": "大连热电",
-      "rate": "7286.5",
-      "change_pct": 10.05,
-      "hot_rank_chg": 0,
-      "popularity_tag": "5天3板",
-      "concept_tags": [
-        "国企改革",
-        "大连自贸区"
-      ],
-      "analyse": "1、据2026年4月24日一季报，公司一季度归母净利润9485万元，同比增58.75%，业绩改善显著。\n2、据2024年9月5日互动易，控股股东大连洁净能源集团“一企一策”改革方案已获批，新能源资产存在未来注入可能。\n3、据2026年3月27日年报，公司主营大连市主城区热电联产及集中供热，供热面积1862万平方米，区域垄断地位明确。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 25,
-      "code": "601016",
-      "name": "节能风电",
-      "rate": "6823.0",
-      "change_pct": 1.76,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "绿色电力",
-        "风电"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 26,
-      "code": "600759",
-      "name": "ST洲际",
-      "rate": "6722.0",
-      "change_pct": -4.99,
-      "hot_rank_chg": 2,
-      "popularity_tag": "",
-      "concept_tags": [
-        "俄乌冲突概念",
-        "天然气"
-      ],
-      "analyse": "1、据2026年5月12日异常波动公告，公司股票因连续三日跌幅偏离值累计达12%再度触发异常波动，叠加已被实施其他风险警示，日涨跌幅限制缩至5%，短线抛压延续。\n2、据2026年5月8日提示性公告，控股股东广西正和被债权人申请破产清算，所持5.08亿股已全部质押并被多轮冻结，若法院受理将触发控制权变动风险。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 27,
-      "code": "300113",
-      "name": "顺网科技",
-      "rate": "6446.0",
-      "change_pct": 3.8,
-      "hot_rank_chg": 2,
-      "popularity_tag": "",
-      "concept_tags": [
-        "算力租赁",
-        "云游戏"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 28,
-      "code": "300001",
-      "name": "特锐德",
-      "rate": "6389.5",
-      "change_pct": 9.46,
-      "hot_rank_chg": 9,
-      "popularity_tag": "",
-      "concept_tags": [
-        "虚拟电厂",
-        "智能电网"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 29,
       "code": "002030",
       "name": "达安基因",
-      "rate": "6363.5",
-      "change_pct": -1.78,
+      "rate": "10925.5",
+      "change_pct": -5.75,
       "hot_rank_chg": 1,
       "popularity_tag": "3天2板",
       "concept_tags": [
@@ -410,69 +284,97 @@
       "analyse": ""
     },
     {
-      "rank": 30,
-      "code": "000672",
-      "name": "上峰水泥",
-      "rate": "6125.5",
-      "change_pct": 9.99,
-      "hot_rank_chg": 11,
-      "popularity_tag": "2天2板",
-      "concept_tags": [
-        "储能",
-        "一带一路"
-      ],
-      "analyse": "1、据2026年4月28日年报及4月30日投资者关系活动记录表，公司3月通过上峰芯材完成美琪电路75%股权收购并纳入合并，切入半导体封装基板赛道，规划产能由2万㎡/月扩至国内第一梯队，打造第二成长曲线。\n2、据2026年4月28日年报，公司累计新经济股权投资21.6亿元，重点布局半导体、新能源，盛合晶微等已上市，长鑫科技等六家处于IPO审核，2025年股权投资贡献收益9541万元，占净利14.96%，并计入当期损益。\n3、据2026年4月28日年报，公司水泥熟料年产能1800万吨、水泥2000万吨，2025年吨成本下降4.38元，毛利率28.89%，盈利指标保持行业前列，为转型提供稳定现金流。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 31,
-      "code": "301373",
-      "name": "凌玮科技",
-      "rate": "5964.0",
-      "change_pct": 7.2,
-      "hot_rank_chg": 20,
+      "rank": 21,
+      "code": "600550",
+      "name": "保变电气",
+      "rate": "10890.5",
+      "change_pct": 5.16,
+      "hot_rank_chg": 1,
       "popularity_tag": "",
       "concept_tags": [
-        "光伏概念",
-        "专精特新"
+        "柔性直流输电",
+        "特高压"
       ],
       "analyse": ""
     },
     {
-      "rank": 32,
-      "code": "300667",
-      "name": "必创科技",
-      "rate": "5790.5",
-      "change_pct": 6.45,
-      "hot_rank_chg": 28,
+      "rank": 22,
+      "code": "002559",
+      "name": "亚威股份",
+      "rate": "10712.0",
+      "change_pct": 3.53,
+      "hot_rank_chg": 58,
       "popularity_tag": "",
       "concept_tags": [
-        "食品安全",
-        "量子科技"
+        "OLED",
+        "存储芯片"
       ],
       "analyse": ""
     },
     {
-      "rank": 33,
-      "code": "002788",
-      "name": "鹭燕医药",
-      "rate": "5742.5",
-      "change_pct": 3.61,
+      "rank": 23,
+      "code": "301511",
+      "name": "德福科技",
+      "rate": "10293.0",
+      "change_pct": 1.09,
+      "hot_rank_chg": 6,
+      "popularity_tag": "",
+      "concept_tags": [
+        "PET铜箔",
+        "PCB概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 24,
+      "code": "603045",
+      "name": "福达合金",
+      "rate": "10242.0",
+      "change_pct": 7.7,
+      "hot_rank_chg": 1,
+      "popularity_tag": "6天5板",
+      "concept_tags": [
+        "汽车电子",
+        "5G"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 25,
+      "code": "603938",
+      "name": "三孚股份",
+      "rate": "8928.0",
+      "change_pct": 8.08,
       "hot_rank_chg": 5,
       "popularity_tag": "",
       "concept_tags": [
-        "医药电商",
-        "冷链物流"
+        "光纤概念",
+        "芯片概念"
       ],
       "analyse": ""
     },
     {
-      "rank": 34,
-      "code": "600488",
-      "name": "津药药业",
-      "rate": "5392.0",
-      "change_pct": 6.36,
-      "hot_rank_chg": 1,
-      "popularity_tag": "2天1板",
+      "rank": 26,
+      "code": "300457",
+      "name": "赢合科技",
+      "rate": "8840.0",
+      "change_pct": 2.6,
+      "hot_rank_chg": 16,
+      "popularity_tag": "",
+      "concept_tags": [
+        "固态电池",
+        "锂电池概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 27,
+      "code": "002038",
+      "name": "双鹭药业",
+      "rate": "7924.5",
+      "change_pct": 4.68,
+      "hot_rank_chg": 9,
+      "popularity_tag": "",
       "concept_tags": [
         "仿制药一致性评价",
         "创新药"
@@ -480,228 +382,326 @@
       "analyse": ""
     },
     {
-      "rank": 35,
-      "code": "300243",
-      "name": "瑞丰高材",
-      "rate": "5390.5",
-      "change_pct": 4.39,
-      "hot_rank_chg": 22,
+      "rank": 28,
+      "code": "603256",
+      "name": "宏和科技",
+      "rate": "7815.0",
+      "change_pct": -1.11,
+      "hot_rank_chg": 2,
       "popularity_tag": "",
       "concept_tags": [
         "PCB概念",
-        "固态电池"
+        "华为手机"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 29,
+      "code": "688813",
+      "name": "泰金新能",
+      "rate": "7283.5",
+      "change_pct": 8.76,
+      "hot_rank_chg": 36,
+      "popularity_tag": "",
+      "concept_tags": [
+        "PET铜箔",
+        "科创次新股"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 30,
+      "code": "002192",
+      "name": "融捷股份",
+      "rate": "7106.0",
+      "change_pct": -1.42,
+      "hot_rank_chg": 2,
+      "popularity_tag": "",
+      "concept_tags": [
+        "锂电池概念",
+        "比亚迪概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 31,
+      "code": "688668",
+      "name": "鼎通科技",
+      "rate": "6546.5",
+      "change_pct": 9.33,
+      "hot_rank_chg": 32,
+      "popularity_tag": "",
+      "concept_tags": [
+        "英伟达概念",
+        "铜缆高速连接"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 32,
+      "code": "301157",
+      "name": "华塑科技",
+      "rate": "6521.5",
+      "change_pct": 4.18,
+      "hot_rank_chg": 45,
+      "popularity_tag": "",
+      "concept_tags": [
+        "东数西算(算力)",
+        "液冷服务器"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 33,
+      "code": "603386",
+      "name": "骏亚科技",
+      "rate": "6362.0",
+      "change_pct": 4.63,
+      "hot_rank_chg": 25,
+      "popularity_tag": "",
+      "concept_tags": [
+        "毫米波雷达",
+        "汽车电子"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 34,
+      "code": "002201",
+      "name": "九鼎新材",
+      "rate": "6351.5",
+      "change_pct": -1.4,
+      "hot_rank_chg": 8,
+      "popularity_tag": "",
+      "concept_tags": [
+        "商业航天",
+        "风电"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 35,
+      "code": "603757",
+      "name": "大元泵业",
+      "rate": "6317.0",
+      "change_pct": 0.12,
+      "hot_rank_chg": 13,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "液冷服务器",
+        "数据中心"
       ],
       "analyse": ""
     },
     {
       "rank": 36,
-      "code": "002939",
-      "name": "长城证券",
-      "rate": "5078.0",
-      "change_pct": 8.72,
-      "hot_rank_chg": 2,
+      "code": "600103",
+      "name": "青山纸业",
+      "rate": "6073.0",
+      "change_pct": 1.85,
+      "hot_rank_chg": 8,
       "popularity_tag": "",
       "concept_tags": [
-        "期货概念",
-        "国企改革"
+        "共封装光学(CPO)",
+        "5G"
       ],
       "analyse": ""
     },
     {
       "rank": 37,
-      "code": "601857",
-      "name": "中国石油",
-      "rate": "4951.5",
-      "change_pct": 1.35,
-      "hot_rank_chg": 14,
+      "code": "688381",
+      "name": "帝奥微",
+      "rate": "5983.5",
+      "change_pct": 5.2,
+      "hot_rank_chg": 74,
       "popularity_tag": "",
       "concept_tags": [
-        "俄乌冲突概念",
-        "页岩气"
+        "AI手机",
+        "汽车芯片"
       ],
       "analyse": ""
     },
     {
       "rank": 38,
-      "code": "601012",
-      "name": "隆基绿能",
-      "rate": "4824.5",
-      "change_pct": -0.06,
-      "hot_rank_chg": 2,
+      "code": "301316",
+      "name": "慧博云通",
+      "rate": "5812.5",
+      "change_pct": 1.83,
+      "hot_rank_chg": 33,
       "popularity_tag": "",
       "concept_tags": [
-        "HJT电池",
-        "BC电池"
+        "华为海思概念股",
+        "云计算"
       ],
       "analyse": ""
     },
     {
       "rank": 39,
-      "code": "600076",
-      "name": "康欣新材",
-      "rate": "4785.0",
-      "change_pct": 10.1,
-      "hot_rank_chg": 2,
-      "popularity_tag": "3天3板",
+      "code": "300568",
+      "name": "星源材质",
+      "rate": "5564.0",
+      "change_pct": 5.46,
+      "hot_rank_chg": 4,
+      "popularity_tag": "",
       "concept_tags": [
-        "乡村振兴",
-        "碳中和"
+        "钠离子电池",
+        "固态电池"
       ],
-      "analyse": "1、据2026年5月7日互动易，公司收购无锡宇邦半导体55%股权已于4月完成工商变更，4月起纳入合并报表，正式切入半导体赛道。\n2、据2026年4月30日年报，公司主营集装箱地板，拥有全国首条全自动化COSB生产线，年产能27.5万立方米，与中远海运、中集集团等深度合作。\n3、据2026年4月30日公告及2026年5月20日互动易，控股股东无锡建发为无锡国资委全资控股，并拟向公司提供不超10亿元借款额度，强化资金与产业协同。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+      "analyse": ""
     },
     {
       "rank": 40,
-      "code": "002585",
-      "name": "双星新材",
-      "rate": "4750.5",
-      "change_pct": 0.92,
-      "hot_rank_chg": 3,
-      "popularity_tag": "2天1板",
+      "code": "000538",
+      "name": "云南白药",
+      "rate": "5515.5",
+      "change_pct": -1.54,
+      "hot_rank_chg": 57,
+      "popularity_tag": "",
       "concept_tags": [
-        "PET铜箔",
-        "锂电池概念"
+        "超级品牌",
+        "高股息精选"
       ],
       "analyse": ""
     },
     {
       "rank": 41,
-      "code": "688981",
-      "name": "中芯国际",
-      "rate": "4607.0",
-      "change_pct": -1.89,
-      "hot_rank_chg": 0,
+      "code": "301392",
+      "name": "汇成真空",
+      "rate": "5463.5",
+      "change_pct": 11.11,
+      "hot_rank_chg": 13,
       "popularity_tag": "",
       "concept_tags": [
-        "国家大基金持股",
-        "存储芯片"
+        "富士康概念",
+        "第三代半导体"
       ],
       "analyse": ""
     },
     {
       "rank": 42,
-      "code": "300736",
-      "name": "百邦科技",
-      "rate": "4568.0",
-      "change_pct": 19.92,
-      "hot_rank_chg": 3,
-      "popularity_tag": "2天1板",
+      "code": "603186",
+      "name": "华正新材",
+      "rate": "5339.5",
+      "change_pct": 10.0,
+      "hot_rank_chg": 6,
+      "popularity_tag": "首板涨停",
       "concept_tags": [
-        "华为概念",
-        "区块链"
+        "PCB概念",
+        "先进封装"
       ],
-      "analyse": ""
+      "analyse": "1、据2026年3月24日增发预案，拟募资12亿元投建“年产1200万张高等级覆铜板项目”，达产后高端产能翻倍，直接配套AI服务器、光模块等算力基础设施。\n2、据2025年度报告及2026年3月24日年报，公司已将AI算力赛道纳入五年战略重点，Extreme Low-loss等级覆铜板已批量供货AI服务器、交换机、数据中心等核心场景。\n3、据2026年第一季度报告，公司2026Q1营收12.34亿元、净利3112万元，分别同比增长19.8%、65.8%，高端产品放量带动盈利提升。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
     },
     {
       "rank": 43,
-      "code": "300449",
-      "name": "汉邦高科",
-      "rate": "4412.5",
-      "change_pct": 19.98,
-      "hot_rank_chg": 6,
-      "popularity_tag": "2天2板",
-      "concept_tags": [
-        "数字水印",
-        "知识产权保护"
-      ],
-      "analyse": "1、据2026年5月11日公告，全资子公司北京汉邦高科数智科技有限公司与北京启明星汉科技有限公司签署《高性能GPU设备采购及集成维保服务合同》，合同含税金额约27.83亿元，占公司2025年经审计营业收入的1515.13%，内容涵盖服务器、软件及集成服务。\n2、据2026年4月28日年度报告，公司明确“云—边—端私有化AI基础设施与行业应用服务商”定位，智算服务业务围绕算力供给、集成交付、运维保障展开，2025年新业务占比已超84%。\n3、据2026年4月28日年度报告，公司具备数字水印核心技术，已在广电、军工等高安全场景落地，并计划将数字水印能力模块化嵌入AI平台，形成“算力+平台+应用+安全”整体解决方案。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 44,
-      "code": "002036",
-      "name": "联创电子",
-      "rate": "4330.5",
-      "change_pct": -2.51,
-      "hot_rank_chg": 49,
+      "code": "688388",
+      "name": "嘉元科技",
+      "rate": "5079.5",
+      "change_pct": 1.69,
+      "hot_rank_chg": 32,
       "popularity_tag": "",
       "concept_tags": [
-        "MR(混合现实)",
-        "华为汽车"
+        "PET铜箔",
+        "PCB概念"
       ],
       "analyse": ""
     },
     {
-      "rank": 45,
-      "code": "002642",
-      "name": "荣联科技",
-      "rate": "4265.0",
-      "change_pct": -0.44,
-      "hot_rank_chg": 11,
+      "rank": 44,
+      "code": "600745",
+      "name": "*ST闻泰",
+      "rate": "4983.0",
+      "change_pct": -4.98,
+      "hot_rank_chg": 3,
       "popularity_tag": "",
       "concept_tags": [
-        "华为鲲鹏",
-        "数字乡村"
+        "ST板块",
+        "AI手机"
+      ],
+      "analyse": "1、据2026年4月30日年报披露，容诚会计师事务所对公司2025年度财务报告及内部控制报告均出具无法表示意见，触及上交所退市风险警示标准，股票简称自5月6日起变更为*ST闻泰，日涨跌幅限制缩至5%。\n2、据2026年5月9日异动公告，公司子公司安世半导体控制权仍受荷兰法院裁决限制，合并范围及资产公允价值计量依据尚待完善，相关风险持续压制股价。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+    },
+    {
+      "rank": 45,
+      "code": "300209",
+      "name": "行云科技",
+      "rate": "4748.0",
+      "change_pct": 11.72,
+      "hot_rank_chg": 8,
+      "popularity_tag": "",
+      "concept_tags": [
+        "算力租赁",
+        "柔性屏(折叠屏)"
       ],
       "analyse": ""
     },
     {
       "rank": 46,
-      "code": "002714",
-      "name": "牧原股份",
-      "rate": "4181.0",
-      "change_pct": -3.07,
-      "hot_rank_chg": 6,
-      "popularity_tag": "",
+      "code": "603636",
+      "name": "南威软件",
+      "rate": "4556.0",
+      "change_pct": 2.63,
+      "hot_rank_chg": 5,
+      "popularity_tag": "4天2板",
       "concept_tags": [
-        "猪肉",
-        "同花顺漂亮100"
+        "电子身份证",
+        "Web3.0"
       ],
       "analyse": ""
     },
     {
       "rank": 47,
-      "code": "002463",
-      "name": "沪电股份",
-      "rate": "4120.5",
-      "change_pct": -2.87,
-      "hot_rank_chg": 0,
+      "code": "300964",
+      "name": "本川智能",
+      "rate": "4534.0",
+      "change_pct": 8.42,
+      "hot_rank_chg": 16,
       "popularity_tag": "",
       "concept_tags": [
-        "PCB概念",
-        "毫米波雷达"
+        "共封装光学(CPO)",
+        "PCB概念"
       ],
       "analyse": ""
     },
     {
       "rank": 48,
-      "code": "300062",
-      "name": "中能电气",
-      "rate": "4111.5",
-      "change_pct": 5.83,
-      "hot_rank_chg": 18,
+      "code": "600973",
+      "name": "宝胜股份",
+      "rate": "4495.5",
+      "change_pct": 4.25,
+      "hot_rank_chg": 25,
       "popularity_tag": "",
       "concept_tags": [
-        "智能电网",
-        "充电桩"
+        "可控核聚变",
+        "智能电网"
       ],
       "analyse": ""
     },
     {
       "rank": 49,
-      "code": "300661",
-      "name": "圣邦股份",
-      "rate": "3986.0",
-      "change_pct": 1.49,
-      "hot_rank_chg": 4,
+      "code": "300779",
+      "name": "惠城环保",
+      "rate": "4366.5",
+      "change_pct": 1.0,
+      "hot_rank_chg": 60,
       "popularity_tag": "",
       "concept_tags": [
-        "汽车芯片",
-        "存储芯片"
+        "固废处理",
+        "稀土永磁"
       ],
       "analyse": ""
     },
     {
       "rank": 50,
-      "code": "002870",
-      "name": "香山股份",
-      "rate": "3874.5",
-      "change_pct": 9.99,
-      "hot_rank_chg": 7,
-      "popularity_tag": "首板涨停",
+      "code": "603026",
+      "name": "石大胜华",
+      "rate": "4302.0",
+      "change_pct": -0.75,
+      "hot_rank_chg": 6,
+      "popularity_tag": "",
       "concept_tags": [
-        "人形机器人",
-        "智能座舱"
+        "氟化工概念",
+        "环氧丙烷"
       ],
-      "analyse": "1、据2026年5月12日公告，公司向特定对象发行股票募集说明书注册稿已提交，拟募资不超6.45亿元全部补流，控股股东全额认购。\n2、据2025年3月31日年报及2026年4月2日互动易，公司仿生电子皮肤、执行器处于开发阶段，明确布局人形机器人智能交互部件；新能源充配电系统已切入eVTOL赛道并获多合一产品订单。\n3、据2025年3月31日年报，公司主营汽车智能座舱豪华饰件及新能源充配电系统，客户覆盖全球豪华品牌及国内造车新势力，2025年新能源汽车配件收入同比增长38.59%。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+      "analyse": ""
     }
   ]
 }
