@@ -1,656 +1,704 @@
 {
-  "update_time": "2026-05-15 08:23:49",
+  "update_time": "2026-05-15 10:59:04",
   "source": "同花顺飙升榜",
-  "total": 47,
+  "total": 100,
   "data": [
     {
       "rank": 1,
-      "code": "603080",
-      "name": "新疆火炬",
-      "rate": "3642.0",
-      "change_pct": 4.13,
-      "hot_rank_chg": 106,
+      "code": "688120",
+      "name": "华海清科",
+      "rate": "3857.0",
+      "change_pct": 6.79,
+      "hot_rank_chg": 54,
       "popularity_tag": "",
       "concept_tags": [
-        "天然气",
-        "新疆振兴"
+        "中芯国际概念",
+        "存储芯片"
       ],
       "analyse": ""
     },
     {
       "rank": 2,
-      "code": "001209",
-      "name": "洪兴股份",
-      "rate": "1686.5",
-      "change_pct": 0.91,
-      "hot_rank_chg": 149,
+      "code": "688525",
+      "name": "佰维存储",
+      "rate": "1057.0",
+      "change_pct": -5.27,
+      "hot_rank_chg": 12,
       "popularity_tag": "",
       "concept_tags": [
-        "三胎概念",
-        "IP经济(谷子经济)"
+        "存储芯片",
+        "AI PC"
       ],
       "analyse": ""
     },
     {
       "rank": 3,
-      "code": "600698",
-      "name": "湖南天雁",
-      "rate": "1642.5",
-      "change_pct": 3.68,
-      "hot_rank_chg": 22,
+      "code": "000856",
+      "name": "冀东装备",
+      "rate": "907.5",
+      "change_pct": -1.8,
+      "hot_rank_chg": 127,
       "popularity_tag": "",
       "concept_tags": [
-        "兵装重组概念",
-        "央企国企改革"
+        "建筑节能",
+        "机器人概念"
       ],
       "analyse": ""
     },
     {
       "rank": 4,
-      "code": "601606",
-      "name": "长城军工",
-      "rate": "1230.5",
-      "change_pct": 0.37,
-      "hot_rank_chg": 20,
+      "code": "001226",
+      "name": "拓山重工",
+      "rate": "759.5",
+      "change_pct": 1.48,
+      "hot_rank_chg": 315,
       "popularity_tag": "",
       "concept_tags": [
-        "兵装重组概念",
-        "军民融合"
+        "专精特新"
       ],
       "analyse": ""
     },
     {
       "rank": 5,
-      "code": "001237",
-      "name": "惠康科技",
-      "rate": "406.0",
+      "code": "300029",
+      "name": "*ST天龙",
+      "rate": "388.5",
       "change_pct": 0,
-      "hot_rank_chg": 66,
+      "hot_rank_chg": 146,
       "popularity_tag": "",
       "concept_tags": [
-        "人民币贬值受益"
+        "ST板块",
+        "光伏概念"
       ],
       "analyse": ""
     },
     {
       "rank": 6,
-      "code": "605198",
-      "name": "安德利",
-      "rate": "398.5",
-      "change_pct": -1.69,
-      "hot_rank_chg": 68,
+      "code": "301387",
+      "name": "光大同创",
+      "rate": "383.0",
+      "change_pct": 5.14,
+      "hot_rank_chg": 72,
       "popularity_tag": "",
       "concept_tags": [
-        "人民币贬值受益",
-        "乡村振兴"
+        "共封装光学(CPO)",
+        "苹果概念"
       ],
       "analyse": ""
     },
     {
       "rank": 7,
-      "code": "600615",
-      "name": "鑫源智造",
-      "rate": "132.0",
-      "change_pct": -2.03,
-      "hot_rank_chg": 53,
+      "code": "603826",
+      "name": "坤彩科技",
+      "rate": "368.5",
+      "change_pct": -3.34,
+      "hot_rank_chg": 31,
       "popularity_tag": "",
       "concept_tags": [
-        "智能家居",
-        "长安汽车概念"
+        "钛白粉概念",
+        "福建自贸区"
       ],
       "analyse": ""
     },
     {
       "rank": 8,
-      "code": "601595",
-      "name": "上海电影",
-      "rate": "124.0",
-      "change_pct": -0.4,
-      "hot_rank_chg": 60,
+      "code": "603367",
+      "name": "辰欣药业",
+      "rate": "356.5",
+      "change_pct": -2.18,
+      "hot_rank_chg": 116,
       "popularity_tag": "",
       "concept_tags": [
-        "文化传媒概念",
-        "手机游戏"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 9,
-      "code": "300205",
-      "name": "*ST天喻",
-      "rate": "75.0",
-      "change_pct": -0.35,
-      "hot_rank_chg": 47,
-      "popularity_tag": "",
-      "concept_tags": [
-        "ST板块",
-        "财税数字化"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 10,
-      "code": "920344",
-      "name": "三元基因",
-      "rate": "64.0",
-      "change_pct": -0.56,
-      "hot_rank_chg": 34,
-      "popularity_tag": "",
-      "concept_tags": [
-        "融资融券",
-        "三胎概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 11,
-      "code": "688443",
-      "name": "智翔金泰",
-      "rate": "45.0",
-      "change_pct": -0.1,
-      "hot_rank_chg": 36,
-      "popularity_tag": "",
-      "concept_tags": [
-        "创新药",
-        "西部大开发"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 12,
-      "code": "688513",
-      "name": "苑东生物",
-      "rate": "42.0",
-      "change_pct": -2.68,
-      "hot_rank_chg": 44,
-      "popularity_tag": "",
-      "concept_tags": [
-        "创新药",
+        "肝炎概念",
         "仿制药一致性评价"
       ],
       "analyse": ""
     },
     {
-      "rank": 13,
-      "code": "688600",
-      "name": "皖仪科技",
-      "rate": "37.5",
-      "change_pct": -0.83,
-      "hot_rank_chg": 22,
+      "rank": 9,
+      "code": "301516",
+      "name": "中远通",
+      "rate": "284.0",
+      "change_pct": 2.81,
+      "hot_rank_chg": 95,
       "popularity_tag": "",
       "concept_tags": [
-        "专精特新",
-        "液冷服务器"
+        "充电桩",
+        "换电概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 10,
+      "code": "300168",
+      "name": "万达信息",
+      "rate": "211.5",
+      "change_pct": -2.58,
+      "hot_rank_chg": 134,
+      "popularity_tag": "",
+      "concept_tags": [
+        "DRG/DIP",
+        "MLOps概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 11,
+      "code": "603227",
+      "name": "雪峰科技",
+      "rate": "187.5",
+      "change_pct": 3.15,
+      "hot_rank_chg": 39,
+      "popularity_tag": "",
+      "concept_tags": [
+        "化肥",
+        "民爆概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 12,
+      "code": "688033",
+      "name": "*ST天宜",
+      "rate": "183.5",
+      "change_pct": -2.28,
+      "hot_rank_chg": 122,
+      "popularity_tag": "",
+      "concept_tags": [
+        "成飞概念",
+        "ST板块"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 13,
+      "code": "688710",
+      "name": "益诺思",
+      "rate": "167.5",
+      "change_pct": 2.29,
+      "hot_rank_chg": 130,
+      "popularity_tag": "",
+      "concept_tags": [
+        "CRO概念",
+        "细胞免疫治疗"
       ],
       "analyse": ""
     },
     {
       "rank": 14,
-      "code": "600608",
-      "name": "*ST沪科",
-      "rate": "36.0",
-      "change_pct": 0,
-      "hot_rank_chg": 11,
+      "code": "301042",
+      "name": "安联锐视",
+      "rate": "141.5",
+      "change_pct": 2.44,
+      "hot_rank_chg": 114,
       "popularity_tag": "",
       "concept_tags": [
-        "ST板块",
-        "国企改革"
+        "算力租赁",
+        "智慧城市"
       ],
       "analyse": ""
     },
     {
       "rank": 15,
-      "code": "000590",
-      "name": "古汉医药",
-      "rate": "36.0",
-      "change_pct": -1.97,
-      "hot_rank_chg": 52,
+      "code": "002398",
+      "name": "垒知集团",
+      "rate": "132.5",
+      "change_pct": -1.64,
+      "hot_rank_chg": 98,
       "popularity_tag": "",
       "concept_tags": [
-        "养老概念",
-        "流感"
+        "建筑节能",
+        "房屋检测"
       ],
       "analyse": ""
     },
     {
       "rank": 16,
-      "code": "920161",
-      "name": "龙辰科技",
-      "rate": "35.5",
+      "code": "605081",
+      "name": "*ST太和",
+      "rate": "124.0",
       "change_pct": 0,
-      "hot_rank_chg": 10,
+      "hot_rank_chg": 95,
       "popularity_tag": "",
-      "concept_tags": [],
+      "concept_tags": [
+        "东数西算(算力)",
+        "ST板块"
+      ],
       "analyse": ""
     },
     {
       "rank": 17,
-      "code": "603385",
-      "name": "惠达卫浴",
-      "rate": "32.0",
-      "change_pct": -1.53,
-      "hot_rank_chg": 28,
+      "code": "600725",
+      "name": "云维股份",
+      "rate": "112.5",
+      "change_pct": -2.86,
+      "hot_rank_chg": 85,
       "popularity_tag": "",
       "concept_tags": [
-        "装配式建筑",
-        "雄安新区"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 18,
-      "code": "920158",
-      "name": "长江能科",
-      "rate": "29.5",
-      "change_pct": 2.78,
-      "hot_rank_chg": 72,
-      "popularity_tag": "",
-      "concept_tags": [
-        "一带一路",
-        "海工装备"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 19,
-      "code": "688203",
-      "name": "海正生材",
-      "rate": "28.5",
-      "change_pct": -1.25,
-      "hot_rank_chg": 39,
-      "popularity_tag": "",
-      "concept_tags": [
-        "可降解塑料",
+        "西部大开发",
         "国企改革"
       ],
       "analyse": ""
     },
     {
-      "rank": 20,
-      "code": "920110",
-      "name": "雷特科技",
-      "rate": "20.0",
-      "change_pct": 0.29,
-      "hot_rank_chg": 4,
+      "rank": 18,
+      "code": "300575",
+      "name": "中旗股份",
+      "rate": "108.0",
+      "change_pct": 2.2,
+      "hot_rank_chg": 54,
       "popularity_tag": "",
       "concept_tags": [
-        "融资融券",
-        "专精特新"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 21,
-      "code": "920855",
-      "name": "浙江大农",
-      "rate": "17.5",
-      "change_pct": -0.07,
-      "hot_rank_chg": 1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "融资融券",
-        "专精特新"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 22,
-      "code": "920680",
-      "name": "广道退",
-      "rate": "17.0",
-      "change_pct": 0,
-      "hot_rank_chg": 6,
-      "popularity_tag": "",
-      "concept_tags": [],
-      "analyse": ""
-    },
-    {
-      "rank": 23,
-      "code": "920058",
-      "name": "华洋赛车",
-      "rate": "17.0",
-      "change_pct": 0,
-      "hot_rank_chg": 1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "融资融券",
-        "体育产业"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 24,
-      "code": "600777",
-      "name": "*ST新潮",
-      "rate": "17.0",
-      "change_pct": -0.17,
-      "hot_rank_chg": 88,
-      "popularity_tag": "",
-      "concept_tags": [
-        "页岩气",
-        "俄乌冲突概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 25,
-      "code": "688244",
-      "name": "永信至诚",
-      "rate": "16.5",
-      "change_pct": 0.78,
-      "hot_rank_chg": 34,
-      "popularity_tag": "",
-      "concept_tags": [
-        "财税数字化",
-        "智谱AI"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 26,
-      "code": "600599",
-      "name": "*ST熊猫",
-      "rate": "15.5",
-      "change_pct": 0,
-      "hot_rank_chg": 41,
-      "popularity_tag": "",
-      "concept_tags": [
-        "ST板块",
-        "互联网金融"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 27,
-      "code": "301337",
-      "name": "亚华电子",
-      "rate": "15.5",
-      "change_pct": -1.42,
-      "hot_rank_chg": 62,
-      "popularity_tag": "",
-      "concept_tags": [
-        "物联网",
-        "数据要素"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 28,
-      "code": "603235",
-      "name": "天新药业",
-      "rate": "15.0",
-      "change_pct": 0,
-      "hot_rank_chg": 23,
-      "popularity_tag": "",
-      "concept_tags": [
-        "维生素",
+        "创新药",
         "人民币贬值受益"
       ],
       "analyse": ""
     },
     {
-      "rank": 29,
-      "code": "920950",
-      "name": "迅安科技",
-      "rate": "14.0",
-      "change_pct": 0.31,
-      "hot_rank_chg": 4,
+      "rank": 19,
+      "code": "300813",
+      "name": "泰林生物",
+      "rate": "93.5",
+      "change_pct": -0.45,
+      "hot_rank_chg": 105,
       "popularity_tag": "",
       "concept_tags": [
-        "融资融券",
+        "细胞免疫治疗",
+        "共同富裕示范区"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 20,
+      "code": "603230",
+      "name": "内蒙新华",
+      "rate": "92.0",
+      "change_pct": -0.67,
+      "hot_rank_chg": 78,
+      "popularity_tag": "",
+      "concept_tags": [
+        "文化传媒概念",
+        "西部大开发"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 21,
+      "code": "002696",
+      "name": "百洋股份",
+      "rate": "91.0",
+      "change_pct": 0.31,
+      "hot_rank_chg": 75,
+      "popularity_tag": "",
+      "concept_tags": [
+        "中俄贸易概念",
+        "乡村振兴"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 22,
+      "code": "603976",
+      "name": "正川股份",
+      "rate": "89.5",
+      "change_pct": -0.37,
+      "hot_rank_chg": 91,
+      "popularity_tag": "",
+      "concept_tags": [
+        "医疗器械概念",
+        "西部大开发"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 23,
+      "code": "000544",
+      "name": "中原环保",
+      "rate": "87.5",
+      "change_pct": -1.69,
+      "hot_rank_chg": 80,
+      "popularity_tag": "",
+      "concept_tags": [
+        "固废处理",
+        "绿色电力"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 24,
+      "code": "603787",
+      "name": "新日股份",
+      "rate": "85.0",
+      "change_pct": -0.69,
+      "hot_rank_chg": 97,
+      "popularity_tag": "",
+      "concept_tags": [
+        "共享单车",
+        "两轮车"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 25,
+      "code": "300942",
+      "name": "易瑞生物",
+      "rate": "81.0",
+      "change_pct": -1.19,
+      "hot_rank_chg": 67,
+      "popularity_tag": "",
+      "concept_tags": [
+        "食品安全",
+        "宠物经济"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 26,
+      "code": "600358",
+      "name": "国旅联合",
+      "rate": "78.5",
+      "change_pct": 1.49,
+      "hot_rank_chg": 78,
+      "popularity_tag": "",
+      "concept_tags": [
+        "露营经济",
+        "国企改革"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 27,
+      "code": "600149",
+      "name": "廊坊发展",
+      "rate": "76.5",
+      "change_pct": -3.95,
+      "hot_rank_chg": 56,
+      "popularity_tag": "",
+      "concept_tags": [
+        "雄安新区",
+        "京津冀一体化"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 28,
+      "code": "605567",
+      "name": "春雪食品",
+      "rate": "74.5",
+      "change_pct": -1.56,
+      "hot_rank_chg": 65,
+      "popularity_tag": "",
+      "concept_tags": [
+        "预制菜",
+        "人造肉"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 29,
+      "code": "301163",
+      "name": "宏德股份",
+      "rate": "73.0",
+      "change_pct": 0.2,
+      "hot_rank_chg": 65,
+      "popularity_tag": "",
+      "concept_tags": [
+        "医疗器械概念",
         "人民币贬值受益"
       ],
       "analyse": ""
     },
     {
       "rank": 30,
-      "code": "688026",
-      "name": "洁特生物",
-      "rate": "14.0",
-      "change_pct": -2.32,
-      "hot_rank_chg": 3,
+      "code": "920037",
+      "name": "广信科技",
+      "rate": "71.5",
+      "change_pct": -2.38,
+      "hot_rank_chg": 72,
       "popularity_tag": "",
       "concept_tags": [
-        "医疗器械概念",
-        "辅助生殖"
+        "无人机",
+        "智能电网"
       ],
       "analyse": ""
     },
     {
       "rank": 31,
-      "code": "600421",
-      "name": "*ST华嵘",
-      "rate": "14.0",
-      "change_pct": 0,
-      "hot_rank_chg": 8,
+      "code": "688269",
+      "name": "凯立新材",
+      "rate": "68.5",
+      "change_pct": 0.73,
+      "hot_rank_chg": 65,
       "popularity_tag": "",
       "concept_tags": [
-        "ST板块",
-        "风电"
+        "金属回收",
+        "专精特新"
       ],
       "analyse": ""
     },
     {
       "rank": 32,
-      "code": "688098",
-      "name": "申联生物",
-      "rate": "13.0",
-      "change_pct": -1.16,
-      "hot_rank_chg": 12,
+      "code": "300637",
+      "name": "扬帆新材",
+      "rate": "67.0",
+      "change_pct": 0.54,
+      "hot_rank_chg": 76,
       "popularity_tag": "",
       "concept_tags": [
-        "动物疫苗",
-        "合成生物"
+        "PCB概念",
+        "磷化工"
       ],
       "analyse": ""
     },
     {
       "rank": 33,
-      "code": "605122",
-      "name": "四方新材",
-      "rate": "12.0",
-      "change_pct": -1.7,
-      "hot_rank_chg": 35,
+      "code": "605398",
+      "name": "新炬网络",
+      "rate": "67.0",
+      "change_pct": -0.56,
+      "hot_rank_chg": 72,
       "popularity_tag": "",
       "concept_tags": [
-        "装配式建筑",
-        "建筑节能"
+        "MLOps概念",
+        "华为鲲鹏"
       ],
       "analyse": ""
     },
     {
       "rank": 34,
-      "code": "920445",
-      "name": "龙竹科技",
-      "rate": "11.0",
-      "change_pct": -0.32,
-      "hot_rank_chg": 9,
+      "code": "300962",
+      "name": "中金辐照",
+      "rate": "66.5",
+      "change_pct": -1.61,
+      "hot_rank_chg": 65,
       "popularity_tag": "",
       "concept_tags": [
-        "海峡两岸",
-        "融资融券"
+        "净水概念",
+        "核污染防治"
       ],
       "analyse": ""
     },
     {
       "rank": 35,
-      "code": "603797",
-      "name": "联泰环保",
-      "rate": "10.5",
-      "change_pct": -2.47,
-      "hot_rank_chg": 21,
+      "code": "002746",
+      "name": "仙坛股份",
+      "rate": "66.0",
+      "change_pct": -1.72,
+      "hot_rank_chg": 92,
       "popularity_tag": "",
       "concept_tags": [
-        "新型城镇化",
-        "污水处理"
+        "养鸡",
+        "预制菜"
       ],
       "analyse": ""
     },
     {
       "rank": 36,
-      "code": "688217",
-      "name": "睿昂基因",
-      "rate": "9.0",
-      "change_pct": -1.02,
-      "hot_rank_chg": 4,
+      "code": "301510",
+      "name": "固高科技",
+      "rate": "62.5",
+      "change_pct": 3.05,
+      "hot_rank_chg": 53,
       "popularity_tag": "",
       "concept_tags": [
-        "医疗器械概念",
-        "基因测序"
+        "先进封装",
+        "芯片概念"
       ],
       "analyse": ""
     },
     {
       "rank": 37,
-      "code": "920132",
-      "name": "泰鹏智能",
-      "rate": "8.0",
-      "change_pct": -4.17,
-      "hot_rank_chg": 12,
+      "code": "688486",
+      "name": "龙迅股份",
+      "rate": "62.0",
+      "change_pct": 3.81,
+      "hot_rank_chg": 90,
       "popularity_tag": "",
       "concept_tags": [
-        "融资融券",
-        "一带一路"
+        "芯片概念",
+        "英伟达概念"
       ],
       "analyse": ""
     },
     {
       "rank": 38,
-      "code": "688121",
-      "name": "卓然股份",
-      "rate": "7.0",
-      "change_pct": 0,
-      "hot_rank_chg": 10,
+      "code": "600502",
+      "name": "安徽建工",
+      "rate": "61.5",
+      "change_pct": -2.25,
+      "hot_rank_chg": 79,
       "popularity_tag": "",
       "concept_tags": [
-        "碳中和",
-        "融资融券"
+        "高股息精选",
+        "同花顺中特估100"
       ],
       "analyse": ""
     },
     {
       "rank": 39,
-      "code": "920508",
-      "name": "殷图网联",
-      "rate": "6.0",
-      "change_pct": -1.35,
-      "hot_rank_chg": 7,
+      "code": "300732",
+      "name": "设研院",
+      "rate": "61.0",
+      "change_pct": 0.65,
+      "hot_rank_chg": 72,
       "popularity_tag": "",
       "concept_tags": [
-        "融资融券",
-        "无人机"
+        "房屋检测",
+        "装配式建筑"
       ],
       "analyse": ""
     },
     {
       "rank": 40,
-      "code": "688528",
-      "name": "秦川物联",
-      "rate": "5.5",
-      "change_pct": -1.26,
-      "hot_rank_chg": 3,
+      "code": "300891",
+      "name": "惠云钛业",
+      "rate": "59.0",
+      "change_pct": -0.48,
+      "hot_rank_chg": 55,
       "popularity_tag": "",
       "concept_tags": [
-        "专精特新",
-        "物联网"
+        "钛白粉概念",
+        "融资融券"
       ],
       "analyse": ""
     },
     {
       "rank": 41,
-      "code": "688296",
-      "name": "和达科技",
-      "rate": "5.5",
-      "change_pct": -0.62,
-      "hot_rank_chg": 10,
+      "code": "603180",
+      "name": "金牌家居",
+      "rate": "58.5",
+      "change_pct": 0.22,
+      "hot_rank_chg": 74,
       "popularity_tag": "",
       "concept_tags": [
-        "净水概念",
-        "人工智能"
+        "创投",
+        "智能家居"
       ],
       "analyse": ""
     },
     {
       "rank": 42,
-      "code": "920033",
-      "name": "康普化学",
-      "rate": "5.5",
-      "change_pct": 0.35,
-      "hot_rank_chg": 8,
+      "code": "300844",
+      "name": "山水比德",
+      "rate": "55.5",
+      "change_pct": -3.12,
+      "hot_rank_chg": 33,
       "popularity_tag": "",
       "concept_tags": [
-        "锂电池概念",
-        "融资融券"
+        "人工智能",
+        "AIGC概念"
       ],
       "analyse": ""
     },
     {
       "rank": 43,
-      "code": "920866",
-      "name": "绿亨科技",
-      "rate": "5.0",
-      "change_pct": 0.13,
-      "hot_rank_chg": 7,
+      "code": "301263",
+      "name": "泰恩康",
+      "rate": "54.5",
+      "change_pct": -0.41,
+      "hot_rank_chg": 54,
       "popularity_tag": "",
       "concept_tags": [
-        "融资融券",
-        "粮食概念"
+        "创新药",
+        "减肥药"
       ],
       "analyse": ""
     },
     {
       "rank": 44,
-      "code": "600202",
-      "name": "哈空调",
-      "rate": "4.5",
-      "change_pct": -1.56,
-      "hot_rank_chg": 57,
+      "code": "002968",
+      "name": "新大正",
+      "rate": "53.5",
+      "change_pct": -2.1,
+      "hot_rank_chg": 64,
       "popularity_tag": "",
       "concept_tags": [
-        "中俄贸易概念",
-        "创投"
+        "物业管理",
+        "养老概念"
       ],
       "analyse": ""
     },
     {
       "rank": 45,
-      "code": "920751",
-      "name": "惠同新材",
-      "rate": "3.0",
-      "change_pct": -0.93,
-      "hot_rank_chg": 4,
+      "code": "603713",
+      "name": "密尔克卫",
+      "rate": "53.0",
+      "change_pct": -0.84,
+      "hot_rank_chg": 66,
       "popularity_tag": "",
       "concept_tags": [
-        "股权转让(并购重组)",
-        "融资融券"
+        "回购增持再贷款概念",
+        "上海自贸区"
       ],
       "analyse": ""
     },
     {
       "rank": 46,
-      "code": "603277",
-      "name": "银都股份",
-      "rate": "2.5",
-      "change_pct": 0.85,
-      "hot_rank_chg": 35,
+      "code": "300795",
+      "name": "米奥会展",
+      "rate": "52.5",
+      "change_pct": -0.86,
+      "hot_rank_chg": 57,
       "popularity_tag": "",
       "concept_tags": [
-        "机器人概念",
-        "人民币贬值受益"
+        "体育产业",
+        "跨境电商"
       ],
       "analyse": ""
     },
     {
       "rank": 47,
-      "code": "600696",
-      "name": "*ST岩石",
-      "rate": "2.5",
-      "change_pct": 0,
-      "hot_rank_chg": 67,
+      "code": "600444",
+      "name": "国机通用",
+      "rate": "52.0",
+      "change_pct": -1.25,
+      "hot_rank_chg": 70,
       "popularity_tag": "",
       "concept_tags": [
-        "ST板块",
-        "白酒概念"
+        "污水处理",
+        "水利"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 48,
+      "code": "920735",
+      "name": "德源药业",
+      "rate": "51.5",
+      "change_pct": -3.0,
+      "hot_rank_chg": 75,
+      "popularity_tag": "",
+      "concept_tags": [
+        "流感",
+        "融资融券"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 49,
+      "code": "002888",
+      "name": "惠威科技",
+      "rate": "51.5",
+      "change_pct": 5.91,
+      "hot_rank_chg": 32,
+      "popularity_tag": "",
+      "concept_tags": [
+        "跨境电商",
+        "粤港澳大湾区"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 50,
+      "code": "688322",
+      "name": "奥比中光",
+      "rate": "51.5",
+      "change_pct": 4.82,
+      "hot_rank_chg": 40,
+      "popularity_tag": "",
+      "concept_tags": [
+        "人形机器人",
+        "同花顺新质50"
       ],
       "analyse": ""
     }
