@@ -1,44 +1,30 @@
 {
-  "update_time": "2026-05-14 20:53:33",
+  "update_time": "2026-05-15 01:24:34",
   "source": "同花顺飙升榜",
   "total": 100,
   "data": [
     {
       "rank": 1,
-      "code": "000711",
-      "name": "ST京蓝",
-      "rate": "2926.0",
-      "change_pct": -5.03,
-      "hot_rank_chg": 53,
-      "popularity_tag": "7天5板",
+      "code": "601991",
+      "name": "大唐发电",
+      "rate": "996356.0",
+      "change_pct": -10.0,
+      "hot_rank_chg": 1,
+      "popularity_tag": "8天6板",
       "concept_tags": [
-        "土壤修复",
-        "小金属概念"
+        "绿色电力",
+        "风电"
       ],
       "analyse": ""
     },
     {
       "rank": 2,
-      "code": "300252",
-      "name": "金信诺",
-      "rate": "1502.5",
-      "change_pct": -2.93,
-      "hot_rank_chg": 324,
-      "popularity_tag": "",
-      "concept_tags": [
-        "光纤概念",
-        "F5G概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 3,
       "code": "002617",
       "name": "露笑科技",
-      "rate": "1442.0",
-      "change_pct": 9.98,
-      "hot_rank_chg": 0,
-      "popularity_tag": "首板涨停",
+      "rate": "623372.5",
+      "change_pct": 8.25,
+      "hot_rank_chg": -1,
+      "popularity_tag": "2天1板",
       "concept_tags": [
         "第三代半导体",
         "电力物联网"
@@ -46,54 +32,306 @@
       "analyse": ""
     },
     {
+      "rank": 3,
+      "code": "002506",
+      "name": "协鑫集成",
+      "rate": "604347.0",
+      "change_pct": 3.67,
+      "hot_rank_chg": 0,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "HJT电池",
+        "光伏建筑一体化"
+      ],
+      "analyse": ""
+    },
+    {
       "rank": 4,
-      "code": "600703",
-      "name": "三安光电",
-      "rate": "886.5",
-      "change_pct": 3.62,
-      "hot_rank_chg": 2,
+      "code": "000066",
+      "name": "中国长城",
+      "rate": "603406.5",
+      "change_pct": -5.16,
+      "hot_rank_chg": 0,
       "popularity_tag": "",
       "concept_tags": [
-        "MicroLED概念",
-        "MiniLED"
+        "中国AI 50",
+        "AI PC"
       ],
       "analyse": ""
     },
     {
       "rank": 5,
-      "code": "002600",
-      "name": "领益智造",
-      "rate": "839.5",
-      "change_pct": 6.7,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
+      "code": "600396",
+      "name": "华电辽能",
+      "rate": "502747.5",
+      "change_pct": -9.92,
+      "hot_rank_chg": 6,
+      "popularity_tag": "16天9板",
       "concept_tags": [
-        "同花顺果指数",
-        "智能音箱"
+        "超超临界发电",
+        "绿色电力"
       ],
       "analyse": ""
     },
     {
       "rank": 6,
-      "code": "600522",
-      "name": "中天科技",
-      "rate": "785.0",
-      "change_pct": 1.15,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
+      "code": "002309",
+      "name": "中利集团",
+      "rate": "391033.5",
+      "change_pct": 10.06,
+      "hot_rank_chg": 4,
+      "popularity_tag": "2天1板",
       "concept_tags": [
-        "光纤概念",
-        "共封装光学(CPO)"
+        "光伏建筑一体化",
+        "绿色电力"
       ],
       "analyse": ""
     },
     {
       "rank": 7,
+      "code": "002580",
+      "name": "圣阳股份",
+      "rate": "367420.0",
+      "change_pct": -5.78,
+      "hot_rank_chg": 6,
+      "popularity_tag": "",
+      "concept_tags": [
+        "液冷服务器",
+        "高铁"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 8,
+      "code": "001393",
+      "name": "维通利",
+      "rate": "361408.0",
+      "change_pct": 278.54,
+      "hot_rank_chg": 7,
+      "popularity_tag": "",
+      "concept_tags": [
+        "新股与次新股",
+        "注册制次新股"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 9,
+      "code": "000592",
+      "name": "平潭发展",
+      "rate": "347294.0",
+      "change_pct": -3.86,
+      "hot_rank_chg": 21,
+      "popularity_tag": "",
+      "concept_tags": [
+        "福建自贸区",
+        "民营医院"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 10,
+      "code": "002208",
+      "name": "合肥城建",
+      "rate": "232921.5",
+      "change_pct": 1.01,
+      "hot_rank_chg": 7,
+      "popularity_tag": "4天3板",
+      "concept_tags": [
+        "独角兽概念",
+        "新型城镇化"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 11,
+      "code": "600578",
+      "name": "京能电力",
+      "rate": "215450.0",
+      "change_pct": 3.61,
+      "hot_rank_chg": 6,
+      "popularity_tag": "3天2板",
+      "concept_tags": [
+        "超超临界发电",
+        "绿色电力"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 12,
+      "code": "002081",
+      "name": "金螳螂",
+      "rate": "212660.5",
+      "change_pct": -2.52,
+      "hot_rank_chg": -3,
+      "popularity_tag": "18天11板",
+      "concept_tags": [
+        "第三代半导体",
+        "芯片概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 13,
+      "code": "603002",
+      "name": "宏昌电子",
+      "rate": "209273.5",
+      "change_pct": 8.62,
+      "hot_rank_chg": 129,
+      "popularity_tag": "",
+      "concept_tags": [
+        "PCB概念",
+        "先进封装"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 14,
+      "code": "603007",
+      "name": "顺景科技",
+      "rate": "206990.0",
+      "change_pct": 1.3,
+      "hot_rank_chg": 3,
+      "popularity_tag": "4天3板",
+      "concept_tags": [
+        "储能",
+        "新能源汽车"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 15,
+      "code": "002929",
+      "name": "润建股份",
+      "rate": "196453.0",
+      "change_pct": -0.46,
+      "hot_rank_chg": 17,
+      "popularity_tag": "",
+      "concept_tags": [
+        "算力租赁",
+        "华为昇腾"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 16,
+      "code": "002407",
+      "name": "多氟多",
+      "rate": "178602.0",
+      "change_pct": 4.19,
+      "hot_rank_chg": 6,
+      "popularity_tag": "",
+      "concept_tags": [
+        "钠离子电池",
+        "PVDF概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 17,
+      "code": "002918",
+      "name": "蒙娜丽莎",
+      "rate": "175567.0",
+      "change_pct": 9.98,
+      "hot_rank_chg": 0,
+      "popularity_tag": "6天5板",
+      "concept_tags": [
+        "创投",
+        "智能家居"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 18,
+      "code": "603773",
+      "name": "沃格光电",
+      "rate": "171416.0",
+      "change_pct": -10.0,
+      "hot_rank_chg": 9,
+      "popularity_tag": "",
+      "concept_tags": [
+        "MicroLED概念",
+        "共封装光学(CPO)"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 19,
+      "code": "600379",
+      "name": "宝光股份",
+      "rate": "168771.5",
+      "change_pct": -8.18,
+      "hot_rank_chg": 17,
+      "popularity_tag": "11天6板",
+      "concept_tags": [
+        "特高压",
+        "虚拟电厂"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 20,
+      "code": "600509",
+      "name": "天富能源",
+      "rate": "168753.5",
+      "change_pct": 9.39,
+      "hot_rank_chg": -3,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "超超临界发电",
+        "抽水蓄能"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 21,
+      "code": "603118",
+      "name": "共进股份",
+      "rate": "168695.0",
+      "change_pct": -0.17,
+      "hot_rank_chg": 1,
+      "popularity_tag": "2天1板",
+      "concept_tags": [
+        "F5G概念",
+        "共封装光学(CPO)"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 22,
+      "code": "002429",
+      "name": "兆驰股份",
+      "rate": "163644.5",
+      "change_pct": 2.81,
+      "hot_rank_chg": 232,
+      "popularity_tag": "",
+      "concept_tags": [
+        "F5G概念",
+        "共封装光学(CPO)"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 23,
+      "code": "300433",
+      "name": "蓝思科技",
+      "rate": "162468.5",
+      "change_pct": 5.23,
+      "hot_rank_chg": -4,
+      "popularity_tag": "",
+      "concept_tags": [
+        "同花顺果指数",
+        "AI手机"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 24,
       "code": "600745",
       "name": "*ST闻泰",
-      "rate": "601.0",
-      "change_pct": -4.98,
-      "hot_rank_chg": 0,
+      "rate": "149810.5",
+      "change_pct": -4.99,
+      "hot_rank_chg": 1,
       "popularity_tag": "",
       "concept_tags": [
         "ST板块",
@@ -102,268 +340,30 @@
       "analyse": ""
     },
     {
-      "rank": 8,
-      "code": "002384",
-      "name": "东山精密",
-      "rate": "590.0",
-      "change_pct": -2.65,
-      "hot_rank_chg": 3,
-      "popularity_tag": "",
-      "concept_tags": [
-        "共封装光学(CPO)",
-        "光纤概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 9,
-      "code": "002506",
-      "name": "协鑫集成",
-      "rate": "587.5",
-      "change_pct": 10.11,
-      "hot_rank_chg": 0,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "HJT电池",
-        "光伏建筑一体化"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 10,
-      "code": "603118",
-      "name": "共进股份",
-      "rate": "549.5",
-      "change_pct": 10.01,
-      "hot_rank_chg": 1,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "F5G概念",
-        "共封装光学(CPO)"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 11,
-      "code": "300323",
-      "name": "华灿光电",
-      "rate": "509.5",
-      "change_pct": 11.56,
-      "hot_rank_chg": 3,
-      "popularity_tag": "",
-      "concept_tags": [
-        "MicroLED概念",
-        "MiniLED"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 12,
-      "code": "600509",
-      "name": "天富能源",
-      "rate": "498.5",
-      "change_pct": 10.01,
-      "hot_rank_chg": -1,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "超超临界发电",
-        "抽水蓄能"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 13,
-      "code": "002980",
-      "name": "华盛昌",
-      "rate": "487.0",
-      "change_pct": 10.0,
-      "hot_rank_chg": 1,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "共封装光学(CPO)",
-        "血氧仪"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 14,
-      "code": "600089",
-      "name": "特变电工",
-      "rate": "486.0",
-      "change_pct": -4.7,
-      "hot_rank_chg": 9,
-      "popularity_tag": "",
-      "concept_tags": [
-        "柔性直流输电",
-        "抽水蓄能"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 15,
-      "code": "003031",
-      "name": "中瓷电子",
-      "rate": "481.5",
-      "change_pct": 10.0,
-      "hot_rank_chg": 0,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "共封装光学(CPO)",
-        "光刻机"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 16,
-      "code": "600578",
-      "name": "京能电力",
-      "rate": "442.5",
-      "change_pct": 10.02,
-      "hot_rank_chg": 0,
-      "popularity_tag": "2天2板",
-      "concept_tags": [
-        "超超临界发电",
-        "绿色电力"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 17,
-      "code": "300308",
-      "name": "中际旭创",
-      "rate": "431.5",
-      "change_pct": 2.74,
-      "hot_rank_chg": 1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "共封装光学(CPO)",
-        "F5G概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 18,
-      "code": "002309",
-      "name": "中利集团",
-      "rate": "419.0",
-      "change_pct": 10.0,
-      "hot_rank_chg": 0,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "光伏建筑一体化",
-        "绿色电力"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 19,
-      "code": "600172",
-      "name": "黄河旋风",
-      "rate": "414.0",
-      "change_pct": -0.08,
-      "hot_rank_chg": 2,
-      "popularity_tag": "4天3板",
-      "concept_tags": [
-        "培育钻石",
-        "第三代半导体"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 20,
-      "code": "601727",
-      "name": "上海电气",
-      "rate": "408.0",
-      "change_pct": -3.72,
-      "hot_rank_chg": 6,
-      "popularity_tag": "",
-      "concept_tags": [
-        "智能电网",
-        "特高压"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 21,
-      "code": "002208",
-      "name": "合肥城建",
-      "rate": "404.0",
-      "change_pct": 10.0,
-      "hot_rank_chg": 0,
-      "popularity_tag": "3天3板",
-      "concept_tags": [
-        "独角兽概念",
-        "新型城镇化"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 22,
-      "code": "300058",
-      "name": "蓝色光标",
-      "rate": "402.0",
-      "change_pct": -7.91,
-      "hot_rank_chg": 1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "快手概念",
-        "小红书概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 23,
-      "code": "002428",
-      "name": "云南锗业",
-      "rate": "393.5",
-      "change_pct": -4.25,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "光纤概念",
-        "第三代半导体"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 24,
-      "code": "688416",
-      "name": "恒烁股份",
-      "rate": "383.0",
-      "change_pct": -3.4,
-      "hot_rank_chg": 1360,
-      "popularity_tag": "",
-      "concept_tags": [
-        "存储芯片",
-        "MCU芯片"
-      ],
-      "analyse": ""
-    },
-    {
       "rank": 25,
-      "code": "600105",
-      "name": "永鼎股份",
-      "rate": "374.5",
-      "change_pct": 4.17,
-      "hot_rank_chg": 0,
+      "code": "600488",
+      "name": "津药药业",
+      "rate": "148583.0",
+      "change_pct": -7.7,
+      "hot_rank_chg": 20,
       "popularity_tag": "",
       "concept_tags": [
-        "共封装光学(CPO)",
-        "光纤概念"
+        "仿制药一致性评价",
+        "创新药"
       ],
       "analyse": ""
     },
     {
       "rank": 26,
-      "code": "601016",
-      "name": "节能风电",
-      "rate": "367.5",
-      "change_pct": -9.41,
-      "hot_rank_chg": 0,
-      "popularity_tag": "2天1板",
+      "code": "600156",
+      "name": "华升股份",
+      "rate": "144605.5",
+      "change_pct": 10.01,
+      "hot_rank_chg": 13,
+      "popularity_tag": "3天2板",
       "concept_tags": [
-        "绿色电力",
-        "风电"
+        "算力租赁",
+        "东数西算(算力)"
       ],
       "analyse": ""
     },
@@ -371,10 +371,10 @@
       "rank": 27,
       "code": "002015",
       "name": "协鑫能科",
-      "rate": "366.0",
-      "change_pct": 0.47,
-      "hot_rank_chg": 0,
-      "popularity_tag": "2天1板",
+      "rate": "144413.5",
+      "change_pct": -5.45,
+      "hot_rank_chg": -5,
+      "popularity_tag": "",
       "concept_tags": [
         "虚拟电厂",
         "华为数字能源"
@@ -383,15 +383,15 @@
     },
     {
       "rank": 28,
-      "code": "300721",
-      "name": "怡达股份",
-      "rate": "353.5",
-      "change_pct": 14.88,
-      "hot_rank_chg": 4,
+      "code": "002297",
+      "name": "博云新材",
+      "rate": "141820.5",
+      "change_pct": 1.97,
+      "hot_rank_chg": 13,
       "popularity_tag": "",
       "concept_tags": [
-        "环氧丙烷",
-        "染料"
+        "培育钻石",
+        "成飞概念"
       ],
       "analyse": ""
     },
@@ -399,10 +399,10 @@
       "rank": 29,
       "code": "000767",
       "name": "晋控电力",
-      "rate": "353.5",
-      "change_pct": -8.2,
-      "hot_rank_chg": 5,
-      "popularity_tag": "3天2板",
+      "rate": "140532.5",
+      "change_pct": -9.79,
+      "hot_rank_chg": 40,
+      "popularity_tag": "4天2板",
       "concept_tags": [
         "超超临界发电",
         "绿色电力"
@@ -411,81 +411,123 @@
     },
     {
       "rank": 30,
-      "code": "000988",
-      "name": "华工科技",
-      "rate": "350.5",
-      "change_pct": -3.31,
-      "hot_rank_chg": 3,
+      "code": "603538",
+      "name": "美诺华",
+      "rate": "139468.0",
+      "change_pct": -5.93,
+      "hot_rank_chg": 52,
       "popularity_tag": "",
       "concept_tags": [
-        "F5G概念",
-        "共封装光学(CPO)"
+        "减肥药",
+        "流感"
       ],
       "analyse": ""
     },
     {
       "rank": 31,
-      "code": "603203",
-      "name": "快克智能",
-      "rate": "348.5",
-      "change_pct": 5.04,
-      "hot_rank_chg": 2,
-      "popularity_tag": "3天2板",
+      "code": "600693",
+      "name": "东百集团",
+      "rate": "135479.0",
+      "change_pct": -1.87,
+      "hot_rank_chg": 321,
+      "popularity_tag": "",
       "concept_tags": [
-        "共封装光学(CPO)",
-        "先进封装"
+        "免税店",
+        "物业管理"
       ],
       "analyse": ""
     },
     {
       "rank": 32,
-      "code": "002463",
-      "name": "沪电股份",
-      "rate": "346.0",
-      "change_pct": -4.94,
-      "hot_rank_chg": 2,
+      "code": "601138",
+      "name": "工业富联",
+      "rate": "134076.5",
+      "change_pct": 0.85,
+      "hot_rank_chg": -6,
       "popularity_tag": "",
       "concept_tags": [
-        "PCB概念",
-        "毫米波雷达"
+        "同花顺果指数",
+        "共封装光学(CPO)"
       ],
       "analyse": ""
     },
     {
       "rank": 33,
-      "code": "002310",
-      "name": "东方新能",
-      "rate": "344.5",
-      "change_pct": -6.69,
+      "code": "002361",
+      "name": "神剑股份",
+      "rate": "130574.5",
+      "change_pct": -3.58,
       "hot_rank_chg": 5,
-      "popularity_tag": "2天1板",
+      "popularity_tag": "",
       "concept_tags": [
-        "生态农业",
-        "医疗废物处理"
+        "航空发动机",
+        "卫星导航"
       ],
       "analyse": ""
     },
     {
       "rank": 34,
-      "code": "000977",
-      "name": "浪潮信息",
-      "rate": "343.5",
-      "change_pct": -7.47,
-      "hot_rank_chg": 2,
+      "code": "600726",
+      "name": "华电能源",
+      "rate": "129425.0",
+      "change_pct": -7.75,
+      "hot_rank_chg": 30,
       "popularity_tag": "",
       "concept_tags": [
-        "中国AI 50",
-        "算力租赁"
+        "超超临界发电",
+        "绿色电力"
       ],
       "analyse": ""
     },
     {
       "rank": 35,
+      "code": "000559",
+      "name": "万向钱潮",
+      "rate": "128703.0",
+      "change_pct": 3.93,
+      "hot_rank_chg": 27,
+      "popularity_tag": "",
+      "concept_tags": [
+        "人形机器人",
+        "小米汽车"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 36,
+      "code": "001896",
+      "name": "豫能控股",
+      "rate": "128593.5",
+      "change_pct": -6.96,
+      "hot_rank_chg": 36,
+      "popularity_tag": "",
+      "concept_tags": [
+        "抽水蓄能",
+        "虚拟电厂"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 37,
+      "code": "002915",
+      "name": "中欣氟材",
+      "rate": "127737.5",
+      "change_pct": 10.0,
+      "hot_rank_chg": 395,
+      "popularity_tag": "",
+      "concept_tags": [
+        "PEEK材料",
+        "专精特新"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 38,
       "code": "601778",
       "name": "晶科科技",
-      "rate": "342.0",
-      "change_pct": 5.32,
-      "hot_rank_chg": 0,
+      "rate": "125825.5",
+      "change_pct": 0.27,
+      "hot_rank_chg": -7,
       "popularity_tag": "",
       "concept_tags": [
         "算力租赁",
@@ -494,55 +536,27 @@
       "analyse": ""
     },
     {
-      "rank": 36,
-      "code": "600683",
-      "name": "京投发展",
-      "rate": "341.5",
-      "change_pct": -8.1,
-      "hot_rank_chg": 16,
-      "popularity_tag": "5天3板",
-      "concept_tags": [
-        "特色小镇",
-        "物业管理"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 37,
-      "code": "002031",
-      "name": "巨轮智能",
-      "rate": "340.5",
-      "change_pct": 4.8,
-      "hot_rank_chg": 1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "减速器",
-        "人形机器人"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 38,
-      "code": "300782",
-      "name": "卓胜微",
-      "rate": "336.0",
-      "change_pct": 10.99,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "先进封装",
-        "6G概念"
-      ],
-      "analyse": ""
-    },
-    {
       "rank": 39,
+      "code": "000925",
+      "name": "众合科技",
+      "rate": "124978.5",
+      "change_pct": -9.94,
+      "hot_rank_chg": 25,
+      "popularity_tag": "4天2板",
+      "concept_tags": [
+        "数据确权",
+        "ChatGPT概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 40,
       "code": "002498",
       "name": "汉缆股份",
-      "rate": "335.0",
-      "change_pct": -7.81,
-      "hot_rank_chg": 0,
-      "popularity_tag": "3天2板",
+      "rate": "124911.0",
+      "change_pct": -6.31,
+      "hot_rank_chg": 4,
+      "popularity_tag": "4天2板",
       "concept_tags": [
         "柔性直流输电",
         "电力物联网"
@@ -550,27 +564,27 @@
       "analyse": ""
     },
     {
-      "rank": 40,
-      "code": "300475",
-      "name": "香农芯创",
-      "rate": "333.5",
-      "change_pct": 3.01,
-      "hot_rank_chg": 2,
+      "rank": 41,
+      "code": "002245",
+      "name": "蔚蓝锂芯",
+      "rate": "122462.0",
+      "change_pct": 0,
+      "hot_rank_chg": 46,
       "popularity_tag": "",
       "concept_tags": [
-        "存储芯片",
-        "芯片概念"
+        "钠离子电池",
+        "固态电池"
       ],
       "analyse": ""
     },
     {
-      "rank": 41,
+      "rank": 42,
       "code": "002165",
       "name": "红宝丽",
-      "rate": "333.0",
-      "change_pct": 9.95,
-      "hot_rank_chg": 0,
-      "popularity_tag": "首板涨停",
+      "rate": "119154.0",
+      "change_pct": 3.3,
+      "hot_rank_chg": 13,
+      "popularity_tag": "2天1板",
       "concept_tags": [
         "水泥概念",
         "环氧丙烷"
@@ -578,54 +592,68 @@
       "analyse": ""
     },
     {
-      "rank": 42,
-      "code": "603601",
-      "name": "再升科技",
-      "rate": "325.0",
-      "change_pct": -8.3,
-      "hot_rank_chg": 3,
-      "popularity_tag": "",
-      "concept_tags": [
-        "商业航天",
-        "大飞机"
-      ],
-      "analyse": ""
-    },
-    {
       "rank": 43,
-      "code": "003018",
-      "name": "金富科技",
-      "rate": "319.5",
-      "change_pct": 10.01,
-      "hot_rank_chg": 5,
-      "popularity_tag": "首板涨停",
+      "code": "600172",
+      "name": "黄河旋风",
+      "rate": "118793.0",
+      "change_pct": -4.48,
+      "hot_rank_chg": 2,
+      "popularity_tag": "5天3板",
       "concept_tags": [
-        "液冷服务器",
-        "食品包装"
+        "培育钻石",
+        "第三代半导体"
       ],
       "analyse": ""
     },
     {
       "rank": 44,
-      "code": "002990",
-      "name": "盛视科技",
-      "rate": "315.0",
-      "change_pct": 10.0,
-      "hot_rank_chg": 1,
-      "popularity_tag": "首板涨停",
+      "code": "603278",
+      "name": "大业股份",
+      "rate": "116960.5",
+      "change_pct": -7.13,
+      "hot_rank_chg": 68,
+      "popularity_tag": "",
       "concept_tags": [
-        "存储芯片",
-        "华为昇腾"
+        "商业航天",
+        "人形机器人"
       ],
       "analyse": ""
     },
     {
       "rank": 45,
-      "code": "688981",
-      "name": "中芯国际",
-      "rate": "314.5",
-      "change_pct": -3.25,
-      "hot_rank_chg": 1,
+      "code": "603052",
+      "name": "可川科技",
+      "rate": "115881.5",
+      "change_pct": 0.54,
+      "hot_rank_chg": 17,
+      "popularity_tag": "4天3板",
+      "concept_tags": [
+        "共封装光学(CPO)",
+        "消费电子概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 46,
+      "code": "600703",
+      "name": "三安光电",
+      "rate": "115377.5",
+      "change_pct": 1.38,
+      "hot_rank_chg": -8,
+      "popularity_tag": "",
+      "concept_tags": [
+        "MicroLED概念",
+        "MiniLED"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 47,
+      "code": "600584",
+      "name": "长电科技",
+      "rate": "113578.5",
+      "change_pct": 0.72,
+      "hot_rank_chg": -2,
       "popularity_tag": "",
       "concept_tags": [
         "国家大基金持股",
@@ -634,72 +662,44 @@
       "analyse": ""
     },
     {
-      "rank": 46,
-      "code": "003022",
-      "name": "联泓新科",
-      "rate": "309.5",
-      "change_pct": 10.0,
-      "hot_rank_chg": 3,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "环氧丙烷",
-        "煤化工概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 47,
-      "code": "002185",
-      "name": "华天科技",
-      "rate": "309.0",
-      "change_pct": -2.53,
-      "hot_rank_chg": 4,
-      "popularity_tag": "",
-      "concept_tags": [
-        "存储芯片",
-        "国家大基金持股"
-      ],
-      "analyse": ""
-    },
-    {
       "rank": 48,
-      "code": "300136",
-      "name": "信维通信",
-      "rate": "308.5",
-      "change_pct": -9.84,
-      "hot_rank_chg": 4,
+      "code": "601016",
+      "name": "节能风电",
+      "rate": "108668.0",
+      "change_pct": -4.71,
+      "hot_rank_chg": -3,
       "popularity_tag": "",
       "concept_tags": [
-        "6G概念",
-        "卫星导航"
+        "绿色电力",
+        "风电"
       ],
       "analyse": ""
     },
     {
       "rank": 49,
-      "code": "600488",
-      "name": "津药药业",
-      "rate": "307.5",
-      "change_pct": 8.19,
-      "hot_rank_chg": 0,
+      "code": "002254",
+      "name": "泰和新材",
+      "rate": "108308.5",
+      "change_pct": 3.63,
+      "hot_rank_chg": -8,
       "popularity_tag": "4天2板",
       "concept_tags": [
-        "仿制药一致性评价",
-        "创新药"
+        "固态电池",
+        "锂电池概念"
       ],
       "analyse": ""
     },
     {
       "rank": 50,
-      "code": "600111",
-      "name": "北方稀土",
-      "rate": "298.0",
-      "change_pct": -5.15,
-      "hot_rank_chg": 0,
+      "code": "300058",
+      "name": "蓝色光标",
+      "rate": "103765.5",
+      "change_pct": -1.96,
+      "hot_rank_chg": 17,
       "popularity_tag": "",
       "concept_tags": [
-        "稀土永磁",
-        "小金属概念"
+        "快手概念",
+        "小红书概念"
       ],
       "analyse": ""
     }
