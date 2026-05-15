@@ -1,324 +1,169 @@
 {
-  "update_time": "2026-05-15 05:29:51",
+  "update_time": "2026-05-15 08:23:49",
   "source": "同花顺飙升榜",
-  "total": 100,
+  "total": 47,
   "data": [
     {
       "rank": 1,
-      "code": "300274",
-      "name": "阳光电源",
-      "rate": "703953.0",
-      "change_pct": 14.47,
-      "hot_rank_chg": 9,
+      "code": "603080",
+      "name": "新疆火炬",
+      "rate": "3642.0",
+      "change_pct": 4.13,
+      "hot_rank_chg": 106,
       "popularity_tag": "",
       "concept_tags": [
-        "虚拟电厂",
-        "同花顺漂亮100"
+        "天然气",
+        "新疆振兴"
       ],
       "analyse": ""
     },
     {
       "rank": 2,
-      "code": "002342",
-      "name": "巨力索具",
-      "rate": "175230.0",
-      "change_pct": 1.96,
-      "hot_rank_chg": 9,
+      "code": "001209",
+      "name": "洪兴股份",
+      "rate": "1686.5",
+      "change_pct": 0.91,
+      "hot_rank_chg": 149,
       "popularity_tag": "",
       "concept_tags": [
-        "商业航天",
-        "军工"
+        "三胎概念",
+        "IP经济(谷子经济)"
       ],
       "analyse": ""
     },
     {
       "rank": 3,
-      "code": "002050",
-      "name": "三花智控",
-      "rate": "172723.0",
-      "change_pct": 6.94,
-      "hot_rank_chg": 0,
+      "code": "600698",
+      "name": "湖南天雁",
+      "rate": "1642.5",
+      "change_pct": 3.68,
+      "hot_rank_chg": 22,
       "popularity_tag": "",
       "concept_tags": [
-        "人形机器人",
-        "同花顺新质50"
+        "兵装重组概念",
+        "央企国企改革"
       ],
       "analyse": ""
     },
     {
       "rank": 4,
-      "code": "600578",
-      "name": "京能电力",
-      "rate": "156858.5",
-      "change_pct": 10.05,
-      "hot_rank_chg": 0,
-      "popularity_tag": "3天3板",
+      "code": "601606",
+      "name": "长城军工",
+      "rate": "1230.5",
+      "change_pct": 0.37,
+      "hot_rank_chg": 20,
+      "popularity_tag": "",
       "concept_tags": [
-        "超超临界发电",
-        "绿色电力"
+        "兵装重组概念",
+        "军民融合"
       ],
-      "analyse": "1、据2026年5月13日公告，乌兰察布京大1500MW“风光火储一体化”项目获核准，总投资87.41亿元，装机150万千瓦，其中风电120万千瓦、光伏30万千瓦，公司持股50%。\n2、据2025年年度报告，公司主营煤电并拓展风电、光伏、储能，2025年新能源装机327万千瓦，新能源发电量44亿千瓦时，同比增长154%，正转型综合能源服务商。\n3、据2025年年度报告，公司最终控制人为北京市国资委，系北京地区最大火电企业，具备北京国资背景。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+      "analyse": ""
     },
     {
       "rank": 5,
-      "code": "600396",
-      "name": "华电辽能",
-      "rate": "117162.5",
-      "change_pct": 6.79,
-      "hot_rank_chg": 0,
-      "popularity_tag": "16天9板",
-      "concept_tags": [
-        "超超临界发电",
-        "绿色电力"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 6,
-      "code": "002980",
-      "name": "华盛昌",
-      "rate": "103886.5",
-      "change_pct": 7.74,
-      "hot_rank_chg": 14,
-      "popularity_tag": "2天1板",
-      "concept_tags": [
-        "共封装光学(CPO)",
-        "血氧仪"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 7,
-      "code": "000066",
-      "name": "中国长城",
-      "rate": "92198.0",
-      "change_pct": -8.6,
-      "hot_rank_chg": 0,
+      "code": "001237",
+      "name": "惠康科技",
+      "rate": "406.0",
+      "change_pct": 0,
+      "hot_rank_chg": 66,
       "popularity_tag": "",
       "concept_tags": [
-        "中国AI 50",
-        "AI PC"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 8,
-      "code": "002506",
-      "name": "协鑫集成",
-      "rate": "85929.5",
-      "change_pct": -2.65,
-      "hot_rank_chg": 1,
-      "popularity_tag": "2天1板",
-      "concept_tags": [
-        "HJT电池",
-        "光伏建筑一体化"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 9,
-      "code": "601899",
-      "name": "紫金矿业",
-      "rate": "85088.5",
-      "change_pct": -4.56,
-      "hot_rank_chg": 4,
-      "popularity_tag": "",
-      "concept_tags": [
-        "金属铅",
-        "黄金概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 10,
-      "code": "300014",
-      "name": "亿纬锂能",
-      "rate": "83824.5",
-      "change_pct": 3.02,
-      "hot_rank_chg": 34,
-      "popularity_tag": "",
-      "concept_tags": [
-        "钠离子电池",
-        "盐湖提锂"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 11,
-      "code": "002709",
-      "name": "天赐材料",
-      "rate": "79981.5",
-      "change_pct": 5.55,
-      "hot_rank_chg": 2,
-      "popularity_tag": "",
-      "concept_tags": [
-        "钠离子电池",
-        "氟化工概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 12,
-      "code": "002580",
-      "name": "圣阳股份",
-      "rate": "77903.5",
-      "change_pct": -7.15,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "液冷服务器",
-        "高铁"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 13,
-      "code": "600584",
-      "name": "长电科技",
-      "rate": "68795.0",
-      "change_pct": 7.9,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "国家大基金持股",
-        "存储芯片"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 14,
-      "code": "300827",
-      "name": "上能电气",
-      "rate": "66607.0",
-      "change_pct": 4.45,
-      "hot_rank_chg": 116,
-      "popularity_tag": "",
-      "concept_tags": [
-        "绿色电力",
-        "智能电网"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 15,
-      "code": "600875",
-      "name": "东方电气",
-      "rate": "66593.0",
-      "change_pct": 3.3,
-      "hot_rank_chg": 18,
-      "popularity_tag": "",
-      "concept_tags": [
-        "抽水蓄能",
-        "光热发电"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 16,
-      "code": "000620",
-      "name": "盈新发展",
-      "rate": "66484.5",
-      "change_pct": 5.83,
-      "hot_rank_chg": 6,
-      "popularity_tag": "",
-      "concept_tags": [
-        "存储芯片",
-        "数据要素"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 17,
-      "code": "002150",
-      "name": "正泰电源",
-      "rate": "64645.5",
-      "change_pct": 8.42,
-      "hot_rank_chg": 149,
-      "popularity_tag": "",
-      "concept_tags": [
-        "风电",
-        "储能"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 18,
-      "code": "002600",
-      "name": "领益智造",
-      "rate": "63233.5",
-      "change_pct": 3.48,
-      "hot_rank_chg": -1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "同花顺果指数",
-        "智能音箱"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 19,
-      "code": "600707",
-      "name": "彩虹股份",
-      "rate": "59525.0",
-      "change_pct": 2.51,
-      "hot_rank_chg": 3,
-      "popularity_tag": "",
-      "concept_tags": [
-        "OLED",
         "人民币贬值受益"
       ],
       "analyse": ""
     },
     {
-      "rank": 20,
-      "code": "600726",
-      "name": "华电能源",
-      "rate": "58931.5",
-      "change_pct": 0.62,
-      "hot_rank_chg": -1,
+      "rank": 6,
+      "code": "605198",
+      "name": "安德利",
+      "rate": "398.5",
+      "change_pct": -1.69,
+      "hot_rank_chg": 68,
       "popularity_tag": "",
       "concept_tags": [
-        "超超临界发电",
-        "绿色电力"
+        "人民币贬值受益",
+        "乡村振兴"
       ],
       "analyse": ""
     },
     {
-      "rank": 21,
-      "code": "300390",
-      "name": "天华新能",
-      "rate": "58186.5",
-      "change_pct": 0.92,
-      "hot_rank_chg": 9,
+      "rank": 7,
+      "code": "600615",
+      "name": "鑫源智造",
+      "rate": "132.0",
+      "change_pct": -2.03,
+      "hot_rank_chg": 53,
       "popularity_tag": "",
       "concept_tags": [
-        "固态电池",
-        "小金属概念"
+        "智能家居",
+        "长安汽车概念"
       ],
       "analyse": ""
     },
     {
-      "rank": 22,
-      "code": "603203",
-      "name": "快克智能",
-      "rate": "57392.0",
-      "change_pct": 5.06,
+      "rank": 8,
+      "code": "601595",
+      "name": "上海电影",
+      "rate": "124.0",
+      "change_pct": -0.4,
+      "hot_rank_chg": 60,
+      "popularity_tag": "",
+      "concept_tags": [
+        "文化传媒概念",
+        "手机游戏"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 9,
+      "code": "300205",
+      "name": "*ST天喻",
+      "rate": "75.0",
+      "change_pct": -0.35,
       "hot_rank_chg": 47,
-      "popularity_tag": "4天2板",
+      "popularity_tag": "",
       "concept_tags": [
-        "共封装光学(CPO)",
-        "先进封装"
+        "ST板块",
+        "财税数字化"
       ],
       "analyse": ""
     },
     {
-      "rank": 23,
-      "code": "002940",
-      "name": "昂利康",
-      "rate": "55746.0",
-      "change_pct": 9.18,
-      "hot_rank_chg": 23,
-      "popularity_tag": "3天2板",
+      "rank": 10,
+      "code": "920344",
+      "name": "三元基因",
+      "rate": "64.0",
+      "change_pct": -0.56,
+      "hot_rank_chg": 34,
+      "popularity_tag": "",
+      "concept_tags": [
+        "融资融券",
+        "三胎概念"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 11,
+      "code": "688443",
+      "name": "智翔金泰",
+      "rate": "45.0",
+      "change_pct": -0.1,
+      "hot_rank_chg": 36,
+      "popularity_tag": "",
+      "concept_tags": [
+        "创新药",
+        "西部大开发"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 12,
+      "code": "688513",
+      "name": "苑东生物",
+      "rate": "42.0",
+      "change_pct": -2.68,
+      "hot_rank_chg": 44,
+      "popularity_tag": "",
       "concept_tags": [
         "创新药",
         "仿制药一致性评价"
@@ -326,380 +171,486 @@
       "analyse": ""
     },
     {
-      "rank": 24,
-      "code": "300433",
-      "name": "蓝思科技",
-      "rate": "54154.0",
-      "change_pct": 7.4,
-      "hot_rank_chg": 0,
+      "rank": 13,
+      "code": "688600",
+      "name": "皖仪科技",
+      "rate": "37.5",
+      "change_pct": -0.83,
+      "hot_rank_chg": 22,
       "popularity_tag": "",
       "concept_tags": [
-        "同花顺果指数",
-        "AI手机"
+        "专精特新",
+        "液冷服务器"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 14,
+      "code": "600608",
+      "name": "*ST沪科",
+      "rate": "36.0",
+      "change_pct": 0,
+      "hot_rank_chg": 11,
+      "popularity_tag": "",
+      "concept_tags": [
+        "ST板块",
+        "国企改革"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 15,
+      "code": "000590",
+      "name": "古汉医药",
+      "rate": "36.0",
+      "change_pct": -1.97,
+      "hot_rank_chg": 52,
+      "popularity_tag": "",
+      "concept_tags": [
+        "养老概念",
+        "流感"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 16,
+      "code": "920161",
+      "name": "龙辰科技",
+      "rate": "35.5",
+      "change_pct": 0,
+      "hot_rank_chg": 10,
+      "popularity_tag": "",
+      "concept_tags": [],
+      "analyse": ""
+    },
+    {
+      "rank": 17,
+      "code": "603385",
+      "name": "惠达卫浴",
+      "rate": "32.0",
+      "change_pct": -1.53,
+      "hot_rank_chg": 28,
+      "popularity_tag": "",
+      "concept_tags": [
+        "装配式建筑",
+        "雄安新区"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 18,
+      "code": "920158",
+      "name": "长江能科",
+      "rate": "29.5",
+      "change_pct": 2.78,
+      "hot_rank_chg": 72,
+      "popularity_tag": "",
+      "concept_tags": [
+        "一带一路",
+        "海工装备"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 19,
+      "code": "688203",
+      "name": "海正生材",
+      "rate": "28.5",
+      "change_pct": -1.25,
+      "hot_rank_chg": 39,
+      "popularity_tag": "",
+      "concept_tags": [
+        "可降解塑料",
+        "国企改革"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 20,
+      "code": "920110",
+      "name": "雷特科技",
+      "rate": "20.0",
+      "change_pct": 0.29,
+      "hot_rank_chg": 4,
+      "popularity_tag": "",
+      "concept_tags": [
+        "融资融券",
+        "专精特新"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 21,
+      "code": "920855",
+      "name": "浙江大农",
+      "rate": "17.5",
+      "change_pct": -0.07,
+      "hot_rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "融资融券",
+        "专精特新"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 22,
+      "code": "920680",
+      "name": "广道退",
+      "rate": "17.0",
+      "change_pct": 0,
+      "hot_rank_chg": 6,
+      "popularity_tag": "",
+      "concept_tags": [],
+      "analyse": ""
+    },
+    {
+      "rank": 23,
+      "code": "920058",
+      "name": "华洋赛车",
+      "rate": "17.0",
+      "change_pct": 0,
+      "hot_rank_chg": 1,
+      "popularity_tag": "",
+      "concept_tags": [
+        "融资融券",
+        "体育产业"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 24,
+      "code": "600777",
+      "name": "*ST新潮",
+      "rate": "17.0",
+      "change_pct": -0.17,
+      "hot_rank_chg": 88,
+      "popularity_tag": "",
+      "concept_tags": [
+        "页岩气",
+        "俄乌冲突概念"
       ],
       "analyse": ""
     },
     {
       "rank": 25,
-      "code": "300083",
-      "name": "创世纪",
-      "rate": "54027.0",
-      "change_pct": 15.19,
-      "hot_rank_chg": 7,
+      "code": "688244",
+      "name": "永信至诚",
+      "rate": "16.5",
+      "change_pct": 0.78,
+      "hot_rank_chg": 34,
       "popularity_tag": "",
       "concept_tags": [
-        "工业母机",
-        "新型工业化"
+        "财税数字化",
+        "智谱AI"
       ],
       "analyse": ""
     },
     {
       "rank": 26,
-      "code": "000767",
-      "name": "晋控电力",
-      "rate": "52086.5",
-      "change_pct": 5.96,
-      "hot_rank_chg": 1,
-      "popularity_tag": "4天2板",
+      "code": "600599",
+      "name": "*ST熊猫",
+      "rate": "15.5",
+      "change_pct": 0,
+      "hot_rank_chg": 41,
+      "popularity_tag": "",
       "concept_tags": [
-        "超超临界发电",
-        "绿色电力"
+        "ST板块",
+        "互联网金融"
       ],
       "analyse": ""
     },
     {
       "rank": 27,
-      "code": "000601",
-      "name": "韶能股份",
-      "rate": "49889.0",
-      "change_pct": 1.09,
-      "hot_rank_chg": 1,
-      "popularity_tag": "4天2板",
+      "code": "301337",
+      "name": "亚华电子",
+      "rate": "15.5",
+      "change_pct": -1.42,
+      "hot_rank_chg": 62,
+      "popularity_tag": "",
       "concept_tags": [
-        "生物质能发电",
-        "抽水蓄能"
+        "物联网",
+        "数据要素"
       ],
       "analyse": ""
     },
     {
       "rank": 28,
-      "code": "301358",
-      "name": "湖南裕能",
-      "rate": "49275.5",
-      "change_pct": 3.29,
-      "hot_rank_chg": 88,
+      "code": "603235",
+      "name": "天新药业",
+      "rate": "15.0",
+      "change_pct": 0,
+      "hot_rank_chg": 23,
       "popularity_tag": "",
       "concept_tags": [
-        "磷化工",
-        "动力电池回收"
+        "维生素",
+        "人民币贬值受益"
       ],
       "analyse": ""
     },
     {
       "rank": 29,
-      "code": "300750",
-      "name": "宁德时代",
-      "rate": "47887.0",
-      "change_pct": 0.7,
-      "hot_rank_chg": 37,
+      "code": "920950",
+      "name": "迅安科技",
+      "rate": "14.0",
+      "change_pct": 0.31,
+      "hot_rank_chg": 4,
       "popularity_tag": "",
       "concept_tags": [
-        "钠离子电池",
-        "动力电池回收"
+        "融资融券",
+        "人民币贬值受益"
       ],
       "analyse": ""
     },
     {
       "rank": 30,
-      "code": "600111",
-      "name": "北方稀土",
-      "rate": "47116.5",
-      "change_pct": 1.84,
-      "hot_rank_chg": 1,
+      "code": "688026",
+      "name": "洁特生物",
+      "rate": "14.0",
+      "change_pct": -2.32,
+      "hot_rank_chg": 3,
       "popularity_tag": "",
       "concept_tags": [
-        "稀土永磁",
-        "小金属概念"
+        "医疗器械概念",
+        "辅助生殖"
       ],
       "analyse": ""
     },
     {
       "rank": 31,
-      "code": "601689",
-      "name": "拓普集团",
-      "rate": "46334.0",
-      "change_pct": 9.1,
-      "hot_rank_chg": 1,
+      "code": "600421",
+      "name": "*ST华嵘",
+      "rate": "14.0",
+      "change_pct": 0,
+      "hot_rank_chg": 8,
       "popularity_tag": "",
       "concept_tags": [
-        "人形机器人",
-        "同花顺新质50"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 32,
-      "code": "301658",
-      "name": "首航新能",
-      "rate": "45910.0",
-      "change_pct": 6.39,
-      "hot_rank_chg": 291,
-      "popularity_tag": "",
-      "concept_tags": [
-        "储能",
-        "光伏概念"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 33,
-      "code": "300763",
-      "name": "锦浪科技",
-      "rate": "45702.5",
-      "change_pct": 2.52,
-      "hot_rank_chg": 90,
-      "popularity_tag": "",
-      "concept_tags": [
-        "绿色电力",
-        "储能"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 34,
-      "code": "603993",
-      "name": "洛阳钼业",
-      "rate": "45517.5",
-      "change_pct": -5.49,
-      "hot_rank_chg": 10,
-      "popularity_tag": "",
-      "concept_tags": [
-        "黄金概念",
-        "金属铜"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 35,
-      "code": "603778",
-      "name": "国晟科技",
-      "rate": "45221.0",
-      "change_pct": -0.49,
-      "hot_rank_chg": 2,
-      "popularity_tag": "",
-      "concept_tags": [
-        "硅能源",
-        "TOPCON电池"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 36,
-      "code": "601016",
-      "name": "节能风电",
-      "rate": "44771.0",
-      "change_pct": 0.39,
-      "hot_rank_chg": 0,
-      "popularity_tag": "",
-      "concept_tags": [
-        "绿色电力",
+        "ST板块",
         "风电"
       ],
       "analyse": ""
     },
     {
-      "rank": 37,
-      "code": "002466",
-      "name": "天齐锂业",
-      "rate": "42588.0",
-      "change_pct": 0.17,
+      "rank": 32,
+      "code": "688098",
+      "name": "申联生物",
+      "rate": "13.0",
+      "change_pct": -1.16,
       "hot_rank_chg": 12,
       "popularity_tag": "",
       "concept_tags": [
-        "盐湖提锂",
-        "固态电池"
+        "动物疫苗",
+        "合成生物"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 33,
+      "code": "605122",
+      "name": "四方新材",
+      "rate": "12.0",
+      "change_pct": -1.7,
+      "hot_rank_chg": 35,
+      "popularity_tag": "",
+      "concept_tags": [
+        "装配式建筑",
+        "建筑节能"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 34,
+      "code": "920445",
+      "name": "龙竹科技",
+      "rate": "11.0",
+      "change_pct": -0.32,
+      "hot_rank_chg": 9,
+      "popularity_tag": "",
+      "concept_tags": [
+        "海峡两岸",
+        "融资融券"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 35,
+      "code": "603797",
+      "name": "联泰环保",
+      "rate": "10.5",
+      "change_pct": -2.47,
+      "hot_rank_chg": 21,
+      "popularity_tag": "",
+      "concept_tags": [
+        "新型城镇化",
+        "污水处理"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 36,
+      "code": "688217",
+      "name": "睿昂基因",
+      "rate": "9.0",
+      "change_pct": -1.02,
+      "hot_rank_chg": 4,
+      "popularity_tag": "",
+      "concept_tags": [
+        "医疗器械概念",
+        "基因测序"
+      ],
+      "analyse": ""
+    },
+    {
+      "rank": 37,
+      "code": "920132",
+      "name": "泰鹏智能",
+      "rate": "8.0",
+      "change_pct": -4.17,
+      "hot_rank_chg": 12,
+      "popularity_tag": "",
+      "concept_tags": [
+        "融资融券",
+        "一带一路"
       ],
       "analyse": ""
     },
     {
       "rank": 38,
-      "code": "300438",
-      "name": "鹏辉能源",
-      "rate": "42137.0",
-      "change_pct": 1.81,
-      "hot_rank_chg": 82,
+      "code": "688121",
+      "name": "卓然股份",
+      "rate": "7.0",
+      "change_pct": 0,
+      "hot_rank_chg": 10,
       "popularity_tag": "",
       "concept_tags": [
-        "钠离子电池",
-        "固态电池"
+        "碳中和",
+        "融资融券"
       ],
       "analyse": ""
     },
     {
       "rank": 39,
-      "code": "601138",
-      "name": "工业富联",
-      "rate": "41457.0",
-      "change_pct": 0.35,
-      "hot_rank_chg": 0,
+      "code": "920508",
+      "name": "殷图网联",
+      "rate": "6.0",
+      "change_pct": -1.35,
+      "hot_rank_chg": 7,
       "popularity_tag": "",
       "concept_tags": [
-        "同花顺果指数",
-        "共封装光学(CPO)"
+        "融资融券",
+        "无人机"
       ],
       "analyse": ""
     },
     {
       "rank": 40,
-      "code": "002421",
-      "name": "达实智能",
-      "rate": "39944.5",
-      "change_pct": 9.93,
-      "hot_rank_chg": 78,
-      "popularity_tag": "首板涨停",
+      "code": "688528",
+      "name": "秦川物联",
+      "rate": "5.5",
+      "change_pct": -1.26,
+      "hot_rank_chg": 3,
+      "popularity_tag": "",
       "concept_tags": [
-        "抖音概念(字节概念)",
-        "腾讯概念"
+        "专精特新",
+        "物联网"
       ],
-      "analyse": "1、据2026年5月14日互动易，公司AIoT物联网平台深度融合AI与IoT技术，搭载多项判别式与生成式AI算法，面向企业园区、医院、轨道交通、数据中心等多个场景提供AI应用；据2026年4月28日投资者关系活动记录表，公司AIoT平台V7.1版本推出本地部署的“1个超级智能体+5个专业智能体”方案，已在达实大厦落地应用，提升物业运维效率。\n2、据2026年4月28日投资者关系活动记录表，公司2025年AIoT平台及AI应用签约金额达7847.14万元，全年增长趋势显著，下半年签约额较上半年环比增长113.3%。\n3、据2023年8月14日互动易，公司全资子公司达实久信的医用物流机器人运用物联网、激光导航、3D视觉避障等技术，可实现手术室物品精准安全配送。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
+      "analyse": ""
     },
     {
       "rank": 41,
-      "code": "001393",
-      "name": "维通利",
-      "rate": "39843.5",
-      "change_pct": 324.62,
-      "hot_rank_chg": 0,
+      "code": "688296",
+      "name": "和达科技",
+      "rate": "5.5",
+      "change_pct": -0.62,
+      "hot_rank_chg": 10,
       "popularity_tag": "",
       "concept_tags": [
-        "新股与次新股",
-        "注册制次新股"
+        "净水概念",
+        "人工智能"
       ],
       "analyse": ""
     },
     {
       "rank": 42,
-      "code": "300131",
-      "name": "英唐智控",
-      "rate": "39607.0",
-      "change_pct": 2.16,
-      "hot_rank_chg": 27,
+      "code": "920033",
+      "name": "康普化学",
+      "rate": "5.5",
+      "change_pct": 0.35,
+      "hot_rank_chg": 8,
       "popularity_tag": "",
       "concept_tags": [
-        "共封装光学(CPO)",
-        "第三代半导体"
+        "锂电池概念",
+        "融资融券"
       ],
       "analyse": ""
     },
     {
       "rank": 43,
-      "code": "002460",
-      "name": "赣锋锂业",
-      "rate": "39166.5",
-      "change_pct": -0.07,
-      "hot_rank_chg": 12,
+      "code": "920866",
+      "name": "绿亨科技",
+      "rate": "5.0",
+      "change_pct": 0.13,
+      "hot_rank_chg": 7,
       "popularity_tag": "",
       "concept_tags": [
-        "盐湖提锂",
-        "动力电池回收"
+        "融资融券",
+        "粮食概念"
       ],
       "analyse": ""
     },
     {
       "rank": 44,
-      "code": "002074",
-      "name": "国轩高科",
-      "rate": "39164.5",
-      "change_pct": 0.46,
-      "hot_rank_chg": 64,
+      "code": "600202",
+      "name": "哈空调",
+      "rate": "4.5",
+      "change_pct": -1.56,
+      "hot_rank_chg": 57,
       "popularity_tag": "",
       "concept_tags": [
-        "钠离子电池",
-        "动力电池回收"
+        "中俄贸易概念",
+        "创投"
       ],
       "analyse": ""
     },
     {
       "rank": 45,
-      "code": "003031",
-      "name": "中瓷电子",
-      "rate": "38888.5",
-      "change_pct": -1.78,
-      "hot_rank_chg": 28,
-      "popularity_tag": "2天1板",
+      "code": "920751",
+      "name": "惠同新材",
+      "rate": "3.0",
+      "change_pct": -0.93,
+      "hot_rank_chg": 4,
+      "popularity_tag": "",
       "concept_tags": [
-        "共封装光学(CPO)",
-        "光刻机"
+        "股权转让(并购重组)",
+        "融资融券"
       ],
       "analyse": ""
     },
     {
       "rank": 46,
-      "code": "600522",
-      "name": "中天科技",
-      "rate": "38753.0",
-      "change_pct": -6.15,
-      "hot_rank_chg": -1,
+      "code": "603277",
+      "name": "银都股份",
+      "rate": "2.5",
+      "change_pct": 0.85,
+      "hot_rank_chg": 35,
       "popularity_tag": "",
       "concept_tags": [
-        "光纤概念",
-        "共封装光学(CPO)"
+        "机器人概念",
+        "人民币贬值受益"
       ],
       "analyse": ""
     },
     {
       "rank": 47,
-      "code": "000695",
-      "name": "滨海能源",
-      "rate": "38032.5",
-      "change_pct": 9.99,
-      "hot_rank_chg": 159,
-      "popularity_tag": "首板涨停",
-      "concept_tags": [
-        "石墨电极",
-        "固态电池"
-      ],
-      "analyse": "1、据2025年9月26日互动易，公司自主开发的沥青基硅碳负极产品已完成中试并展开客户送样；公司搭建形成新型CVD硅碳负极材料的小试和中试平台，并结合旭阳煤沥青产业链深厚的研发优势，利用沥青基多孔碳前驱体开发了多款硅碳负极产品，并开展客户送样。\n2、据2026年4月15日年度报告，公司完成长循环、快充、高能量密度和通用型人造石墨产品序列，基本涵盖了市场主流需求，系列产品在头部电池厂取得批量订单；据2026年4月29日投资者关系活动记录表，公司预计2026年全年负极材料出货量为10-13万吨，自产负极材料出货占比将提升至50%。\n3、据2026年3月16日投资者关系活动记录表，公司配套投资建设580MW源网荷储绿电项目，其中150MW风电部分预计5月优先通电，该模式能有效降低生产用电成本；据2026年4月29日投资者关系活动记录表，公司规划中长期达到50万吨一体化产能，到年底力争建成20万吨一体化产能及580MW源网荷储绿电。\n\n（免责声明：本内容由AI技术搜集公开信息总结生成，仅供参考，不构成投资建议，以上市公司公告为准）"
-    },
-    {
-      "rank": 48,
-      "code": "000559",
-      "name": "万向钱潮",
-      "rate": "36593.5",
-      "change_pct": 6.95,
-      "hot_rank_chg": 0,
+      "code": "600696",
+      "name": "*ST岩石",
+      "rate": "2.5",
+      "change_pct": 0,
+      "hot_rank_chg": 67,
       "popularity_tag": "",
       "concept_tags": [
-        "人形机器人",
-        "小米汽车"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 49,
-      "code": "601318",
-      "name": "中国平安",
-      "rate": "36394.0",
-      "change_pct": -2.0,
-      "hot_rank_chg": 18,
-      "popularity_tag": "",
-      "concept_tags": [
-        "互联网保险",
-        "证金持股"
-      ],
-      "analyse": ""
-    },
-    {
-      "rank": 50,
-      "code": "002149",
-      "name": "西部材料",
-      "rate": "34860.5",
-      "change_pct": 1.01,
-      "hot_rank_chg": -1,
-      "popularity_tag": "",
-      "concept_tags": [
-        "航空发动机",
-        "卫星导航"
+        "ST板块",
+        "白酒概念"
       ],
       "analyse": ""
     }
